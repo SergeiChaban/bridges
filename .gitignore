@@ -1,0 +1,10 @@
+# Specify filepatterns you want git to ignore.
+.idea
+./.idea
+*/__pycache__
+*/*/__pycache__
+*/*/*/__pycache__
+*/*/*/*/__pycache__
+
+#Virtual Environment
+bridges/venv/

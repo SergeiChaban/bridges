@@ -1,0 +1,102 @@
+{% extends 'productsapp/base.html' %}
+{% load static %}
+{% block content-container %}
+    <!-- Featured Title -->
+    <div id="featured-title" class="clearfix featured-title-left">
+        <div id="featured-title-inner" class="container clearfix">
+            <div class="featured-title-inner-wrap">
+                <div class="featured-title-heading-wrap">
+                    <h1 class="featured-title-heading">Контакты</h1>
+                </div>
+
+                {% include 'contactapp/includes/inc__breadcrumbs.html' %}
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="page-content">
+                        <section class="wprt-section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="wprt-spacer" data-desktop="80" data-mobi="60"
+                                             data-smobi="60"></div>
+                                        <div id="gmap" class="wprt-gmap">
+                                            <script type="text/javascript" charset="utf-8" async
+                                                    src="https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A7380f8cc928bf89c013e3ba275693dda04a1650aee8386c999bc7d0510df286b&amp;width=100%25&amp;height=424&amp;lang=ru_RU&amp;scroll=true"></script>
+                                        </div>
+                                        <div class="wprt-spacer" data-desktop="50" data-mobi="40"
+                                             data-smobi="40"></div>
+                                    </div><!-- /.col-md-12 -->
+
+                                    <div class="col-md-4">
+                                        <div class="wprt-information">
+                                            <h4 class="margin-bottom-15">Контакты</h4>
+                                            {#                                                <p>Cras id justo eget sapien scelerisque lacinia non a eros. In a#}
+                                            {#                                                    volutpat magna. Vivamus pretium urna at condimentum porta. Phasellus#}
+                                            {#                                                    mollis mauris dolor, a tincidunt mauris fringilla. Phasellus#}
+                                            {#                                                    lobortis tortor urna, vitae venenatis dui bibendum at.</p>#}
+                                            <p class="text_adress">Офис</p>
+                                            <ul class="style-2">
+                                                <li class="address">
+                                                    <span class="hl">Адрес:</span>
+                                                    <span class="text">Москва, Университетский проспект, 5</span>
+                                                </li>
+                                                <li class="phone">
+                                                    <span class="hl">Телефон:</span>
+                                                    <a href="tel:+7(495)116-93-45"><span
+                                                            class="text">+7(495)116-93-45</span></a>
+                                                </li>
+                                                <li class="email">
+                                                    <span class="hl">E-mail:</span>
+                                                    <a href="mailto:contact@construction.com"><span class="text">contact@construction.com</span></a>
+                                                </li>
+                                            </ul>
+                                            <p class="text_adress">Склад</p>
+                                            <ul class="style-2">
+                                                <li class="address">
+                                                    <span class="hl">Адрес:</span>
+                                                    <span class="text">Московская обл., г. Подольск, ул. Машиностроителей, д. 15</span>
+                                                </li>
+                                                <li class="phone">
+                                                    <span class="hl">Телефон:</span>
+                                                    <a href="tel:+7(495)727-06-04"><span
+                                                            class="text">+7(495)727-06-04</span></a>
+                                                </li>
+                                                <li class="email">
+                                                    <span class="hl">E-mail:</span>
+                                                    <a href="mailto:contact@construction.com"><span class="text">contact@construction.com</span></a>
+                                                </li>
+                                            </ul>
+                                        </div><!-- /.wprt-information -->
+
+                                        <div class="wprt-spacer" data-desktop="0" data-mobi="30"
+                                             data-smobi="30"></div>
+                                    </div><!-- /.col-md-4 -->
+
+                                    <div class="col-md-8">
+                                        <h4 class="margin-bottom-15">Обратная связь</h4>
+                                        {% include 'contactapp/contactform.html' %}
+                                    </div><!-- /.col-md-8 -->
+
+                                    <div class="col-md-12">
+                                        <div class="wprt-spacer" data-desktop="80" data-mobi="60"
+                                             data-smobi="60"></div>
+                                    </div><!-- /.col-md-12 -->
+                                </div><!-- /.row -->
+                            </div><!-- /.container -->
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

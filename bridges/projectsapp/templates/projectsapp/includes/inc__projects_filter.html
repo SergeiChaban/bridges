@@ -1,0 +1,30 @@
+<div data-filter="*" class="cbp-filter-item">
+    <span>Все</span>
+</div>
+{% for item in products %}
+<div data-filter=".{{ item.pk }}" class="cbp-filter-item">
+    <span>{{ item.name }}</span>
+</div>
+{% endfor %}
+
+<!--<div data-filter="*" class="cbp-filter-item">-->
+<!--    <span>All</span>-->
+<!--</div>-->
+<!--<div data-filter=".architecture" class="cbp-filter-item">-->
+<!--    <span>Architecture</span>-->
+<!--</div>-->
+<!--<div data-filter=".building" class="cbp-filter-item">-->
+<!--    <span>Building</span>-->
+<!--</div>-->
+<!--<div data-filter=".garden" class="cbp-filter-item">-->
+<!--    <span>Garden</span>-->
+<!--</div>-->
+<!--<div data-filter=".interior" class="cbp-filter-item">-->
+<!--    <span>Interior</span>-->
+<!--</div>-->
+<!--<div data-filter=".office" class="cbp-filter-item">-->
+<!--    <span>Office</span>-->
+<!--</div>-->
+<!--<div data-filter=".workspace" class="cbp-filter-item">-->
+<!--    <span>Workspace</span>-->
+<!--</div>-->

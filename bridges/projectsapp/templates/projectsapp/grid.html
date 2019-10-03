@@ -1,0 +1,201 @@
+{% extends 'productsapp/base.html' %}
+{% load static %}
+{% block content-container %}
+
+<!-- Featured Title -->
+<div id="featured-title" class="clearfix featured-title-left">
+    <div id="featured-title-inner" class="container clearfix">
+        <div class="featured-title-inner-wrap">
+            <div class="featured-title-heading-wrap">
+                <h1 class="featured-title-heading">Проекты компании</h1>
+            </div>
+            <div id="breadcrumbs">
+                <div class="breadcrumbs-inner">
+                    <div class="breadcrumb-trail">
+                        <a href="#" title="Construction" rel="home" class="trail-begin">Главная</a>
+                        <span class="sep">/</span>
+                        <span class="trail-end">Проекты компании</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Main Content -->
+<div id="main-content" class="site-main clearfix">
+    <div id="content-wrap">
+        <div id="site-content" class="site-content clearfix">
+            <div id="inner-content" class="inner-content-wrap">
+                <div class="page-content">
+                    <section class="wprt-section">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="wprt-project" data-layout="grid" data-column="3" data-column2="3" data-column3="2" data-column4="1" data-gaph="30" data-gapv="30">
+
+                                        <div id="project-filter">
+                                            {% include 'projectsapp/includes/inc__projects_filter.html' %}
+                                        </div><!-- /#project-filter -->
+                                        <div id="projects" class="cbp">
+                                            {% for item in projects %}
+                                                <div class="cbp-item
+                                                {% for i in item.technical_solutions.all %}
+                                                {{i.pk}}
+                                                {% endfor %}">
+                                                    <div class="project-item">
+                                                        <div class="inner">
+                                                            <div class="grid">
+                                                            <figure class="effect-zoe" style="height: 250px;
+                                                            background-image: url(/media/{{ item.image }});
+                                                            background-position: 50%; background-size: cover;
+                                                            background-repeat: no-repeat">
+    <!--                                                            <img src="/media/{{ item.image }}" alt="image" />-->
+                                                                <figcaption>
+                                                                    <div>
+                                                                        <h2><a href="{% url 'projects:project' item.pk %}">{{ item.name }}</a></h2>
+<!--                                                                        <p>Construction</p>-->
+                                                                    </div>
+                                                                </figcaption>
+                                                            </figure>
+                                                            </div>
+
+<!--                                                            <a class="project-zoom cbp-lightbox" href="{% static 'assets/img/projects/1-full.jpg' %}" data-title="LUXURY BUILDINGS">-->
+<!--                                                                <i class="fa fa-arrows-alt"></i>-->
+<!--                                                            </a>-->
+                                                        </div>
+                                                    </div>
+                                                </div><!--/.cbp-item -->
+                                            {% endfor %}
+<!--                                            <div class="cbp-item building office workspace">-->
+<!--                                                <div class="project-item">-->
+<!--                                                    <div class="inner">-->
+<!--                                                        <div class="grid">-->
+<!--                                                        <figure class="effect-sadie">-->
+<!--                                                            <img src="{% static 'assets/img/projects/2.jpg' %}" alt="image" />-->
+<!--                                                            <figcaption>-->
+<!--                                                                <div>-->
+<!--                                                                    <h2><a target="_blank" href="page-project-detail.html">LUXURY BUILDINGS</a></h2>-->
+<!--                                                                    <p>Construction</p>-->
+<!--                                                                </div>-->
+<!--                                                            </figcaption>-->
+<!--                                                        </figure>-->
+<!--                                                        </div>-->
+
+<!--                                                        <a class="project-zoom cbp-lightbox" href="{% static 'assets/img/projects/2-full.jpg' %}" data-title="LUXURY BUILDINGS">-->
+<!--                                                            <i class="fa fa-arrows-alt"></i>-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>&lt;!&ndash;/.cbp-item &ndash;&gt;-->
+
+<!--                                            <div class="cbp-item architecture garden interior">-->
+<!--                                                <div class="project-item">-->
+<!--                                                    <div class="inner">-->
+<!--                                                        <div class="grid">-->
+<!--                                                        <figure class="effect-honey">-->
+<!--                                                            <img src="{% static 'assets/img/projects/3.jpg' %}" alt="image" />-->
+<!--                                                            <figcaption>-->
+<!--                                                                <div>-->
+<!--                                                                    <h2><a target="_blank" href="page-project-detail.html">LUXURY BUILDINGS</a></h2>-->
+<!--                                                                    <p>Construction</p>-->
+<!--                                                                </div>-->
+<!--                                                            </figcaption>-->
+<!--                                                        </figure>-->
+<!--                                                        </div>-->
+
+<!--                                                        <a class="project-zoom cbp-lightbox" href="{% static 'assets/img/projects/3-full.jpg' %}" data-title="LUXURY BUILDINGS">-->
+<!--                                                            <i class="fa fa-arrows-alt"></i>-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>&lt;!&ndash;/.cbp-item &ndash;&gt;-->
+
+<!--                                            <div class="cbp-item building interior workspace">-->
+<!--                                                <div class="project-item">-->
+<!--                                                    <div class="inner">-->
+<!--                                                        <div class="grid">-->
+<!--                                                        <figure class="effect-oscar">-->
+<!--                                                            <img src="{% static 'assets/img/projects/4.jpg' %}" alt="image" />-->
+<!--                                                            <figcaption>-->
+<!--                                                                <div>-->
+<!--                                                                    <h2><a target="_blank" href="page-project-detail.html">LUXURY BUILDINGS</a></h2>-->
+<!--                                                                    <p>Construction</p>-->
+<!--                                                                </div>-->
+<!--                                                            </figcaption>-->
+<!--                                                        </figure>-->
+<!--                                                        </div>-->
+
+<!--                                                        <a class="project-zoom cbp-lightbox" href="{% static 'assets/img/projects/4-full.jpg' %}" data-title="LUXURY BUILDINGS">-->
+<!--                                                            <i class="fa fa-arrows-alt"></i>-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>&lt;!&ndash;/.cbp-item &ndash;&gt;-->
+
+<!--                                            <div class="cbp-item garden office workspace">-->
+<!--                                                <div class="project-item">-->
+<!--                                                    <div class="inner">-->
+<!--                                                        <div class="grid">-->
+<!--                                                        <figure class="effect-sadie">-->
+<!--                                                            <img src="{% static 'assets/img/projects/5.jpg' %}" alt="image" />-->
+<!--                                                            <figcaption>-->
+<!--                                                                <div>-->
+<!--                                                                    <h2><a target="_blank" href="page-project-detail.html">LUXURY BUILDINGS</a></h2>-->
+<!--                                                                    <p>Construction</p>-->
+<!--                                                                </div>-->
+<!--                                                            </figcaption>-->
+<!--                                                        </figure>-->
+<!--                                                        </div>-->
+
+<!--                                                        <a class="project-zoom cbp-lightbox" href="{% static 'assets/img/projects/5-full.jpg' %}" data-title="LUXURY BUILDINGS">-->
+<!--                                                            <i class="fa fa-arrows-alt"></i>-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>&lt;!&ndash;/.cbp-item &ndash;&gt;-->
+
+<!--                                            <div class="cbp-item architecture garden office">-->
+<!--                                                <div class="project-item">-->
+<!--                                                    <div class="inner">-->
+<!--                                                        <div class="grid">-->
+<!--                                                        <figure class="effect-zoe">-->
+<!--                                                            <img src="{% static 'assets/img/projects/6.jpg' %}" alt="image" />-->
+<!--                                                            <figcaption>-->
+<!--                                                                <div>-->
+<!--                                                                    <h2><a target="_blank" href="page-project-detail.html">LUXURY BUILDINGS</a></h2>-->
+<!--                                                                    <p>Construction</p>-->
+<!--                                                                </div>-->
+<!--                                                            </figcaption>-->
+<!--                                                        </figure>-->
+<!--                                                        </div>-->
+
+<!--                                                        <a class="project-zoom cbp-lightbox" href="{% static 'assets/img/projects/6-full.jpg' %}" data-title="LUXURY BUILDINGS">-->
+<!--                                                            <i class="fa fa-arrows-alt"></i>-->
+<!--                                                        </a>-->
+<!--                                                    </div>-->
+<!--                                                </div>-->
+<!--                                            </div>&lt;!&ndash;/.cbp-item &ndash;&gt;-->
+                                        </div><!-- /#projects -->
+                                    </div><!--/.wprt-project -->
+                                </div><!-- /.col-md-12 -->
+
+                                <div class="col-md-12">
+                                    <div class="wprt-pagination clearfix">
+                                        <ul class="page-numbers">
+                                            <li><span class="page-numbers current">1</span></li>
+                                            <li><a class="page-numbers" href="#">2</a></li>
+                                            <li><a class="next page-numbers" href="#"><span class="fa fa-angle-right"></span></a></li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="wprt-spacer" data-desktop="80" data-mobi="60" data-smobi="60"></div>
+                                </div><!-- /.col-md-12 -->
+                            </div><!-- /.row -->
+                        </div><!-- /.container -->
+                    </section>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

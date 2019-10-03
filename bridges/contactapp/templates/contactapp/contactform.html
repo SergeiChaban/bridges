@@ -1,0 +1,19 @@
+{% load static %}
+<form action="{% url 'contact:index' %}" method="post" class="contact-form wpcf7-form">
+    {% csrf_token %}
+
+    <div class="wprt-contact-form-1">
+        <span class="wpcf7-form-control-wrap name">{{ form.name }}</span>
+        <span class="wpcf7-form-control-wrap email">{{ form.email }}</span>
+        <label class="wpcf7-form-control-wrap phone" for="id_phone">{{ form.phone }}</label>
+        <span class="wpcf7-form-control-wrap subject">{{ form.subject }}</span>
+        <span class="wpcf7-form-control-wrap message">{{ form.message }}</span>
+
+        <div class="wrap-submit">
+            <input type="submit" class="submit wpcf7-form-control wpcf7-submit" value="ОТПРАВИТЬ СООБЩЕНИЕ">
+        </div>
+    </div>
+</form>
+
+<script type="text/javascript" src="{% static 'assets/js/validate.js' %}"></script>
+
