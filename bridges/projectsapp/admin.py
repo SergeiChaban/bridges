@@ -34,6 +34,3 @@ class ProjectHasTechnicalSolutionsAdmin(admin.ModelAdmin):
 class ProjectImageAdmin(admin.ModelAdmin):
     list_display = ('id', 'image', 'is_active', 'created', 'updated',)
     list_display_links = ('id', 'image',)
-
-
-

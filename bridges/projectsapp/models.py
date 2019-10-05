@@ -39,7 +39,7 @@ class Project(models.Model):
 
     def __str__(self):
         return f"{self.name} ({self.city})"
-    #
+
     # def get_pictures(self):
     #     return self.images.all
 
@@ -73,7 +73,7 @@ class ProjectHasTechnicalSolutions(models.Model):
     """ Модель связи технических решений применяемых на объекте с указанием их объема  """
     name = models.CharField(verbose_name='название', max_length=256, unique=False, blank=True)
     project = models.ForeignKey(Project, blank=True, null=True, default=None, on_delete=models.CASCADE)
-    tech_sol = models.ManyToManyField(TechnicalSolutions)
+    techsol = models.ForeignKey(TechnicalSolutions, blank=True, null=True, default=None, on_delete=models.CASCADE)
     value = models.FloatField(verbose_name='значение', null=True)
     is_active = models.BooleanField(verbose_name='Показывать', default=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)

@@ -1,0 +1,107 @@
+{% extends 'productsapp/base.html' %}
+{% load static %}
+{% block content-container %}
+
+<!-- Featured Title -->
+<div id="featured-title" class="clearfix featured-title-left">
+    <div id="featured-title-inner" class="container clearfix">
+        <div class="featured-title-inner-wrap">
+            <div class="featured-title-heading-wrap">
+                <h1 class="featured-title-heading">Toggles</h1>
+            </div>
+            <div id="breadcrumbs">
+                <div class="breadcrumbs-inner">
+                    <div class="breadcrumb-trail">
+                        <a href="#" title="Construction" rel="home" class="trail-begin">Home</a>
+                        <span class="sep">/</span>
+                        <span class="trail-end">Toggles</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content -->
+<div id="main-content" class="site-main clearfix">
+    <div id="content-wrap">
+        <div id="site-content" class="site-content clearfix">
+            <div id="inner-content" class="inner-content-wrap">
+                <div class="page-content">
+                    <section class="wprt-section">
+                        <div class="container">
+                            <div class='row'>
+                                <div class="col-md-12">
+                                    <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
+
+                                    <h2 class="text-center margin-bottom-10">TOGGLES</h2>
+                                    <div class="wprt-lines style-2 custom-1">
+                                        <div class="line-1"></div>
+                                    </div>
+                                    <div class="wprt-spacer" data-desktop="50" data-mobi="40" data-smobi="40"></div>
+
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="wprt-toggle style-1">
+                                        <h3 class="toggle-title">Employees have many years of experience</h3>
+                                        <div class="toggle-content">
+                                            {% for item in documents %}
+                                            <p>{{ item.name }}</p>
+                                            {% endfor %}
+                                        </div>
+                                    </div>
+
+                                    <div class="wprt-toggle style-1">
+                                        <h3 class="toggle-title">Quality construction continues after the project</h3>
+                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a metus pellentesque, scelerisque ex sed, volutpat nisi. Curabitur tortor mi, eleifend ornare lobortis non. Nulla porta purus quis iaculis ultrices. Proin aliquam sem at nibh hendrerit sagittis. Nullam ornare odio eu lacus tincidunt malesuada. Sed eu vestibulum elit. Curabitur tortor mi, eleifend ornare.</div>
+                                    </div>
+
+                                    <div class="wprt-toggle style-1">
+                                        <h3 class="toggle-title">They use technology to do the job more quickly</h3>
+                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a metus pellentesque, scelerisque ex sed, volutpat nisi. Curabitur tortor mi, eleifend ornare lobortis non. Nulla porta purus quis iaculis ultrices. Proin aliquam sem at nibh hendrerit sagittis. Nullam ornare odio eu lacus tincidunt malesuada. Sed eu vestibulum elit. Curabitur tortor mi, eleifend ornare.</div>
+                                    </div>
+
+                                    <div class="wprt-toggle style-1">
+                                        <h3 class="toggle-title">Employees are continually trained on safety issues</h3>
+                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a metus pellentesque, scelerisque ex sed, volutpat nisi. Curabitur tortor mi, eleifend ornare lobortis non. Nulla porta purus quis iaculis ultrices. Proin aliquam sem at nibh hendrerit sagittis. Nullam ornare odio eu lacus tincidunt malesuada. Sed eu vestibulum elit. Curabitur tortor mi, eleifend ornare.</div>
+                                    </div>
+                                </div><!-- /.col-md-6 -->
+
+                                <div class="col-md-6">
+                                    <div class="wprt-toggle style-2">
+                                        <h3 class="toggle-title">Employees have many years of experience</h3>
+                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a metus pellentesque, scelerisque ex sed, volutpat nisi. Curabitur tortor mi, eleifend ornare lobortis non. Nulla porta purus quis iaculis ultrices. Proin aliquam sem at nibh hendrerit sagittis. Nullam ornare odio eu lacus tincidunt malesuada. Sed eu vestibulum elit. Curabitur tortor mi, eleifend ornare.</div>
+                                    </div>
+
+                                    <div class="wprt-toggle style-2">
+                                        <h3 class="toggle-title">Quality construction continues after the project</h3>
+                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a metus pellentesque, scelerisque ex sed, volutpat nisi. Curabitur tortor mi, eleifend ornare lobortis non. Nulla porta purus quis iaculis ultrices. Proin aliquam sem at nibh hendrerit sagittis. Nullam ornare odio eu lacus tincidunt malesuada. Sed eu vestibulum elit. Curabitur tortor mi, eleifend ornare.</div>
+                                    </div>
+
+                                    <div class="wprt-toggle style-2">
+                                        <h3 class="toggle-title">They use technology to do the job more quickly</h3>
+                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a metus pellentesque, scelerisque ex sed, volutpat nisi. Curabitur tortor mi, eleifend ornare lobortis non. Nulla porta purus quis iaculis ultrices. Proin aliquam sem at nibh hendrerit sagittis. Nullam ornare odio eu lacus tincidunt malesuada. Sed eu vestibulum elit. Curabitur tortor mi, eleifend ornare.</div>
+                                    </div>
+
+                                    <div class="wprt-toggle style-2">
+                                        <h3 class="toggle-title">Employees are continually trained on safety issues</h3>
+                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In a metus pellentesque, scelerisque ex sed, volutpat nisi. Curabitur tortor mi, eleifend ornare lobortis non. Nulla porta purus quis iaculis ultrices. Proin aliquam sem at nibh hendrerit sagittis. Nullam ornare odio eu lacus tincidunt malesuada. Sed eu vestibulum elit. Curabitur tortor mi, eleifend ornare.</div>
+                                    </div>
+                                </div><!-- /.col-md-6 -->
+
+                                <div class="col-md-12">
+                                    <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
+                                </div>
+
+                            </div><!-- /.row -->
+                        </div><!-- /.container -->
+                    </section>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -2,6 +2,9 @@ from django.db import models
 
 
 class MaterialCategory(models.Model):
+    """
+    Категории материалов: типа грунтовки, мастики, краски, инструмент и др.
+    """
     name = models.CharField(verbose_name='категория материала', max_length=64, unique=True)
     description = models.TextField(verbose_name='описание', blank=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
@@ -16,6 +19,9 @@ class MaterialCategory(models.Model):
 
 
 class MeasureTypes(models.Model):
+    """
+    Меры измерений: килограммы, квадратные метры, мегапаскали и др.
+    """
     name = models.CharField(verbose_name='единица измерения', max_length=28, unique=True)
     shortcut = models.CharField(verbose_name='ед.изм.', max_length=10, unique=True)
     description = models.TextField(verbose_name='описание', blank=True)
@@ -40,9 +46,12 @@ class MeasureTypes(models.Model):
 
 
 class Material(models.Model):
+    """
+    Конкретные материалы (торговые марки): Рабберфлекс-55, Гипердесмо, Матакрил и др.
+    """
     name = models.CharField(verbose_name='название материала', max_length=128, unique=True)
     slug = models.SlugField(verbose_name='слаг', max_length=500, unique=True)
-    category = models.ForeignKey(MaterialCategory,verbose_name='категория материала', on_delete=models.CASCADE)
+    category = models.ForeignKey(MaterialCategory, verbose_name='категория материала', on_delete=models.CASCADE)
     measure = models.ForeignKey(MeasureTypes, verbose_name='Единица измерения', on_delete=models.CASCADE)
     # characteristics = models.ManyToManyField(Characteristic)
     image = models.ImageField(upload_to='products_images', blank=True)
@@ -63,6 +72,9 @@ class Material(models.Model):
 
 
 class MaterialImage(models.Model):
+    """
+    Дополнительные картинки к материалам
+    """
     material = models.ForeignKey(Material, blank=True, null=True, default=None, on_delete=models.CASCADE)
     alt_desc = models.CharField(verbose_name='alt фотографии', max_length=128, blank=True)
     image = models.ImageField(verbose_name='Фотография', upload_to='products_images', blank=True)
@@ -79,6 +91,10 @@ class MaterialImage(models.Model):
 
 
 class TechnicalSolutions(models.Model):
+    """
+    Готовые технические решения (группа материалов собранных в готовый к применению продукт "под ключ"
+    и продвигаемый на рынок)
+    """
     name = models.CharField(verbose_name='название материала', max_length=128, unique=True)
     slug = models.SlugField(verbose_name='слаг', max_length=128, unique=True)
     material_content = models.ManyToManyField(Material)
@@ -99,6 +115,9 @@ class TechnicalSolutions(models.Model):
 
 
 class TechnicalSolutionsImage(models.Model):
+    """
+    Дополнительные картинки к готовому решению
+    """
     material = models.ForeignKey(TechnicalSolutions, blank=True, null=True, default=None, on_delete=models.CASCADE)
     alt_desc = models.CharField(verbose_name='alt фотографии', max_length=128, blank=True)
     image = models.ImageField(verbose_name='Фотография', upload_to='products_images', blank=True)
