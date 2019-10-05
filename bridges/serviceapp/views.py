@@ -7,7 +7,7 @@ def services(request):
 	context:{
 		'services':services
 	}
-	return render(request, 'serviceapp/services.html', context)
+	return render(request, 'serviceapp/services.html') #, context
 
 # def services_detail(request):
 # 	return render(request, 'serviceapp/services-detail.html'
