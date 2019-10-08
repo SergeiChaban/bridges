@@ -57,7 +57,7 @@ body,
 button,
 input,
 select,
-textarea { font-family: "Open Sans", sans-serif; color: #777; font-size: 14px; line-height: 1.875; background-color: #fff; }
+textarea { font-family: "Open Sans", sans-serif; color: #777; font-size: 12px; line-height: 1.875; background-color: #fff; }
 img { height: auto; max-width: 100%; vertical-align: middle; -ms-interpolation-mode: bicubic }
 p { margin: 0 0 20px; }
 strong,
@@ -572,7 +572,7 @@ p.dropcap span.first-letter { font-size: 55px; float: left; color: #ffbc13; text
 #main-nav ul li { position: relative; list-style: none; padding-top: 0; padding-bottom: 0; }
 #main-nav > ul > li { float: left; padding: 0 18px; }
 #main-nav > ul > li:first-child { padding-left: 0; }
-#main-nav > ul > li > a { display: block; font-family: "Montserrat", sans-serif; font-size: 14px; font-weight: 500; color: #4b4b4b; text-transform: uppercase; }
+#main-nav > ul > li > a { display: block; font-family: "Montserrat", sans-serif; font-size: 12px; font-weight: 500; color: #4b4b4b; text-transform: uppercase; }
 #main-nav > ul > li > a:hover,
 #main-nav > ul > li.current-menu-item > a { color: #ffbc13; }
 #main-nav > ul > li.menu-item-has-children > a { position: relative; padding-right: 15px; }
@@ -649,7 +649,7 @@ p.dropcap span.first-letter { font-size: 55px; float: left; color: #ffbc13; text
 #featured-title .featured-title-inner-wrap { padding: 52px 0; display: table; overflow: hidden; width: 100%; }
 #featured-title .featured-title-heading-wrap { display: table-cell; margin: 0; text-align: left; vertical-align: middle; width: 65%;}
 #featured-title #breadcrumbs { font-size: 0.928em; display: table-cell; text-align: right; vertical-align: middle; width: 35%;}
-#featured-title .featured-title-heading { z-index: 1; position: relative; display: inline-block; font-size: 30px; margin: 0; }
+#featured-title .featured-title-heading { z-index: 1; position: relative; display: inline-block; font-size: 24px; margin: 0; }
 #featured-title .featured-title-heading.has-shadow { text-shadow: rgba(0, 0, 0, 0.3) 0px 1px 1px }
 #featured-title .featured-title-heading:after,
 #featured-title #breadcrumbs .breadcrumbs-inner:after { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 100%; z-index: -1; border-style: solid; border-width: 0px; }
@@ -1251,7 +1251,7 @@ body.page #main-content { padding-top: 0; padding-bottom: 0; }
 	#site-header.style-4 #site-header-inner { padding-top: 20px; padding-bottom: 20px; }
 
 	#featured-title .featured-title-inner-wrap { padding: 30px 0; }
-	#featured-title .featured-title-heading { font-size: 24px; }
+	#featured-title .featured-title-heading { font-size: 20px; }
 
 	.hentry .post-author { text-align: center; }
 	.hentry .post-author .author-avatar { float: none; margin: 0 auto 20px; }

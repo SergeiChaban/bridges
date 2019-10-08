@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Users
+from .models import Users, CategoriesCompanies, Companies
 
 
 # Register your models here.
@@ -7,7 +7,7 @@ from .models import Users
 @admin.register(Users)
 class UsersAdmin(admin.ModelAdmin):
     # поля, которые не нужно редактировать в админке
-    readonly_fields = ('is_superuser', 'last_login', 'date_joined', 'user_permissions', 'groups')
+    readonly_fields = ('password', 'is_superuser', 'last_login', 'date_joined')  # 'user_permissions', 'groups')
 
     # какие поля выводить в админке
     list_display = ('username', 'first_name', 'last_name', 'is_staff', 'is_active', 'phone', 'email')
@@ -31,5 +31,28 @@ class UsersAdmin(admin.ModelAdmin):
         ('Личные данные',
          {'fields': ('username', 'password', 'first_name', 'last_name', 'patronymic', 'gender', 'birthday')}),
         ('Контактные данные', {'fields': ('phone', 'email')}),
-        ('Данные сотрудника', {'fields': ('is_staff', 'is_active', 'company', 'position', 'project')}),
+        ('Данные сотрудника',
+         {'fields': ('is_staff', 'is_active', 'company', 'groups', 'position', 'project',)}),
     )
+
+
+@admin.register(CategoriesCompanies)
+class CategoriesCompaniesAdmin(admin.ModelAdmin):
+    list_display = ('name_category', 'description')
+    search_fields = ('name_category', 'description',)
+
+
+@admin.register(Companies)
+class CompaniesAdmin(admin.ModelAdmin):
+    list_display = ('name_company', 'inn', 'get_category_company', 'city')
+    search_fields = ('name_company',
+                     'short_name',
+                     'form_company',
+                     'category_company',
+                     'inn',
+                     'city',
+                     'address',
+                     'phone',
+                     'email',)
+    # укажем быстрые фильтры для фильтрации записей
+    list_filter = ('category_company', 'city')

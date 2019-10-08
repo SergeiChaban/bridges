@@ -2,26 +2,6 @@
 {% load static %}
 {% block content-container %}
 
-<!-- Featured Title -->
-<div id="featured-title" class="clearfix featured-title-left">
-    <div id="featured-title-inner" class="container clearfix">
-        <div class="featured-title-inner-wrap">
-            <div class="featured-title-heading-wrap">
-                <h1 class="featured-title-heading">{{ product.name }}</h1>
-            </div>
-            <div id="breadcrumbs">
-                <div class="breadcrumbs-inner">
-                    <div class="breadcrumb-trail">
-                        <a href="#" title="Construction" rel="home" class="trail-begin">Главная</a>
-                        <span class="sep">/</span>
-                        <span class="trail-end">Подробно о технологии</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 <!-- Main Content -->
 <div id="main-content" class="site-main clearfix">
     <div id="content-wrap" class="container">
@@ -51,47 +31,26 @@
                                 <div class="line-2"></div>
                             </div>
                             <div class="wprt-spacer" data-desktop="25" data-mobi="25" data-smobi="25"></div>
-<!--                                <p class=" margin-bottom-25">{{ item.name }}. {{ item.description }}</p>-->
                             <div class="wprt-galleries-grid has-bullets bullet-style-2 bullet30 has-arrows arrow-position-2 arrow-light"
                                  data-layout="slider" data-column="1" data-column2="1" data-column3="1" data-column4="1"
                                  data-gaph="30" data-gapv="30">
                                 <div id="images-wrap" class="cbp">
+
+                                    <!--ВЫВОД ПРОЕКТОВ ГДЕ ПРИМЕНЯЛОСЬ ЭТО ТЕХРЕШЕНИЕ-->
                                     {% for item in projects %}
-                                            <div class="cbp-item">
-                                                <p class="margin-bottom-5" style="text-align: right;"><i><b>{{ item.project.name }}, {{ item.project.city }}</b></i></p>
-                                                <div class="item-wrap" style="height: 370px;">
-                                                    <a class="zoom" href="assets/img/projects/1-full.jpg"><i class="fa fa-arrows-alt"></i></a>
-                                                    <img src="/media/{{ item.project.image }}" alt="image"/>
-                                                </div>
-                                            </div><!--/.cbp-item -->
+                                    <div class="cbp-item">
+                                        <p class="margin-bottom-5" style="text-align: right; font-size: 15px;"><i>
+                                            {{ item.project.name }}, {{ item.project.city }}</i></p>
+                                        <div class="item-wrap" style="height: 370px;">
+                                            <a class="zoom" href="assets/img/projects/1-full.jpg"><i
+                                                    class="fa fa-arrows-alt"></i></a>
+                                            <img src="/media/{{ item.project.image }}" alt="image"/>
+                                        </div>
+                                    </div><!--/.cbp-item -->
                                     {% endfor %}
-                                    <!--                                    <div class="cbp-item">-->
-                                    <!--                                        <div class="item-wrap">-->
-                                    <!--                                            <a class="zoom" href="assets/img/projects/2-full.jpg"><i class="fa fa-arrows-alt"></i></a>-->
-                                    <!--                                            <img src="assets/img/projects/2.jpg" alt="image" />-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>&lt;!&ndash;/.cbp-item &ndash;&gt;-->
+                                    <!--/ВЫВОД ПРОЕКТОВ ГДЕ ПРИМЕНЯЛОСЬ ЭТО ТЕХРЕШЕНИЕ-->
 
-                                    <!--                                    <div class="cbp-item">-->
-                                    <!--                                        <div class="item-wrap">-->
-                                    <!--                                            <a class="zoom" href="assets/img/projects/3-full.jpg"><i class="fa fa-arrows-alt"></i></a>-->
-                                    <!--                                            <img src="assets/img/projects/3.jpg" alt="image" />-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>&lt;!&ndash;/.cbp-item &ndash;&gt;-->
 
-                                    <!--                                    <div class="cbp-item">-->
-                                    <!--                                        <div class="item-wrap">-->
-                                    <!--                                            <a class="zoom" href="assets/img/projects/4-full.jpg"><i class="fa fa-arrows-alt"></i></a>-->
-                                    <!--                                            <img src="assets/img/projects/4.jpg" alt="image" />-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>&lt;!&ndash;/.cbp-item &ndash;&gt;-->
-
-                                    <!--                                    <div class="cbp-item">-->
-                                    <!--                                        <div class="item-wrap">-->
-                                    <!--                                            <a class="zoom" href="assets/img/projects/5-full.jpg"><i class="fa fa-arrows-alt"></i></a>-->
-                                    <!--                                            <img src="assets/img/projects/5.jpg" alt="image" />-->
-                                    <!--                                        </div>-->
-                                    <!--                                    </div>&lt;!&ndash;/.cbp-item &ndash;&gt;-->
                                 </div><!-- /#images-wrap -->
                             </div>
                         </div><!-- /.col-md-6 -->
@@ -99,6 +58,7 @@
                         <div class="col-md-6">
                             <div class="wprt-spacer" data-desktop="0" data-mobi="40" data-smobi="40"></div>
 
+                            <!-- ВЫВОД ИНФОРМАЦИИ О КОНСТРУКЦИИ ТЕХРЕШЕНИЯ-->
                             <h3 class="line-height-normal margin-bottom-10">Конструктивные слои</h3>
                             <div class="wprt-lines style-1 custom-3">
                                 <div class="line-1"></div>
@@ -118,17 +78,67 @@
                                 Vestibulum eu libero volutpat, portas quam acc, tempus sem. Cras id justo eget
                                 sapien scelerisque lacinia non a eros.</p>
 
+                            <!--ВЫВОД СПИСКА МАТЕРИАЛОВ В СОСТАВЕ ТЕХРЕШЕНИЯ-->
                             <ul class="wprt-list style-1 accent-color">
                                 {% for item in material_list %}
                                 <li>{{ item.name }}</li>
                                 {% endfor %}
                             </ul>
+                            <!--ВЫВОД СПИСКА МАТЕРИАЛОВ В СОСТАВЕ ТЕХРЕШЕНИЯ-->
+
                         </div><!-- /.col-md-6 -->
 
-                        <div class="col-md-12">
-                            <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40"></div>
+                        <!--/ ВЫВОД ИНФОРМАЦИИ О КОНСТРУКЦИИ ТЕХРЕШЕНИЯ-->
 
-                            <h2 class="line-height-normal margin-bottom-10">Техническая поддержка и обучение</h2>
+                        <!--ДОКУМЕНТАЦИЯ О ПРОДУКТЕ-->
+                        <div class="col-md-12">
+                            <div class="wprt-spacer" data-desktop="80" data-mobi="60" data-smobi="60"></div>
+                            <h2 class="line-height-normal margin-bottom-10">Документация</h2>
+                            <div class="wprt-lines style-1 custom-3">
+                                <div class="line-1"></div>
+                                <div class="line-2"></div>
+                            </div>
+                            <div class="wprt-spacer" data-desktop="25" data-mobi="25" data-smobi="25"></div>
+                        </div>
+
+                        <div class="col-md-6 row">
+                                {% for item in researches %}
+                                <div class="wprt-toggle style-1">
+                                    <h3 class="toggle-title">{{ item.name }}</h3>
+                                    <div class="toggle-content">
+                                        {% for i in item.file.all %}
+                                        {{ item.description }}
+                                        <div class="wprt-spacer" data-desktop="10" data-mobi="10" data-smobi="10"></div>
+                                        <a class="wprt-button small rounded-30px" href="/media/{{ i.file }}"
+                                           target="_blank">СКАЧАТЬ PDF</a>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div><!-- /.col-md-12 -->
+
+                        <div class="col-md-6 row">
+                            {% for item in documents %}
+                            <div class="wprt-toggle style-2">
+                                <h3 class="toggle-title">{{ item.name }}</h3>
+                                <div class="toggle-content">
+                                    {% for i in item.file.all %}
+                                    {{ item.description }}
+                                    <div class="wprt-spacer" data-desktop="10" data-mobi="10" data-smobi="10"></div>
+                                    <a class="wprt-button small rounded-30px" href="/media/{{ i.file }}"
+                                       target="_blank">СКАЧАТЬ PDF</a>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div><!-- /.col-md-6 -->
+                        <!--/ ДОКУМЕНТАЦИЯ О ПРОДУКТЕ-->
+
+                        <!--ИНФОРМАЦИЯ ОБ УСЛУГАХ -->
+                        <div class="col-md-12">
+                            <div class="wprt-spacer" data-desktop="80" data-mobi="60" data-smobi="60"></div>
+
+                            <h2 class="line-height-normal margin-bottom-10">Техническая поддержка и шефмонтаж</h2>
                             <div class="wprt-lines style-1 custom-3">
                                 <div class="line-1"></div>
                                 <div class="line-2"></div>
@@ -136,15 +146,12 @@
 
                             <div class="wprt-spacer" data-desktop="25" data-mobi="25" data-smobi="25"></div>
 
-                            <p class="margin-bottom-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque
-                                nec erat erat. Integer blandit nulla quis fermentum hendrerit. Vestibulum eu libero
-                                volutpat, portas quam acc, tempus sem. Donec sodales quam id lorem lobortis, vitae
-                                interdum nisl vehicula. Pellentesque habitant morbi tristique senectus et netus et
-                                malesuada fames ac turpis egestas. Etiam suscipit, elit quis facilisis dictum, diam
-                                justo volutpat dui. Cras id justo eget sapien scelerisque lacinia non a eros.</p>
-
-                            <div class="wprt-spacer" data-desktop="80" data-mobi="60" data-smobi="60"></div>
+                            <p class="margin-bottom-0">{{ product.description }}</p>
+                            <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40"></div>
                         </div><!-- /.col-md-12 -->
+                        <!--ИНФОРМАЦИЯ ОБ УСЛУГАХ -->
+
+
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div><!-- /.inner-content-wrap -->

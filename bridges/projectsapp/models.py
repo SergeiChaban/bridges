@@ -1,4 +1,6 @@
 from django.db import models
+
+from authapp.models import Companies
 from productsapp.models import TechnicalSolutions
 
 
@@ -33,9 +35,8 @@ class Project(models.Model):
     """ для привязки координат на карте """
     longitude = models.FloatField(verbose_name='долгота', null=True)
     """ для привязки координат на карте """
-    contractor = models.CharField(verbose_name='подрядчик', max_length=512, blank=True, null=True)
-    customer = models.CharField(verbose_name='заказчик', max_length=512, blank=True, null=True)
-    designer = models.CharField(verbose_name='проектировщик', max_length=512, blank=True, null=True)
+    techsol = models.ManyToManyField(TechnicalSolutions, through='ProjectHasTechnicalSolutions')
+    participant = models.ManyToManyField(Companies)
 
     def __str__(self):
         return f"{self.name} ({self.city})"
