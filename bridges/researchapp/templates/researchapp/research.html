@@ -10,11 +10,12 @@
                     <div class="page-content">
                         <section class="wprt-section">
                             <div class="container">
-                                <div class='row'>
-                                    {#                            ВЫВОД ВСЕЙ ДОКУМЕНТАЦИИ ПО КОМПАНИЯМ#}
-                                    {% for item in companies %}
-                                        <div class="col-md-12">
-                                            <div class="wprt-spacer" data-desktop="70" data-mobi="60"
+                                <div class="wprt-spacer" data-desktop="15" data-mobi="60" data-smobi="60"></div>
+                                {#                            ВЫВОД ВСЕЙ ДОКУМЕНТАЦИИ ПО КОМПАНИЯМ#}
+                                {% for item in companies %}
+                                    <div class='row'>
+                                        <div class="col-md-4">
+                                            <div class="wprt-spacer" data-desktop="5" data-mobi="60"
                                                  data-smobi="60"></div>
 
                                             <h2 class="text-center margin-bottom-10">{{ item.company__name_company }}</h2>
@@ -25,12 +26,12 @@
                                                  data-smobi="40"></div>
                                         </div><!-- /.col-md-12 -->
 
-                                        <div class="col-md-6 row">
+                                        <div class="col-md-8 row">
                                             {% for i in documents %}
                                                 {% if i.company__name_company == item.company__name_company %}
                                                     <div class="wprt-toggle {% if i.type_id == 1 %} style-1 {% else %} style-2 {% endif %}">
                                                         <h3 class="toggle-title">{{ i.name }}</h3>
-                                                        <div class="toggle-content">
+                                                        <div class="toggle-content" style="color: black;">
                                                             {{ i.description }}
                                                             <div class="wprt-spacer" data-desktop="10" data-mobi="10"
                                                                  data-smobi="10"></div>
@@ -42,14 +43,15 @@
                                                 {% endif %}
                                             {% endfor %}
                                         </div><!-- /.col-md-12 -->
-                                    {% endfor %}
-                                    {#                            ВЫВОД ВСЕЙ ДОКУМЕНТАЦИИ ПО КОМПАНИЯМ#}
+                                        <div class="col-md-12">
+                                            <div class="wprt-spacer" data-desktop="5" data-mobi="60"
+                                                 data-smobi="60"></div>
+                                        </div>
+                                    </div><!-- /.row -->
+                                    <hr>
+                                {% endfor %}
+                                {#                            ВЫВОД ВСЕЙ ДОКУМЕНТАЦИИ ПО КОМПАНИЯМ#}
 
-                                    <div class="col-md-12">
-                                        <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
-                                    </div>
-
-                                </div><!-- /.row -->
                             </div><!-- /.container -->
                         </section>
 

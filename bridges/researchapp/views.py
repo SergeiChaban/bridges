@@ -5,13 +5,10 @@ from researchapp.models import Document
 
 
 def research(request):
-    companies = Document.objects.order_by('company').distinct('company__name_company').values('company__name_company',
-                                                                                              'file__file', 'pk',
-                                                                                              'name', 'type_id',
-                                                                                              'description')
-    # documents = Document.objects.filter(author__in=[1,]).exclude(type__id=2)
-    documents = Document.objects.all().values('company__name_company', 'file__file', 'pk', 'name', 'type_id',
-                                              'description')
+    documents = Document.objects.filter(type_id__in=(2, 3,)).order_by('-company').values('company__name_company',
+                                                                                         'file__file', 'pk', 'name',
+                                                                                         'type_id', 'description')
+    companies = documents.distinct('company__name_company')
 
     content = {
         'companies': companies,

@@ -11,22 +11,23 @@
                             <div class="container">
                                 <div class="row">
                                     <div class="col-md-12">
-                                        <div class="wprt-spacer" data-desktop="80" data-mobi="60" data-smobi="60"></div>
+                                        <div class="wprt-spacer" data-desktop="30" data-mobi="60" data-smobi="60"></div>
                                     </div><!-- /.col-md-12 -->
                                     {% if products %}
                                         {% for item in products %}
                                             <div class="col-md-4">
                                                 <div class="service-item clearfix">
-                                                    <div class="thumb" style="width: 370px; height: 220px;"><img src="/media/{{ item.image }}" alt="image" /></div>
+                                                    <div class="thumb" style="width: 370px; height: 220px;">
+                                                        <a href="{% url 'products:product' item.slug %}"><img src="/media/{{ item.image }}" alt="image" /></a></div>
                                                     <div class="service-item-wrap">
-                                                        <h3 class="title font-size-18"><a href="#">{{ item.name }}</a>
+                                                        <h3 class="title font-size-18"><a href="{% url 'products:product' item.slug %}">{{ item.name }}</a>
                                                         </h3>
                                                         <p class="desc"></p>
-                                                        <a href="{% url 'products:product' item.slug %}"
-                                                           class="wprt-button small rounded-3px">ПОДРОБНО</a>
+{#                                                        <a href="{% url 'products:product' item.slug %}"#}
+{#                                                           class="wprt-button small rounded-3px">ПОДРОБНО</a>#}
                                                     </div>
                                                 </div>
-                                                <div class="wprt-spacer" data-desktop="55" data-mobi="40"
+                                                <div class="wprt-spacer" data-desktop="30" data-mobi="40"
                                                      data-smobi="40"></div>
                                             </div><!-- /.col-md-4 -->
                                         {% endfor %}
@@ -34,7 +35,7 @@
                                         <h3>На данный момент нет ни одного продукта</h3>
                                     {% endif %}
                                     <div class="col-md-12">
-                                        <div class="wprt-spacer" data-desktop="80" data-mobi="60" data-smobi="60"></div>
+                                        <div class="wprt-spacer" data-desktop="25" data-mobi="60" data-smobi="60"></div>
                                     </div><!-- /.col-md-12 -->
                                 </div><!-- /.row -->
                             </div><!-- /.container -->

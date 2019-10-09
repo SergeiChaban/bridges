@@ -36,7 +36,7 @@ class Project(models.Model):
     longitude = models.FloatField(verbose_name='долгота', null=True)
     """ для привязки координат на карте """
     techsol = models.ManyToManyField(TechnicalSolutions, through='ProjectHasTechnicalSolutions')
-    participant = models.ManyToManyField(Companies)
+    participant = models.ManyToManyField(Companies, blank=True)
 
     def __str__(self):
         return f"{self.name} ({self.city})"
