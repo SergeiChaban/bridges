@@ -2,6 +2,9 @@ from django.shortcuts import render, get_object_or_404
 
 from django.views.generic import ListView, CreateView, DeleteView
 
+from django.http import HttpResponseRedirect
+from django.db.models import Q
+
 from productsapp.models import TechnicalSolutions
 from projectsapp.models import Project, ProjectImage, ProjectHasTechnicalSolutions
 
@@ -9,10 +12,10 @@ from projectsapp.models import Project, ProjectImage, ProjectHasTechnicalSolutio
 # Create your views here.
 class ProjectsList(ListView):
     """docstring for ProductList"""
-    paginate_by = 12
+
     model = Project
     template_name = 'projectsapp/grid.html'
-    extra_content = {}
+
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -22,6 +25,7 @@ class ProjectsList(ListView):
                         'bred_title': 'Проекты компании'
                         })
         return context
+
 
 
 def project(request, pk):
@@ -39,10 +43,3 @@ def project(request, pk):
     }
     return render(request, 'projectsapp/project.html', content)
 
-
-class ProjectCreate(CreateView):
-    pass
-
-
-class ProjectDelete(DeleteView):
-    pass
