@@ -160,13 +160,14 @@ class TechnicalSolutions(models.Model):
     material_content = models.ManyToManyField(Material)
     measure = models.ForeignKey(MeasureTypes, verbose_name='Единица измерения', on_delete=models.CASCADE, default=1)
     work_content = models.ManyToManyField(Work, blank=True)
-    image = models.ImageField(upload_to='products_images', blank=True)
+    image = models.ImageField(upload_to='аватарка', blank=True)
     alt_desc = models.CharField(verbose_name='alt фотографии', max_length=500, blank=True)
     short_desc = models.CharField(verbose_name='краткое описание материала', max_length=500, blank=True, null=True)
     description = models.TextField(verbose_name='описание материала', blank=True)
     price = models.DecimalField(verbose_name='цена', max_digits=8, decimal_places=2, default=0)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
-    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+    updated = models.DateTimeField(verbose_name='обновлен', auto_now_add=False, auto_now=True)
+    is_active = models.BooleanField(verbose_name='активен', default=True)
 
     def __str__(self):
         return self.name

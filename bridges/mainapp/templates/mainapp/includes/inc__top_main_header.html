@@ -23,6 +23,11 @@
                                 <li class="menu-item"><a href="{% url 'projects:projects' %}">Проекты</a></li>
                                 <li class="menu-item"><a href="{% url 'research:research' %}">Наука</a></li>
                                 <li class="menu-item"><a href="{% url 'ymapapp:map' %}">Карта</a></li>
+                                {% if user.is_authenticated %}
+                                    <li class="menu-item"><a href="{% url 'auth:profile' user.pk %}">{{ user.username }}</a></li>
+                                {% else %}
+                                    <li class="menu-item"><a href="{% url 'auth:login' %}">Войти</a></li>
+                                {% endif %}
                             </ul>
                         </nav><!-- /#main-nav -->
 {#ГЛАВНОЕ МЕНЮ#}
