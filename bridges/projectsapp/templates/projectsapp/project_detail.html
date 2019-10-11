@@ -19,9 +19,8 @@
                                     <div class="wprt-galleries galleries w-770px" data-width="142" data-margin="15">
                                         <div id="wprt-slider" class="flexslider">
                                             <ul class="slides">
-
                                                 <!-- ПОДГРУЗКА КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
-                                                {% for image in gallery %}
+                                                {% for image in object.images.select_related %}
                                                 <li class="flex-active-slide">
                                                     <a class="zoom" href="#"><i class="fa fa-arrows-alt"></i></a>
                                                     <img src="/media/{{ image.image }}" alt="pic" />
@@ -36,7 +35,7 @@
                                             <ul class="slides">
 
                                                 <!-- ПОДГРУЗКА МИНИАТЮРНЫХ КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
-                                                {% for image in gallery %}
+                                                {% for image in object.images.select_related %}
                                                 <li><img src="/media/{{ image.image }}" alt="pic"></li>
                                                 {% endfor %}
                                                 <!-- ПОДГРУЗКА МИНИАТЮРНЫХ КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
