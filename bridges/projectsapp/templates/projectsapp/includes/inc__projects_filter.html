@@ -1,9 +1,11 @@
 <div data-filter="*" class="cbp-filter-item">
-    <span>Все</span>
+    <!-- <span>Все</span> -->
+    <a href="#">Все</a>
 </div>
 {% for item in products %}
 <div data-filter=".{{ item.pk }}" class="cbp-filter-item">
-    <span>{{ item.name }}</span>
+    <a href="{% url 'projects:projectsFilter' item.pk %}">{{ item.name }}</a>
+    <!-- <span>{{ item.name }}</span> -->
 </div>
 {% endfor %}
 

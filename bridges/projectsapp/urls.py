@@ -23,4 +23,6 @@ app_name = 'projectsapp'
 urlpatterns = [
     path('', ProjectsList.as_view(), name='projects'),
     path('<int:pk>', projectsapp.project, name='project'),
+    path('filter/<int:pk>', projectsapp.projectsFilter, name='projectsFilter'),
+
 ]
