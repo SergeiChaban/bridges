@@ -1,6 +1,7 @@
 {% extends 'authapp/base_auth.html' %}
 
 {% block content %}
+{{ error }}
     {% if user.is_authenticated %}
         <h4 class="margin-bottom-15" style="text-align: center;">Вы авторизованы на сайте</h4>
         <br>
@@ -10,6 +11,7 @@
         <p>Либо можете <a href="{% url 'auth:logout' %}">выйти</a>.</p>
     {% else %}
         <h4 class="margin-bottom-15">Войти на сайт</h4>
+        {{ form.errors }}
         <form method="POST" action="{% url 'auth:login' %}">
             {% csrf_token %}
             <div class="wprt-contact-form-1">
@@ -25,5 +27,7 @@
                 <input type="hidden" name="next" value="{% url 'auth:login' %}">
             </div>
         </form>
+        <br>
+        <p>Либо можете <a href="{% url 'auth:register' %}">зарегистрироваться</a>.</p>
     {% endif %}
 {% endblock %}

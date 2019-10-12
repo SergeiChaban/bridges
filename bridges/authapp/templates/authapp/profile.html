@@ -1,7 +1,7 @@
 {% extends 'authapp/base_auth.html' %}
 
 {% block content %}
-    {% if user.is_authenticated %}
+    {% if user.is_authenticated and user.is_active %}
         <h4 class="margin-bottom-15" style="text-align: center;">Профиль пользователя {{ user.username|title }}</h4>
         <br>
         <p>Ваше имя: {{ user.first_name|title }}<br>
@@ -16,19 +16,13 @@
             Должность: {{ user.position|title }}<br>
             Проект: {{ user.project|title }}
         </p>
-        <p style="font-style: italic;">
-            {% if user.is_active %}
-                Данные подтверждены менеджером компании.
-            {% else %}
-                Аккаунт не активирован - скоро с вами свяжется менеджер.
-            {% endif %}
-        </p>
         <br>
         <p>Можете <a href="{% url 'auth:logout' %}">выйти с сайта</a>.</p>
     {% else %}
-        <h4 class="margin-bottom-15" style="text-align: center;">Вы не авторизованы</h4>
+        <h4 class="margin-bottom-15" style="text-align: center;">Вы не авторизованы,<br>либо аккаунт не активирован</h4>
         <br>
         <p>Если вы хотите посмотреть информацию вашего профиля,<br>
-            необходимо <a href="{% url 'auth:login' %}">авторизоваться на сайте</a>.</p>
+            необходимо <a href="{% url 'auth:login' %}">авторизоваться на сайте</a>,<br>
+            либо дождаться активации аккаунта нашим менеджером.</p>
     {% endif %}
 {% endblock %}

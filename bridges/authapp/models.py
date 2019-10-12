@@ -78,7 +78,7 @@ class Users(AbstractUser):
     phone = models.CharField(verbose_name='Телефон*', max_length=50, default='не указан')
 
     class Meta(AbstractUser.Meta):
-        verbose_name = "Пользователя"
+        verbose_name = "Пользователь"
         ordering = ['-date_joined']
 
     def get_company(self):
