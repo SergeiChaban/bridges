@@ -11,10 +11,19 @@ from projectsapp.models import Project, ProjectImage, ProjectHasTechnicalSolutio
 
 # Create your views here.
 class ProjectsList(ListView):
-    """docstring for ProductList"""
 
     model = Project
-    template_name = 'projectsapp/grid.html'
+    pk_field = 'techsol'
+    paginate_by = 6    
+    template_name = 'projectsapp/grid.html'   
+
+    def get_queryset(self, **kwargs):
+        query = Q()
+        if 'pk' in self.kwargs:
+            query = Q((self.pk_field, self.kwargs['pk']))
+            return super().get_queryset().filter(query)
+        else:
+            return super().get_queryset() 
 
 
     def get_context_data(self, **kwargs):

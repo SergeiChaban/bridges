@@ -17,13 +17,13 @@ from django.urls import path
 
 from projectsapp import views as projectsapp
 from .views import ProjectsList
-from .views import ProjectsFilter
+# from .views import ProjectsFilter
 
 app_name = 'projectsapp'
 
 urlpatterns = [
     path('', ProjectsList.as_view(), name='projects'),
     path('<int:pk>/', projectsapp.project, name='project'),
-    path('filter/<int:pk>/', ProjectsFilter.as_view(), name='projectsFilter'),
+    path('filter/<int:pk>/', ProjectsList.as_view(), name='projects'),
 
 ]

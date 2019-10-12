@@ -4,7 +4,7 @@
 </div>
 {% for item in products %}
 <div data-filter=".{{ item.pk }}" class="cbp-filter-item">
-    <a href="{% url 'projects:projectsFilter' item.pk %}">{{ item.name }}</a>
+    <a href="{% url 'projects:projects' item.pk %}">{{ item.name }}</a>
     <!-- <span>{{ item.name }}</span> -->
 </div>
 {% endfor %}
