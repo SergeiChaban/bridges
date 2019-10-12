@@ -1,8 +1,10 @@
 from django.contrib import admin
-from .models import CategoryCompany, FormCompany, Company, Users
+from .models import CategoryCompany, FormCompany, Company, Users, CompanyUsers
 
 
-# Register your models here.
+class CompanyUsersInline(admin.TabularInline):
+    model = CompanyUsers
+    extra = 0
 
 
 @admin.register(CategoryCompany)
@@ -46,14 +48,11 @@ class UsersAdmin(admin.ModelAdmin):
                      'first_name',
                      'last_name',
                      'patronymic',
-                     'company',
-                     'position',
-                     'project',
                      'phone',
                      'email',)
 
     # укажем быстрые фильтры для фильтрации записей
-    list_filter = ('is_staff', 'is_active', 'gender', 'company', 'city')
+    list_filter = ('is_staff', 'is_active', 'gender')
 
     # в админке поля формы можно группировать
     fieldsets = (
@@ -61,5 +60,8 @@ class UsersAdmin(admin.ModelAdmin):
          {'fields': ('username', 'password', 'first_name', 'last_name', 'patronymic', 'gender', 'birthday')}),
         ('Контактные данные', {'fields': ('phone', 'email')}),
         ('Данные сотрудника',
-         {'fields': ('is_staff', 'is_active', 'city', 'company', 'groups', 'position', 'project',)}),
+         {'fields': ('is_staff', 'is_active', 'groups',)}),
     )
+    inlines = [
+        CompanyUsersInline,
+    ]

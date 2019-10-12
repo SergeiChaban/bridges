@@ -20,10 +20,10 @@
                                         <div id="wprt-slider" class="flexslider">
                                             <ul class="slides">
                                                 <!-- ПОДГРУЗКА КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
-                                                {% for image in object.images.select_related %}
+                                                {% for item in object.images.select_related %}
                                                 <li class="flex-active-slide">
-                                                    <a class="zoom" href="#"><i class="fa fa-arrows-alt"></i></a>
-                                                    <img src="/media/{{ image.image }}" alt="pic" />
+                                                    <a class="zoom" href="/media/{{ item.image }}"><i class="fa fa-arrows-alt"></i></a>
+                                                    <img src="/media/{{ item.image }}" alt="pic"/>
                                                 </li>
                                                 {% endfor %}
                                                 <!-- / .ПОДГРУЗКА КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
@@ -35,8 +35,8 @@
                                             <ul class="slides">
 
                                                 <!-- ПОДГРУЗКА МИНИАТЮРНЫХ КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
-                                                {% for image in object.images.select_related %}
-                                                <li><img src="/media/{{ image.image }}" alt="pic"></li>
+                                                {% for item in object.images.select_related %}
+                                                <li><img src="/media/{{ item.image }}" alt="pic"></li>
                                                 {% endfor %}
                                                 <!-- ПОДГРУЗКА МИНИАТЮРНЫХ КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
 
@@ -48,52 +48,66 @@
                                     <div class="wprt-spacer" data-desktop="0" data-mobi="40" data-smobi="40"></div>
 
                                 <!-- ИНФОРМАЦИЯ О ПРОЕКТЕ ИЗ МОДЕЛИ Project-->
-                                    <h3 class="line-height-normal margin-bottom-10">{{ project.name }}</h3>
+                                    <h3 class="line-height-normal margin-bottom-10">{{ object.name }}</h3>
                                     <div class="wprt-lines style-1 custom-3">
                                         <div class="line-1"></div>
                                         <div class="line-2"></div>
                                     </div>
 
                                     <div class="wprt-spacer" data-desktop="25" data-mobi="25" data-smobi="25"></div>
-                                    <p>Регион: {{ project.city }}</p>
-                                    <p>Краткие характеристики объекта: {{ project.description }} lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec erat erat. Integer blandit nulla quis fermentum hendrerit. Vestibulum eu libero volutpat, portas quam acc, tempus sem. Donec sodales quam id lorem lobortis, vitae. </p>
+                                    <p>Регион: {{ object.city }}</p>
+                                    <p>Краткие характеристики объекта: {{ object.description }} </p>
 
                                     <div class="wprt-lines style-1 custom-4">
                                         <div class="line-1"></div>
                                     </div>
                                     <br>
 <!--                                TOGGLES-->
+                                    {% if request.user.is_authenticated %}
                                     <div class="wprt-toggle style-1">
-                                        <h3 class="toggle-title">Детальная информация</h3>
+                                        <h3 class="toggle-title">Местоположение проекта</h3>
                                         <div class="toggle-content" style="color: black;">
                                             <ul class="wprt-list style-2 accent-color margin-top-3 margin-bottom-3">
-                                                <li><strong>Статус проекта:</strong> {{ project.status }}</li>
-                                                <li><strong>Адрес объекта:</strong> {{ project.address }} Посмотреть на <a href="#">карте</a></li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="wprt-toggle style-1">
-                                        <h3 class="toggle-title">Ключевые участники проекта</h3>
-                                        <div class="toggle-content" style="color: black;">
-                                            <ul class="wprt-list style-2 accent-color margin-top-3 margin-bottom-3">
-                                                {% if request.user.is_authenticated %}
-                                                    {% for company in project.participant.all %}
-                                                    <li> {{ company.name }}</li>
-                                                    {% endfor %}
-                                                {% else %}
-                                                    <li><i>доступно после авторизации </i></li>
+                                            {% if object.address or object.coordinate %}
+                                                {% if object.address %}
+                                                    <li>Адрес объекта: {{ object.address }}</li>
                                                 {% endif %}
+                                                {% if object.coordinate %}
+                                                    <li>Посмотреть на <a href="{% url 'ymapapp:map' %}">карте</a></li>
+                                                {% endif %}
+                                            {% else %}
+                                                <li>Местоположение объекта владельцем не указано</li>
+                                            {% endif %}
                                             </ul>
                                         </div>
                                     </div>
+                                    <div class="wprt-toggle style-1">
+                                        <h3 class="toggle-title">Участники проекта</h3>
+                                        <div class="toggle-content" style="color: black;">
+                                            <ul class="wprt-list style-2 accent-color margin-top-3 margin-bottom-3">
+                                                {% for item in object.get_managers %}
+                                                <li>{{ item.role | title }}: {{ item.manager.first_name }} {{ item.manager.last_name }} ({% for i in item.manager.get_company %}{{ i.company.form }} {{ i.company.name }}{% endfor %})</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="wprt-toggle style-1">
+                                        <h3 class="toggle-title">Контрагенты проекта</h3>
+                                        <div class="toggle-content" style="color: black;">
+                                            <ul class="wprt-list style-2 accent-color margin-top-3 margin-bottom-3">
+                                                    {% for item in object.get_companies %}
+                                                    <li> {{ item.company.category }}: {{ item.company.form }} {{ item.company.name }}</li>
+                                                    {% endfor %}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    {% endif %}
                                     <div class="wprt-toggle style-1">
                                         <h3 class="toggle-title">Технические решения</h3>
                                         <div class="toggle-content" style="color: black;">
-                                            <ul class="wprt-list style-2 accent-color margin-top-30 margin-bottom-25">
-                                                {% for item in values %}
-                                                <li><strong></strong>
-                                                    {{ item.techsol.name }}: {{ item.value }} {{ item.techsol.measure }}
-                                                </li>
+                                            <ul class="wprt-list style-2 accent-color margin-top-3 margin-bottom-3">
+                                                {% for item in object.get_products %}
+                                                <li>{{ item.techsol.name }}: {{ item.value }} {{ item.techsol.measure }}</li>
                                                 {% endfor %}
                                             </ul>
                                         </div>
@@ -113,134 +127,11 @@
                             </div>
                         </div>
                     </section>
-                    <section class="wprt-section">
-                        <div class="container">
-                            <div class='row'>
-                                <div class="col-md-12">
-                                    <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
-
-                                    <h2 class="text-center margin-bottom-10">TOGGLES</h2>
-                                    <div class="wprt-lines style-2 custom-1">
-                                        <div class="line-1"></div>
-                                    </div>
-                                    <div class="wprt-spacer" data-desktop="50" data-mobi="40" data-smobi="40"></div>
-
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="wprt-toggle style-1">
-                                        <h3 class="toggle-title">Employees have many years of experience</h3>
-                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                            elit. In a metus pellentesque, scelerisque ex sed, volutpat nisi. Curabitur
-                                            tortor mi, eleifend ornare lobortis non. Nulla porta purus quis iaculis
-                                            ultrices. Proin aliquam sem at nibh hendrerit sagittis. Nullam ornare odio
-                                            eu lacus tincidunt malesuada. Sed eu vestibulum elit. Curabitur tortor mi,
-                                            eleifend ornare.
-                                        </div>
-                                    </div>
-
-                                    <div class="wprt-toggle active style-1">
-                                        <h3 class="toggle-title">Quality construction continues after the project</h3>
-                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                            elit. In a metus pellentesque, scelerisque ex sed, volutpat nisi. Curabitur
-                                            tortor mi, eleifend ornare lobortis non. Nulla porta purus quis iaculis
-                                            ultrices. Proin aliquam sem at nibh hendrerit sagittis. Nullam ornare odio
-                                            eu lacus tincidunt malesuada. Sed eu vestibulum elit. Curabitur tortor mi,
-                                            eleifend ornare.
-                                        </div>
-                                    </div>
-
-                                    <div class="wprt-toggle style-1">
-                                        <h3 class="toggle-title">They use technology to do the job more quickly</h3>
-                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                            elit. In a metus pellentesque, scelerisque ex sed, volutpat nisi. Curabitur
-                                            tortor mi, eleifend ornare lobortis non. Nulla porta purus quis iaculis
-                                            ultrices. Proin aliquam sem at nibh hendrerit sagittis. Nullam ornare odio
-                                            eu lacus tincidunt malesuada. Sed eu vestibulum elit. Curabitur tortor mi,
-                                            eleifend ornare.
-                                        </div>
-                                    </div>
-
-                                    <div class="wprt-toggle style-1">
-                                        <h3 class="toggle-title">Employees are continually trained on safety issues</h3>
-                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                            elit. In a metus pellentesque, scelerisque ex sed, volutpat nisi. Curabitur
-                                            tortor mi, eleifend ornare lobortis non. Nulla porta purus quis iaculis
-                                            ultrices. Proin aliquam sem at nibh hendrerit sagittis. Nullam ornare odio
-                                            eu lacus tincidunt malesuada. Sed eu vestibulum elit. Curabitur tortor mi,
-                                            eleifend ornare.
-                                        </div>
-                                    </div>
-                                </div><!-- /.col-md-6 -->
-
-                                <div class="col-md-6">
-                                    <div class="wprt-toggle style-2">
-                                        <h3 class="toggle-title">Employees have many years of experience</h3>
-                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                            elit. In a metus pellentesque, scelerisque ex sed, volutpat nisi. Curabitur
-                                            tortor mi, eleifend ornare lobortis non. Nulla porta purus quis iaculis
-                                            ultrices. Proin aliquam sem at nibh hendrerit sagittis. Nullam ornare odio
-                                            eu lacus tincidunt malesuada. Sed eu vestibulum elit. Curabitur tortor mi,
-                                            eleifend ornare.
-                                        </div>
-                                    </div>
-
-                                    <div class="wprt-toggle active style-2">
-                                        <h3 class="toggle-title">Quality construction continues after the project</h3>
-                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                            elit. In a metus pellentesque, scelerisque ex sed, volutpat nisi. Curabitur
-                                            tortor mi, eleifend ornare lobortis non. Nulla porta purus quis iaculis
-                                            ultrices. Proin aliquam sem at nibh hendrerit sagittis. Nullam ornare odio
-                                            eu lacus tincidunt malesuada. Sed eu vestibulum elit. Curabitur tortor mi,
-                                            eleifend ornare.
-                                        </div>
-                                    </div>
-
-                                    <div class="wprt-toggle style-2">
-                                        <h3 class="toggle-title">They use technology to do the job more quickly</h3>
-                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                            elit. In a metus pellentesque, scelerisque ex sed, volutpat nisi. Curabitur
-                                            tortor mi, eleifend ornare lobortis non. Nulla porta purus quis iaculis
-                                            ultrices. Proin aliquam sem at nibh hendrerit sagittis. Nullam ornare odio
-                                            eu lacus tincidunt malesuada. Sed eu vestibulum elit. Curabitur tortor mi,
-                                            eleifend ornare.
-                                        </div>
-                                    </div>
-
-                                    <div class="wprt-toggle style-2">
-                                        <h3 class="toggle-title">Employees are continually trained on safety issues</h3>
-                                        <div class="toggle-content">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                            elit. In a metus pellentesque, scelerisque ex sed, volutpat nisi. Curabitur
-                                            tortor mi, eleifend ornare lobortis non. Nulla porta purus quis iaculis
-                                            ultrices. Proin aliquam sem at nibh hendrerit sagittis. Nullam ornare odio
-                                            eu lacus tincidunt malesuada. Sed eu vestibulum elit. Curabitur tortor mi,
-                                            eleifend ornare.
-                                        </div>
-                                    </div>
-                                </div><!-- /.col-md-6 -->
-
-                                <div class="col-md-12">
-                                    <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
-                                </div>
-
-                            </div><!-- /.row -->
-                        </div><!-- /.container -->
-                    </section>
-
-
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
 
                     <section class="wprt-section">
                         <div class="container">
                             <div class='row'>
                                 <div class="col-md-12">
-                                    <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
-
                                     <h2 class="text-center margin-bottom-10">TOGGLES</h2>
                                     <div class="wprt-lines style-2 custom-1">
                                         <div class="line-1"></div>

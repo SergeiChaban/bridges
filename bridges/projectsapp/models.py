@@ -35,9 +35,6 @@ class Project(models.Model):
     updated = models.DateTimeField(verbose_name='обновлен', auto_now=True)
     city = models.CharField(verbose_name='город', max_length=512, blank=True, null=True)
     address = models.CharField(verbose_name='адрес', max_length=512, blank=True, null=True)
-    techsol = models.ManyToManyField(TechnicalSolutions, through='ProjectHasTechnicalSolutions')
-    participant = models.ManyToManyField(Company, blank=True)
-    manager = models.ManyToManyField(Users, default=1, related_name='manager')
     coordinate = models.CharField(verbose_name='координаты', max_length=34, null=True, blank=True)
     map_mark = models.SlugField(verbose_name='id метки на карте', max_length=128, blank=True)
     text_for_map = models.TextField(verbose_name='текст для метки', max_length=240, null=True, blank=True)
@@ -84,9 +81,6 @@ class ProjectImage(models.Model):
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
 
-    def __str__(self):
-        return self.alt_desc
-
     class Meta:
         verbose_name = 'Фотография проекта'
         verbose_name_plural = 'Фотографии проектов'
@@ -95,17 +89,15 @@ class ProjectImage(models.Model):
 # СВЯЗАНО
 class ProjectHasTechnicalSolutions(models.Model):
     """ Модель связи технических решений применяемых на объекте с указанием их объема  """
-    name = models.CharField(verbose_name='название', max_length=256, unique=False, blank=True)
+    name = models.CharField(verbose_name='название конструкции или участка', max_length=256, blank=True, null=True)
     project = models.ForeignKey(Project, blank=True, null=True, default=None, on_delete=models.CASCADE,
                                 related_name="solutions")
-    techsol = models.ForeignKey(TechnicalSolutions, blank=True, null=True, default=None, on_delete=models.CASCADE)
-    value = models.DecimalField(verbose_name='значение', max_digits=18, decimal_places=2, null=True)
+    techsol = models.ForeignKey(TechnicalSolutions, verbose_name='Техническое решение', blank=True, null=True,
+                                default=None, on_delete=models.CASCADE)
+    value = models.DecimalField(verbose_name='ОБъем работ', max_digits=18, decimal_places=2, null=True)
     is_active = models.BooleanField(verbose_name='Показывать', default=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
-
-    def __str__(self):
-        return self.name
 
     class Meta:
         verbose_name = 'Тех решение проекта'
@@ -115,24 +107,66 @@ class ProjectHasTechnicalSolutions(models.Model):
 # СВЯЗАНО
 class ProjectCompany(models.Model):
     """ Модель связи компаний на объекте """
-    name = models.CharField(verbose_name='название', max_length=256, unique=False, blank=True)
+    DESIGNER = 'проектировщик'
+    CONTRACTOR = 'подрядчик'
+    CUSTOMER = 'заказчик'
+    INSPECTOR = 'инспектор'
+    AGENT = 'агент'
+    PARTNER = 'партнер'
+    STATUS_CHOICES = (
+        (DESIGNER, 'проектировщик'),
+        (CONTRACTOR, 'подрядчик'),
+        (CUSTOMER, 'заказчик'),
+        (INSPECTOR, 'инспектор'),
+        (AGENT, 'агент'),
+        (PARTNER, 'партнер'),
+    )
+    role = models.CharField(verbose_name='роль в проекте', max_length=24, choices=STATUS_CHOICES, blank=True)
     project = models.ForeignKey(Project, blank=True, null=True, default=None, on_delete=models.CASCADE,
                                 related_name="companies")
-    company = models.ForeignKey(Company, blank=True, null=True, default=None, on_delete=models.CASCADE)
-    value = models.DecimalField(verbose_name='значение', max_digits=18, decimal_places=2, null=True)
-    is_active = models.BooleanField(verbose_name='Показывать', default=True)
+    company = models.ForeignKey(Company, verbose_name='Компании на проекте', blank=True, null=True, default=None, on_delete=models.CASCADE)
+    is_active = models.BooleanField(verbose_name='Активный', default=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    class Meta:
+        verbose_name = 'Компания - участник проекта'
+        verbose_name_plural = 'Компания - участник проекта'
 
 
 # СВЯЗАНО
 class ProjectManagers(models.Model):
     """ Модель связи людей на объекте """
-    name = models.CharField(verbose_name='название', max_length=256, unique=False, blank=True)
+    DESIGNER = 'проектировщик'
+    CONTRACTOR = 'подрядчик'
+    CUSTOMER = 'заказчик'
+    INSPECTOR = 'инспектор'
+    AGENT = 'агент'
+    PARTNER = 'партнер'
+    MANAGER = 'владелец'
+    COMMERSANT = 'коммерсант'
+    ASSISTANT = 'ассистент'
+
+    STATUS_CHOICES = (
+        (DESIGNER, 'проектировщик'),
+        (CONTRACTOR, 'подрядчик'),
+        (CUSTOMER, 'заказчик'),
+        (INSPECTOR, 'инспектор'),
+        (AGENT, 'агент'),
+        (PARTNER, 'партнер'),
+        (MANAGER, 'владелец'),
+        (COMMERSANT, 'коммерсант'),
+        (ASSISTANT, 'ассистент'),
+    )
     project = models.ForeignKey(Project, blank=True, null=True, default=None, on_delete=models.CASCADE,
                                 related_name="managers")
-    manager = models.ForeignKey(Users, blank=True, null=True, default=None, on_delete=models.CASCADE)
-    value = models.DecimalField(verbose_name='значение', max_digits=18, decimal_places=2, null=True)
-    is_active = models.BooleanField(verbose_name='Показывать', default=True)
+    role = models.CharField(verbose_name='роль в проекте', max_length=24, choices=STATUS_CHOICES, blank=True)
+    manager = models.ForeignKey(Users, verbose_name='Участники', blank=True, null=True, default=None, on_delete=models.CASCADE)
+    description = models.TextField(verbose_name='комментарий', blank=True)
+    is_active = models.BooleanField(verbose_name='Активный', default=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    class Meta:
+        verbose_name = 'Участник проекта'
+        verbose_name_plural = 'Участники проекта'

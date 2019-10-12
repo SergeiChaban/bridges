@@ -72,15 +72,30 @@ class Users(AbstractUser):
     # у AbstractUser есть поля: username, password, last_login, first_name, last_name, email, is_superuser, is_staff,
     # is_active и date_joined. Создадим дополнительные поля:
     username = models.CharField(verbose_name='Логин*', max_length=50, unique=True)  # переопределили из-за verbose_name
+    first_name = models.CharField(verbose_name='Имя', max_length=50)
+    last_name = models.CharField(verbose_name='Фамилия', max_length=50)
     patronymic = models.CharField(verbose_name='Отчество', max_length=50, default='', null=True, blank=True)
     gender = models.CharField(verbose_name='Пол', max_length=6, choices=GENDER_CHOICES, blank=True, null=True)
     birthday = models.DateField(verbose_name='День рождения', blank=True, null=True)
     phone = models.CharField(verbose_name='Телефон*', max_length=50, default='не указан')
-    city = models.CharField(verbose_name='Город', max_length=50, default='', null=True, blank=True)
-    company = models.ManyToManyField(Company, verbose_name='Компания')
-    position = models.CharField(verbose_name='Должность', max_length=50, default='', null=True, blank=True)
-    project = models.CharField(verbose_name='Проект', max_length=50, default='', null=True, blank=True)
 
     class Meta(AbstractUser.Meta):
         verbose_name = "Пользователя"
         ordering = ['-date_joined']
+
+    def get_company(self):
+        return self.company.select_related()
+
+    def __str__(self):
+        return str(f"{self.first_name} {self.patronymic} {self.last_name}")
+
+
+class CompanyUsers(models.Model):
+    company = models.ForeignKey(Company, on_delete=models.PROTECT, verbose_name='Компания', blank=True)
+    user = models.ForeignKey(Users, on_delete=models.PROTECT, verbose_name='Сотрудник', blank=True,
+                             related_name='company')
+    position = models.CharField(verbose_name='Должность', max_length=50, blank=True)
+
+    class Meta:
+        verbose_name = 'Компания - работодатель'
+        verbose_name_plural = 'Компании - работодатели'
