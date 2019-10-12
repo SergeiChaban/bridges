@@ -11,16 +11,15 @@
         <p>Либо можете <a href="{% url 'auth:logout' %}">выйти</a>.</p>
     {% else %}
         <h4 class="margin-bottom-15">Войти на сайт</h4>
+        <br>
         {{ form.errors }}
         <form method="POST" action="{% url 'auth:login' %}">
             {% csrf_token %}
             <div class="wprt-contact-form-1">
                 <span class="wpcf7-form-control-wrap name">
-                    {{ form.username.label_tag }}
                     {{ form.username }}
                 </span>
                 <span class="wpcf7-form-control-wrap email">
-                    {{ form.password.label_tag }}
                     {{ form.password }}
                 </span>
                 <input type="submit" value="Войти">

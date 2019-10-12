@@ -2,7 +2,7 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic.detail import DetailView
-from .forms import RegisterUserForm
+from .forms import RegisterUserForm, LoginUserForm
 
 from .models import Users
 
@@ -21,6 +21,7 @@ class RegisterUserView(CreateView):
 
 
 class UserLoginView(LoginView):
+    authentication_form = LoginUserForm
     extra_context = {
         'page_title': 'Авторизация на сайте',
         'bred_title': 'Авторизация'

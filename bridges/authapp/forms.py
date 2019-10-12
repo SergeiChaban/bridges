@@ -1,5 +1,6 @@
 from django import forms
 from django.forms import ModelForm
+from django.contrib.auth.forms import AuthenticationForm
 
 from .models import Users
 
@@ -22,3 +23,13 @@ class RegisterUserForm(ModelForm):
         if commit:
             user.save()
         return user
+
+
+class LoginUserForm(AuthenticationForm):
+    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Введите логин*'}))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'и пароль*'}))
+
+    class Meta:
+        model = Users
+        AuthenticationFormFields = ('username', 'password')
+        exclude = []
