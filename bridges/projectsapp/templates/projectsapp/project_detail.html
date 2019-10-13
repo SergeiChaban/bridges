@@ -49,6 +49,9 @@
 
                                 <!-- ИНФОРМАЦИЯ О ПРОЕКТЕ ИЗ МОДЕЛИ Project-->
                                     <h3 class="line-height-normal margin-bottom-10">{{ object.name }}</h3>
+                                    {% if request.user.is_superuser %}
+                                        <a href="#">редактировать</a>
+                                    {% endif %}
                                     <div class="wprt-lines style-1 custom-3">
                                         <div class="line-1"></div>
                                         <div class="line-2"></div>
