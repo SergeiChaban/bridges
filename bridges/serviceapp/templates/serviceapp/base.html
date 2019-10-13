@@ -7,7 +7,7 @@
     <!-- Basic Page Needs -->
     <meta charset="utf-8">
     <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
-    <title>Construction - Construction Company, Building Company Template</title>
+    {% block title %} <title> {{ page_title | capfirst }} </title> {% endblock %}   
     <meta name="description"
           content="Template built for Construction Company, Building Services, Architecture, Engineering, Cleaning Service and other Construction related services">
     <meta name="keywords"
@@ -31,303 +31,37 @@
     <![endif]-->
 </head>
 
+{% if object_list %}
 <body class="front-page no-sidebar site-layout-full-width header-style-5 menu-has-search menu-has-cart">
 
-<div id="wrapper" class="animsition">
-<div id="page" class="clearfix">
+{% endif %}
+<body class="page sidebar-left header-style-1 menu-has-search menu-has-cart">
+
+
 
 <div id="site-header-wrap">
-    <!-- Top Bar -->
-    <div id="top-bar" class="style-2">
-        <div id="top-bar-inner" class="container">
-            <div class="top-bar-inner-wrap">
+ <!-- Top Bar -->
+ {% include 'mainapp/includes/inc__top_bar.html' %}
+ <!-- /#top-bar -->
 
-                <div class="top-bar-socials">
-                    <div class="inner">
-                        <span class="icons">
-                            <a href="#" title="Twitter"><span class="fa fa-twitter" aria-hidden="true"></span></a>
-                            <a href="#" title="Facebook"><span class="fa fa-facebook" aria-hidden="true"></span></a>
-                            <a href="#" title="Google Plus"><span class="fa fa-google-plus" aria-hidden="true"></span></a>
-                            <a href="#" title="Pinterest"><span class="fa fa-pinterest" aria-hidden="true"></span></a>
-                            <a href="#" title="Dribbble"><span class="fa fa-dribbble" aria-hidden="true"></span></a>
-                        </span>
-                    </div>
-                </div><!-- /.top-bar-socials -->
+ <!-- Header -->
+ {% include 'productsapp/includes/inc__header.html' %}
+ <!--    -->
+ <!-- /#site-header-wrap -->
 
-                <div class="top-bar-content">
-                    <span id="top-bar-text">
-                        <i class="fa fa-phone-square"></i>+7 495 727-0637
-                        <i class="fa fa-envelope"></i>bridges@tempstroy.ru
-                        <i class="fa fa-clock-o"></i>Пн-Пт: 10:00 - 19:00
-                    </span><!-- /#top-bar-text -->
-                </div><!-- /.top-bar-content -->
-            </div>
-        </div>
-    </div><!-- /#top-bar -->
-
-    <!-- Header -->
-    <header id="site-header" class="header-front-page style-1">
-        <div id="site-header-inner" class="container">
-            <div class="wrap-inner">
-                <div id="site-logo" class="clearfix">
-                    <div id="site-logo-inner">
-                        <a href="home-slider-full-screen.html" title="Construction" rel="home" class="main-logo">
-                            <img src="{% static 'assets/img/logo.png' %}" alt="Construction" data-retina="assets/img/logo@2x.png" data-width="204" data-height="30">
-                        </a>
-                    </div>
-                </div><!-- /#site-logo -->
-
-                <div class="mobile-button"><span></span></div><!-- //mobile menu button -->
-
-                <nav id="main-nav" class="main-nav">
-                    <ul class="menu">
-                        <li class="menu-item"><a href="{% url 'main:index' %}">Главная</a>
-<!--                            <ul class="sub-menu">-->
-<!--                                <li class="menu-item"><a href="home-slider-full-screen.html">Home 1 - Full Slider</a></li>-->
-<!--                                <li class="menu-item"><a href="home-slider-simple.html">Home 1 - Simple Slider</a></li>-->
-<!--                                <li class="menu-item"><a href="home-hero-slideshow.html">Home 1 - Slideshow 1</a></li>-->
-<!--                                <li class="menu-item"><a href="home-hero-slideshow-2.html">Home 1 - Slideshow 2</a></li>-->
-<!--                                <li class="menu-item"><a href="home-header-fixed.html">Home 1 - Header Fixed</a></li>-->
-<!--                                <li class="menu-item"><a href="home-2-slider-simple.html">Home 2 - Simple Slider</a></li>-->
-<!--                                <li class="menu-item"><a href="home-3-hero-slideshow.html">Home 3 - Slideshow</a></li>-->
-<!--                            </ul>-->
-                        </li>
-                        <li class="menu-item"><a href="{% url 'products:products' %}">Технологии</a>
-<!--                            <ul class="sub-menu">-->
-<!--                                <li class="menu-item"><a href="page-contact.html">Contact</a></li>-->
-<!--                                <li class="menu-item"><a href="page-about.html">About Us</a></li>-->
-<!--                                <li class="menu-item"><a href="page-about-2.html">About Us 2</a></li>-->
-<!--                                <li class="menu-item"><a href="page-services.html">Services</a></li>-->
-<!--                                <li class="menu-item"><a href="page-services-2.html">Services 2</a></li>-->
-<!--                                <li class="menu-item"><a href="page-service-detail.html">Service Detail</a></li>-->
-<!--                                <li class="menu-item"><a href="page-shop.html">Shop</a></li>-->
-<!--                                <li class="menu-item"><a href="page-shop-single.html">Shop Single</a></li>-->
-<!--                                <li class="menu-item"><a href="page-shop-cart.html">Shop Cart</a></li>-->
-<!--                                <li class="menu-item"><a href="blog-single.html">Blog Single</a></li>-->
-<!--                            </ul>-->
-                        </li>
-                        <li class="menu-item"><a href="{% url 'services:services' %}">Услуги</a>
-<!--                            <ul class="sub-menu">-->
-<!--                                <li class="menu-item"><a href="icons.html">Construction Icons</a></li>-->
-<!--                                <li class="menu-item"><a href="buttons.html">Buttons</a></li>-->
-<!--                                <li class="menu-item"><a href="toggles.html">Toggles</a></li>-->
-<!--                                <li class="menu-item"><a href="typography.html">Typography</a></li>-->
-<!--                                <li class="menu-item"><a href="galleries.html">Galleries</a></li>-->
-<!--                                <li class="menu-item"><a href="iconboxs.html">IconBoxs</a></li>-->
-<!--                            </ul>-->
-                        </li>
-                        <li class="menu-item"><a href="#">Проекты</a>
-<!--                            <ul class="sub-menu">-->
-<!--                                <li class="menu-item"><a href="page-portfolio-grid.html">Grid</a></li>-->
-<!--                                <li class="menu-item"><a href="page-portfolio-grid-fullwidth.html">Grid Full-Width</a></li>-->
-<!--                                <li class="menu-item"><a href="page-portfolio-slider.html">Slider</a></li>-->
-<!--                                <li class="menu-item"><a href="page-portfolio-slider-fullwidth.html">Slider Full-Width</a></li>-->
-<!--                                <li class="menu-item"><a href="page-project-detail.html">Project Detail 1</a></li>-->
-<!--                                <li class="menu-item"><a href="page-project-detail-2.html">Project Detail 2</a></li>-->
-<!--                                <li class="menu-item"><a href="page-project-detail-3.html">Project Detail 3</a></li>-->
-<!--                                <li class="menu-item"><a href="page-project-detail-4.html">Project Detail 4</a></li>-->
-<!--                            </ul>-->
-                        </li>
-                        <li class="menu-item"><a href="blog.html">Наука</a></li>
-                        <li class="menu-item"><a href="page-contact.html">Контакты</a></li>
-                    </ul>
-                </nav><!-- /#main-nav -->
-
-                <div id="header-search">
-                    <a class="header-search-icon" href="#"><span class="fa fa-search"></span></a>
-
-                    <form role="search" method="get" class="header-search-form" action="#">
-                        <input type="text" value="" name="s" class="header-search-field" placeholder="Type and hit enter...">
-                        <button type="submit" class="header-search-submit" title="Search">Search</button>
-                        <input type="hidden" name="post_type" value="post">
-                    </form>
-                </div><!-- /#header-search -->
-
-                <div class="nav-top-cart-wrapper">
-                    <a class="nav-cart-trigger" href="#">
-                        <span class="fa fa-shopping-cart cart-icon">
-                            <span class="shopping-cart-items-count">3</span>
-                        </span>
-                    </a>
-
-                    <div class="nav-shop-cart">
-                        <div class="widget_shopping_cart_content">
-                            <ul class="cart_list product_list_widget ">
-                                <li class="mini_cart_item">
-                                    <a href="#" class="remove" title="Remove this item">×</a>
-                                    <a href="#">
-                                        <img width="160" height="160" src="assets/img/shop-item.png" alt="image">
-                                        Shop Item 01
-                                    </a>
-
-                                    <span class="quantity">1 × <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>200.00</span>
-                                    </span>
-                                </li>
-                                <li class="mini_cart_item">
-                                    <a href="#" class="remove" title="Remove this item">×</a>
-                                    <a href="#">
-                                        <img width="160" height="160" src="assets/img/shop-item.png" alt="image">
-                                        Shop Item 02
-                                    </a>
-
-                                    <span class="quantity">1 × <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>70.00</span>
-                                    </span>
-                                </li>
-                                <li class="mini_cart_item">
-                                    <a href="#" class="remove" title="Remove this item">×</a>
-                                    <a href="#">
-                                        <img width="160" height="160" src="assets/img/shop-item.png" alt="image">
-                                        Shop Item 03
-                                    </a>
-
-                                    <span class="quantity">1 × <span class="woocommerce-Price-amount amount">
-                                        <span class="woocommerce-Price-currencySymbol">$</span>30.00</span>
-                                    </span>
-                                </li>
-                            </ul><!-- /.product_list_widget -->
-
-                            <p class="total">
-                                <strong>Subtotal:</strong>
-                                <span class="woocommerce-Price-amount amount">
-                                    <span class="woocommerce-Price-currencySymbol">$</span>300.00
-                                </span>
-                            </p>
-
-                            <p class="buttons">
-                                <a href="#" class="wprt-button small">View Cart</a>
-                                <a href="#" class="wprt-button small checkout">Checkout</a>
-                            </p>
-                        </div>
-                    </div>
-                </div><!-- /.nav-top-cart-wrapper -->
-            </div>
-        </div><!-- /#site-header-inner -->
-    </header><!-- /#site-header -->
-</div><!-- /#site-header-wrap -->
-
-<!-- Featured Title -->
-<div id="featured-title" class="clearfix featured-title-left">
-    <div id="featured-title-inner" class="container clearfix">
-        <div class="featured-title-inner-wrap">
-            <div class="featured-title-heading-wrap">
-<!--                <h1 class="featured-title-heading">Our Services</h1>-->
-            </div>
-<!--            <div id="breadcrumbs">-->
-<!--                <div class="breadcrumbs-inner">-->
-<!--                    <div class="breadcrumb-trail">-->
-<!--                        <a href="#" title="Construction" rel="home" class="trail-begin">Home</a>-->
-<!--                        <span class="sep">/</span>-->
-<!--                        <span class="trail-end">Our Services</span>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-        </div>
-    </div>
-</div>
+ <!-- Featured Title -->
+ {% include 'serviceapp/includes/inc__featured_title.html' %}
 
 {% block content-container %}
 {% endblock %}
 
-        <!-- Footer -->
-        <footer id="footer">
-            <div id="footer-widgets" class="container style-1">
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="widget widget_text">
-                            <h2 class="widget-title"><span>О КОМПАНИИ</span></h2>
-                            <div class="textwidget">
-                                <img src="{% static 'assets/img/logo-light@2x.png' %}" width="200" height="30"
-                                     alt="image" class="margin-top-5 margin-bottom-25"/>
-                                <p>Building isn’t just a job. At the Construction Company, it is our passion. With every
-                                    project we undertake, we set the bar high and provide the best people in the
-                                    industry, with a true love of what we do to make our Customers’ vision a
-                                    reality.</p>
+<!-- Footer -->
+{% include 'mainapp/includes/inc__footer.html' %}
 
-                            </div>
-                        </div>
-                    </div>
+<!-- Bottom -->
+{% include 'mainapp/includes/inc__bottom.html' %}
 
-                    <div class="col-md-4">
-                        <div class="widget widget_links">
-                            <h2 class="widget-title"><span>НАШИ ЦЕННОСТИ</span></h2>
-                            <ul class="wprt-links clearfix col2">
-                                <li class="style-2"><a href="#">История</a></li>
-                                <li class="style-2"><a href="#">Услуги</a></li>
-                                <li class="style-2"><a href="#">Команда и победы</a></li>
-                                <li class="style-2"><a href="#">Развитие регионов</a></li>
-                                <li class="style-2"><a href="#">Сообщество</a></li>
-                                <li class="style-2"><a href="#">Благотворительность</a></li>
-                                <li class="style-2"><a href="#">Новости и события</a></li>
-                                <li class="style-2"><a href="#">Перспективы</a></li>
-                                <li class="style-2"><a href="#">Вопрос - ответ</a></li>
-                                <li class="style-2"><a href="#">Проекты</a></li>
-                                <li class="style-2"><a href="#">Контакты</a></li>
-                                <li class="style-2"><a href="#">Заказы</a></li>
-                            </ul>
-                        </div>
-                    </div>
 
-                    <div class="col-md-4">
-                        <div class="widget widget_information">
-                            <h2 class="widget-title"><span>КОНТАКТЫ</span></h2>
-                            <ul class="style-2">
-                                <li class="address clearfix">
-                                    <span class="hl">Адрес:</span>
-                                    <span class="text">119234 Москва, Университетский проспект, 5</span>
-                                </li>
-                                <li class="phone clearfix">
-                                    <span class="hl">Телефон:</span>
-                                    <span class="text">+7 495 727-06-37</span>
-                                </li>
-                                <li class="email clearfix">
-                                    <span class="hl">E-mail:</span>
-                                    <span class="text">bridges@tempstroy.ru</span>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="widget widget_spacer">
-                            <div class="wprt-spacer clearfix" data-desktop="10" data-mobi="10" data-smobi="10"></div>
-                        </div>
-
-                        <div class="widget widget_socials">
-                            <div class="socials">
-                                <a target="_blank" href="#"><i class="fa fa-twitter"></i></a>
-                                <a target="_blank" href="#"><i class="fa fa-facebook"></i></a>
-                                <a target="_blank" href="#"><i class="fa fa-google-plus"></i></a>
-                                <a target="_blank" href="#"><i class="fa fa-pinterest"></i></a>
-                                <a target="_blank" href="#"><i class="fa fa-dribbble"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-
-        <!-- Bottom -->
-        <div id="bottom" class="clearfix style-1">
-            <div id="bottom-bar-inner" class="wprt-container">
-                <div class="bottom-bar-inner-wrap">
-
-                    <div class="bottom-bar-content">
-                        <div id="copyright">CONSTRUCTION TEMPLATE &copy; DESIGN BY BLOGWP.
-                        </div><!-- /#copyright -->
-                    </div><!-- /.bottom-bar-content -->
-
-                    <div class="bottom-bar-menu">
-                        <ul class="bottom-nav">
-                            <li><a href="#/">HISTORY</a></li>
-                            <li><a href="#/">FAQ</a></li>
-                            <li><a href="#/">EVENTS</a></li>
-                        </ul>
-                    </div><!-- /.bottom-bar-menu -->
-                </div>
-            </div>
-        </div>
-    </div><!-- /#page -->
-</div><!-- /#wrapper -->
 
 <a id="scroll-top"></a>
 

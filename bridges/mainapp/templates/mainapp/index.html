@@ -196,6 +196,8 @@
                                          data-column4="1" data-gaph="30" data-gapv="30">
                                         <div id="projects" class="cbp">
                                             <div class="cbp-item">
+                                                
+                                                {% for project in projects  %}
                                                 <div class="project-item">
                                                     <div class="inner">
                                                         <div class="grid">
@@ -220,182 +222,183 @@
                                                         </a>
                                                     </div>
                                                 </div>
+                                                {% endfor %}
                                             </div><!--/.cbp-item -->
 
-                                            <div class="cbp-item">
-                                                <div class="project-item">
-                                                    <div class="inner">
-                                                        <figure class="effect-honey">
-                                                            <img src="{% static 'assets/img/projects/2.jpg' %}"
-                                                                 alt="image"/>
-                                                            <figcaption>
-                                                                <div>
-                                                                    <h2><a target="_blank"
-                                                                           href="page-project-detail-2.html">LUXURY
-                                                                        BUILDINGS</a></h2>
-                                                                    <p>Construction</p>
-                                                                </div>
-                                                            </figcaption>
-                                                        </figure>
-
-                                                        <a class="project-zoom cbp-lightbox"
-                                                           href="{% static 'assets/img/projects/2-full.jpg' %}"
-                                                           data-title="LUXURY BUILDINGS">
-                                                            <i class="fa fa-arrows-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div><!--/.cbp-item -->
-
-                                            <div class="cbp-item">
-                                                <div class="project-item">
-                                                    <div class="inner">
-                                                        <figure class="effect-oscar">
-                                                            <img src="{% static 'assets/img/projects/3.jpg' %}"
-                                                                 alt="image"/>
-                                                            <figcaption>
-                                                                <div>
-                                                                    <h2><a target="_blank"
-                                                                           href="page-project-detail-3.html">LUXURY
-                                                                        BUILDINGS</a></h2>
-                                                                    <p>Construction</p>
-                                                                </div>
-                                                            </figcaption>
-                                                        </figure>
-
-                                                        <a class="project-zoom cbp-lightbox"
-                                                           href="{% static 'assets/img/projects/3-full.jpg' %}"
-                                                           data-title="LUXURY BUILDINGS">
-                                                            <i class="fa fa-arrows-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div><!--/.cbp-item -->
-
-                                            <div class="cbp-item">
-                                                <div class="project-item">
-                                                    <div class="inner">
-                                                        <figure class="effect-zoe">
-                                                            <img src="{% static 'assets/img/projects/4.jpg' %}"
-                                                                 alt="image"/>
-                                                            <figcaption>
-                                                                <div>
-                                                                    <h2><a target="_blank"
-                                                                           href="page-project-detail-4.html">LUXURY
-                                                                        BUILDINGS</a></h2>
-                                                                    <p>Construction</p>
-                                                                </div>
-                                                            </figcaption>
-                                                        </figure>
-
-                                                        <a class="project-zoom cbp-lightbox"
-                                                           href="{% static 'assets/img/projects/4-full.jpg' %}"
-                                                           data-title="LUXURY BUILDINGS">
-                                                            <i class="fa fa-arrows-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div><!--/.cbp-item -->
-
-                                            <div class="cbp-item">
-                                                <div class="project-item">
-                                                    <div class="inner">
-                                                        <figure class="effect-oscar">
-                                                            <img src="{% static 'assets/img/projects/5.jpg' %}"
-                                                                 alt="image"/>
-                                                            <figcaption>
-                                                                <div>
-                                                                    <h2><a target="_blank"
-                                                                           href="page-project-detail.html">LUXURY
-                                                                        BUILDINGS</a></h2>
-                                                                    <p>Construction</p>
-                                                                </div>
-                                                            </figcaption>
-                                                        </figure>
-
-                                                        <a class="project-zoom cbp-lightbox"
-                                                           href="{% static 'assets/img/projects/5-full.jpg' %}"
-                                                           data-title="LUXURY BUILDINGS">
-                                                            <i class="fa fa-arrows-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div><!--/.cbp-item -->
-
-                                            <div class="cbp-item">
-                                                <div class="project-item">
-                                                    <div class="inner">
-                                                        <figure class="effect-sadie">
-                                                            <img src="{% static 'assets/img/projects/6.jpg' %}"
-                                                                 alt="image"/>
-                                                            <figcaption>
-                                                                <div>
-                                                                    <h2><a target="_blank"
-                                                                           href="page-project-detail-2.html">LUXURY
-                                                                        BUILDINGS</a></h2>
-                                                                    <p>Construction</p>
-                                                                </div>
-                                                            </figcaption>
-                                                        </figure>
-
-                                                        <a class="project-zoom cbp-lightbox"
-                                                           href="{% static 'assets/img/projects/6-full.jpg' %}"
-                                                           data-title="LUXURY BUILDINGS">
-                                                            <i class="fa fa-arrows-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div><!--/.cbp-item -->
-
-                                            <div class="cbp-item">
-                                                <div class="project-item">
-                                                    <div class="inner">
-                                                        <figure class="effect-honey">
-                                                            <img src="{% static 'assets/img/projects/7.jpg' %}"
-                                                                 alt="image"/>
-                                                            <figcaption>
-                                                                <div>
-                                                                    <h2><a target="_blank"
-                                                                           href="page-project-detail-2.html">LUXURY
-                                                                        BUILDINGS</a></h2>
-                                                                    <p>Construction</p>
-                                                                </div>
-                                                            </figcaption>
-                                                        </figure>
-
-                                                        <a class="project-zoom cbp-lightbox"
-                                                           href="{% static 'assets/img/projects/7-full.jpg' %}"
-                                                           data-title="LUXURY BUILDINGS">
-                                                            <i class="fa fa-arrows-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div><!--/.cbp-item -->
-
-                                            <div class="cbp-item">
-                                                <div class="project-item">
-                                                    <div class="inner">
-                                                        <figure class="effect-oscar">
-                                                            <img src="{% static 'assets/img/projects/8.jpg' %}"
-                                                                 alt="image"/>
-                                                            <figcaption>
-                                                                <div>
-                                                                    <h2><a target="_blank"
-                                                                           href="page-project-detail-2.html">LUXURY
-                                                                        BUILDINGS</a></h2>
-                                                                    <p>Construction</p>
-                                                                </div>
-                                                            </figcaption>
-                                                        </figure>
-
-                                                        <a class="project-zoom cbp-lightbox"
-                                                           href="{% static 'assets/img/projects/8-full.jpg' %}"
-                                                           data-title="LUXURY BUILDINGS">
-                                                            <i class="fa fa-arrows-alt"></i>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </div><!--/.cbp-item -->
+                                           <!--  <div class="cbp-item">
+                                               <div class="project-item">
+                                                   <div class="inner">
+                                                       <figure class="effect-honey">
+                                                           <img src="{% static 'assets/img/projects/2.jpg' %}"
+                                                                alt="image"/>
+                                                           <figcaption>
+                                                               <div>
+                                                                   <h2><a target="_blank"
+                                                                          href="page-project-detail-2.html">LUXURY
+                                                                       BUILDINGS</a></h2>
+                                                                   <p>Construction</p>
+                                                               </div>
+                                                           </figcaption>
+                                                       </figure>
+                                           
+                                                       <a class="project-zoom cbp-lightbox"
+                                                          href="{% static 'assets/img/projects/2-full.jpg' %}"
+                                                          data-title="LUXURY BUILDINGS">
+                                                           <i class="fa fa-arrows-alt"></i>
+                                                       </a>
+                                                   </div>
+                                               </div>
+                                           </div>/.cbp-item
+                                           
+                                           <div class="cbp-item">
+                                               <div class="project-item">
+                                                   <div class="inner">
+                                                       <figure class="effect-oscar">
+                                                           <img src="{% static 'assets/img/projects/3.jpg' %}"
+                                                                alt="image"/>
+                                                           <figcaption>
+                                                               <div>
+                                                                   <h2><a target="_blank"
+                                                                          href="page-project-detail-3.html">LUXURY
+                                                                       BUILDINGS</a></h2>
+                                                                   <p>Construction</p>
+                                                               </div>
+                                                           </figcaption>
+                                                       </figure>
+                                           
+                                                       <a class="project-zoom cbp-lightbox"
+                                                          href="{% static 'assets/img/projects/3-full.jpg' %}"
+                                                          data-title="LUXURY BUILDINGS">
+                                                           <i class="fa fa-arrows-alt"></i>
+                                                       </a>
+                                                   </div>
+                                               </div>
+                                           </div>/.cbp-item
+                                           
+                                           <div class="cbp-item">
+                                               <div class="project-item">
+                                                   <div class="inner">
+                                                       <figure class="effect-zoe">
+                                                           <img src="{% static 'assets/img/projects/4.jpg' %}"
+                                                                alt="image"/>
+                                                           <figcaption>
+                                                               <div>
+                                                                   <h2><a target="_blank"
+                                                                          href="page-project-detail-4.html">LUXURY
+                                                                       BUILDINGS</a></h2>
+                                                                   <p>Construction</p>
+                                                               </div>
+                                                           </figcaption>
+                                                       </figure>
+                                           
+                                                       <a class="project-zoom cbp-lightbox"
+                                                          href="{% static 'assets/img/projects/4-full.jpg' %}"
+                                                          data-title="LUXURY BUILDINGS">
+                                                           <i class="fa fa-arrows-alt"></i>
+                                                       </a>
+                                                   </div>
+                                               </div>
+                                           </div>/.cbp-item
+                                           
+                                           <div class="cbp-item">
+                                               <div class="project-item">
+                                                   <div class="inner">
+                                                       <figure class="effect-oscar">
+                                                           <img src="{% static 'assets/img/projects/5.jpg' %}"
+                                                                alt="image"/>
+                                                           <figcaption>
+                                                               <div>
+                                                                   <h2><a target="_blank"
+                                                                          href="page-project-detail.html">LUXURY
+                                                                       BUILDINGS</a></h2>
+                                                                   <p>Construction</p>
+                                                               </div>
+                                                           </figcaption>
+                                                       </figure>
+                                           
+                                                       <a class="project-zoom cbp-lightbox"
+                                                          href="{% static 'assets/img/projects/5-full.jpg' %}"
+                                                          data-title="LUXURY BUILDINGS">
+                                                           <i class="fa fa-arrows-alt"></i>
+                                                       </a>
+                                                   </div>
+                                               </div>
+                                           </div>/.cbp-item
+                                           
+                                           <div class="cbp-item">
+                                               <div class="project-item">
+                                                   <div class="inner">
+                                                       <figure class="effect-sadie">
+                                                           <img src="{% static 'assets/img/projects/6.jpg' %}"
+                                                                alt="image"/>
+                                                           <figcaption>
+                                                               <div>
+                                                                   <h2><a target="_blank"
+                                                                          href="page-project-detail-2.html">LUXURY
+                                                                       BUILDINGS</a></h2>
+                                                                   <p>Construction</p>
+                                                               </div>
+                                                           </figcaption>
+                                                       </figure>
+                                           
+                                                       <a class="project-zoom cbp-lightbox"
+                                                          href="{% static 'assets/img/projects/6-full.jpg' %}"
+                                                          data-title="LUXURY BUILDINGS">
+                                                           <i class="fa fa-arrows-alt"></i>
+                                                       </a>
+                                                   </div>
+                                               </div>
+                                           </div>/.cbp-item
+                                           
+                                           <div class="cbp-item">
+                                               <div class="project-item">
+                                                   <div class="inner">
+                                                       <figure class="effect-honey">
+                                                           <img src="{% static 'assets/img/projects/7.jpg' %}"
+                                                                alt="image"/>
+                                                           <figcaption>
+                                                               <div>
+                                                                   <h2><a target="_blank"
+                                                                          href="page-project-detail-2.html">LUXURY
+                                                                       BUILDINGS</a></h2>
+                                                                   <p>Construction</p>
+                                                               </div>
+                                                           </figcaption>
+                                                       </figure>
+                                           
+                                                       <a class="project-zoom cbp-lightbox"
+                                                          href="{% static 'assets/img/projects/7-full.jpg' %}"
+                                                          data-title="LUXURY BUILDINGS">
+                                                           <i class="fa fa-arrows-alt"></i>
+                                                       </a>
+                                                   </div>
+                                               </div>
+                                           </div>/.cbp-item
+                                           
+                                           <div class="cbp-item">
+                                               <div class="project-item">
+                                                   <div class="inner">
+                                                       <figure class="effect-oscar">
+                                                           <img src="{% static 'assets/img/projects/8.jpg' %}"
+                                                                alt="image"/>
+                                                           <figcaption>
+                                                               <div>
+                                                                   <h2><a target="_blank"
+                                                                          href="page-project-detail-2.html">LUXURY
+                                                                       BUILDINGS</a></h2>
+                                                                   <p>Construction</p>
+                                                               </div>
+                                                           </figcaption>
+                                                       </figure>
+                                           
+                                                       <a class="project-zoom cbp-lightbox"
+                                                          href="{% static 'assets/img/projects/8-full.jpg' %}"
+                                                          data-title="LUXURY BUILDINGS">
+                                                           <i class="fa fa-arrows-alt"></i>
+                                                       </a>
+                                                   </div>
+                                               </div>
+                                           </div>/.cbp-item -->
                                         </div><!-- /#projects -->
                                     </div><!--/.wprt-project -->
                                 </div><!-- /.col-md-12 -->
