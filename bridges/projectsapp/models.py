@@ -94,7 +94,7 @@ class ProjectHasTechnicalSolutions(models.Model):
                                 related_name="solutions")
     techsol = models.ForeignKey(TechnicalSolutions, verbose_name='Техническое решение', blank=True, null=True,
                                 default=None, on_delete=models.CASCADE)
-    value = models.DecimalField(verbose_name='ОБъем работ', max_digits=18, decimal_places=2, null=True)
+    value = models.DecimalField(verbose_name='Объем работ', max_digits=18, decimal_places=2, null=True)
     is_active = models.BooleanField(verbose_name='Показывать', default=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)

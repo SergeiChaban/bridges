@@ -104,7 +104,6 @@
                                             </ul>
                                         </div>
                                     </div>
-                                    {% endif %}
                                     <div class="wprt-toggle style-1">
                                         <h3 class="toggle-title">Технические решения</h3>
                                         <div class="toggle-content" style="color: black;">
@@ -113,8 +112,10 @@
                                                 <li>{{ item.techsol.name }}: {{ item.value }} {{ item.techsol.measure }}</li>
                                                 {% endfor %}
                                             </ul>
+                                            <a class="btn btn-primary btn-round" href="{% url 'projects:product_create' %}">добавить</a>
                                         </div>
                                     </div>
+                                    {% endif %}
 <!--                                END OF TOGGLES-->
 
 

@@ -1,4 +1,7 @@
+from django.db import transaction
+from django.forms import inlineformset_factory
 from django.shortcuts import render, get_object_or_404
+from django.urls import reverse_lazy
 
 from django.views.generic import ListView, CreateView, DeleteView, DetailView
 
@@ -6,6 +9,7 @@ from django.http import HttpResponseRedirect
 from django.db.models import Q
 
 from productsapp.models import TechnicalSolutions
+from projectsapp.forms import ProjectSolutionsForm
 from projectsapp.models import Project, ProjectImage, ProjectHasTechnicalSolutions
 
 
@@ -23,6 +27,7 @@ class ProjectsList(ListView):
                         'bred_title': 'Проекты компании'
                         })
         return context
+
 
 
 

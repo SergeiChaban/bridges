@@ -15,7 +15,6 @@ Including another URLconf
 """
 from django.urls import path
 
-from projectsapp import views as projectsapp
 
 
 app_name = 'projectsapp'
@@ -23,4 +22,3 @@ app_name = 'projectsapp'
 urlpatterns = [
     path('', ProjectsList.as_view(), name='projects'),
 
-]
