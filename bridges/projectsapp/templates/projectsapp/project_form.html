@@ -2,11 +2,12 @@
 {% load static %}
 {% block content-container %}
     {% load static %}
-    <div style="height: 700px; border: 1px solid black">
+    <div style="height: 5000px; border: 1px solid black">
         <form action="" method="post">
             {% csrf_token %}
-            {{ form.as_table }}
-            <table class="table">
+        {{ order_form }}
+{#            {{ form.as_table }}#}
+{#            <table class="table">#}
 {#                {{ formset.management_form }}#}
 {#                {% for form in projectsolutions.form %}#}
 {#                    {% if forloop.first %}#}

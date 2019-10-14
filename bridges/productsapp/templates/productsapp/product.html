@@ -150,20 +150,20 @@
                                 <div class="col-md-12">
                                     <div class="wprt-project has-bullets has-arrows bullet-style-2 arrow-position-2" data-layout="slider" data-column="4" data-column2="3" data-column3="2" data-column4="1" data-gaph="15" data-gapv="15">
                                         <div id="projects" class="cbp">
-                                            {% for project in projects %}
+                                            {% for item in projects %}
                                             <div class="cbp-item">
                                                 <div class="project-item">
                                                     <div class="inner">
                                                         <div class="grid">
                                                             <figure class="effect-honey"
                                                                     style="height: 250px;">
-                                                                <a href="{% url 'projects:project' project.pk %}">
-                                                                    <img src="{{ project.image.url }}" alt="">
+                                                                <a href="{% url 'projects:project' item.project.pk %}">
+                                                                    <img src="{{ item.project.image.url }}" alt="">
                                                                 </a>
                                                                 <figcaption>
                                                                     <div>
                                                                         <h2>
-                                                                            <a href="{% url 'projects:project' project.pk %}">{{ project.name }}</a>
+                                                                            <a href="{% url 'projects:project' item.project.pk %}">{{ item.project.name }}</a>
                                                                         </h2>
                                                                     </div>
                                                                 </figcaption>
