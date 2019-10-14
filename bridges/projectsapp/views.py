@@ -1,5 +1,6 @@
 from django.db import transaction
 from django.forms import inlineformset_factory
+from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
 
@@ -27,6 +28,7 @@ class ProjectsList(ListView):
                         'bred_title': 'Проекты компании'
                         })
         return context
+
 
 
 

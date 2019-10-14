@@ -3,7 +3,7 @@
 {% block content-container %}
     {% load static %}
     <div style="height: 5000px; border: 1px solid black">
-        <form action="" method="post">
+        <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
         {{ order_form }}
 {#            {{ form.as_table }}#}
@@ -35,7 +35,7 @@
 {#                        {% endfor %}#}
 {#                    </tr>#}
 {#                {% endfor %}#}
-            </table>
+{#            </table>#}
         <button type="submit" value="сохранить" class="btn btn-primary">сохранить</button>
         </form>
     </div>

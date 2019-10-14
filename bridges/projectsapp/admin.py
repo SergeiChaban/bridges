@@ -36,3 +36,9 @@ class ProjectAdmin(admin.ModelAdmin):
         ProjectHasTechnicalSolutionsInline,
         ProjectImageInline
     ]
+
+
+@admin.register(ProjectHasTechnicalSolutions)
+class ProjectAdmin(admin.ModelAdmin):
+    list_display = ('name',)
+    list_display_links = ('name',)

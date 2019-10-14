@@ -90,11 +90,9 @@ class ProjectImage(models.Model):
 class ProjectHasTechnicalSolutions(models.Model):
     """ Модель связи технических решений применяемых на объекте с указанием их объема  """
     name = models.CharField(verbose_name='название конструкции или участка', max_length=256, blank=True, null=True)
-    project = models.ForeignKey(Project, blank=True, null=True, default=None, on_delete=models.CASCADE,
-                                related_name="solutions")
-    techsol = models.ForeignKey(TechnicalSolutions, verbose_name='Техническое решение', blank=True, null=True,
-                                default=None, on_delete=models.CASCADE)
-    value = models.DecimalField(verbose_name='Объем работ', max_digits=18, decimal_places=2, null=True)
+    project = models.ForeignKey(Project, verbose_name='Строительный проект', related_name="solutions", on_delete=models.CASCADE)
+    techsol = models.ForeignKey(TechnicalSolutions, verbose_name='Техническое решение', on_delete=models.CASCADE)
+    value = models.DecimalField(verbose_name='Объем работ', max_digits=18, decimal_places=2)
     is_active = models.BooleanField(verbose_name='Показывать', default=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
