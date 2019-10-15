@@ -2,7 +2,7 @@ from django import forms
 from django.core.exceptions import ValidationError
 from authapp.models import Users
 from productsapp.models import TechnicalSolutions
-from projectsapp.models import Project, ProjectHasTechnicalSolutions, ProjectManagers, ProjectCompany
+from .models import *
 
 
 class ProjectForm(forms.ModelForm):
@@ -32,3 +32,9 @@ class ProjectCompanyForm(forms.ModelForm):
     class Meta:
         model = ProjectCompany
         fields = ['company', 'role', 'project']
+
+
+class ProjectImageForm(forms.ModelForm):
+    class Meta:
+        model = ProjectImage
+        fields = ['image']

@@ -1,15 +1,26 @@
 {% extends 'productsapp/base.html' %}
 {% load static %}
 {% block content-container %}
-    {% load static %}
+    <div style="height: 50px;"></div>
     <div class="container">
-    <form action="" method="post">
-        {% csrf_token %}
-        {{ project_form.as_p }}
-        {{ formset.as_p }}
-        <button type="submit" value="сохранить" class="btn btn-primary">сохранить</button>
-    </form>
-</div>
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ project_form.as_p }}
+            {{ formset.as_p }}
+            <button type="submit" value="сохранить" class="btn btn-success">сохранить</button>
+        </form>
+        <form action="{{ project.get_absolute_url }}">
+            <button type="submit" class="btn btn-info bnt_save">
+                вернуться назад
+            </button>
+        </form>
+    </div>
+    {% block js %}
+        {{ block.super }}
+        <script src="{% static 'assets/js/orders_scripts.js' %}"></script>
+        <script src="{% static 'assets/js/jquery.formset.js' %}"></script>
+    {% endblock %}
+
 
     {#    <div style="height: 5000px; border: 1px solid black">#}
     {#        <form action="{% url 'projects:company_update' %}" method="post" enctype="multipart/form-data">#}

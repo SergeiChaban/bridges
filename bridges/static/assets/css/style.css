@@ -1328,3 +1328,6 @@ only screen and (                min-resolution: 2dppx){
 .active {
     color: #ffbc13;
 }
+.bnt_save {
+    margin-top: 20px;
+}

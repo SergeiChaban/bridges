@@ -58,8 +58,10 @@ def company_update(request, pk):
                     formset.save()
                     return HttpResponseRedirect(created_project.get_absolute_url())
     context ={
-        "project_form": project_form,
-        "formset": formset,
+        'project_form': project_form,
+        'formset': formset,
         'page_title': 'Добавление контрагентов',
+        'bred_title': 'Добавление контрагентов',
+        'project': project
     }
     return render(request, "projectsapp/company_update.html", context)
