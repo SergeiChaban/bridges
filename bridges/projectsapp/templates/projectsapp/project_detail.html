@@ -134,21 +134,21 @@
                                 </div>
 
                                 <div class="col-md-12">
-                                    <div class="wprt-toggle style-1">
+                                    <div class="wprt-toggle active style-1">
                                         <h3 class="toggle-title">Технические решения</h3>
                                         <div class="toggle-content" style="color: black;">
                                                 <table>
                                                     <tr>
-                                                        <td style="text-align: center; font-weight: bold">Техническое решение</td>
-                                                        <td style="text-align: center; font-weight: bold">Объем</td>
-                                                        <td style="text-align: center; font-weight: bold">Ед. изм.</td>
-                                                        <td style="text-align: center; font-weight: bold">Название конструкции</td>
+                                                        <td style="text-align: center; font-weight: bold; width: 40%">Техническое решение</td>
+                                                        <td style="text-align: center; font-weight: bold;">Объем</td>
+                                                        <td style="text-align: center; font-weight: bold;">Ед. изм.</td>
+                                                        <td style="text-align: center; font-weight: bold; width: 40%">Название конструкции</td>
                                                     </tr>
                                                     {% for item in object.get_products %}
                                                     <tr>
                                                         <td>{{ item.techsol.name }}</td>
-                                                        <td>{{ item.value }}</td>
-                                                        <td>{{ item.techsol.measure }}</td>
+                                                        <td style="text-align: right;">{{ item.value }}</td>
+                                                        <td style="text-align: center;">{{ item.techsol.measure }}</td>
                                                         <td>{{ item.name }}</td>
                                                     </tr>
                                                     {% endfor %}
