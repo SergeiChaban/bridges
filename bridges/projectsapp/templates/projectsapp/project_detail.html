@@ -57,35 +57,40 @@
                                             <div class="line-1"></div>
                                         </div>
                                     <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
-                                    <i>{{ object.city }}. {{ object.description }}</i>
+                                    <i>{{ object.city }}. {{ object.description }}<br></i>
 
-                                    <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
-                                        <div class="wprt-lines style-1 custom-4">
-                                            <div class="line-1"></div>
-                                        </div>
-                                    <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
+
                                     {% if request.user.is_authenticated %}
-                                            {% if object.address or object.coordinate %}
-                                                {% if object.address %}
-                                                    <i>Адрес объекта: {{ object.address }}<br>
-                                                {% endif %}
-                                                {% if object.coordinate %}
-                                                    Координаты объекта: {{ object.coordinate }}</i>
-                                                {% endif %}
-                                            {% else %}
-                                                Местоположение объекта владельцем не указано
-                                            {% endif %}
-                                        <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
+{#  ПОЛУЧЕНИЕ АДРЕСА И/ИЛИ КООРДИНАТ#}
+                                        {% if object.address or object.coordinate %}
+                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
                                                 <div class="wprt-lines style-1 custom-4">
                                                     <div class="line-1"></div>
                                                 </div>
-                                        <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
+                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
+                                                {% if object.address %}
+                                                <i>Адрес объекта: {{ object.address }}</i><br>
+                                                {% endif %}
+                                                {% if object.coordinate %}
+                                                    <i>Координаты объекта: {{ object.coordinate }}</i>
+                                                {% endif %}
+                                                {% else %}
+                                            <p style="color: red"><i>Точное местоположение объекта не указано</i></p>
+                                        {% endif %}
+{#  ПОЛУЧЕНИЕ КОНТРАГЕНТОВ ПРОЕКТА#}
                                             {% if object.get_companies %}
+                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
+                                                    <div class="wprt-lines style-1 custom-4">
+                                                        <div class="line-1"></div>
+                                                    </div>
+                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
                                                 <i>Контрагенты проекта:</i>
                                                 {% for item in object.get_companies %}
                                                     <li><i>{{ item.company.category }}: {{ item.company.form }} {{ item.company.name }}</i></li>
                                                 {% endfor %}
                                             {% endif %}
+{#  ПОЛУЧЕНИЕ УЧАСТНИКОВ ПРОЕКТА#}
+                                        {% if object.get_managers %}
                                         <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
                                                 <div class="wprt-lines style-1 custom-4">
                                                     <div class="line-1"></div>
@@ -101,6 +106,7 @@
                                                     </li>
                                                 {% endfor %}
                                                     <li><a href="{% url 'projects:manager_update' %}"><i>... добавить</i></a></li>
+                                        {% endif %}
                                         <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
                                             <div class="wprt-lines style-1 custom-4">
                                                 <div class="line-1"></div>
@@ -120,7 +126,7 @@
                         <div class="container">
                             <div class='row'>
                                 <div class="col-md-12">
-                                    <h2 class="text-center margin-bottom-10">Подробная информация</h2>
+                                    <h2 class="text-center margin-bottom-10">Работа над проектом</h2>
                                     <div class="wprt-lines style-2 custom-1">
                                         <div class="line-1"></div>
                                     </div>
@@ -129,35 +135,24 @@
 
                                 <div class="col-md-12">
                                     <div class="wprt-toggle style-1">
-                                        <h3 class="toggle-title">Участники проекта</h3>
-                                        <div class="toggle-content" style="color: black;">
-                                            <ul class="wprt-list style-2 accent-color margin-top-3 margin-bottom-3">
-                                                {% for item in object.get_managers %}
-                                                    <li>{{ item.role | title }}:
-                                                        {{ item.manager.first_name }} {{ item.manager.last_name }}
-                                                        ({% for i in item.manager.get_company %}
-                                                            {{ i.company.form }} {{ i.company.name }}
-                                                        {% endfor %})
-                                                    </li>
-                                                {% endfor %}
-                                            </ul>
-                                            <a class="btn btn-primary btn-round" href="{% url 'projects:manager_update' %}">добавить</a>
-                                        </div>
-                                    </div>
-
-                                    <div class="wprt-toggle style-1">
                                         <h3 class="toggle-title">Технические решения</h3>
                                         <div class="toggle-content" style="color: black;">
-                                            <ul class="wprt-list style-2 accent-color margin-top-3 margin-bottom-3">
-                                                {% for item in object.get_products %}
-                                                <li>{% if item.name %}
-                                                    <strong>Конструкции сооружения: </strong>{{ item.name }}<br>
-                                                    {% endif %}
-                                                    <strong>Техническое решение: </strong>{{ item.techsol.name }}<br>
-                                                    <strong>Объем работ: </strong>{{ item.value }} {{ item.techsol.measure }}<br>
-                                                </li>
-                                                {% endfor %}
-                                            </ul>
+                                                <table>
+                                                    <tr>
+                                                        <td style="text-align: center; font-weight: bold">Техническое решение</td>
+                                                        <td style="text-align: center; font-weight: bold">Объем</td>
+                                                        <td style="text-align: center; font-weight: bold">Ед. изм.</td>
+                                                        <td style="text-align: center; font-weight: bold">Название конструкции</td>
+                                                    </tr>
+                                                    {% for item in object.get_products %}
+                                                    <tr>
+                                                        <td>{{ item.techsol.name }}</td>
+                                                        <td>{{ item.value }}</td>
+                                                        <td>{{ item.techsol.measure }}</td>
+                                                        <td>{{ item.name }}</td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                </table>
                                             <a class="btn btn-primary btn-round" href="{% url 'projects:product_create' %}">добавить</a>
                                         </div>
                                     </div>
