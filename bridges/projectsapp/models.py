@@ -122,7 +122,7 @@ class ProjectCompany(models.Model):
     role = models.CharField(verbose_name='роль в проекте', max_length=24, choices=STATUS_CHOICES, blank=True)
     project = models.ForeignKey(Project, blank=True, null=True, default=None, on_delete=models.CASCADE,
                                 related_name="companies")
-    company = models.ForeignKey(Company, verbose_name='Компании на проекте', blank=True, null=True, default=None, on_delete=models.CASCADE)
+    company = models.ForeignKey(Company, verbose_name='Выберите компанию', blank=True, null=True, default=None, on_delete=models.CASCADE)
     is_active = models.BooleanField(verbose_name='Активный', default=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)

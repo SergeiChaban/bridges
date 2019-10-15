@@ -11,9 +11,8 @@ from django.http import HttpResponseRedirect
 from django.db.models import Q
 
 from productsapp.models import TechnicalSolutions
-from projectsapp.forms import ProjectSolutionsForm, ProjectManagerForm
-from projectsapp.models import Project, ProjectImage, ProjectHasTechnicalSolutions
-
+from projectsapp.forms import ProjectSolutionsForm, ProjectManagerForm, ProjectCompanyForm
+from projectsapp.models import Project, ProjectImage, ProjectHasTechnicalSolutions, ProjectCompany, ProjectManagers
 
 # Create your views here.
 from projectsapp.utils import ObjectCreateMixin
@@ -32,6 +31,7 @@ class ProjectsList(ListView):
                         'bred_title': 'Проекты компании'
                         })
         return context
+
 
 
 
