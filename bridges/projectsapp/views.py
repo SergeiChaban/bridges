@@ -79,10 +79,10 @@ def gallery_update(request, pk):
         project_form = ProjectForm(request.POST)
         if id:
             project_form = ProjectForm(request.POST, instance=project)
-            formset = BookInlineFormSet(request.POST)
+            formset = BookInlineFormSet(request.POST, request.FILES)
             if project_form.is_valid():
                 created_project = project_form.save(commit=False)
-                formset = BookInlineFormSet(request.POST, instance=created_project)
+                formset = BookInlineFormSet(request.POST, request.FILES, instance=created_project)
                 if formset.is_valid():
                     created_project.save()
                     formset.save()
