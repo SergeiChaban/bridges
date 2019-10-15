@@ -37,6 +37,8 @@ class ProjectsList(ListView):
 
 
 
+
+
 def company_update(request, pk):
     if id:
         project = Project.objects.get(pk=pk)

@@ -94,22 +94,17 @@
                                             <i>Контрагенты проекта:</i>
                                             {% if object.get_companies %}
                                                 {% for item in object.get_companies %}
-                                                    <li>
-                                                        <i>
-                                                            {{ item.company.category }}: <a href="{{ item.company.get_absolute_url }}">{{ item.company.form }} {{ item.company.name }}</a>
-                                                        </i>
 
-                                                    </li>
                                                 {% endfor %}
                                             {% endif %}
 
                                                 {% for item in object.get_managers %}
                                                     <li><i>{{ item.role | title }}:
                                                         {{ item.manager.first_name }} {{ item.manager.last_name }}</i>
-                                                     <a href="{% url 'projects:manager_delete' item.pk %}">delete</a>
                                                         ({% for i in item.manager.get_company %}
                                                             <i>{{ i.company.form }} {{ i.company.name }}</i>
                                                         {% endfor %})
+                                                    <a style="color: red;" href="{% url 'projects:manager_delete' item.pk %}">delete</a>
                                                     </li>
                                                 {% endfor %}
                                             {% endif %}
@@ -160,12 +155,7 @@
                                                         </td>
                                                     </tr>
                                                     {% for item in object.get_products %}
-                                                        <tr>
-                                                            <td>{{ item.techsol.name }}</td>
-                                                            <td style="text-align: right;">{{ item.value }}</td>
-                                                            <td style="text-align: center;">{{ item.techsol.measure }}</td>
-                                                            <td>{{ item.name }}</td>
-                                                        </tr>
+
                                                     {% endfor %}
                                                 </table>
                                                 <a class="btn btn-primary btn-round"
