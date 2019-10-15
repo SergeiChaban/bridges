@@ -16,6 +16,9 @@ from projectsapp.models import Project, ProjectImage, ProjectHasTechnicalSolutio
 
 
 # Create your views here.
+from projectsapp.utils import ObjectCreateMixin
+
+
 class ProjectsList(ListView):
 
     model = Project
@@ -33,12 +36,7 @@ class ProjectsList(ListView):
 
 
 
-    def post(self, request):
-        bound_form = ProjectSolutionsForm(request.POST)
 
 
-
-    def post(self, request):
-        bound_form = ProjectManagerForm(request.POST)
 
 
