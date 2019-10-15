@@ -67,10 +67,10 @@
                                     {% if request.user.is_authenticated %}
                                             {% if object.address or object.coordinate %}
                                                 {% if object.address %}
-                                                    <i>Адрес объекта: {{ object.address }}.
+                                                    <i>Адрес объекта: {{ object.address }}<br>
                                                 {% endif %}
                                                 {% if object.coordinate %}
-                                                    <a href="{% url 'ymapapp:map' %}">Открыть карту</a></i>
+                                                    Координаты объекта: {{ object.coordinate }}</i>
                                                 {% endif %}
                                             {% else %}
                                                 Местоположение объекта владельцем не указано
@@ -90,6 +90,21 @@
                                                 <div class="wprt-lines style-1 custom-4">
                                                     <div class="line-1"></div>
                                                 </div>
+                                        <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
+                                        <i>Участники проекта</i>
+                                                {% for item in object.get_managers %}
+                                                    <li><i>{{ item.role | title }}:
+                                                        {{ item.manager.first_name }} {{ item.manager.last_name }}</i>
+                                                        ({% for i in item.manager.get_company %}
+                                                            <i>{{ i.company.form }} {{ i.company.name }}</i>
+                                                        {% endfor %})
+                                                    </li>
+                                                {% endfor %}
+                                                    <li><a href="{% url 'projects:manager_update' %}"><i>... добавить</i></a></li>
+                                        <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
+                                            <div class="wprt-lines style-1 custom-4">
+                                                <div class="line-1"></div>
+                                            </div>
                                         <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
                                     {% endif %}
 
