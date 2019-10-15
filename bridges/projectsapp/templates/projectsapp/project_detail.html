@@ -89,7 +89,7 @@
                                                     <li><i>{{ item.company.category }}: {{ item.company.form }} {{ item.company.name }}</i></li>
                                                 {% endfor %}
                                             {% endif %}
-                                        <li><a href="{% url 'projects:company_update' %}"><i>... добавить</i></a></li>
+                                        <li><a href="{% url 'projects:company_update' object.pk %}"><i>... добавить</i></a></li>
 {#  ПОЛУЧЕНИЕ УЧАСТНИКОВ ПРОЕКТА#}
                                         <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
                                                 <div class="wprt-lines style-1 custom-4">

@@ -5,6 +5,12 @@ from productsapp.models import TechnicalSolutions
 from projectsapp.models import Project, ProjectHasTechnicalSolutions, ProjectManagers, ProjectCompany
 
 
+class ProjectForm(forms.ModelForm):
+    class Meta:
+        model = Project
+        fields = []
+
+
 class ProjectManagerForm(forms.ModelForm):
     class Meta:
         model = ProjectManagers

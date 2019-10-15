@@ -1,8 +1,8 @@
 from django.db import models
 from django.db.models.signals import pre_save
+from django.urls import reverse
 from django.utils.text import slugify
 from transliterate import translit
-
 from authapp.models import Company, Users
 from productsapp.models import TechnicalSolutions
 
@@ -39,6 +39,9 @@ class Project(models.Model):
     map_mark = models.SlugField(verbose_name='id метки на карте', max_length=128, blank=True)
     text_for_map = models.TextField(verbose_name='текст для метки', max_length=240, null=True, blank=True)
     is_active = models.BooleanField(verbose_name='активен', default=False)
+
+    def get_absolute_url(self):
+        return reverse('projects:project', args=[str(self.id)])
 
     def __str__(self):
         return f"{self.name} ({self.city})"

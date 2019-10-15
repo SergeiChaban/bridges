@@ -16,7 +16,6 @@ Including another URLconf
 from django.urls import path
 
 
-
 app_name = 'projectsapp'
 
 urlpatterns = [

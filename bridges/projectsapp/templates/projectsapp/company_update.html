@@ -2,21 +2,29 @@
 {% load static %}
 {% block content-container %}
     {% load static %}
-    <div style="height: 5000px; border: 1px solid black">
-        <form action="{% url 'projects:company_update' %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            {% for field in form %}
-                <div class="form-group">
-                    {% if field.errors %}
-                        <div class="alert alert-danger">
-                            {{ field.errors }}
-                        </div>
-                    {% endif %}
-                    {{ field.label }}
-                    {{ field }}
-                </div>
-            {% endfor %}
-            <button type="submit" value="сохранить" class="btn btn-primary">сохранить</button>
-        </form>
-    </div>
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ project_form.as_p }}
+        {{ formset.as_p }}
+        <button type="submit" value="сохранить" class="btn btn-primary">сохранить</button>
+    </form>
+
+
+    {#    <div style="height: 5000px; border: 1px solid black">#}
+    {#        <form action="{% url 'projects:company_update' %}" method="post" enctype="multipart/form-data">#}
+    {#            {% csrf_token %}#}
+    {#            {% for field in form %}#}
+    {#                <div class="form-group">#}
+    {#                    {% if field.errors %}#}
+    {#                        <div class="alert alert-danger">#}
+    {#                            {{ field.errors }}#}
+    {#                        </div>#}
+    {#                    {% endif %}#}
+    {#                    {{ field.label }}#}
+    {#                    {{ field }}#}
+    {#                </div>#}
+    {#            {% endfor %}#}
+    {#            <button type="submit" value="сохранить" class="btn btn-primary">сохранить</button>#}
+    {#        </form>#}
+    {#    </div>#}
 {% endblock %}
