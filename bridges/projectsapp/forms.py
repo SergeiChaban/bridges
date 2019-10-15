@@ -14,7 +14,7 @@ class ProjectManagerForm(forms.ModelForm):
 class ProjectSolutionsForm(forms.ModelForm):
     class Meta:
         model = ProjectHasTechnicalSolutions
-        exclude = ()
+        fields = ['name', 'techsol', 'project', 'value']
 
     def __init__(self, *args, **kwargs):
         super(ProjectSolutionsForm, self).__init__(*args, **kwargs)
