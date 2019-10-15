@@ -2,102 +2,116 @@
 {% load static %}
 {% block content-container %}
 
-<!-- Main Content -->
-<div id="main-content" class="site-main clearfix">
-    <div id="content-wrap">
-        <div id="site-content" class="site-content clearfix">
-            <div id="inner-content" class="inner-content-wrap">
-                <div class="page-content">
-                    <section class="wprt-section">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="wprt-spacer" data-desktop="60" data-mobi="60" data-smobi="60"></div>
-                                </div><!-- /.col-md-12 -->
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="page-content">
+                        <section class="wprt-section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="wprt-spacer" data-desktop="60" data-mobi="60" data-smobi="60"></div>
+                                    </div><!-- /.col-md-12 -->
 
-                                <div class="col-md-8">
-                                    <div class="wprt-galleries galleries w-770px" data-width="142" data-margin="15">
-                                        <div id="wprt-slider" class="flexslider">
-                                            <ul class="slides">
-                                                <!-- ПОДГРУЗКА КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
-                                                {% for item in object.images.select_related %}
-                                                <li class="flex-active-slide">
-                                                    <a class="zoom" href="/media/{{ item.image }}"><i class="fa fa-arrows-alt"></i></a>
-                                                    <img src="/media/{{ item.image }}" alt="pic"/>
-                                                </li>
-                                                {% endfor %}
-                                                <!-- / .ПОДГРУЗКА КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
+                                    <div class="col-md-8">
+                                        <div class="wprt-galleries galleries w-770px" data-width="142" data-margin="15">
+                                            <div id="wprt-slider" class="flexslider">
+                                                <ul class="slides">
+                                                    <!-- ПОДГРУЗКА КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
+                                                    {% for item in object.images.select_related %}
+                                                        <li class="flex-active-slide">
+                                                            <a class="zoom" href="/media/{{ item.image }}"><i
+                                                                    class="fa fa-arrows-alt"></i></a>
+                                                            <img src="/media/{{ item.image }}" alt="pic"/>
+                                                        </li>
+                                                    {% endfor %}
+                                                    <!-- / .ПОДГРУЗКА КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
 
-                                            </ul>
+                                                </ul>
+                                            </div>
+
+                                            <div id="wprt-carousel" class="flexslider">
+                                                <ul class="slides">
+
+                                                    <!-- ПОДГРУЗКА МИНИАТЮРНЫХ КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
+                                                    {% for item in object.images.select_related %}
+                                                        <li><img src="/media/{{ item.image }}" alt="pic"></li>
+                                                    {% endfor %}
+                                                    <!-- ПОДГРУЗКА МИНИАТЮРНЫХ КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
+
+                                                </ul>
+                                            </div>
                                         </div>
+                                        <a href="{% url 'projects:gallery_update' object.pk %}">... добавить
+                                            фотографию</a>
+                                    </div><!-- /.col-md-8 -->
+                                    <div class="col-md-4">
+                                        <div class="wprt-spacer" data-desktop="0" data-mobi="0" data-smobi="0"></div>
 
-                                        <div id="wprt-carousel" class="flexslider">
-                                            <ul class="slides">
-
-                                                <!-- ПОДГРУЗКА МИНИАТЮРНЫХ КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
-                                                {% for item in object.images.select_related %}
-                                                <li><img src="/media/{{ item.image }}" alt="pic"></li>
-                                                {% endfor %}
-                                                <!-- ПОДГРУЗКА МИНИАТЮРНЫХ КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
-
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div><!-- /.col-md-8 -->
-                                <div class="col-md-4">
-                                    <div class="wprt-spacer" data-desktop="0" data-mobi="0" data-smobi="0"></div>
-
-                                <!-- ИНФОРМАЦИЯ О ПРОЕКТЕ ИЗ МОДЕЛИ Project-->
-                                    <h3 class="line-height-normal margin-bottom-10">{{ object.name }}</h3>
-                                    {% if request.user.is_superuser %}
-                                        <a href="#">редактировать</a>
-                                    {% endif %}
-                                    <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
+                                        <!-- ИНФОРМАЦИЯ О ПРОЕКТЕ ИЗ МОДЕЛИ Project-->
+                                        <h3 class="line-height-normal margin-bottom-10">{{ object.name }}</h3>
+                                        {% if request.user.is_superuser %}
+                                            <a href="#">редактировать</a>
+                                        {% endif %}
+                                        <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
                                         <div class="wprt-lines style-1 custom-4">
                                             <div class="line-1"></div>
                                         </div>
-                                    <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
-                                    <i>{{ object.city }}. {{ object.description }}<br></i>
+                                        <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
+                                        <i>{{ object.city }}. {{ object.description }}<br></i>
 
 
-                                    {% if request.user.is_authenticated %}
-{#  ПОЛУЧЕНИЕ АДРЕСА И/ИЛИ КООРДИНАТ#}
-                                        {% if object.address or object.coordinate %}
-                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
+                                        {% if request.user.is_authenticated %}
+                                            {#  ПОЛУЧЕНИЕ АДРЕСА И/ИЛИ КООРДИНАТ#}
+                                            {% if object.address or object.coordinate %}
+                                                <div class="wprt-spacer" data-desktop="15" data-mobi="15"
+                                                     data-smobi="15"></div>
                                                 <div class="wprt-lines style-1 custom-4">
                                                     <div class="line-1"></div>
                                                 </div>
-                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
+                                                <div class="wprt-spacer" data-desktop="15" data-mobi="15"
+                                                     data-smobi="15"></div>
                                                 {% if object.address %}
-                                                <i>Адрес объекта: {{ object.address }}</i><br>
+                                                    <i>Адрес объекта: {{ object.address }}</i><br>
                                                 {% endif %}
                                                 {% if object.coordinate %}
                                                     <i>Координаты объекта: {{ object.coordinate }}</i>
                                                 {% endif %}
-                                                {% else %}
-                                            <p style="color: red"><i>Точное местоположение объекта не указано</i></p>
-                                        {% endif %}
-{#  ПОЛУЧЕНИЕ КОНТРАГЕНТОВ ПРОЕКТА#}
-                                        <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
-                                                    <div class="wprt-lines style-1 custom-4">
-                                                        <div class="line-1"></div>
-                                                    </div>
-                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
-                                        <i>Контрагенты проекта:</i>
+                                            {% else %}
+                                                <p style="color: red"><i>Точное местоположение объекта не указано</i>
+                                                </p>
+                                            {% endif %}
+                                            {#  ПОЛУЧЕНИЕ КОНТРАГЕНТОВ ПРОЕКТА#}
+                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15"
+                                                 data-smobi="15"></div>
+                                            <div class="wprt-lines style-1 custom-4">
+                                                <div class="line-1"></div>
+                                            </div>
+                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15"
+                                                 data-smobi="15"></div>
+                                            <i>Контрагенты проекта:</i>
                                             {% if object.get_companies %}
                                                 {% for item in object.get_companies %}
-                                                    <li><i>{{ item.company.category }}: {{ item.company.form }} {{ item.company.name }}</i></li>
+                                                    <li>
+                                                        <i>{{ item.company.category }}: {{ item.company.form }} {{ item.company.name }}</i>
+                                                    </li>
                                                 {% endfor %}
                                             {% endif %}
-                                        <li><a href="{% url 'projects:company_update' object.pk %}"><i>... добавить</i></a></li>
-{#  ПОЛУЧЕНИЕ УЧАСТНИКОВ ПРОЕКТА#}
-                                        <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
-                                                <div class="wprt-lines style-1 custom-4">
-                                                    <div class="line-1"></div>
-                                                </div>
-                                        <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
-                                        <i>Участники проекта</i>
-                                        {% if object.get_managers %}
+                                            <li><a href="{% url 'projects:company_update' object.pk %}"><i>...
+                                                добавить</i></a>
+                                            </li>
+                                            {#  ПОЛУЧЕНИЕ УЧАСТНИКОВ ПРОЕКТА#}
+                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15"
+                                                 data-smobi="15"></div>
+                                            <div class="wprt-lines style-1 custom-4">
+                                                <div class="line-1"></div>
+                                            </div>
+                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15"
+                                                 data-smobi="15"></div>
+                                            <i>Участники проекта</i>
+                                            {% if object.get_managers %}
                                                 {% for item in object.get_managers %}
                                                     <li><i>{{ item.role | title }}:
                                                         {{ item.manager.first_name }} {{ item.manager.last_name }}</i>
@@ -106,64 +120,79 @@
                                                         {% endfor %})
                                                     </li>
                                                 {% endfor %}
-                                        {% endif %}
-                                        <li><a href="{% url 'projects:manager_update' %}"><i>... добавить</i></a></li>
-                                        <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
+                                            {% endif %}
+                                            <li><a href="{% url 'projects:manager_update' %}"><i>... добавить</i></a>
+                                            </li>
+                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15"
+                                                 data-smobi="15"></div>
                                             <div class="wprt-lines style-1 custom-4">
                                                 <div class="line-1"></div>
                                             </div>
-                                        <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
-                                    {% endif %}
+                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15"
+                                                 data-smobi="15"></div>
+                                        {% endif %}
 
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="wprt-spacer" data-desktop="60" data-mobi="60" data-smobi="60"></div>
-                                </div><!-- /.col-md-12 -->
-                            </div>
-                        </div>
-                    </section>
-
-                    <section class="wprt-section">
-                        <div class="container">
-                            <div class='row'>
-                                <div class="col-md-12">
-                                    <h2 class="text-center margin-bottom-10">Работа над проектом</h2>
-                                    <div class="wprt-lines style-2 custom-1">
-                                        <div class="line-1"></div>
                                     </div>
-                                    <div class="wprt-spacer" data-desktop="20" data-mobi="40" data-smobi="40"></div>
+                                    <div class="col-md-12">
+                                        <div class="wprt-spacer" data-desktop="60" data-mobi="60" data-smobi="60"></div>
+                                    </div><!-- /.col-md-12 -->
                                 </div>
+                            </div>
+                        </section>
 
-                                <div class="col-md-12">
-                                    <div class="wprt-toggle active style-1">
-                                        <h3 class="toggle-title">Технические решения</h3>
-                                        <div class="toggle-content" style="color: black;">
+                        <section class="wprt-section">
+                            <div class="container">
+                                <div class='row'>
+                                    <div class="col-md-12">
+                                        <h2 class="text-center margin-bottom-10">Работа над проектом</h2>
+                                        <div class="wprt-lines style-2 custom-1">
+                                            <div class="line-1"></div>
+                                        </div>
+                                        <div class="wprt-spacer" data-desktop="20" data-mobi="40" data-smobi="40"></div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <div class="wprt-toggle active style-1">
+                                            <h3 class="toggle-title">Технические решения</h3>
+                                            <div class="toggle-content" style="color: black;">
                                                 <table>
                                                     <tr>
-                                                        <td style="text-align: center; font-weight: bold; width: 40%">Техническое решение</td>
+                                                        <td style="text-align: center; font-weight: bold; width: 40%">
+                                                            Техническое решение
+                                                        </td>
                                                         <td style="text-align: center; font-weight: bold;">Объем</td>
                                                         <td style="text-align: center; font-weight: bold;">Ед. изм.</td>
-                                                        <td style="text-align: center; font-weight: bold; width: 40%">Название конструкции</td>
+                                                        <td style="text-align: center; font-weight: bold; width: 40%">
+                                                            Название
+                                                            конструкции
+                                                        </td>
                                                     </tr>
                                                     {% for item in object.get_products %}
-                                                    <tr>
-                                                        <td>{{ item.techsol.name }}</td>
-                                                        <td style="text-align: right;">{{ item.value }}</td>
-                                                        <td style="text-align: center;">{{ item.techsol.measure }}</td>
-                                                        <td>{{ item.name }}</td>
-                                                    </tr>
+                                                        <tr>
+                                                            <td>{{ item.techsol.name }}</td>
+                                                            <td style="text-align: right;">{{ item.value }}</td>
+                                                            <td style="text-align: center;">{{ item.techsol.measure }}</td>
+                                                            <td>{{ item.name }}</td>
+                                                        </tr>
                                                     {% endfor %}
                                                 </table>
-                                            <a class="btn btn-primary btn-round" href="{% url 'projects:product_update' %}">добавить</a>
+                                                <a class="btn btn-primary btn-round"
+                                                   href="{% url 'projects:product_update' %}">добавить</a>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                <div class="col-md-12">
-                                    <div class="wprt-spacer" data-desktop="70" data-mobi="60" data-smobi="60"></div>
-                                </div>
+                                        <div class="col-md-12">
+                                            <div class="wprt-spacer" data-desktop="70" data-mobi="60"
+                                                 data-smobi="60"></div>
+                                        </div>
 
-                            </div><!-- /.row -->
-                        </div><!-- /.container -->
-                    </section>
+                                    </div><!-- /.row -->
+                                </div><!-- /.container -->
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 {% endblock %}
