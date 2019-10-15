@@ -92,6 +92,7 @@
                                                 <li>{{ item.role | title }}: {{ item.manager.first_name }} {{ item.manager.last_name }} ({% for i in item.manager.get_company %}{{ i.company.form }} {{ i.company.name }}{% endfor %})</li>
                                                 {% endfor %}
                                             </ul>
+                                            <a class="btn btn-primary btn-round" href="{% url 'projects:manager_update' %}">добавить</a>
                                         </div>
                                     </div>
                                     <div class="wprt-toggle style-1">

@@ -3,6 +3,7 @@ from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
+from django.views.generic import View
 
 from django.views.generic import ListView, CreateView, DeleteView, DetailView
 
@@ -10,7 +11,7 @@ from django.http import HttpResponseRedirect
 from django.db.models import Q
 
 from productsapp.models import TechnicalSolutions
-from projectsapp.forms import ProjectSolutionsForm
+from projectsapp.forms import ProjectSolutionsForm, ProjectManagerForm
 from projectsapp.models import Project, ProjectImage, ProjectHasTechnicalSolutions
 
 
@@ -32,6 +33,12 @@ class ProjectsList(ListView):
 
 
 
+    def post(self, request):
+        bound_form = ProjectSolutionsForm(request.POST)
 
+
+
+    def post(self, request):
+        bound_form = ProjectManagerForm(request.POST)
 
 
