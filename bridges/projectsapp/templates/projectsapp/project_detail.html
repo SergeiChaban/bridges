@@ -102,22 +102,11 @@
                                                     </li>
                                                 {% endfor %}
                                             {% endif %}
-                                            <li><a href="{% url 'projects:company_update' object.pk %}"><i>...
-                                                добавить</i></a>
-                                            </li>
-                                            {#  ПОЛУЧЕНИЕ УЧАСТНИКОВ ПРОЕКТА#}
-                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15"
-                                                 data-smobi="15"></div>
-                                            <div class="wprt-lines style-1 custom-4">
-                                                <div class="line-1"></div>
-                                            </div>
-                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15"
-                                                 data-smobi="15"></div>
-                                            <i>Участники проекта</i>
-                                            {% if object.get_managers %}
+
                                                 {% for item in object.get_managers %}
                                                     <li><i>{{ item.role | title }}:
                                                         {{ item.manager.first_name }} {{ item.manager.last_name }}</i>
+                                                     <a href="{% url 'projects:manager_delete' item.pk %}">delete</a>
                                                         ({% for i in item.manager.get_company %}
                                                             <i>{{ i.company.form }} {{ i.company.name }}</i>
                                                         {% endfor %})
