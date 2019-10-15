@@ -57,7 +57,7 @@ body,
 button,
 input,
 select,
-textarea { font-family: "Open Sans", sans-serif; color: #777; font-size: 12px; line-height: 1.875; background-color: #fff; }
+textarea { font-family: "Open Sans", sans-serif; color: #000; font-size: 12px; line-height: 1.875; background-color: #fff; }
 img { height: auto; max-width: 100%; vertical-align: middle; -ms-interpolation-mode: bicubic }
 p { margin: 0 0 20px; }
 strong,
@@ -197,7 +197,7 @@ input[type="email"],
 input[type="url"],
 input[type="search"],
 input[type="tel"],
-input[type="color"] { color: #777; border: 1px solid #eaeaea; padding: 11px 19px; line-height: inherit; width: 100%; background-color: transparent; margin-bottom: 30px; border-radius: 0; height: auto; -webkit-appearance: none; text-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition: border ease .238s; -moz-transition: border ease .238s; transition: border ease .238s; }
+input[type="color"] { color: #000; border: 1px solid #eaeaea; padding: 11px 19px; line-height: inherit; width: 100%; background-color: transparent; margin-bottom: 30px; border-radius: 0; height: auto; -webkit-appearance: none; text-shadow: none; -webkit-box-shadow: none; -moz-box-shadow: none; box-shadow: none; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; -webkit-transition: border ease .238s; -moz-transition: border ease .238s; transition: border ease .238s; }
 
 /* For Contact Form 7 */
 .wpcf7-form select,
@@ -1126,7 +1126,7 @@ body.page #main-content { padding-top: 0; padding-bottom: 0; }
 
 /* Footer
 -------------------------------------------------------------- */
-#footer { background-color: #1a1a1a; padding: 70px 0 60px; position: relative; z-index: 1; border-style: solid; }
+#footer { margin-top: 50px; background-color: #1a1a1a; padding: 70px 0 60px; position: relative; z-index: 1; border-style: solid; }
 
 /* Bottom Bar
 -------------------------------------------------------------- */
