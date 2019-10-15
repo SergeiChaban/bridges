@@ -14,11 +14,7 @@
         </form>
 
 
-        <form action="{{ project.get_absolute_url }}">
-            <button type="submit" class="btn btn-info bnt_save">
-                вернуться назад
-            </button>
-        </form>
+    <a href="{{ project.get_absolute_url }}" class="btn btn-info bnt_save">вернуться назад</a>
     </div>
 
 {% endblock %}
