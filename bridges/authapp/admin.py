@@ -22,15 +22,7 @@ class FormCompanyAdmin(admin.ModelAdmin):
 @admin.register(Company)
 class CompanyAdmin(admin.ModelAdmin):
     list_display = ('name', 'inn', 'category', 'city')
-    search_fields = ('name',
-                     'short_name',
-                     'form_company',
-                     'category',
-                     'inn',
-                     'city',
-                     'address',
-                     'phone',
-                     'email',)
+    search_fields = ('name', 'inn', )
     # укажем быстрые фильтры для фильтрации записей
     list_filter = ('category', 'city')
 
