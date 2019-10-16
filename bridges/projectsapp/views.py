@@ -68,25 +68,20 @@ def company_update(request, pk):
 
 
 def gallery_update(request, pk):
-    if id:
-        project = Project.objects.get(pk=pk)
-    else:
-        project = Project()
+    project = Project.objects.get(pk=pk)
     project_form = ProjectForm(instance=project)
     BookInlineFormSet = inlineformset_factory(Project, ProjectImage, form=ProjectImageForm, extra=3)
     formset = BookInlineFormSet(instance=project)
     if request.method == "POST":
-        project_form = ProjectForm(request.POST)
-        if id:
-            project_form = ProjectForm(request.POST, instance=project)
-            formset = BookInlineFormSet(request.POST, request.FILES)
-            if project_form.is_valid():
-                created_project = project_form.save(commit=False)
-                formset = BookInlineFormSet(request.POST, request.FILES, instance=created_project)
-                if formset.is_valid():
-                    created_project.save()
-                    formset.save()
-                    return HttpResponseRedirect(created_project.get_absolute_url())
+        project_form = ProjectForm(request.POST, instance=project)
+        formset = BookInlineFormSet(request.POST, request.FILES)
+        if project_form.is_valid():
+            created_project = project_form.save(commit=False)
+            formset = BookInlineFormSet(request.POST, request.FILES, instance=created_project)
+            if formset.is_valid():
+                created_project.save()
+                formset.save()
+                return HttpResponseRedirect(created_project.get_absolute_url())
     context ={
         'project_form': project_form,
         'formset': formset,
