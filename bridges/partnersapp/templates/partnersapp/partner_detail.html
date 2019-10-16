@@ -17,7 +17,9 @@
                                 <div class="col-md-8">
                                     <div>
                                         <h1 class="line-height-normal margin-bottom-10">Название компании: {{ partner.name }}</h1>
-                                        <p><a href="{% url 'partners:partner_create' %}">добавить компанию</a></p>
+                                        <p><a href="{% url 'partners:partner_create' %}">добавить компанию</a>
+                                        <a href="{% url 'partners:partner_delete' partner.pk %}">удалить компанию</a>
+                                        </p>
                                         <p></p>
                                         <h3 class="line-height-normal margin-bottom-10">КРАТКОЕ ОПИСАНИЕ</h3>
                                         <div class="wprt-lines style-1 custom-3">

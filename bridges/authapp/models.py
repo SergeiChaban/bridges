@@ -1,8 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
+from django.urls import reverse
 
-
-# Create your models here.
 
 class CategoryCompany(models.Model):
     """ модель содержит информацию о категории компании,
@@ -56,6 +55,9 @@ class Company(models.Model):
 
     def __str__(self):
         return self.name.title()
+
+    def get_absolute_url(self):
+        return reverse('partners:partner_detail', args=[str(self.id)])
 
 
 class Users(AbstractUser):
