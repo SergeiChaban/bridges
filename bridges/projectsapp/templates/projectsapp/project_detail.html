@@ -95,7 +95,10 @@
                                             {% if object.get_companies %}
                                                 {% for item in object.get_companies %}
                                                     <li>
-                                                        <i>{{ item.company.category }}: {{ item.company.form }} {{ item.company.name }}</i>
+                                                        <i>
+                                                            {{ item.company.category }}: <a href="{{ item.company.get_absolute_url }}">{{ item.company.form }} {{ item.company.name }}</a>
+                                                        </i>
+
                                                     </li>
                                                 {% endfor %}
                                             {% endif %}

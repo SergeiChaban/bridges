@@ -32,10 +32,18 @@
 
                                             <div class="wprt-spacer" data-desktop="30" data-mobi="25"
                                                  data-smobi="25"></div>
-                                            <p>Vestibulum eu libero volutpat, portas quam acc, tempus sem. Donec sodales
-                                                quam id lorem lobortis, vitae. Pellentesque habitant morbi tristique
-                                                senectus et netus et malesuada fames ac turpis egestas. Integer blandit
-                                                nulla quis fermentum hendrerit.</p>
+                                        {% if company_projects %}
+                                            {% for item in company_projects %}
+                                                <ul class="wprt-list style-2 accent-color margin-bottom-25">
+                                            <p>
+                                                <li><strong>Название проекта:</strong><a href="{{ item.project.get_absolute_url }}"> {{ item.project }}</a>
+                                                <br> <strong>Роль в проекте:</strong> {{ item.role }}</li>
+                                            </p>
+                                                </ul>
+                                            {% endfor %}
+                                        {% else %}
+                                            <p>Компания {{ partner.name  }} еще не участвовала ни в одном проекте.</p>
+                                        {% endif %}
                                         </div>
                                     </div><!-- /.col-md-8 -->
                                     <!--ДОСТУПНЫЕ СЕРВИСЫ ПО ПРОДУКТУ-->

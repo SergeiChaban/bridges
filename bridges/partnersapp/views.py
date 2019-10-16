@@ -1,11 +1,11 @@
-from django.contrib.postgres.search import SearchVector
 from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect, get_object_or_404, render_to_response
+from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from authapp.models import Company, CompanyUsers
-from partnersapp.forms import CompanyForm, CompanyUsersForm, CompanyUserUpdateForm, SearchForm
+from partnersapp.forms import CompanyForm, CompanyUsersForm, CompanyUserUpdateForm
 from django.db.models import Q
+from projectsapp.models import ProjectCompany
 
 
 def partners_list(request):
@@ -19,11 +19,13 @@ def partners_list(request):
 
 
 def partner_detail(request, pk):
-    partner = Company.objects.get(pk=pk)
+    company = Company.objects.get(pk=pk)
     company_users = CompanyUsers.objects.filter(company_id=pk)
+    company_projects = ProjectCompany.objects.filter(company_id=pk)
     context = {
-        'partner': partner,
+        'partner': company,
         'company_users': company_users,
+        'company_projects': company_projects,
         'page_title': 'Описание компании',
         'bred_title': 'Описание компании'
     }
