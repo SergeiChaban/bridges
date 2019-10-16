@@ -35,8 +35,7 @@ class ProjectsList(ListView):
 
 
 
-def gallery_update(request, pk):
-    project = Project.objects.get(pk=pk)
+
     project_form = ProjectForm(instance=project)
     BookInlineFormSet = inlineformset_factory(Project, ProjectImage, form=ProjectImageForm, extra=3)
     formset = BookInlineFormSet(instance=project)
@@ -49,7 +48,7 @@ def gallery_update(request, pk):
             if formset.is_valid():
                 created_project.save()
                 formset.save()
-                return HttpResponseRedirect(created_project.get_absolute_url())
+
     context = {
         'project_form': project_form,
         'formset': formset,

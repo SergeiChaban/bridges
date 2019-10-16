@@ -1,23 +1,5 @@
 from django.db import models
-
-
-# -----------------------    МОДЕЛИ МАТЕРИАЛОВ   -------------------------------------
-
-class MaterialCategory(models.Model):
-    """
-    Категории материалов: типа грунтовки, мастики, краски, инструмент и др.
-    """
-    name = models.CharField(verbose_name='категория материала', max_length=64, unique=True)
-    description = models.TextField(verbose_name='описание', blank=True)
-    created = models.DateTimeField(auto_now_add=True, auto_now=False)
-    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = 'Категория материала'
-        verbose_name_plural = 'Категории материалов'
+# --------------------------------   МОДЕЛИ ЕДИНИЦ ИЗМЕРЕНИЙ  -------------------------------------
 
 
 class MeasureTypes(models.Model):
@@ -36,6 +18,81 @@ class MeasureTypes(models.Model):
     class Meta:
         verbose_name = 'Единица измерения'
         verbose_name_plural = 'Единицы измерения'
+
+# -----------------------    МОДЕЛИ ПРОДУКТОВ (ТЕХНИЧЕСКИХ РЕШЕНИЙ)   -------------------------------------
+
+
+class TechnicalSolutions(models.Model):
+    """
+    Готовые технические решения (группа материалов собранных в готовый к применению продукт "под ключ"
+    и продвигаемый на рынок)
+    """
+    name = models.CharField(verbose_name='название материала', max_length=128, unique=True)
+    slug = models.SlugField(verbose_name='слаг', max_length=128, unique=True)
+    measure = models.ForeignKey(MeasureTypes, verbose_name='Единица измерения', on_delete=models.CASCADE, default=1)
+    image = models.ImageField(upload_to='аватарка', blank=True)
+    alt_desc = models.CharField(verbose_name='alt фотографии', max_length=500, blank=True)
+    short_desc = models.CharField(verbose_name='краткое описание материала', max_length=500, blank=True, null=True)
+    description = models.TextField(verbose_name='описание материала', blank=True)
+    price = models.DecimalField(verbose_name='цена', max_digits=8, decimal_places=2, default=0)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(verbose_name='обновлен', auto_now_add=False, auto_now=True)
+    is_active = models.BooleanField(verbose_name='активен', default=True)
+
+    def __str__(self):
+        return self.name
+
+    def get_projects(self):
+        return self.projects.select_related().distinct('project_id')
+
+    def get_materials(self):
+        return self.materials.select_related()
+
+    def get_works(self):
+        return self.works.select_related()
+
+    class Meta:
+        verbose_name = 'Техническое решение'
+        verbose_name_plural = 'Технические решения'
+
+
+class TechnicalSolutionsImage(models.Model):
+    """
+    Дополнительные картинки к готовому решению
+    """
+    material = models.ForeignKey(TechnicalSolutions, blank=True, null=True, default=None, on_delete=models.CASCADE)
+    alt_desc = models.CharField(verbose_name='alt фотографии', max_length=128, blank=True)
+    image = models.ImageField(verbose_name='Фотография', upload_to='products_images', blank=True)
+    is_active = models.BooleanField(verbose_name='Показывать', default=True)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __str__(self):
+        return self.alt_desc
+
+    class Meta:
+        verbose_name = 'Фотография технического решения'
+        verbose_name_plural = 'Фотографии технических решений'
+
+
+# -----------------------    МОДЕЛИ МАТЕРИАЛОВ   -------------------------------------
+
+
+class MaterialCategory(models.Model):
+    """
+    Категории материалов: типа грунтовки, мастики, краски, инструмент и др.
+    """
+    name = models.CharField(verbose_name='категория материала', max_length=64, unique=True)
+    description = models.TextField(verbose_name='описание', blank=True)
+    created = models.DateTimeField(auto_now_add=True, auto_now=False)
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Категория материала'
+        verbose_name_plural = 'Категории материалов'
 
 
 class Material(models.Model):
@@ -82,7 +139,7 @@ class MaterialImage(models.Model):
         verbose_name_plural = 'Фотографии материалов'
 
 
-# -----------------------    МОДЕЛИ РАБОТ   -------------------------------------
+# --------------------------------------------    МОДЕЛИ РАБОТ   ------------------------------------------------
 
 
 class WorkCategory(models.Model):
@@ -147,50 +204,24 @@ class WorkImage(models.Model):
         verbose_name_plural = 'Фотографии работ'
 
 
-# -----------------------    МОДЕЛИ ПРОДУКТОВ (ТЕХНИЧЕСКИХ РЕШЕНИЙ)   -------------------------------------
+# --------------------------------------------    МОДЕЛИ СВЯЗИ   ------------------------------------------------
 
 
-class TechnicalSolutions(models.Model):
-    """
-    Готовые технические решения (группа материалов собранных в готовый к применению продукт "под ключ"
-    и продвигаемый на рынок)
-    """
-    name = models.CharField(verbose_name='название материала', max_length=128, unique=True)
-    slug = models.SlugField(verbose_name='слаг', max_length=128, unique=True)
-    material_content = models.ManyToManyField(Material)
-    measure = models.ForeignKey(MeasureTypes, verbose_name='Единица измерения', on_delete=models.CASCADE, default=1)
-    work_content = models.ManyToManyField(Work, blank=True)
-    image = models.ImageField(upload_to='аватарка', blank=True)
-    alt_desc = models.CharField(verbose_name='alt фотографии', max_length=500, blank=True)
-    short_desc = models.CharField(verbose_name='краткое описание материала', max_length=500, blank=True, null=True)
-    description = models.TextField(verbose_name='описание материала', blank=True)
-    price = models.DecimalField(verbose_name='цена', max_digits=8, decimal_places=2, default=0)
-    created = models.DateTimeField(auto_now_add=True, auto_now=False)
-    updated = models.DateTimeField(verbose_name='обновлен', auto_now_add=False, auto_now=True)
-    is_active = models.BooleanField(verbose_name='активен', default=True)
-
-    def __str__(self):
-        return self.name
+class ProductMaterial(models.Model):
+    product = models.ForeignKey(TechnicalSolutions, related_name='materials', on_delete=models.CASCADE)
+    material = models.ForeignKey(Material, on_delete=models.CASCADE)
+    consumption = models.DecimalField(verbose_name='расход', max_digits=8, decimal_places=2, default=0)
 
     class Meta:
-        verbose_name = 'Техническое решение'
-        verbose_name_plural = 'Технические решения'
+        verbose_name = 'Материал продукта'
+        verbose_name_plural = 'Материалы продукта'
 
 
-class TechnicalSolutionsImage(models.Model):
-    """
-    Дополнительные картинки к готовому решению
-    """
-    material = models.ForeignKey(TechnicalSolutions, blank=True, null=True, default=None, on_delete=models.CASCADE)
-    alt_desc = models.CharField(verbose_name='alt фотографии', max_length=128, blank=True)
-    image = models.ImageField(verbose_name='Фотография', upload_to='products_images', blank=True)
-    is_active = models.BooleanField(verbose_name='Показывать', default=True)
-    created = models.DateTimeField(auto_now_add=True, auto_now=False)
-    updated = models.DateTimeField(auto_now_add=False, auto_now=True)
-
-    def __str__(self):
-        return self.alt_desc
+class ProductWork(models.Model):
+    product = models.ForeignKey(TechnicalSolutions, related_name='works', on_delete=models.CASCADE)
+    work = models.ForeignKey(Work, on_delete=models.CASCADE)
+    value = models.DecimalField(verbose_name='трудозатраты', max_digits=8, decimal_places=2, default=0)
 
     class Meta:
-        verbose_name = 'Фотография технического решения'
-        verbose_name_plural = 'Фотографии технических решений'
+        verbose_name = 'Вид работы'
+        verbose_name_plural = 'Виды работ'
