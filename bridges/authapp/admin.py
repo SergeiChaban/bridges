@@ -1,4 +1,6 @@
 from django.contrib import admin
+
+from researchapp.models import Document
 from .models import CategoryCompany, FormCompany, Company, Users, CompanyUsers
 
 

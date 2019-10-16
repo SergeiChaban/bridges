@@ -6,6 +6,7 @@ from authapp.models import Company, CompanyUsers
 from partnersapp.forms import CompanyForm, CompanyUsersForm, CompanyUserUpdateForm
 from django.db.models import Q
 from projectsapp.models import ProjectCompany
+from researchapp.models import Document
 
 
 def partners_list(request):
@@ -22,10 +23,12 @@ def partner_detail(request, pk):
     company = Company.objects.get(pk=pk)
     company_users = CompanyUsers.objects.filter(company_id=pk)
     company_projects = ProjectCompany.objects.filter(company_id=pk)
+    company_documents = Document.objects.filter(company__id=pk)
     context = {
         'partner': company,
         'company_users': company_users,
         'company_projects': company_projects,
+        'company_documents': company_documents,
         'page_title': 'Описание компании',
         'bred_title': 'Описание компании'
     }

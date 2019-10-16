@@ -32,18 +32,20 @@
 
                                             <div class="wprt-spacer" data-desktop="30" data-mobi="25"
                                                  data-smobi="25"></div>
-                                        {% if company_projects %}
-                                            {% for item in company_projects %}
-                                                <ul class="wprt-list style-2 accent-color margin-bottom-25">
-                                            <p>
-                                                <li><strong>Название проекта:</strong><a href="{{ item.project.get_absolute_url }}"> {{ item.project }}</a>
-                                                <br> <strong>Роль в проекте:</strong> {{ item.role }}</li>
-                                            </p>
-                                                </ul>
-                                            {% endfor %}
-                                        {% else %}
-                                            <p>Компания {{ partner.name  }} еще не участвовала ни в одном проекте.</p>
-                                        {% endif %}
+                                            {% if company_projects %}
+                                                {% for item in company_projects %}
+                                                    <ul class="wprt-list style-2 accent-color margin-bottom-25">
+                                                        <p>
+                                                        <li><strong>Название проекта:</strong><a
+                                                                href="{{ item.project.get_absolute_url }}"> {{ item.project }}</a>
+                                                            <br> <strong>Роль в проекте:</strong> {{ item.role }}</li>
+                                                        </p>
+                                                    </ul>
+                                                {% endfor %}
+                                            {% else %}
+                                                <p>Компания {{ partner.name }} еще не участвовала ни в одном
+                                                    проекте.</p>
+                                            {% endif %}
                                         </div>
                                     </div><!-- /.col-md-8 -->
                                     <!--ДОСТУПНЫЕ СЕРВИСЫ ПО ПРОДУКТУ-->
@@ -77,242 +79,236 @@
                                     </div><!-- /.col-md-4 -->
                                     <!--СОСТАВ РАБОТ И МАТЕРИАЛОВ-->
                                     <div class="col-md-12">
-                                        <div class="wprt-spacer" data-desktop="30" data-mobi="60" data-smobi="60"></div>
+
                                         <div>
-                                            <h3 class="line-height-normal margin-bottom-10">СОСТАВ РАБОТ И
-                                                МАТЕРИАЛОВ</h3>
-                                            <div class="wprt-lines style-1 custom-3">
-                                                <div class="line-1"></div>
-                                                <div class="line-2"></div>
-                                            </div>
-
-                                            <div class="wprt-spacer" data-desktop="30" data-mobi="25"
-                                                 data-smobi="25"></div>
-
-                                            <p>Vestibulum eu libero volutpat, portas quam acc, tempus sem. Donec sodales
-                                                quam id lorem lobortis, vitae. Pellentesque habitant morbi tristique
-                                                senectus et netus et malesuada fames ac turpis egestas. Integer blandit
-                                                nulla quis fermentum hendrerit.</p>
-                                        </div>
-                                        <div class="col-md-6 row">
-
-                                            <div class="wprt-toggle style-2">
-                                                <h3 class="toggle-title">wet wet we</h3>
-                                                <div class="toggle-content" style="color: black;">
-                                                    g sdg sdg ds
-                                                    <div class="wprt-spacer" data-desktop="10" data-mobi="10"
-                                                         data-smobi="10"></div>
-
-                                                    <p><i><b>Применяемые материалы:</b>
-                                                        dfhdfh fdh dfh </i>
-                                                    </p>
-
-                                                    <a class="wprt-button small rounded-30px"
-                                                       href="#"
-                                                       target="_blank">СКАЧАТЬ PDF</a>
-
-                                                </div>
-                                            </div>
-
-                                        </div><!-- /.col-md-12 -->
-
-                                        <div class="col-md-6 row">
-
-                                            <div class="wprt-toggle style-1">
-                                                <h3 class="toggle-title">rdr dr d d </h3>
-                                                <div class="toggle-content" style="color: black;">
-                                                    d d d dfh
-                                                    <div class="wprt-spacer" data-desktop="10" data-mobi="10"
-                                                         data-smobi="10"></div>
-
-                                                    <a class="wprt-button small rounded-30px"
-                                                       href="#"
-                                                       target="_blank">СКАЧАТЬ PDF</a>
-
-                                                </div>
-                                            </div>
-
-                                        </div><!-- /.col-md-8 -->
-                                        <!--СТАТЬЯ О ТЕХНИЧЕСКОМ РЕШЕНИИ- /ЖУРНАЛЫ И ТД/ PDF LOADER-->
-                                        <div class="col-md-12">
-                                            <div class="wprt-spacer" data-desktop="30" data-mobi="60"
-                                                 data-smobi="60"></div>
-                                            <div>
-                                                <h3 class="line-height-normal margin-bottom-10">НАУЧНЫЕ ПУБЛИКАЦИИ</h3>
-                                                <div class="wprt-lines style-1 custom-3">
-                                                    <div class="line-1"></div>
-                                                    <div class="line-2"></div>
-                                                </div>
-
-                                                <div class="wprt-spacer" data-desktop="30" data-mobi="25"
-                                                     data-smobi="25"></div>
-
-                                                <p>ry dh fh df dh</p>
-
-                                                <p>Vestibulum eu libero volutpat, portas quam acc, tempus sem. Donec
-                                                    sodales
-                                                    quam id lorem lobortis, vitae. Pellentesque habitant morbi tristique
-                                                    senectus et netus et malesuada fames ac turpis egestas. Integer
-                                                    blandit
-                                                    nulla quis fermentum hendrerit.</p>
-                                            </div>
-                                        </div><!-- /.col-md-8 -->
-                                        <!--ВЫПОЛНЕННЫЕ ПРОЕКТЫ-->
-
-                                        <div class="col-md-12">
-                                            <div class="wprt-spacer" data-desktop="30" data-mobi="60"
-                                                 data-smobi="60"></div>
-                                            <div>
-                                                <h3 class="line-height-normal margin-bottom-10">ВЫПОЛНЕННЫЕ ПРОЕКТЫ</h3>
-                                                <div class="wprt-lines style-1 custom-3">
-                                                    <div class="line-1"></div>
-                                                    <div class="line-2"></div>
-                                                </div>
-                                                <div class="wprt-spacer" data-desktop="30" data-mobi="25"
-                                                     data-smobi="25"></div>
-                                            </div>
-                                        </div><!-- /.col-md-12 -->
-
-                                        <div class="col-md-12">
-                                            <div class="wprt-project has-bullets has-arrows bullet-style-2 arrow-position-2"
-                                                 data-layout="slider" data-column="4" data-column2="3" data-column3="2"
-                                                 data-column4="1" data-gaph="15" data-gapv="15">
-                                                <div id="projects" class="cbp">
-
-                                                    <div class="cbp-item">
-                                                        <div class="project-item">
-                                                            <div class="inner">
-                                                                <div class="grid">
-                                                                    <figure class="effect-honey"
-                                                                            style="height: 250px;">
-                                                                        <a href="#">
-                                                                            <img src="#" alt="">
-                                                                        </a>
-                                                                        <figcaption>
-                                                                            <div>
-                                                                                <h2>
-                                                                                    <a href="#">ry rdyd ryd </a>
-                                                                                </h2>
-                                                                            </div>
-                                                                        </figcaption>
-                                                                    </figure>
-                                                                </div>
-                                                                {#                                                        <a class="project-zoom cbp-lightbox" href="assets/img/projects/1-full.jpg" data-title="LUXURY BUILDINGS">#}
-                                                                {#                                                            <i class="fa fa-arrows-alt"></i>#}
-                                                                {#                                                        </a>#}
-                                                            </div>
-                                                        </div>
-                                                    </div><!--/.cbp-item -->
-
-                                                </div><!-- /#projects -->
-                                            </div><!--/.wprt-project -->
-                                        </div><!-- /.col-md-12 -->
-
-
-                                        <!--ОТЗЫВЫ-->
-
-                                        <div class="col-md-12">
-                                            <div class="wprt-spacer" data-desktop="30" data-mobi="30"
-                                                 data-smobi="60"></div>
-                                            <div>
-                                                <h3 class="line-height-normal margin-bottom-10">ОТЗЫВЫ ЗАКАЗЧИКОВ И
-                                                    ПОДРЯДЧИКОВ</h3>
-                                                <div class="wprt-lines style-1 custom-3">
-                                                    <div class="line-1"></div>
-                                                    <div class="line-2"></div>
-                                                </div>
-                                                <div class="wprt-spacer" data-desktop="30" data-mobi="25"
-                                                     data-smobi="25"></div>
-                                            </div>
-                                        </div><!-- /.col-md-12 -->
-
-                                        <div class="col-md-12">
-                                            <div class="wprt-project has-bullets has-arrows bullet-style-2 arrow-position-2"
-                                                 data-layout="slider" data-column="4" data-column2="3" data-column3="2"
-                                                 data-column4="1" data-gaph="15" data-gapv="15">
-                                                <div id="projects" class="cbp">
-
-                                                    <div class="cbp-item">
-                                                        <div class="project-item">
-                                                            <div class="inner">
-                                                                <div class="grid">
-                                                                    <figure class="effect-sadie">
-                                                                        <img src="#" alt="image"/>
-                                                                        <figcaption>
-                                                                            <div>
-                                                                                <h2><a target="_blank" href="#"></a>
-                                                                                </h2>
-                                                                                <p>dfhdf dfh df </p>
-                                                                            </div>
-                                                                        </figcaption>
-                                                                    </figure>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div><!--/.cbp-item -->
-
-                                                </div><!-- /#projects -->
-                                            </div><!--/.wprt-project -->
-                                        </div><!-- /.col-md-12 -->
-
-
-                                        <!--ДОКУМЕНТАЦИЯ О ПРОДУКТЕ-->
-
-                                        <div class="col-md-12">
-                                            <div class="wprt-spacer" data-desktop="30" data-mobi="60"
-                                                 data-smobi="60"></div>
                                             <h2 class="line-height-normal margin-bottom-10">ИССЛЕДОВАНИЯ И
                                                 ДОКУМЕНТАЦИЯ</h2>
-                                            <div class="wprt-lines style-1 custom-3">
-                                                <div class="line-1"></div>
-                                                <div class="line-2"></div>
-                                            </div>
-                                            <div class="wprt-spacer" data-desktop="25" data-mobi="25"
-                                                 data-smobi="25"></div>
+
                                         </div>
-
                                         <div class="col-md-6 row">
+                                            {% if company_documents %}
+                                                {% for item in company_documents %}
+                                                    <div class="wprt-toggle style-2">
+                                                        <h3 class="toggle-title">{{ item.name }}</h3>
+                                                        <div class="toggle-content" style="color: black;">
+                                                            <p>{{ item.description }}</p>
+                                                            <div class="wprt-spacer" data-desktop="10" data-mobi="10"
+                                                                 data-smobi="10"></div>
 
-                                            <div class="wprt-toggle style-1">
-                                                <h3 class="toggle-title">ttu tfu </h3>
-                                                <div class="toggle-content" style="color: black;">
+                                                            {#                                                        <p><i><b>Применяемые материалы:</b>#}
+                                                            {#                                                            dfhdfh fdh dfh </i>#}
+                                                            {#                                                        </p>#}
 
-                                                    se se tset s
-                                                    <div class="wprt-spacer" data-desktop="10" data-mobi="10"
-                                                         data-smobi="10"></div>
-                                                    <a class="wprt-button small rounded-30px" href="#"
-                                                       target="_blank">СКАЧАТЬ PDF</a>
+                                                            <a class="wprt-button small rounded-30px"
+                                                               href="#"
+                                                               target="_blank">СКАЧАТЬ PDF</a>
 
-                                                </div>
-                                            </div>
-
-                                        </div><!-- /.col-md-12 -->
-
-                                        <div class="col-md-6 row">
-
-                                            <div class="wprt-toggle style-2">
-                                                <h3 class="toggle-title">sy s ys sd </h3>
-                                                <div class="toggle-content" style="color: black;">
-
-                                                    <div class="wprt-spacer" data-desktop="10" data-mobi="10"
-                                                         data-smobi="10">
-
+                                                        </div>
                                                     </div>
-                                                    <a class="wprt-button small rounded-30px" href="#"
-                                                       target="_blank">СКАЧАТЬ PDF</a>
+                                                {% endfor %}
+                                            {% else %}
+                                                <p>Компания {{ partner.name }} не выпустила ни одного исследования и документации.</p>
+                                            {% endif %}
+                                        </div>
+                                    </div><!-- /.col-md-12 -->
 
-                                                </div>
-                                            </div>
+                                    {#                                        <div class="col-md-6 row">#}
+                                    {##}
+                                    {#                                            <div class="wprt-toggle style-1">#}
+                                    {#                                                <h3 class="toggle-title">rdr dr d d </h3>#}
+                                    {#                                                <div class="toggle-content" style="color: black;">#}
+                                    {#                                                    d d d dfh#}
+                                    {#                                                    <div class="wprt-spacer" data-desktop="10" data-mobi="10"#}
+                                    {#                                                         data-smobi="10"></div>#}
+                                    {##}
+                                    {#                                                    <a class="wprt-button small rounded-30px"#}
+                                    {#                                                       href="#"#}
+                                    {#                                                       target="_blank">СКАЧАТЬ PDF</a>#}
+                                    {##}
+                                    {#                                                </div>#}
+                                    {#                                            </div>#}
+                                    {##}
+                                    {#                                        </div><!-- /.col-md-8 -->#}
+                                    <!--СТАТЬЯ О ТЕХНИЧЕСКОМ РЕШЕНИИ- /ЖУРНАЛЫ И ТД/ PDF LOADER-->
+                                    {#                                        <div class="col-md-12">#}
+                                    {#                                            <div class="wprt-spacer" data-desktop="30" data-mobi="60"#}
+                                    {#                                                 data-smobi="60"></div>#}
+                                    {#                                            <div>#}
+                                    {#                                                <h3 class="line-height-normal margin-bottom-10">НАУЧНЫЕ ПУБЛИКАЦИИ</h3>#}
+                                    {#                                                <div class="wprt-lines style-1 custom-3">#}
+                                    {#                                                    <div class="line-1"></div>#}
+                                    {#                                                    <div class="line-2"></div>#}
+                                    {#                                                </div>#}
+                                    {##}
+                                    {#                                                <div class="wprt-spacer" data-desktop="30" data-mobi="25"#}
+                                    {#                                                     data-smobi="25"></div>#}
+                                    {##}
+                                    {#                                                <p>ry dh fh df dh</p>#}
+                                    {##}
+                                    {#                                                <p>Vestibulum eu libero volutpat, portas quam acc, tempus sem. Donec#}
+                                    {#                                                    sodales#}
+                                    {#                                                    quam id lorem lobortis, vitae. Pellentesque habitant morbi tristique#}
+                                    {#                                                    senectus et netus et malesuada fames ac turpis egestas. Integer#}
+                                    {#                                                    blandit#}
+                                    {#                                                    nulla quis fermentum hendrerit.</p>#}
+                                    {#                                            </div>#}
+                                    {#                                        </div><!-- /.col-md-8 -->#}
+                                    <!--ВЫПОЛНЕННЫЕ ПРОЕКТЫ-->
 
-                                        </div><!-- /.col-md-6 -->
+                                    {#                                        <div class="col-md-12">#}
+                                    {#                                            <div class="wprt-spacer" data-desktop="30" data-mobi="60"#}
+                                    {#                                                 data-smobi="60"></div>#}
+                                    {#                                            <div>#}
+                                    {#                                                <h3 class="line-height-normal margin-bottom-10">ВЫПОЛНЕННЫЕ ПРОЕКТЫ</h3>#}
+                                    {#                                                <div class="wprt-lines style-1 custom-3">#}
+                                    {#                                                    <div class="line-1"></div>#}
+                                    {#                                                    <div class="line-2"></div>#}
+                                    {#                                                </div>#}
+                                    {#                                                <div class="wprt-spacer" data-desktop="30" data-mobi="25"#}
+                                    {#                                                     data-smobi="25"></div>#}
+                                    {#                                            </div>#}
+                                    {#                                </div><!-- /.col-md-12 -->#}
 
-                                        <!--/ ДОКУМЕНТАЦИЯ О ПРОДУКТЕ-->
-                                        <div class="col-md-12">
-                                            <div class="wprt-spacer" data-desktop="80" data-mobi="60"
-                                                 data-smobi="60"></div>
-                                        </div><!-- /.col-md-12 -->
-                                    </div>
+                                    {#                                        <div class="col-md-12">#}
+                                    {#                                            <div class="wprt-project has-bullets has-arrows bullet-style-2 arrow-position-2"#}
+                                    {#                                                 data-layout="slider" data-column="4" data-column2="3" data-column3="2"#}
+                                    {#                                                 data-column4="1" data-gaph="15" data-gapv="15">#}
+                                    {#                                                <div id="projects" class="cbp">#}
+                                    {##}
+                                    {#                                                    <div class="cbp-item">#}
+                                    {#                                                        <div class="project-item">#}
+                                    {#                                                            <div class="inner">#}
+                                    {#                                                                <div class="grid">#}
+                                    {#                                                                    <figure class="effect-honey"#}
+                                    {#                                                                            style="height: 250px;">#}
+                                    {#                                                                        <a href="#">#}
+                                    {#                                                                            <img src="#" alt="">#}
+                                    {#                                                                        </a>#}
+                                    {#                                                                        <figcaption>#}
+                                    {#                                                                            <div>#}
+                                    {#                                                                                <h2>#}
+                                    {#                                                                                    <a href="#">ry rdyd ryd </a>#}
+                                    {#                                                                                </h2>#}
+                                    {#                                                                            </div>#}
+                                    {#                                                                        </figcaption>#}
+                                    {#                                                                    </figure>#}
+                                    {#                                                                </div>#}
+                                    {#                                                        <a class="project-zoom cbp-lightbox" href="assets/img/projects/1-full.jpg" data-title="LUXURY BUILDINGS">#}
+                                    {#                                                            <i class="fa fa-arrows-alt"></i>#}
+                                    {#                                                        </a>#}
+                                    {#                                                            </div>#}
+                                    {#                                                        </div>#}
+                                    {#                                                    </div><!--/.cbp-item -->#}
+                                    {##}
+                                    {#                                                </div><!-- /#projects -->#}
+                                    {#                                            </div><!--/.wprt-project -->#}
+                                    {#                                        </div><!-- /.col-md-12 -->#}
+
+
+                                    <!--ОТЗЫВЫ-->
+
+                                    {#                                        <div class="col-md-12">#}
+                                    {#                                            <div class="wprt-spacer" data-desktop="30" data-mobi="30"#}
+                                    {#                                                 data-smobi="60"></div>#}
+                                    {#                                            <div>#}
+                                    {#                                                <h3 class="line-height-normal margin-bottom-10">ОТЗЫВЫ ЗАКАЗЧИКОВ И#}
+                                    {#                                                    ПОДРЯДЧИКОВ</h3>#}
+                                    {#                                                <div class="wprt-lines style-1 custom-3">#}
+                                    {#                                                    <div class="line-1"></div>#}
+                                    {#                                                    <div class="line-2"></div>#}
+                                    {#                                                </div>#}
+                                    {#                                                <div class="wprt-spacer" data-desktop="30" data-mobi="25"#}
+                                    {#                                                     data-smobi="25"></div>#}
+                                    {#                                            </div>#}
+                                    {#                                        </div><!-- /.col-md-12 -->#}
+
+                                    {#                                        <div class="col-md-12">#}
+                                    {#                                            <div class="wprt-project has-bullets has-arrows bullet-style-2 arrow-position-2"#}
+                                    {#                                                 data-layout="slider" data-column="4" data-column2="3" data-column3="2"#}
+                                    {#                                                 data-column4="1" data-gaph="15" data-gapv="15">#}
+                                    {#                                                <div id="projects" class="cbp">#}
+                                    {##}
+                                    {#                                                    <div class="cbp-item">#}
+                                    {#                                                        <div class="project-item">#}
+                                    {#                                                            <div class="inner">#}
+                                    {#                                                                <div class="grid">#}
+                                    {#                                                                    <figure class="effect-sadie">#}
+                                    {#                                                                        <img src="#" alt="image"/>#}
+                                    {#                                                                        <figcaption>#}
+                                    {#                                                                            <div>#}
+                                    {#                                                                                <h2><a target="_blank" href="#"></a>#}
+                                    {#                                                                                </h2>#}
+                                    {#                                                                                <p>dfhdf dfh df </p>#}
+                                    {#                                                                            </div>#}
+                                    {#                                                                        </figcaption>#}
+                                    {#                                                                    </figure>#}
+                                    {#                                                                </div>#}
+                                    {#                                                            </div>#}
+                                    {#                                                        </div>#}
+                                    {#                                                    </div><!--/.cbp-item -->#}
+                                    {##}
+                                    {#                                                </div><!-- /#projects -->#}
+                                    {#                                            </div><!--/.wprt-project -->#}
+                                    {#                                        </div><!-- /.col-md-12 -->#}
+
+
+                                    <!--ДОКУМЕНТАЦИЯ О ПРОДУКТЕ-->
+
+                                    {#                                        <div class="col-md-12">#}
+                                    {#                                            <div class="wprt-spacer" data-desktop="30" data-mobi="60"#}
+                                    {#                                                 data-smobi="60"></div>#}
+                                    {#                                            <h2 class="line-height-normal margin-bottom-10">ИССЛЕДОВАНИЯ И#}
+                                    {#                                                ДОКУМЕНТАЦИЯ</h2>#}
+                                    {#                                            <div class="wprt-lines style-1 custom-3">#}
+                                    {#                                                <div class="line-1"></div>#}
+                                    {#                                                <div class="line-2"></div>#}
+                                    {#                                            </div>#}
+                                    {#                                            <div class="wprt-spacer" data-desktop="25" data-mobi="25"#}
+                                    {#                                                 data-smobi="25"></div>#}
+                                    {#                                        </div>#}
+
+                                    {#                                        <div class="col-md-6 row">#}
+                                    {##}
+                                    {#                                            <div class="wprt-toggle style-1">#}
+                                    {#                                                <h3 class="toggle-title">ttu tfu </h3>#}
+                                    {#                                                <div class="toggle-content" style="color: black;">#}
+                                    {##}
+                                    {#                                                    se se tset s#}
+                                    {#                                                    <div class="wprt-spacer" data-desktop="10" data-mobi="10"#}
+                                    {#                                                         data-smobi="10"></div>#}
+                                    {#                                                    <a class="wprt-button small rounded-30px" href="#"#}
+                                    {#                                                       target="_blank">СКАЧАТЬ PDF</a>#}
+                                    {##}
+                                    {#                                                </div>#}
+                                    {#                                            </div>#}
+                                    {##}
+                                    {#                                        </div><!-- /.col-md-12 -->#}
+
+                                    {#                                        <div class="col-md-6 row">#}
+                                    {##}
+                                    {#                                            <div class="wprt-toggle style-2">#}
+                                    {#                                                <h3 class="toggle-title">sy s ys sd </h3>#}
+                                    {#                                                <div class="toggle-content" style="color: black;">#}
+                                    {##}
+                                    {#                                                    <div class="wprt-spacer" data-desktop="10" data-mobi="10"#}
+                                    {#                                                         data-smobi="10">#}
+                                    {##}
+                                    {#                                                    </div>#}
+                                    {#                                                    <a class="wprt-button small rounded-30px" href="#"#}
+                                    {#                                                       target="_blank">СКАЧАТЬ PDF</a>#}
+                                    {##}
+                                    {#                                                </div>#}
+                                    {#                                            </div>#}
+                                    {##}
+                                    {#                                        </div><!-- /.col-md-6 -->#}
+
+                                    <!--/ ДОКУМЕНТАЦИЯ О ПРОДУКТЕ-->
+                                    {#                                        <div class="col-md-12">#}
+                                    {#                                            <div class="wprt-spacer" data-desktop="80" data-mobi="60"#}
+                                    {#                                                 data-smobi="60"></div>#}
+                                    {#                                        </div><!-- /.col-md-12 -->#}
                                 </div>
+                            </div>
                         </section>
                     </div>
                 </div>
@@ -320,6 +316,4 @@
         </div>
     </div>
     <!--/ Main Content -->
-
-
 {% endblock %}
