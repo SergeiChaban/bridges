@@ -246,7 +246,7 @@ input[type="submit"]:focus { outline: 0; background-color: #4b4b4b; color: #fff;
 :-ms-input-placeholder { color: #c1c1c1; }
 
 /* Links */
-a { color: #ffbc13; outline: 0; text-decoration: none; -webkit-transition: all ease .238s; -moz-transition: all ease .238s; transition: all ease .238s; }
+a { color: #191970; outline: 0; text-decoration: none; -webkit-transition: all ease .238s; -moz-transition: all ease .238s; transition: all ease .238s; }
 
 a:hover,
 a:focus,
