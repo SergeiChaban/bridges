@@ -43,24 +43,12 @@ def partner_create(request):
 
 def partner_delete(request, pk):
     partner = get_object_or_404(Company, pk=pk)
-    # if request.method == 'POST':
-    #     partner.delete()
-    #     partner.save()
-    #     return HttpResponseRedirect(reverse('partners:partners_list'))
-    # elif request.method == 'GET':
     context = {
         'partner': partner,
         'page_title': 'Удаление компании',
         'bred_title': 'Удаление компании'
     }
     return render(request, 'partnersapp/company_delete.html', context)
-    # partner = Company.objects.get(pk=pk)
-    # context = {
-    #     'partner': partner,
-    #     'page_title': 'Добавление компании',
-    #     'bred_title': 'Добавление компании'
-    # }
-    # return render(request, 'partnersapp/company_delete.html', context)
 
 
 def partner_delete_confirm(request, pk):
