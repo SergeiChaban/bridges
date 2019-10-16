@@ -609,7 +609,7 @@
 .wprt-lines.custom-2 .line-1 { height:3px; width: 60px; background-color: #ffbc13; margin-top: -1.5px }
 
 .wprt-lines.custom-3 { height: 3px; }
-.wprt-lines.custom-3 .line-1 { height:3px; width: 60px; background-color: #ffbc13; margin-left: 0; margin-top: -1.5px }
+.wprt-lines.custom-3 .line-1 { height:3px; width: 60px; background-color: #337ab7; margin-left: 0; margin-top: -1.5px }
 .wprt-lines.custom-3 .line-2 { height:1px; width: 100%; background-color: #f8f8f8; margin-left: 0; margin-top: -0.5px }
 
 .wprt-lines.custom-4 { height: 1px; }
@@ -856,7 +856,7 @@
 .wprt-list.style-5 li:before { content: "\f111"; font-size: 6px; }
 .wprt-list.style-6 li:before { content: "\f0da"; }
 
-.wprt-list.accent-color li:before { color: #ffbc13; }
+.wprt-list.accent-color li:before { color: #337ab7; }
 
 /* Toggle
 -------------------------------------------------------------- */

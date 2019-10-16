@@ -20,8 +20,10 @@ def partners_list(request):
 
 def partner_detail(request, pk):
     partner = Company.objects.get(pk=pk)
+    company_users = CompanyUsers.objects.filter(company_id=pk)
     context = {
         'partner': partner,
+        'company_users': company_users,
         'page_title': 'Описание компании',
         'bred_title': 'Описание компании'
     }
