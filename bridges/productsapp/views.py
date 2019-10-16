@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView
+
 from productsapp.models import TechnicalSolutions
 from researchapp.models import Document
 
@@ -25,6 +25,9 @@ def product(request, slug):
     feedback = docs.filter(type__id=4)
 
     content = {
+        'projects': item.get_projects(),
+        'materials': item.get_materials(),
+        'works': item.get_works(),
         'page_title': title,
         'bred_title': title,
         'product': item,
