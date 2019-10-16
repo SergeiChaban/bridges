@@ -13,17 +13,12 @@
             </button>
         </form>
 
-
+<div class="wprt-spacer" data-desktop="20" data-mobi="20" data-smobi="20"></div>
     <a href="{{ project.get_absolute_url }}" class="btn btn-info bnt_save">вернуться назад</a>
     </div>
 
 {% endblock %}
 
-{% block js %}
-    {{ block.super }}
-    <script src="{% static 'assets/js/orders_scripts.js' %}"></script>
-    <script src="{% static 'assets/js/jquery.formset.js' %}"></script>
-{% endblock %}
 
 
 

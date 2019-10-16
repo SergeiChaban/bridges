@@ -43,29 +43,29 @@
                                         <div class="wprt-spacer" data-desktop="0" data-mobi="20" data-smobi="20"></div>
 
                                         <h3 class="line-height-normal margin-bottom-10">СОТРУДНИКИ КОМПАНИИ</h3>
-                                        <div class="wprt-lines style-1 custom-3">
-                                            <div class="line-1"></div>
-                                            <div class="line-2"></div>
-                                        </div>
+                                        {#                                        <div class="wprt-lines style-1 custom-3">#}
+                                        {#                                            <div class="line-1"></div>#}
+                                        {#                                            <div class="line-2"></div>#}
+                                        {#                                        </div>#}
 
                                         <div class="wprt-spacer" data-desktop="30" data-mobi="25" data-smobi="25"></div>
-
                                         <ul class="wprt-list style-2 accent-color margin-bottom-25">
                                             {% for item in company_users %}
-                                            <li>
-                                                <p><strong>ФИО:</strong> {{ item.user.first_name }} {{ item.user.patronymic }} {{ item.user.last_name }}
-                                                <br><strong>Должность:</strong> {{ item.position }}</p>
-                                            </li>
+                                                <li>
+                                                    <p>
+                                                        <strong>ФИО:</strong> {{ item.user.first_name }} {{ item.user.patronymic }} {{ item.user.last_name }}
+                                                        <br><strong>Должность:</strong> {{ item.position }}</p>
+                                                </li>
                                             {% endfor %}
                                             <a href="{% url 'partnersapp:partner_user_update' partner.pk %}">добавить
-                                                    сотрудника</a>
-{#                                            <li><strong>Заказчик:</strong> ThemeForest Builder</li>#}
-{#                                            <li><strong>Проектировщик:</strong> Richardson and Sandra</li>#}
-{#                                            <li><strong>подрядчик:</strong> GraphicRiver Builder Corporate</li>#}
-{#                                            <li><strong>Бюджет:</strong> $1 250 000,00</li>#}
+                                                сотрудника</a>
+                                            {#                                            <li><strong>Заказчик:</strong> ThemeForest Builder</li>#}
+                                            {#                                            <li><strong>Проектировщик:</strong> Richardson and Sandra</li>#}
+                                            {#                                            <li><strong>подрядчик:</strong> GraphicRiver Builder Corporate</li>#}
+                                            {#                                            <li><strong>Бюджет:</strong> $1 250 000,00</li>#}
                                         </ul>
 
-{#                                        <a href="#" class="wprt-button small rounded-3px">LIVE PREVIEW</a>#}
+                                        {#                                        <a href="#" class="wprt-button small rounded-3px">LIVE PREVIEW</a>#}
                                     </div><!-- /.col-md-4 -->
                                     <!--СОСТАВ РАБОТ И МАТЕРИАЛОВ-->
                                     <div class="col-md-12">
