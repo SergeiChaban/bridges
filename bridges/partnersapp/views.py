@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from authapp.models import Company, CompanyUsers
-from partnersapp.forms import CompanyForm, CompanyUsersForm
+from partnersapp.forms import CompanyForm, CompanyUsersForm, CompanyUserUpdateForm
 
 
 def partners_list(request):
@@ -59,13 +59,13 @@ def partner_delete_confirm(request, pk):
 
 def partner_user_update(request, pk):
     company = Company.objects.get(pk=pk)
-    company_form = CompanyForm(instance=company)
+    company_form = CompanyUserUpdateForm(instance=company)
     UserInlineFormSet = inlineformset_factory(Company, CompanyUsers, form=CompanyUsersForm, extra=1)
     formset = UserInlineFormSet(instance=company)
     if request.method == "POST":
-        company_form = CompanyForm(request.POST)
+        company_form = CompanyUserUpdateForm(request.POST)
         if id:
-            company_form = CompanyForm(request.POST, instance=company)
+            company_form = CompanyUserUpdateForm(request.POST, instance=company)
             formset = UserInlineFormSet(request.POST)
             if company_form.is_valid():
                 created_company = company_form.save(commit=False)
