@@ -1,9 +1,11 @@
+from django.contrib.postgres.search import SearchVector
 from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, render_to_response
 from django.urls import reverse
 from authapp.models import Company, CompanyUsers
-from partnersapp.forms import CompanyForm, CompanyUsersForm, CompanyUserUpdateForm
+from partnersapp.forms import CompanyForm, CompanyUsersForm, CompanyUserUpdateForm, SearchForm
+from django.db.models import Q
 
 
 def partners_list(request):
@@ -85,4 +87,34 @@ def partner_user_update(request, pk):
     }
     return render(request, "partnersapp/company_user_create.html", context)
 
+
+def company_search(request):
+    # form = SearchForm()
+    # query = None
+    # results = []
+    # if 'query' in request.GET:
+    #     form = SearchForm(request.GET)
+    #     if form.is_valid():
+    #         query = form.cleaned_data['query']
+    #         results = Company.objects.annotate(search=SearchVector('name', 'inn'),).filter(search=query)
+    # return render(request, 'partnersapp/search.html', {'form': form, 'query': query, 'results': results})
+    if 'q' in request.GET and request.GET['q']:
+        q = request.GET['q']
+        founded_products = Company.objects.filter(
+            Q(name__icontains=q) | Q(inn__icontains=q) | Q(phone__icontains=q)
+        ).order_by('name')
+        # founded_products = Product.objects.filter(
+        #     Q(name__in=q) | Q(description__in=q) | Q(short_desc__in=q)
+        # ).order_by('name')
+        context = {
+            'page_title': 'Результаты поиска',
+            'founded_products': founded_products,
+            'query': q,
+        }
+        return render_to_response('partnersapp/search.html', context)
+    else:
+        context = {
+            'page_title': 'Результаты поиска',
+        }
+        return render_to_response('partnersapp/search.html', context)
 

@@ -10,13 +10,23 @@
                         <section class="wprt-section">
                             <div class="container">
                                 <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40"></div>
-                                <form action="#" method="GET" class="form-inline">
+
+                                <form action="{% url 'partners:company_search' %}" method="get" class="form-inline">
                                     <div class="form-group">
                                         <input type="text" placeholder="Поиск по компаниям" name="q">
                                     </div>
-                                    <button type="submit" class="btn btn-primary search-btn">Искать</button>
+                                    <input type="submit" value="Search" class="btn btn-primary search-btn">
                                 </form>
-                                <a href="{% url 'partners:partner_create' %}" class="btn btn-success">добавить компанию</a>
+
+
+{#                                <form action="#" method="GET" class="form-inline">#}
+{#                                    <div class="form-group">#}
+{#                                        <input type="text" placeholder="Поиск по компаниям" name="q">#}
+{#                                    </div>#}
+{#                                    <button type="submit" class="btn btn-primary search-btn">Искать</button>#}
+{#                                </form>#}
+                                <a href="{% url 'partners:partner_create' %}" class="btn btn-success">добавить
+                                    компанию</a>
 
                                 <div class="row">
                                     <div class="col-md-12">
