@@ -1328,14 +1328,6 @@ only screen and (                min-resolution: 2dppx){
 .active {
     color: #ffbc13;
 }
-.bnt_save {
-    margin-top: 20px;
-}
-.form-inline {
-    display: flex;
-    align-items: end;
-}
-.search-btn {
-    margin-left: 25px;
-    margin-top: 5px;
+.search_link {
+    font-size: 18px;
 }

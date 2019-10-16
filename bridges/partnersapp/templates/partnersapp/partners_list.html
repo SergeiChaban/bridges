@@ -11,23 +11,17 @@
                             <div class="container">
                                 <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40"></div>
 
-                                <form action="{% url 'partners:company_search' %}" method="get" class="form-inline">
-                                    <div class="form-group">
-                                        <input type="text" placeholder="Поиск по компаниям" name="q">
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <form action="{% url 'partners:company_search' %}" method="get">
+                                            <input name="q" placeholder="Искать здесь..." type="search">
+                                            <button type="submit">Поиск</button>
+                                        </form>
                                     </div>
-                                    <input type="submit" value="Search" class="btn btn-primary search-btn">
-                                </form>
-
-
-{#                                <form action="#" method="GET" class="form-inline">#}
-{#                                    <div class="form-group">#}
-{#                                        <input type="text" placeholder="Поиск по компаниям" name="q">#}
-{#                                    </div>#}
-{#                                    <button type="submit" class="btn btn-primary search-btn">Искать</button>#}
-{#                                </form>#}
-                                <a href="{% url 'partners:partner_create' %}" class="btn btn-success">добавить
-                                    компанию</a>
-
+                                    <a href="{% url 'partners:partner_create' %}" class="btn btn-success">добавить
+                                        компанию</a>
+                                </div>
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40"></div>
@@ -48,7 +42,7 @@
                                                         компании:</strong> {{ item.category }}</p>
                                                     <p class="desc"><strong>ИНН:</strong> {{ item.inn }}</p>
                                                     <a href="{% url 'partners:partner_detail' item.pk %}"
-                                                       class="wprt-button small rounded-3px">READ MORE</a>
+                                                       class="wprt-button small rounded-3px">Подробнее</a>
                                                 </div>
                                             </div>
 
