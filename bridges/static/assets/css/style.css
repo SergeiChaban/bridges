@@ -1331,3 +1331,11 @@ only screen and (                min-resolution: 2dppx){
 .bnt_save {
     margin-top: 20px;
 }
+.form-inline {
+    display: flex;
+    align-items: end;
+}
+.search-btn {
+    margin-left: 25px;
+    margin-top: 5px;
+}

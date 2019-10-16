@@ -18,3 +18,7 @@ class CompanyUsersForm(forms.ModelForm):
     class Meta:
         model = CompanyUsers
         exclude = ()
+
+
+class SearchForm(forms.Form):
+    query = forms.CharField()
