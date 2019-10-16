@@ -4,19 +4,15 @@
     <div style="height: 50px;"></div>
     <div class="container">
 
-        <form action="" method="post" enctype="multipart/form-data">
+        <form action="" method="post">
             {% csrf_token %}
-            {{ form.as_p }}
+            {{ company_form.as_p }}
+            {{ formset.as_p }}
             <button type="submit" value="сохранить" class="btn btn-success">
                 сохранить
             </button>
         </form>
 
-        <form action="#">
-            <button type="submit" class="btn btn-info bnt_save">
-                вернуться назад
-            </button>
-        </form>
     </div>
 {% endblock %}
 

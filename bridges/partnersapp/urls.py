@@ -9,4 +9,6 @@ urlpatterns = [
     path('partner/create', partnersapp.partner_create, name='partner_create'),
     path('partner/delete/<int:pk>', partnersapp.partner_delete, name='partner_delete'),
     path('partner/delete/confirm/<int:pk>', partnersapp.partner_delete_confirm, name='partner_delete_confirm'),
+    path('users/update/<int:pk>', partnersapp.partner_user_update, name='partner_user_update'),
+
 ]

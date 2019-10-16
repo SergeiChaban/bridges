@@ -1,8 +1,9 @@
+from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
-from authapp.models import Company
-from partnersapp.forms import CompanyForm
+from authapp.models import Company, CompanyUsers
+from partnersapp.forms import CompanyForm, CompanyUsersForm
 
 
 def partners_list(request):
@@ -54,4 +55,34 @@ def partner_delete(request, pk):
 def partner_delete_confirm(request, pk):
     get_object_or_404(Company, pk=pk).delete()
     return HttpResponseRedirect(reverse('partners:partners_list'))
+
+
+def partner_user_update(request, pk):
+    company = Company.objects.get(pk=pk)
+    company_form = CompanyForm(instance=company)
+    UserInlineFormSet = inlineformset_factory(Company, CompanyUsers, form=CompanyUsersForm, extra=1)
+    formset = UserInlineFormSet(instance=company)
+    if request.method == "POST":
+        company_form = CompanyForm(request.POST)
+        if id:
+            company_form = CompanyForm(request.POST, instance=company)
+            formset = UserInlineFormSet(request.POST)
+            if company_form.is_valid():
+                created_company = company_form.save(commit=False)
+                created_company.form = request.form
+                created_company.category = request.category
+                formset = UserInlineFormSet(request.POST, instance=created_company)
+                if formset.is_valid():
+                    created_company.save()
+                    formset.save()
+                    return HttpResponseRedirect(created_company.get_absolute_url())
+    context ={
+        'company_form': company_form,
+        'formset': formset,
+        'page_title': 'Добавление сотрудника',
+        'bred_title': 'Добавление сотрудника',
+        'company': company
+    }
+    return render(request, "partnersapp/company_user_create.html", context)
+
 
