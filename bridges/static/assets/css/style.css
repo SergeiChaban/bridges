@@ -1331,3 +1331,34 @@ only screen and (                min-resolution: 2dppx){
 .search_link {
     font-size: 18px;
 }
+.d1 {background: #fff;height: 40px;margin-bottom:20px;}
+.d1 input {
+  width: 100%;
+  height: 42px;
+  padding-left: 10px;
+  border: 2px solid #337ab7;
+  border-radius: 5px;
+  outline: none;
+  background: #fff;
+  color: #000;
+}
+.d1 button {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: #337ab7;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+.d1 button:before {
+  content: "\f002";
+  font-family: FontAwesome;
+  font-size: 16px;
+  color: #F9F0DA;
+}
+.add_btn {
+    padding: 10px 15px;
+}
