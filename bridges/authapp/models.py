@@ -87,7 +87,10 @@ class Users(AbstractUser):
         return self.company.select_related()
 
     def __str__(self):
-        return str(f"{self.first_name} {self.patronymic} {self.last_name}")
+        if self.patronymic:
+            return str(f"{self.first_name} {self.patronymic} {self.last_name}")
+        else:
+            return str(f"{self.first_name} {self.last_name}")
 
 
 class CompanyUsers(models.Model):
