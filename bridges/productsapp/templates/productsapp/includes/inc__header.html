@@ -23,7 +23,7 @@
                             <span class="{% if request.resolver_match.url_name == 'products' %}active{% endif %}">Технологии</span>
                         </a>
                     </li>
-{#                    <li class="menu-item"><a href="#">Услуги</a></li>#}
+                    {#                    <li class="menu-item"><a href="#">Услуги</a></li>#}
                     <li class="menu-item">
                         <a href="{% url 'services:services_url' %}" class="active">
                             <span class="{% if request.resolver_match.url_name == 'services_url' %}active{% endif %}">Услуги</span>
@@ -33,6 +33,11 @@
                     <li class="menu-item">
                         <a href="{% url 'projects:projects' %}" class="active">
                             <span class="{% if request.resolver_match.url_name == 'projects' %}active{% endif %}">Проекты</span>
+                        </a>
+                    </li>
+                    <li class="menu-item">
+                        <a href="{% url 'partners:partners_list' %}" class="active">
+                            <span class="{% if request.resolver_match.url_name == 'projects' %}active{% endif %}">Партнеры</span>
                         </a>
                     </li>
                     <li class="menu-item">
