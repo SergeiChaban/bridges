@@ -13,18 +13,20 @@
                                         <!--div class="col-md-8"-->
                                         <div class="wprt-spacer" data-desktop="40" data-mobi="20" data-smobi="20"></div>
                                         {% if user.is_authenticated and user.is_active %}
-                                            <h4 class="margin-bottom-15">Профиль
-                                                пользователя {{ user.username|title }}</h4>
+                                            <h3 class="margin-bottom-15">Профиль
+                                                пользователя {{ user.username|title }}</h3>
                                             <br>
-                                            <div class="col-md-6">
-                                                <table>
+                                            <div class="col-md-12">
+                                                <table class="width_table">
                                                     <tr>
                                                         <td><p class="n_text">Ваше имя:</p></td>
-                                                        <td><p class="n_text"><strong>{{ user.first_name|title }}</strong></p></td>
+                                                        <td><p class="n_text">
+                                                            <strong>{{ user.first_name|title }}</strong></p></td>
                                                     </tr>
                                                     <tr>
                                                         <td><p class="n_text">Фамилия:</p></td>
-                                                        <td><p class="n_text"><strong>{{ user.last_name|title }}</strong></p></td>
+                                                        <td><p class="n_text">
+                                                            <strong>{{ user.last_name|title }}</strong></p></td>
                                                     </tr>
                                                     <tr>
                                                         <td><p class="n_text">Отчество:</p></td>
@@ -33,11 +35,13 @@
                                                     </tr>
                                                     <tr>
                                                         <td><p class="n_text">Пол:</p></td>
-                                                        <td><p class="n_text"><strong>{{ user.get_gender_display }}</strong></p></td>
+                                                        <td><p class="n_text">
+                                                            <strong>{{ user.get_gender_display }}</strong></p></td>
                                                     </tr>
                                                     <tr>
                                                         <td><p class="n_text">День рождения:</p></td>
-                                                        <td><p class="n_text"><strong>{{ user.birthday|date:"d.m.Y" }}</strong></p></td>
+                                                        <td><p class="n_text">
+                                                            <strong>{{ user.birthday|date:"d.m.Y" }}</strong></p></td>
                                                     </tr>
                                                     <tr>
                                                         <td><p class="n_text">Телефон:</p></td>
@@ -49,11 +53,20 @@
                                                     </tr>
                                                     <tr>
                                                         <td><p class="n_text">Город:</p></td>
-                                                        <td><p class="n_text"><strong>{{ user.city|title }}</strong></p></td>
+                                                        <td><p class="n_text"><strong>{{ user.city|title }}</strong></p>
+                                                        </td>
                                                     </tr>
                                                 </table>
+                                                <h4 class="margin-bottom-15">Проекты пользователя</h4>
+                                                {% for item in user_projects %}
+                                                    <ul class="wprt-list style-2 accent-color margin-bottom-25">
+                                                        <li><a href="#"> {{ item.project }}</a></li>
+                                                    </ul>
+                                                {% endfor %}
+                                                <a href="#">добавить в проект</a>
                                             </div>
-                                            <div class="wprt-spacer" data-desktop="20" data-mobi="20" data-smobi="20"></div>
+                                            <div class="wprt-spacer" data-desktop="20" data-mobi="20"
+                                                 data-smobi="20"></div>
                                             <p class="n_text">Можете <a href="{% url 'auth:logout' %}">выйти с сайта</a>.
                                             </p>
                                         {% else %}

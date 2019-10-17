@@ -83,6 +83,9 @@ class Users(AbstractUser):
         verbose_name = "Пользователь"
         ordering = ['-date_joined']
 
+    def get_absolute_url(self):
+        return reverse('auth:profile', args=[str(self.id)])
+
     def get_company(self):
         return self.company.select_related()
 

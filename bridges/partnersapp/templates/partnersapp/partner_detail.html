@@ -60,7 +60,7 @@
                                             {% for item in company_users %}
                                                 <li>
                                                     <p>
-                                                        <strong>ФИО:</strong><a href="#"> {{ item.user.first_name }} {% if item.user.patronymic %}{{ item.user.patronymic }}{% endif %} {{ item.user.last_name }}</a>
+                                                        <strong>ФИО:</strong><a href="{{ item.user.get_absolute_url }}"> {{ item.user.first_name }} {% if item.user.patronymic %}{{ item.user.patronymic }}{% endif %} {{ item.user.last_name }}</a>
                                                         <br><strong>Должность:</strong> {{ item.position }}</p>
                                                 </li>
                                             {% endfor %}
