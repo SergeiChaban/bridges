@@ -78,8 +78,6 @@ def partner_user_update(request, pk):
             formset = UserInlineFormSet(request.POST)
             if company_form.is_valid():
                 created_company = company_form.save(commit=False)
-                created_company.form = request.form
-                created_company.category = request.category
                 formset = UserInlineFormSet(request.POST, instance=created_company)
                 if formset.is_valid():
                     created_company.save()
