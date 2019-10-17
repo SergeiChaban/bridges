@@ -13,7 +13,12 @@ from .models import *
 
 @login_required
 def restricted_area(request):
-    return render(request,'authapp/restricted_area.html', {'section': 'restricted_area'})
+    context = {
+        'section': 'restricted_area',
+        'page_title': 'Личный кабинет',
+        'bred_title': 'Личный кабинет'
+    }
+    return render(request, 'authapp/restricted_area.html', context)
 
     # class RegisterUserView(CreateView):
     #     model = Users

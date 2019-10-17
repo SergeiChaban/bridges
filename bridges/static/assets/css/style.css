@@ -459,7 +459,7 @@ p.dropcap span.first-letter { font-size: 55px; float: left; color: #337ab7; text
 #top-bar { font-size: 0.928em; position: relative; z-index: 1; }
 #top-bar:after { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background-color: #000; opacity: 0.2; z-index: -1; }
 #top-bar,
-#top-bar a { color: #fff; }
+#top-bar a { color: #000; }
 #top-bar a:hover { text-decoration: underline; }
 #top-bar-inner { padding-top: 10px; padding-bottom: 10px; }
 #top-bar .top-bar-inner-wrap { display: table; overflow: hidden; width: 100%; }
@@ -527,7 +527,7 @@ p.dropcap span.first-letter { font-size: 55px; float: left; color: #337ab7; text
 #site-header.style-5 .header-search-icon { display: block; height: 50px; line-height: 50px; color: #000; font-size: 16px; }
 
 #site-header.style-1 .header-search-icon:hover,
-#site-header.style-5 .header-search-icon:hover { color: #ffbc13; }
+#site-header.style-5 .header-search-icon:hover { color: #337ab7; }
 
 #site-header.style-1 .header-search-form,
 #site-header.style-5 .header-search-form { top: 4px; }
