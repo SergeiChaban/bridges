@@ -13,12 +13,31 @@ from .models import *
 
 @login_required
 def restricted_area(request):
+    user = request.user
+    user_companies = CompanyUsers.objects.filter(user_id=user.pk)
     context = {
         'section': 'restricted_area',
         'page_title': 'Личный кабинет',
-        'bred_title': 'Личный кабинет'
+        'bred_title': 'Личный кабинет',
+        'user_companies': user_companies,
     }
     return render(request, 'authapp/restricted_area.html', context)
+
+
+def register(request):
+    if request.method == 'POST':
+        user_form = RegisterUserForm(request.POST)
+        if user_form.is_valid():
+            new_user = user_form.save(commit=False)
+            new_user.set_password(user_form.cleaned_data['password'])
+            new_user.is_active = False
+            new_user.save()
+            return render(request, 'authapp/register_done.html', {'new_user': new_user})
+    else:
+        user_form = RegisterUserForm()
+    return render(request, 'authapp/register.html', {'form': user_form})
+
+
 
     # class RegisterUserView(CreateView):
     #     model = Users
@@ -27,7 +46,7 @@ def restricted_area(request):
     #         'page_title': 'Регистрация на сайте',
     #         'bred_title': 'Регистрация'
     #     }
-    #     template_name = 'authapp/register.html'
+    #     template_name = 'authapp/register1.html'
     #     success_url = reverse_lazy('auth:login')
     #
     #
@@ -51,5 +70,6 @@ def restricted_area(request):
     #     def get_context_data(self, *args, **kwargs):
     #         context = super().get_context_data(*args, **kwargs)
     #         return context
+
 
 

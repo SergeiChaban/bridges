@@ -68,42 +68,45 @@
                 </div>
             </div>
             <!-- Main Content -->
-    <div id="main-content" class="site-main clearfix">
-        <div id="content-wrap">
-            <div id="site-content" class="site-content clearfix">
-                <div id="inner-content" class="inner-content-wrap">
-                    <div class="page-content">
-                        <section class="wprt-section">
-                            <div class="container">
-                                <div class="row">
-                                    <div class="col-md-8">
-                                        <!--div class="col-md-12"-->
-                                    <div class="wprt-spacer" data-desktop="40" data-mobi="20" data-smobi="20"></div>
+            <div id="main-content" class="site-main clearfix">
+                <div id="content-wrap">
+                    <div id="site-content" class="site-content clearfix">
+                        <div id="inner-content" class="inner-content-wrap">
+                            <div class="page-content">
+                                <section class="wprt-section">
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <!--div class="col-md-12"-->
+                                                <div class="wprt-spacer" data-desktop="40" data-mobi="20"
+                                                     data-smobi="20"></div>
 
-                                        <h1>Вход на сайт</h1>
-                                        {% if form.errors %}
-                                            <p class="n_text"> Логин или пароль не совпадают. Попробуйте снова.</p>
-                                        {% endif %}
-                                        <div class="login-form">
-                                            <form action="{% url "login" %}" method="post">
-                                                {{ form.as_p }}
-                                                {% csrf_token %}
-                                                <input type="hidden" name="next" value="{{ next }}"/>
-                                                <p><input type="submit" value="Отправить"></p>
-                                            </form>
-                                        </div>
+                                                <h1>Вход на сайт</h1>
+                                                {% if form.errors %}
+                                                    <p class="n_text"> Логин или пароль не совпадают. Попробуйте
+                                                        снова.</p>
+                                                {% endif %}
+                                                <div class="login-form">
+                                                    <form action="{% url "login" %}" method="post">
+                                                        {{ form.as_p }}
+                                                        {% csrf_token %}
+                                                        <input type="hidden" name="next" value="{{ next }}"/>
+                                                        <p><input type="submit" value="Отправить"></p>
+                                                    </form>
+                                                    <p class="n_text"><a href="{% url 'register' %}">Зарегистрироваться</a></p>
+                                                </div>
 
 
-                                    </div>
-                                    <!-- /.col-md-12 -->
-                                </div><!-- /.row -->
-                            </div><!-- /.container -->
-                        </section>
+                                            </div>
+                                            <!-- /.col-md-12 -->
+                                        </div><!-- /.row -->
+                                    </div><!-- /.container -->
+                                </section>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
 
             <!-- Footer -->
             {% include 'mainapp/includes/inc__footer.html' %}

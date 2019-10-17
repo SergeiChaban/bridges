@@ -1,5 +1,4 @@
 from django.contrib import admin
-
 from researchapp.models import Document
 from .models import CategoryCompany, FormCompany, Company, Users, CompanyUsers
 
@@ -32,7 +31,7 @@ class CompanyAdmin(admin.ModelAdmin):
 @admin.register(Users)
 class UsersAdmin(admin.ModelAdmin):
     # поля, которые не нужно редактировать в админке
-    readonly_fields = ('password', 'is_superuser', 'last_login', 'date_joined')  # 'user_permissions', 'groups')
+    readonly_fields = ('password', 'is_superuser', 'last_login', 'date_joined')  #'user_permissions', 'groups')
 
     # какие поля выводить в админке
     list_display = ('username', 'first_name', 'last_name', 'is_active', 'is_staff', 'phone', 'email')

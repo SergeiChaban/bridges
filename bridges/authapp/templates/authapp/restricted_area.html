@@ -13,55 +13,89 @@
                                         <!--div class="col-md-12"-->
                                         <div class="wprt-spacer" data-desktop="40" data-mobi="20" data-smobi="20"></div>
                                         <h1>Личный кабинет</h1>
-                                        <p class="n_text">Добро пожаловать в личный кабинет {{ user.first_name }} {{ user.last_name }}.</p>
+                                        <p class="n_text">Добро пожаловать в личный
+                                            кабинет {{ user.first_name }} {{ user.last_name }}.</p>
                                         <div class="col-md-4">
-                                                <h4 class="margin-bottom-15">Профиль
-                                                    пользователя {{ user.username|title }}</h4>
-                                                <table class="width_table">
-                                                    <tr>
-                                                        <td><p class="n_text margin-bottom-0">Ваше имя:</p></td>
-                                                        <td><p class="n_text margin-bottom-0">
-                                                            <strong>{{ user.first_name|title }}</strong></p></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><p class="n_text margin-bottom-0">Фамилия:</p></td>
-                                                        <td><p class="n_text margin-bottom-0">
-                                                            <strong>{{ user.last_name|title }}</strong></p></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><p class="n_text margin-bottom-0">Отчество:</p></td>
-                                                        <td><p class="n_text margin-bottom-0"><strong>
-                                                            {% if user.patronymic %}
-                                                                {{ user.patronymic|title }}{% endif %}</strong></p></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><p class="n_text margin-bottom-0">Пол:</p></td>
-                                                        <td><p class="n_text margin-bottom-0">
-                                                            <strong>{{ user.get_gender_display }}</strong></p></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><p class="n_text margin-bottom-0">День рождения:</p></td>
-                                                        <td><p class="n_text margin-bottom-0">
-                                                            <strong>{{ user.birthday|date:"d.m.Y" }}</strong></p></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><p class="n_text margin-bottom-0">Телефон:</p></td>
-                                                        <td><p class="n_text margin-bottom-0">
-                                                            <strong><a href="tel:{{ user.phone }}">{{ user.phone }}</a></strong></p></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><p class="n_text margin-bottom-0">Эл. почта:</p></td>
-                                                        <td><p class="n_text margin-bottom-0">
-                                                            <strong>{{ user.email }}</strong></p></td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td><p class="n_text margin-bottom-0">Активный:</p></td>
-                                                        <td><p class="n_text margin-bottom-0">
-                                                            <strong>{% if user.is_active %} Да {% else %} Забанен {% endif %}</strong></p></td>
-                                                    </tr>
-                                                </table>
-                                                <p><a href="{% url 'profile_user_update' user.pk %}">редактировать</a></p>
-                                            </div>
+                                            <h4 class="margin-bottom-15">Профиль пользователя {{ user.username }}</h4>
+                                            <table class="width_table">
+                                                <tr>
+                                                    <td><p class="n_text margin-bottom-0">Ваше имя:</p></td>
+                                                    <td><p class="n_text margin-bottom-0">
+                                                        <strong>{{ user.first_name|title }}</strong></p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><p class="n_text margin-bottom-0">Фамилия:</p></td>
+                                                    <td><p class="n_text margin-bottom-0">
+                                                        <strong>{{ user.last_name|title }}</strong></p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><p class="n_text margin-bottom-0">Отчество:</p></td>
+                                                    <td><p class="n_text margin-bottom-0"><strong>
+                                                        {% if user.patronymic %}
+                                                            {{ user.patronymic|title }}{% endif %}</strong></p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><p class="n_text margin-bottom-0">Пол:</p></td>
+                                                    <td><p class="n_text margin-bottom-0">
+                                                        <strong>{{ user.get_gender_display }}</strong></p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><p class="n_text margin-bottom-0">День рождения:</p></td>
+                                                    <td><p class="n_text margin-bottom-0">
+                                                        <strong>{{ user.birthday|date:"d.m.Y" }}</strong></p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><p class="n_text margin-bottom-0">Телефон:</p></td>
+                                                    <td><p class="n_text margin-bottom-0">
+                                                        <strong><a
+                                                                href="tel:{{ user.phone }}">{{ user.phone }}</a></strong>
+                                                    </p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><p class="n_text margin-bottom-0">Эл. почта:</p></td>
+                                                    <td><p class="n_text margin-bottom-0">
+                                                        <strong>{{ user.email }}</strong></p></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><p class="n_text margin-bottom-0">Активный:</p></td>
+                                                    <td><p class="n_text margin-bottom-0">
+                                                        <strong>{% if user.is_active %} Да {% else %}
+                                                            Забанен {% endif %}</strong></p></td>
+                                                </tr>
+                                            </table>
+                                            <p><a href="{% url 'profile_user_update' user.pk %}">редактировать</a></p>
+                                            <p><a href="{% url 'password_change' %}">сменить пароль</a></p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h4 class="margin-bottom-15">Компании пользователя</h4>
+                                            {% if user_companies %}
+                                                {% for item in user_companies %}
+                                                    <ul class="wprt-list style-2 accent-color margin-bottom-25">
+                                                        <li><p class="n_text"><a
+                                                                href="{{ item.company.get_absolute_url }}">{{ item.company }}</a>
+                                                            - {{ item.position }}</p></li>
+                                                    </ul>
+                                                {% endfor %}
+                                            {% else %}
+                                                <p class="n_text">Нет ни одной компании</p>
+                                            {% endif %}
+                                            <p><a href="{% url 'company_user_update' user.pk %}">редактировать</a>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <h4 class="margin-bottom-15">Проекты пользователя</h4>
+                                            {% if user_projects %}
+                                                {% for item in user_projects %}
+                                                    <ul class="wprt-list style-2 accent-color margin-bottom-25">
+                                                        <li><a href="{{ item.project.get_absolute_url }}"
+                                                               class="n_text"> {{ item.project }}</a></li>
+                                                    </ul>
+                                                {% endfor %}
+                                            {% else %}
+                                                <p class="n_text">Нет ни одного проекта</p>
+                                            {% endif %}
+                                            <a href="#">редактировать</a>
+                                        </div>
                                     </div>
                                     <!-- /.col-md-12 -->
                                 </div><!-- /.row -->
