@@ -35,11 +35,11 @@
                                             {% if company_projects %}
                                                 {% for item in company_projects %}
                                                     <ul class="wprt-list style-2 accent-color margin-bottom-25">
-                                                        <p>
-                                                        <li><strong>Название проекта:</strong><a
+
+                                                        <li><p class="n_text"><strong>Название проекта:</strong><a
                                                                 href="{{ item.project.get_absolute_url }}"> {{ item.project }}</a>
-                                                            <br> <strong>Роль в проекте:</strong> {{ item.role }}</li>
-                                                        </p>
+                                                            <br> <strong>Роль в проекте:</strong> {{ item.role }}</p></li>
+
                                                     </ul>
                                                 {% endfor %}
                                             {% else %}
@@ -59,8 +59,7 @@
                                         <ul class="wprt-list style-2 accent-color margin-bottom-25">
                                             {% for item in company_users %}
                                                 <li>
-                                                    <p>
-                                                        <strong>ФИО:</strong><a href="{{ item.user.get_absolute_url }}"> {{ item.user.first_name }} {% if item.user.patronymic %}{{ item.user.patronymic }}{% endif %} {{ item.user.last_name }}</a>
+                                                    <p class="n_text"><strong>ФИО:</strong><a href="{{ item.user.get_absolute_url }}"> {{ item.user.first_name }} {% if item.user.patronymic %}{{ item.user.patronymic }}{% endif %} {{ item.user.last_name }}</a>
                                                         <br><strong>Должность:</strong> {{ item.position }}</p>
                                                 </li>
                                             {% endfor %}
@@ -94,7 +93,7 @@
                                                     <div class="wprt-toggle style-2">
                                                         <h3 class="toggle-title">{{ item.name }}</h3>
                                                         <div class="toggle-content" style="color: black;">
-                                                            <p>{{ item.description }}</p>
+                                                            <p class="n_text">{{ item.description }}</p>
                                                             <div class="wprt-spacer" data-desktop="10" data-mobi="10"
                                                                  data-smobi="10"></div>
                                                             {% for i in item.file.all %}

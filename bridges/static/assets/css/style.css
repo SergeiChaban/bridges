@@ -259,7 +259,7 @@ h2,
 h3,
 h4,
 h5,
-h6 { font-family: "Montserrat", sans-serif; color: #4b4b4b; line-height: 1.5; margin: 0 0 12px; font-weight: 500; text-rendering: optimizeLegibility; }
+h6 { font-family: "Montserrat", sans-serif; color: #000; line-height: 1.5; margin: 0 0 12px; font-weight: 500; text-rendering: optimizeLegibility; }
 
 h1 { font-size: 2.142em; } /* 30px */
 h2 { font-size: 1.758em; } /* 25px */
@@ -524,7 +524,7 @@ p.dropcap span.first-letter { font-size: 55px; float: left; color: #337ab7; text
 #site-header.style-5 #main-nav > ul > li > a { height: 50px; line-height: 50px; }
 
 #site-header.style-1 .header-search-icon,
-#site-header.style-5 .header-search-icon { display: block; height: 50px; line-height: 50px; color: #4b4b4b; font-size: 16px; }
+#site-header.style-5 .header-search-icon { display: block; height: 50px; line-height: 50px; color: #000; font-size: 16px; }
 
 #site-header.style-1 .header-search-icon:hover,
 #site-header.style-5 .header-search-icon:hover { color: #ffbc13; }
@@ -542,7 +542,7 @@ p.dropcap span.first-letter { font-size: 55px; float: left; color: #337ab7; text
 
 /* Mini Cart */
 .nav-top-cart-wrapper { position: absolute; right: 15px; top: 50%; z-index: 100; -webkit-transform: translateY(-50%); -moz-transform: translateY(-50%); transform: translateY(-50%); }
-.nav-cart-trigger { display: block; height: 50px; line-height: 48px; color: #4b4b4b; font-size: 16px; }
+.nav-cart-trigger { display: block; height: 50px; line-height: 48px; color: #000; font-size: 16px; }
 .nav-cart-trigger:hover { color: #337ab7; }
 .nav-cart-trigger .cart-icon { position: relative; padding-right: 16px; }
 .shopping-cart-items-count { position: absolute; right: 0; top: 0; width: 15px; height: 15px; line-height: 17px; font-size: 11px; background-color: #337ab7; color: #fff; display: block; border-radius: 50%; text-align: center; }
@@ -572,7 +572,7 @@ p.dropcap span.first-letter { font-size: 55px; float: left; color: #337ab7; text
 #main-nav ul li { position: relative; list-style: none; padding-top: 0; padding-bottom: 0; }
 #main-nav > ul > li { float: left; padding: 0 18px; }
 #main-nav > ul > li:first-child { padding-left: 0; }
-#main-nav > ul > li > a { display: block; font-family: "Montserrat", sans-serif; font-size: 12px; font-weight: 500; color: #4b4b4b; text-transform: uppercase; }
+#main-nav > ul > li > a { display: block; font-family: "Montserrat", sans-serif; font-size: 12px; font-weight: 700; color: #000; text-transform: uppercase; }
 #main-nav > ul > li > a:hover,
 #main-nav > ul > li.current-menu-item > a { color: #337ab7; }
 #main-nav > ul > li.menu-item-has-children > a { position: relative; padding-right: 15px; }

@@ -45,7 +45,7 @@
                                                     <tr>
                                                         <td><p class="n_text margin-bottom-0">Телефон:</p></td>
                                                         <td><p class="n_text margin-bottom-0">
-                                                            <strong>{{ user.phone }}</strong></p></td>
+                                                            <strong><a href="tel:{{ user.phone }}">{{ user.phone }}</a></strong></p></td>
                                                     </tr>
                                                     <tr>
                                                         <td><p class="n_text margin-bottom-0">Эл. почта:</p></td>
@@ -65,7 +65,7 @@
                                                 {% if user_companies %}
                                                     {% for item in user_companies %}
                                                         <ul class="wprt-list style-2 accent-color margin-bottom-25">
-                                                            <li>{{ item.company }} - {{ item.position }}</li>
+                                                            <li><p class="n_text"><a href="{{ item.company.get_absolute_url }}">{{ item.company }}</a> - {{ item.position }}</p></li>
                                                         </ul>
                                                     {% endfor %}
                                                 {% else %}
