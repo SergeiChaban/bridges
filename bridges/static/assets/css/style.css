@@ -1336,7 +1336,6 @@ only screen and (                min-resolution: 2dppx){
 }
 .n_text {
     font-size: 14px;
-    margin-bottom: 0;
 }
 .width_table {
     width: 300px;

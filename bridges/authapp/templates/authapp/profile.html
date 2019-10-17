@@ -19,50 +19,54 @@
                                             <div class="col-md-12">
                                                 <table class="width_table">
                                                     <tr>
-                                                        <td><p class="n_text">Ваше имя:</p></td>
-                                                        <td><p class="n_text">
+                                                        <td><p class="n_text margin-bottom-0">Ваше имя:</p></td>
+                                                        <td><p class="n_text margin-bottom-0">
                                                             <strong>{{ user.first_name|title }}</strong></p></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><p class="n_text">Фамилия:</p></td>
-                                                        <td><p class="n_text">
+                                                        <td><p class="n_text margin-bottom-0">Фамилия:</p></td>
+                                                        <td><p class="n_text margin-bottom-0">
                                                             <strong>{{ user.last_name|title }}</strong></p></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><p class="n_text">Отчество:</p></td>
-                                                        <td><p class="n_text"><strong>{% if user.patronymic %}
+                                                        <td><p class="n_text margin-bottom-0">Отчество:</p></td>
+                                                        <td><p class="n_text margin-bottom-0"><strong>{% if user.patronymic %}
                                                             {{ user.patronymic|title }}{% endif %}</strong></p></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><p class="n_text">Пол:</p></td>
-                                                        <td><p class="n_text">
+                                                        <td><p class="n_text margin-bottom-0">Пол:</p></td>
+                                                        <td><p class="n_text margin-bottom-0">
                                                             <strong>{{ user.get_gender_display }}</strong></p></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><p class="n_text">День рождения:</p></td>
-                                                        <td><p class="n_text">
+                                                        <td><p class="n_text margin-bottom-0">День рождения:</p></td>
+                                                        <td><p class="n_text margin-bottom-0">
                                                             <strong>{{ user.birthday|date:"d.m.Y" }}</strong></p></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><p class="n_text">Телефон:</p></td>
-                                                        <td><p class="n_text"><strong>{{ user.phone }}</strong></p></td>
+                                                        <td><p class="n_text margin-bottom-0">Телефон:</p></td>
+                                                        <td><p class="n_text margin-bottom-0"><strong>{{ user.phone }}</strong></p></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><p class="n_text">Эл. почта:</p></td>
-                                                        <td><p class="n_text"><strong>{{ user.email }}</strong></p></td>
+                                                        <td><p class="n_text margin-bottom-0">Эл. почта:</p></td>
+                                                        <td><p class="n_text margin-bottom-0"><strong>{{ user.email }}</strong></p></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><p class="n_text">Город:</p></td>
-                                                        <td><p class="n_text"><strong>{{ user.city|title }}</strong></p>
+                                                        <td><p class="n_text margin-bottom-0">Город:</p></td>
+                                                        <td><p class="n_text margin-bottom-0"><strong>{{ user.city|title }}</strong></p>
                                                         </td>
                                                     </tr>
                                                 </table>
                                                 <h4 class="margin-bottom-15">Проекты пользователя</h4>
-                                                {% for item in user_projects %}
-                                                    <ul class="wprt-list style-2 accent-color margin-bottom-25">
-                                                        <li><a href="#"> {{ item.project }}</a></li>
-                                                    </ul>
-                                                {% endfor %}
+                                                {% if user_projects %}
+                                                    {% for item in user_projects %}
+                                                        <ul class="wprt-list style-2 accent-color margin-bottom-25">
+                                                            <li><a href="#"> {{ item.project }}</a></li>
+                                                        </ul>
+                                                    {% endfor %}
+                                                {% else %}
+                                                    <p class="n_text">Нет ни одного проекта</p>
+                                                {% endif %}
                                                 <a href="#">добавить в проект</a>
                                             </div>
                                             <div class="wprt-spacer" data-desktop="20" data-mobi="20"
