@@ -1,19 +1,35 @@
 {% extends 'productsapp/base.html' %}
 {% load static %}
 {% block content-container %}
-    <div style="height: 50px;"></div>
+    <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40"></div>
     <div class="container">
         <h2>Результаты запроса для: <strong>{{ query }}</strong></h2>
-
-        {% if founded_products %}
-            <h3>Найдено: {{ founded_products|length }}</h3>
-            {% for item in founded_products %}
-                <p class="search_link"><a href="{{ item.get_absolute_url }}">
-                    {{ item.name }}</a></p>
-            {% endfor %}
-        {% else %}
-            <h3>Результаты поиска: Ничего не найдено</h3>
-
-        {% endif %}
+        <div class="row">
+            <div class="col-md-12">
+                {% if companies %}
+                    <h3>Компаний найдено: {{ companies|length }}</h3>
+                    {% for item in companies %}
+                        <div class="col-md-3">
+                            <p class="search_link"><a href="{{ item.get_absolute_url }}">
+                                {{ item.name }}</a></p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <h3>Компаний не найдено</h3>
+                {% endif %}
+                <div class="wprt-spacer" data-desktop="10" data-mobi="20" data-smobi="20"></div>
+                {% if users %}
+                    <h3>Сотрудников найдено: {{ users|length }}</h3>
+                    {% for item in users %}
+                        <div class="col-md-3">
+                            <p class="search_link"><a href="{{ item.get_absolute_url }}">
+                                {{ item.first_name }} {% if item.patronymic %}{{ item.patronymic }}{% endif %} {{ item.last_name }}</a></p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <h3>Сотрудников не найдено</h3>
+                {% endif %}
+            </div>
+        </div>
     </div>
 {% endblock %}

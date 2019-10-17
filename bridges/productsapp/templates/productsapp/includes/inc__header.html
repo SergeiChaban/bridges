@@ -61,10 +61,10 @@
             <div id="header-search">
                 <a class="header-search-icon" href="#"><span class="fa fa-search"></span></a>
 
-                <form role="search" method="get" class="header-search-form" action="#">
+                <form role="search" method="get" class="header-search-form" action="{% url 'partners:company_search' %}">
                     <label>
-                        <input type="text" value="" name="s" class="header-search-field"
-                               placeholder="Type and hit enter...">
+                        <input type="text" value="" name="q" class="header-search-field"
+                               placeholder="Поиск...">
                     </label>
                     <button type="submit" class="header-search-submit" title="Search">Search</button>
                     <input type="hidden" name="post_type" value="post">

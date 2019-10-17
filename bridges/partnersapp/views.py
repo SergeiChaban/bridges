@@ -2,7 +2,7 @@ from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
-from authapp.models import Company, CompanyUsers
+from authapp.models import Company, CompanyUsers, Users
 from partnersapp.forms import CompanyForm, CompanyUsersForm, CompanyUserUpdateForm
 from django.db.models import Q
 from projectsapp.models import ProjectCompany
@@ -96,13 +96,17 @@ def partner_user_update(request, pk):
 def company_search(request):
     if 'q' in request.GET and request.GET['q']:
         q = request.GET['q']
+        users = Users.objects.filter(
+            Q(first_name__icontains=q) | Q(last_name__icontains=q) | Q(phone__icontains=q)
+        ).order_by('first_name')
         companies = Company.objects.filter(
             Q(name__icontains=q) | Q(inn__icontains=q) | Q(phone__icontains=q)
         ).order_by('name')
         context = {
             'page_title': 'Результаты поиска',
             'bred_title': 'Результаты поиска',
-            'founded_products': companies,
+            'companies': companies,
+            'users': users,
             'query': q,
         }
         return render(request, 'partnersapp/search.html', context)
