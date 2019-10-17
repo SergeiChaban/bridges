@@ -60,7 +60,7 @@
                                             {% for item in company_users %}
                                                 <li>
                                                     <p>
-                                                        <strong>ФИО:</strong> {{ item.user.first_name }} {{ item.user.patronymic }} {{ item.user.last_name }}
+                                                        <strong>ФИО:</strong><a href="#"> {{ item.user.first_name }} {% if item.user.patronymic %}{{ item.user.patronymic }}{% endif %} {{ item.user.last_name }}</a>
                                                         <br><strong>Должность:</strong> {{ item.position }}</p>
                                                 </li>
                                             {% endfor %}
@@ -98,10 +98,11 @@
                                                             <p>{{ item.description }}</p>
                                                             <div class="wprt-spacer" data-desktop="10" data-mobi="10"
                                                                  data-smobi="10"></div>
+                                                            {% for i in item.file.all %}
                                                             <a class="wprt-button small rounded-30px"
-                                                               href="#"
+                                                               href="/media/{{ i.file }}"
                                                                target="_blank">СКАЧАТЬ PDF</a>
-
+                                                                {% endfor %}
                                                         </div>
                                                     </div>
                                                 {% endfor %}
