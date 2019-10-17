@@ -18,6 +18,7 @@
                                 <div class="col-md-8">
                                     <div>
                                         <h3 class="line-height-normal margin-bottom-10">КРАТКОЕ ОПИСАНИЕ</h3>
+                                        <a href="{% url 'products:product_update' product.slug %}">редактировать</a>
                                         <div class="wprt-lines style-1 custom-3">
                                             <div class="line-1"></div>
                                             <div class="line-2"></div>
@@ -25,12 +26,8 @@
 
                                         <div class="wprt-spacer" data-desktop="30" data-mobi="25" data-smobi="25"></div>
 
+                                        <p>{{ product.short_desc }}</p>
                                         <p>{{ product.description }}</p>
-
-                                        <p>Vestibulum eu libero volutpat, portas quam acc, tempus sem. Donec sodales
-                                            quam id lorem lobortis, vitae. Pellentesque habitant morbi tristique
-                                            senectus et netus et malesuada fames ac turpis egestas. Integer blandit
-                                            nulla quis fermentum hendrerit.</p>
                                     </div>
                                 </div><!-- /.col-md-8 -->
 <!--ДОСТУПНЫЕ СЕРВИСЫ ПО ПРОДУКТУ-->

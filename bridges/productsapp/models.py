@@ -1,5 +1,6 @@
 from django.db import models
 # --------------------------------   МОДЕЛИ ЕДИНИЦ ИЗМЕРЕНИЙ  -------------------------------------
+from django.urls import reverse
 
 
 class MeasureTypes(models.Model):
@@ -32,12 +33,15 @@ class TechnicalSolutions(models.Model):
     measure = models.ForeignKey(MeasureTypes, verbose_name='Единица измерения', on_delete=models.CASCADE, default=1)
     image = models.ImageField(upload_to='аватарка', blank=True)
     alt_desc = models.CharField(verbose_name='alt фотографии', max_length=500, blank=True)
-    short_desc = models.CharField(verbose_name='краткое описание материала', max_length=500, blank=True, null=True)
+    short_desc = models.TextField(verbose_name='краткое описание материала', blank=True, null=True)
     description = models.TextField(verbose_name='описание материала', blank=True)
     price = models.DecimalField(verbose_name='цена', max_digits=8, decimal_places=2, default=0)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(verbose_name='обновлен', auto_now_add=False, auto_now=True)
     is_active = models.BooleanField(verbose_name='активен', default=True)
+
+    def get_absolute_url(self):
+        return reverse('products:product', args=[str(self.slug)])
 
     def __str__(self):
         return self.name
@@ -210,7 +214,7 @@ class WorkImage(models.Model):
 class ProductWork(models.Model):
     product = models.ForeignKey(TechnicalSolutions, related_name='works', on_delete=models.CASCADE)
     work = models.ForeignKey(Work, on_delete=models.CASCADE)
-    material = models.ManyToManyField(Material, blank=True, null=True)
+    material = models.ManyToManyField(Material, blank=True)
     consumption = models.DecimalField(verbose_name='расход материала', max_digits=8, decimal_places=2, blank=True, null=True)
     value = models.DecimalField(verbose_name='трудозатраты', max_digits=8, decimal_places=2, default=0)
 

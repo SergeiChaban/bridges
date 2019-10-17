@@ -6,5 +6,6 @@ app_name = 'productsapp'
 
 urlpatterns = [
     path('', ProductsView.as_view(), name='products'),
-    path('<slug:slug>', productsapp.product, name='product')
+    path('<slug:slug>', productsapp.product, name='product'),
+    path('product/<slug:slug>', productsapp.product_update, name='product_update')
 ]
