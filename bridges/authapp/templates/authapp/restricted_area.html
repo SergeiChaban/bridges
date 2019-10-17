@@ -9,11 +9,59 @@
                         <section class="wprt-section">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-8">
+                                    <div class="col-md-12">
                                         <!--div class="col-md-12"-->
                                         <div class="wprt-spacer" data-desktop="40" data-mobi="20" data-smobi="20"></div>
                                         <h1>Личный кабинет</h1>
                                         <p class="n_text">Добро пожаловать в личный кабинет {{ user.first_name }} {{ user.last_name }}.</p>
+                                        <div class="col-md-4">
+                                                <h4 class="margin-bottom-15">Профиль
+                                                    пользователя {{ user.username|title }}</h4>
+                                                <table class="width_table">
+                                                    <tr>
+                                                        <td><p class="n_text margin-bottom-0">Ваше имя:</p></td>
+                                                        <td><p class="n_text margin-bottom-0">
+                                                            <strong>{{ user.first_name|title }}</strong></p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p class="n_text margin-bottom-0">Фамилия:</p></td>
+                                                        <td><p class="n_text margin-bottom-0">
+                                                            <strong>{{ user.last_name|title }}</strong></p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p class="n_text margin-bottom-0">Отчество:</p></td>
+                                                        <td><p class="n_text margin-bottom-0"><strong>
+                                                            {% if user.patronymic %}
+                                                                {{ user.patronymic|title }}{% endif %}</strong></p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p class="n_text margin-bottom-0">Пол:</p></td>
+                                                        <td><p class="n_text margin-bottom-0">
+                                                            <strong>{{ user.get_gender_display }}</strong></p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p class="n_text margin-bottom-0">День рождения:</p></td>
+                                                        <td><p class="n_text margin-bottom-0">
+                                                            <strong>{{ user.birthday|date:"d.m.Y" }}</strong></p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p class="n_text margin-bottom-0">Телефон:</p></td>
+                                                        <td><p class="n_text margin-bottom-0">
+                                                            <strong><a href="tel:{{ user.phone }}">{{ user.phone }}</a></strong></p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p class="n_text margin-bottom-0">Эл. почта:</p></td>
+                                                        <td><p class="n_text margin-bottom-0">
+                                                            <strong>{{ user.email }}</strong></p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p class="n_text margin-bottom-0">Активный:</p></td>
+                                                        <td><p class="n_text margin-bottom-0">
+                                                            <strong>{% if user.is_active %} Да {% else %} Забанен {% endif %}</strong></p></td>
+                                                    </tr>
+                                                </table>
+                                                <p><a href="{% url 'profile_user_update' user.pk %}">редактировать</a></p>
+                                            </div>
                                     </div>
                                     <!-- /.col-md-12 -->
                                 </div><!-- /.row -->

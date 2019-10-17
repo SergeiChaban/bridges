@@ -84,7 +84,8 @@ class Users(AbstractUser):
         ordering = ['-date_joined']
 
     def get_absolute_url(self):
-        return reverse('auth:profile', args=[str(self.id)])
+        return reverse('restricted_area')
+        # return reverse('auth:profile', args=[str(self.id)])
 
     def get_company(self):
         return self.company.select_related()
