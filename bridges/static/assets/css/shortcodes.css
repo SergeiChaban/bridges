@@ -98,7 +98,7 @@
 }
 
 .wprt-image-box.left .dd-title a:hover {
-    color: #ffbc13;
+    color: #337ab7;
 }
 
 .wprt-image-box.left .dd-link a {
@@ -120,7 +120,7 @@
 }
 
 .wprt-image-box.left .dd-link a:hover {
-    color: #ffbc13;
+    color: #337ab7;
 }
 
 @media only screen and (max-width: 767px) {
@@ -136,7 +136,7 @@
 .wprt-icon-box { text-align: center; }
 .wprt-icon-box .icon-wrap { margin-bottom: 10px;}
 .wprt-icon-box > .dd-title { margin-bottom: 8px; }
-.wprt-icon-box > .dd-title a:hover { color: #ffbc13; }
+.wprt-icon-box > .dd-title a:hover { color: #337ab7; }
 .wprt-icon-box p { margin-bottom: 8px; }
 
 .wprt-icon-box.width-150 .dd-icon { line-height: 150px; width: 150px; height: 150px; font-size: 55px; }
@@ -152,7 +152,7 @@
     display: inline-block;
     position: relative;
     z-index: 1;
-    color: #ffbc13;
+    color: #337ab7;
     -webkit-transition: color 0.3s;
     -moz-transition: color 0.3s;
     transition: color 0.3s;
@@ -194,12 +194,12 @@
 }
 
 .wprt-icon-box .dd-link.dark a:hover {
-    color: #ffbc13;
+    color: #337ab7;
 }
 
 /* Outline */
 .wprt-icon-box.outline .icon-wrap { margin-bottom: 25px; }
-.wprt-icon-box.outline .dd-icon { box-shadow: inset 0 0 0 2px #ffbc13; }
+.wprt-icon-box.outline .dd-icon { box-shadow: inset 0 0 0 2px #337ab7; }
 
 .wprt-icon-box.outline .dd-icon:after {
     background-color: #ffbc13;
@@ -616,7 +616,7 @@
 .wprt-lines.custom-4 .line-1 { height:1px; width: 100%; background-color: #eaeaea; margin-left: 0; margin-top: -0.5px }
 
 .wprt-lines.custom-5 { height: 3px; }
-.wprt-lines.custom-5 .line-1 { height:3px; width: 60px; background-color: #ffbc13; margin-left: 0; margin-top: -1.5px }
+.wprt-lines.custom-5 .line-1 { height:3px; width: 60px; background-color: #337ab7; margin-left: 0; margin-top: -1.5px }
 .wprt-lines.custom-5 .line-2 { height:1px; width: 100%; background-color: #f3f3f3; margin-left: 0; margin-top: -0.5px }
 
 /* Button
@@ -978,7 +978,7 @@
 
 .wprt-counter.has-plus .number:after {
     content: "+";
-    color: #ffbc13;
+    color: #337ab7;
 }
 
 /* Counter text white */
@@ -1082,7 +1082,7 @@
 }
 
 .wprt-galleries.galleries .flex-direction-nav a:hover {
-    background-color: #ffbc13;
+    background-color: #337ab7;
     color: #fff;
 }
 
@@ -1444,7 +1444,7 @@
 #project-filter .cbp-filter-item:hover,
 #project-filter .cbp-filter-item.cbp-filter-item-active {
     color: #fff;
-    background-color: #ffbc13;
+    /*background-color: #ffbc13;*/
 }
 
 /* Project item */
@@ -1565,7 +1565,7 @@
     left: 0;
     padding-bottom: 1.8em;
     width: 100%;
-    color: #ffbc13;
+    color: #337ab7;
     opacity: 0;
     -webkit-transform: translate3d(0,10px,0);
     transform: translate3d(0,10px,0);
@@ -1605,7 +1605,7 @@
     left: 0;
     width: 100%;
     height: 10px;
-    background-color: #ffbc13;
+    background-color: #337ab7;
     content: '';
     -webkit-transform: translate3d(0,10px,0);
     transform: translate3d(0,10px,0);
@@ -1681,7 +1681,7 @@
 
 .project-item .effect-zoe p {
     float: right;
-    color: #ffbc13;
+    color: #337ab7;
     display: inline-block;
 }
 
@@ -1725,7 +1725,7 @@
 }
 
 .project-item .effect-zoe h2:hover a {
-    color: #ffbc13;
+    color: #337ab7;
 }
 
 .project-item .effect-zoe:hover p.description {
@@ -1751,8 +1751,8 @@
 
 /* Oscar */
 .project-item .effect-oscar {
-    background: -webkit-linear-gradient(45deg, #fff 0%, #ffbc13 45%, #ffbc13 55%, #fff 100%);
-    background: linear-gradient(45deg, #fff 0%,#ffbc13 45%, #ffbc13 55%, #fff 100%);
+    background: -webkit-linear-gradient(45deg, #fff 0%, #337ab7 45%, #337ab7 55%, #fff 100%);
+    background: linear-gradient(45deg, #fff 0%,#337ab7 45%, #337ab7 55%, #fff 100%);
 }
 
 .project-item .effect-oscar img {
@@ -1928,7 +1928,7 @@
 .bullet-style-2 #team-wrap .cbp-nav-pagination-item,
 .bullet-style-2 #images-wrap .cbp-nav-pagination-item {
     background-color: transparent;
-    border: 1px solid #ffbc13;
+    border: 1px solid #337ab7;
     border-radius: 0;
     margin: 0 5px;
 }
@@ -1939,7 +1939,7 @@
 .bullet-style-2 #partner-wrap .cbp-nav-pagination-active,
 .bullet-style-2 #team-wrap .cbp-nav-pagination-active,
 .bullet-style-2 #images-wrap .cbp-nav-pagination-active {
-    background-color: #ffbc13;
+    background-color: #337ab7;
 }
 
 /* Arrows */

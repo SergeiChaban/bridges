@@ -19,7 +19,7 @@
                                             <h1 class="line-height-normal margin-bottom-10">Название
                                                 компании: {{ partner.name }}</h1>
                                             <p>
-                                                <a href="{% url 'partners:partner_delete' partner.pk %}">удалить
+                                                <a href="{% url 'partners:partner_delete' partner.pk %}">... удалить
                                                     компанию</a>
 
                                             </p>
@@ -64,8 +64,7 @@
                                                         <br><strong>Должность:</strong> {{ item.position }}</p>
                                                 </li>
                                             {% endfor %}
-                                            <a href="{% url 'partnersapp:partner_user_update' partner.pk %}">добавить
-                                                сотрудника</a>
+                                            <a href="{% url 'partnersapp:partner_user_update' partner.pk %}">... редактировать</a>
                                             {#                                            <li><strong>Заказчик:</strong> ThemeForest Builder</li>#}
                                             {#                                            <li><strong>Проектировщик:</strong> Richardson and Sandra</li>#}
                                             {#                                            <li><strong>подрядчик:</strong> GraphicRiver Builder Corporate</li>#}
