@@ -67,11 +67,13 @@ def register(request):
     #         'page_title': 'Профиль пользователя',
     #         'bred_title': 'Профиль пользователя'
     #     }
-    #     template_name = 'authapp/profile.html'
+    #     template_name = 'authapp/user_profile.html'
     #
     #     def get_context_data(self, *args, **kwargs):
     #         context = super().get_context_data(*args, **kwargs)
     #         return context
+
+
 
 
 

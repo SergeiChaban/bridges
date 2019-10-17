@@ -85,11 +85,9 @@ class Users(AbstractUser):
 
     def get_self_absolute_url(self):
         return reverse('restricted_area')
-        # return reverse('auth:profile', args=[str(self.id)])
 
-    # def get_absolute_url(self):
-    #     return reverse('restricted_area')
-        # return reverse('auth:profile', args=[str(self.id)])
+    def get_absolute_url(self):
+        return reverse('user_profile', args=[str(self.id)])
 
     def get_company(self):
         return self.company.select_related()
