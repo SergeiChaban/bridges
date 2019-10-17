@@ -1,10 +1,6 @@
 
 
 
-
-
-
-
 class ProjectsList(ListView):
 
     model = Project

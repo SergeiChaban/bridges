@@ -1,4 +1,4 @@
-{% extends 'authapp/base_auth.html' %}
+{% extends 'productsapp/base.html' %}
 {% block content-container %}
     <!-- Main Content -->
     <div id="main-content" class="site-main clearfix">
@@ -9,14 +9,13 @@
                         <section class="wprt-section">
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-md-8">
+                                    <div class="col-md-12">
                                         <!--div class="col-md-8"-->
                                         <div class="wprt-spacer" data-desktop="40" data-mobi="20" data-smobi="20"></div>
                                         {% if user.is_authenticated and user.is_active %}
-                                            <h3 class="margin-bottom-15">Профиль
-                                                пользователя {{ user.username|title }}</h3>
-                                            <br>
-                                            <div class="col-md-12">
+                                            <div class="col-md-4">
+                                                <h4 class="margin-bottom-15">Профиль
+                                                    пользователя {{ user.username|title }}</h4>
                                                 <table class="width_table">
                                                     <tr>
                                                         <td><p class="n_text margin-bottom-0">Ваше имя:</p></td>
@@ -30,8 +29,9 @@
                                                     </tr>
                                                     <tr>
                                                         <td><p class="n_text margin-bottom-0">Отчество:</p></td>
-                                                        <td><p class="n_text margin-bottom-0"><strong>{% if user.patronymic %}
-                                                            {{ user.patronymic|title }}{% endif %}</strong></p></td>
+                                                        <td><p class="n_text margin-bottom-0"><strong>
+                                                            {% if user.patronymic %}
+                                                                {{ user.patronymic|title }}{% endif %}</strong></p></td>
                                                     </tr>
                                                     <tr>
                                                         <td><p class="n_text margin-bottom-0">Пол:</p></td>
@@ -45,29 +45,49 @@
                                                     </tr>
                                                     <tr>
                                                         <td><p class="n_text margin-bottom-0">Телефон:</p></td>
-                                                        <td><p class="n_text margin-bottom-0"><strong>{{ user.phone }}</strong></p></td>
+                                                        <td><p class="n_text margin-bottom-0">
+                                                            <strong>{{ user.phone }}</strong></p></td>
                                                     </tr>
                                                     <tr>
                                                         <td><p class="n_text margin-bottom-0">Эл. почта:</p></td>
-                                                        <td><p class="n_text margin-bottom-0"><strong>{{ user.email }}</strong></p></td>
+                                                        <td><p class="n_text margin-bottom-0">
+                                                            <strong>{{ user.email }}</strong></p></td>
                                                     </tr>
                                                     <tr>
                                                         <td><p class="n_text margin-bottom-0">Город:</p></td>
-                                                        <td><p class="n_text margin-bottom-0"><strong>{{ user.city|title }}</strong></p>
+                                                        <td><p class="n_text margin-bottom-0">
+                                                            <strong>{{ user.city|title }}</strong></p>
                                                         </td>
                                                     </tr>
                                                 </table>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <h4 class="margin-bottom-15">Компании пользователя</h4>
+                                                {% if user_companies %}
+                                                    {% for item in user_companies %}
+                                                        <ul class="wprt-list style-2 accent-color margin-bottom-25">
+                                                            <li>{{ item.company }} - {{ item.position }}</li>
+                                                        </ul>
+                                                    {% endfor %}
+                                                {% else %}
+                                                    <p class="n_text">Нет ни одной компании</p>
+                                                {% endif %}
+                                                <p><a href="{% url 'auth:company_users_update' user.pk %}"
+                                                      class="n_text">Перевод в компанию</a></p>
+                                            </div>
+                                            <div class="col-md-4">
                                                 <h4 class="margin-bottom-15">Проекты пользователя</h4>
                                                 {% if user_projects %}
                                                     {% for item in user_projects %}
                                                         <ul class="wprt-list style-2 accent-color margin-bottom-25">
-                                                            <li><a href="#"> {{ item.project }}</a></li>
+                                                            <li><a href="{{ item.project.get_absolute_url }}"
+                                                                   class="n_text"> {{ item.project }}</a></li>
                                                         </ul>
                                                     {% endfor %}
                                                 {% else %}
                                                     <p class="n_text">Нет ни одного проекта</p>
                                                 {% endif %}
-                                                <a href="#">добавить в проект</a>
+                                                <a href="#" class="n_text">добавить проект</a>
                                             </div>
                                             <div class="wprt-spacer" data-desktop="20" data-mobi="20"
                                                  data-smobi="20"></div>

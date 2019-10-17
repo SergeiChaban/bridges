@@ -1,8 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import AuthenticationForm
-
-from .models import Users
+from .models import *
 
 
 class RegisterUserForm(ModelForm):
@@ -33,3 +32,9 @@ class LoginUserForm(AuthenticationForm):
         model = Users
         AuthenticationFormFields = ('username', 'password')
         exclude = []
+
+
+class CompanyUsersForm(forms.ModelForm):
+    class Meta:
+        model = CompanyUsers
+        exclude = ()

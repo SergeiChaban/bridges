@@ -11,4 +11,5 @@ urlpatterns = [
     # path('profile/<int:pk>/', UserProfileView.as_view(), name='profile'),
     path('profile/<int:pk>/', authapp.profile, name='profile'),
     path('logout/', UserLogoutView.as_view(), name='logout'),
+    path('user/company/update/<int:pk>', authapp.company_users_update, name='company_users_update'),
 ]
