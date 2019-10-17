@@ -70,7 +70,7 @@
 
             <div class="nav-top-cart-wrapper">
                 {% if request.user.is_authenticated %}
-                    <a class="nav-cart-trigger" href="{% url 'logout' %}" title="Выход на сайте">
+                    <a class="nav-cart-trigger" href="{% url 'logout' %}" title="Выход с сайта">
                         <span class="fa fa-user cart-icon"></span>
                     </a>
                 {% else %}
