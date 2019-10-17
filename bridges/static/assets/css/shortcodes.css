@@ -202,7 +202,7 @@
 .wprt-icon-box.outline .dd-icon { box-shadow: inset 0 0 0 2px #337ab7; }
 
 .wprt-icon-box.outline .dd-icon:after {
-    background-color: #ffbc13;
+    background-color: #191970;
     -webkit-transform: scale(1.3);
     -moz-transform: scale(1.3);
     -ms-transform: scale(1.3);
@@ -240,7 +240,7 @@
 /* Outline Effect 2 */
 .wprt-icon-box.outline.icon-effect-2 .dd-icon { -webkit-transition: background 0.3s, color 0.3s, box-shadow 0.3s; -moz-transition: background 0.3s, color 0.3s, box-shadow 0.3s; transition: background 0.3s, color 0.3s, box-shadow 0.3s; }
 .wprt-icon-box.outline.icon-effect-2 .dd-icon:after { display: none; }
-.wprt-icon-box.outline.icon-effect-2:hover .dd-icon { color: #fff; background-color: #ffbc13; }
+.wprt-icon-box.outline.icon-effect-2:hover .dd-icon { color: #fff; background-color: #191970; }
 .wprt-icon-box.outline.icon-effect-2:hover .dd-icon:before { -webkit-animation: toRightFromLeft 0.3s forwards; -moz-animation: toRightFromLeft 0.3s forwards; animation: toRightFromLeft 0.3s forwards; }
 
 @-webkit-keyframes toRightFromLeft {
@@ -262,7 +262,7 @@
 /* Outline Effect 3 */
 .wprt-icon-box.outline.icon-effect-3:hover .dd-icon {
     color: #fff;
-    background-color: #ffbc13;
+    background-color: #191970;
 }
 
 .wprt-icon-box.outline.icon-effect-3 .dd-icon:after {
@@ -281,7 +281,7 @@
     -ms-transform: scale(1.3);
     transform: scale(1.3);
     opacity: 0;
-    background-color: #ffbc13;
+    background-color: #191970;
     -webkit-transition: -webkit-transform 0.2s, opacity 0.3s, background 0.3s;
     -moz-transition: -moz-transform 0.2s, opacity 0.3s, background 0.3s;
     transition: transform 0.2s, opacity 0.3s, background 0.3s;
@@ -306,7 +306,7 @@
 
 /* Accent background */
 .wprt-icon-box.accent-background .icon-wrap { margin-bottom: 25px; }
-.wprt-icon-box.accent-background .dd-icon { box-shadow: inset 0 0 0 2px #ffbc13;  color: #fff; }
+.wprt-icon-box.accent-background .dd-icon { box-shadow: inset 0 0 0 2px #191970;  color: #fff; }
 .wprt-icon-box.accent-background:hover .dd-icon { color: #ffbc13; }
 
 /* Accent background Effect 3 */
@@ -372,7 +372,7 @@
 /* Grey background */
 .wprt-icon-box.grey-background .icon-wrap { margin-bottom: 25px; }
 .wprt-icon-box.grey-background .dd-icon { background-color: #f8f8f8; color: #ffbc13; }
-.wprt-icon-box.grey-background:hover .dd-icon { background-color: #ffbc13; color: #fff; border-color: #ffbc13; }
+.wprt-icon-box.grey-background:hover .dd-icon { background-color: #191970; color: #fff; border-color: #191970; }
 
 /* Grey background Effect 1 */
 .wprt-icon-box.grey-background.icon-effect-1 .dd-icon:after {
@@ -662,7 +662,7 @@
 
 .wprt-button.dark:hover {
     background-color: #ffbc13;
-    border-color: #ffbc13;
+    border-color: #191970;
     color: #fff;
 }
 
@@ -675,7 +675,7 @@
 
 .wprt-button.light:hover {
     background-color: #ffbc13;
-    border-color: #ffbc13;
+    border-color: #191970;
     color: #fff;
 }
 
@@ -688,7 +688,7 @@
 
 .wprt-button.very-light:hover {
     background-color: #ffbc13;
-    border-color: #ffbc13;
+    border-color: #191970;
     color: #fff;
 }
 
@@ -708,7 +708,7 @@
 /* Button Outline */
 .wprt-button.outline {
     background-color: transparent;
-    border-color: #ffbc13;
+    border-color: #191970;
     color: #ffbc13;
 }
 
@@ -725,7 +725,7 @@
 
 .wprt-button.outline.dark:hover {
     background-color: #ffbc13;
-    border-color: #ffbc13;
+    border-color: #191970;
     color: #fff;
 }
 
@@ -737,7 +737,7 @@
 
 .wprt-button.outline.light:hover {
     background-color: #ffbc13;
-    border-color: #ffbc13;
+    border-color: #191970;
     color: #fff;
 }
 
@@ -749,7 +749,7 @@
 
 .wprt-button.outline.very-light:hover {
     background-color: #ffbc13;
-    border-color: #ffbc13;
+    border-color: #191970;
     color: #fff;
 }
 
@@ -1027,7 +1027,7 @@
     top: 0;
     width: 100%;
     height: 100%;
-    border: 2px solid #ffbc13;
+    border: 2px solid #191970;
 }
 
 .wprt-galleries.galleries #wprt-slider .slides li,
@@ -1751,8 +1751,8 @@
 
 /* Oscar */
 .project-item .effect-oscar {
-    background: -webkit-linear-gradient(45deg, #fff 0%, #337ab7 45%, #337ab7 55%, #fff 100%);
-    background: linear-gradient(45deg, #fff 0%,#337ab7 45%, #337ab7 55%, #fff 100%);
+    background: -webkit-linear-gradient(45deg, #fff 0%, #191970 45%, #191970 55%, #fff 100%);
+    background: linear-gradient(45deg, #fff 0%,#191970 45%, #191970 55%, #fff 100%);
 }
 
 .project-item .effect-oscar img {
