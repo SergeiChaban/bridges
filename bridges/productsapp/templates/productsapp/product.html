@@ -152,14 +152,14 @@
                                                         <div class="grid">
                                                             <figure class="effect-honey"
                                                                     style="height: 250px;">
-                                                                <a href="{% url 'projects:project' item.project.pk %}">
+
                                                                     <img src="{{ item.project.image.url }}" alt="">
-                                                                </a>
                                                                 <figcaption>
                                                                     <div>
                                                                         <h2>
                                                                             <a href="{% url 'projects:project' item.project.pk %}">{{ item.project.name }}</a>
                                                                         </h2>
+                                                                        <p></p>
                                                                     </div>
                                                                 </figcaption>
                                                             </figure>
@@ -199,15 +199,17 @@
                                                     <div class="inner">
                                                         <div class="grid">
                                                             {% for i in item.file.all %}
-                                                        <figure class="effect-sadie" style="height: 400px; margin-top: -58px; margin-left: -3px;">
-                                                            <embed src="/media/{{ i.file }}" alt="image" width=300px; height=600px;" />
-                                                            <figcaption>
-                                                                <div>
-                                                                    <h2><a target="_blank" href="/media/{{ i.file }}">{{ i.alt_desc }}</a></h2>
-                                                                    <p></p>
-                                                                </div>
-                                                            </figcaption>
-                                                        </figure>
+                                                                <a target="_blank" href="/media/{{ i.file }}">
+                                                                <figure class="effect-sadie" style="height: 420px; margin-top: -58px; margin-left: -3px;">
+
+                                                                    <object><embed src="/media/{{ i.file }}" alt="image" width=300px; height=600px;" /></object>
+                                                                    <figcaption>
+                                                                        <div>
+                                                                            <h2></h2>
+                                                                            <p>{{ i.alt_desc }}</p>
+                                                                        </div>
+                                                                    </figcaption>
+                                                                </figure></a>
                                                                 {% endfor %}
                                                         </div>
                                                     </div>
