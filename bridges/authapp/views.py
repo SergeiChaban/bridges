@@ -81,3 +81,27 @@ def profile_user_update(request, pk):
         'bred_title': 'Редактор профиля пользователя'
     }
     return render(request, 'authapp/profile_update.html', context)
+
+
+def project_user_update(request, pk):
+    project_user = get_object_or_404(Users, pk=pk)
+    project_user_form = UsersForProjectManagersForm(instance=project_user)
+    InlineFormset = inlineformset_factory(Users, ProjectManagers, form=ProjectManagersForm, extra=1)
+    formset = InlineFormset(instance=project_user)
+    if request.method == 'POST':
+        project_user_form = UsersForCompanyUsersForm(request.POST, instance=project_user)
+        formset = InlineFormset(request.POST)
+        if project_user_form.is_valid():
+            updated_project_user_form = project_user_form.save(commit=False)
+            formset = InlineFormset(request.POST, instance=updated_project_user_form)
+            if formset.is_valid():
+                updated_project_user_form.save()
+                formset.save()
+                return HttpResponseRedirect(updated_project_user_form.get_absolute_url())
+    context = {
+        'form': project_user_form,
+        'formset': formset,
+        'page_title': 'Редактор профиля пользователя',
+        'bred_title': 'Редактор профиля пользователя'
+    }
+    return render(request, 'authapp/profile_update.html', context)

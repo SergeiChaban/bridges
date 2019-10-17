@@ -87,7 +87,7 @@
                                                 {% else %}
                                                     <p class="n_text">Нет ни одного проекта</p>
                                                 {% endif %}
-                                                <a href="#" class="n_text">добавить проект</a>
+                                                <a href="{% url 'auth:project_user_update' user.pk %}" class="n_text">добавить проект</a>
                                             </div>
                                             <div class="wprt-spacer" data-desktop="20" data-mobi="20"
                                                  data-smobi="20"></div>

@@ -1,6 +1,7 @@
 from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import AuthenticationForm
+from projectsapp.models import ProjectManagers
 from .models import *
 
 
@@ -47,7 +48,6 @@ class UsersForEditProfileForm(forms.ModelForm):
             'email',
             'is_active',
         ]
-        # exclude = []
 
 
 class UsersForCompanyUsersForm(forms.ModelForm):
@@ -60,3 +60,15 @@ class CompanyUsersForm(forms.ModelForm):
     class Meta:
         model = CompanyUsers
         exclude = ()
+
+
+class UsersForProjectManagersForm(forms.ModelForm):
+    class Meta:
+        model = Users
+        fields = []
+
+
+class ProjectManagersForm(forms.ModelForm):
+    class Meta:
+        model = ProjectManagers
+        exclude = ('is_active',)
