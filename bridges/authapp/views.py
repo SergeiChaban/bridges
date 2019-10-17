@@ -15,11 +15,13 @@ from .models import *
 def restricted_area(request):
     user = request.user
     user_companies = CompanyUsers.objects.filter(user_id=user.pk)
+    user_projects = ProjectManagers.objects.filter(manager_id=user.pk)
     context = {
         'section': 'restricted_area',
         'page_title': 'Личный кабинет',
         'bred_title': 'Личный кабинет',
         'user_companies': user_companies,
+        'user_projects': user_projects,
     }
     return render(request, 'authapp/restricted_area.html', context)
 
@@ -70,6 +72,8 @@ def register(request):
     #     def get_context_data(self, *args, **kwargs):
     #         context = super().get_context_data(*args, **kwargs)
     #         return context
+
+
 
 
 

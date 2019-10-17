@@ -19,7 +19,7 @@ urlpatterns = [
     # path('profile/<int:pk>/', UserProfileView.as_view(), name='profile'),
     # path('profile/<int:pk>/', authapp.profile, name='profile'),
     # path('logout/', UserLogoutView.as_view(), name='logout'),
-    path('user/company/update/<int:pk>', authapp.company_user_update, name='company_user_update'),
-    path('user/profile/update/<int:pk>', authapp.profile_user_update, name='profile_user_update'),
-    # path('user/project/update/<int:pk>', authapp.project_user_update, name='project_user_update'),
+    path('user/company/update/<int:pk>', authapp.company_self_user_update, name='company_self_user_update'),
+    path('user/profile/update/<int:pk>', authapp.profile_self_user_update, name='profile_self_user_update'),
+    path('user/project/update/<int:pk>', authapp.project_self_user_update, name='project_self_user_update'),
 ]

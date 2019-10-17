@@ -63,7 +63,7 @@
                                                             Забанен {% endif %}</strong></p></td>
                                                 </tr>
                                             </table>
-                                            <p><a href="{% url 'profile_user_update' user.pk %}">редактировать</a></p>
+                                            <p><a href="{% url 'profile_self_user_update' user.pk %}">редактировать</a></p>
                                             <p><a href="{% url 'password_change' %}">сменить пароль</a></p>
                                         </div>
                                         <div class="col-md-4">
@@ -79,7 +79,7 @@
                                             {% else %}
                                                 <p class="n_text">Нет ни одной компании</p>
                                             {% endif %}
-                                            <p><a href="{% url 'company_user_update' user.pk %}">редактировать</a>
+                                            <p><a href="{% url 'company_self_user_update' user.pk %}">редактировать</a>
                                             </p>
                                         </div>
                                         <div class="col-md-4">
@@ -94,7 +94,7 @@
                                             {% else %}
                                                 <p class="n_text">Нет ни одного проекта</p>
                                             {% endif %}
-                                            <a href="#">редактировать</a>
+                                            <a href="{% url 'project_self_user_update' user.pk %}">редактировать</a>
                                         </div>
                                     </div>
                                     <!-- /.col-md-12 -->
