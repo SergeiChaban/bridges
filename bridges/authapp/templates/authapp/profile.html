@@ -9,37 +9,62 @@
                         <section class="wprt-section">
                             <div class="container">
                                 <div class="row">
-                                <div class="col-md-8">
-                                    <!--div class="col-md-8"-->
-                                        {% block content %}
-                                            {% if user.is_authenticated and user.is_active %}
-                                                <h4 class="margin-bottom-15">Профиль
-                                                    пользователя {{ user.username|title }}</h4>
-                                                <br>
-                                                <p class="n_text">Ваше имя: {{ user.first_name|title }}<br>
-                                                    Фамилия: {{ user.last_name|title }}<br>
-                                                    Отчество: {{ user.patronymic|title }}<br>
-                                                    Пол: {{ user.get_gender_display }}<br>
-                                                    День рождения: {{ user.birthday|date:"d.m.Y" }}<br>
-                                                    Телефон: {{ user.phone }}<br>
-                                                    Эл. почта: {{ user.email }}<br>
-                                                    Город: {{ user.city|title }}<br>
-                                                    Компания: не выводится<br>
-                                                    Должность: {{ user.position|title }}<br>
-                                                    Проект: {{ user.project|title }}
-                                                </p>
-                                                <br>
-                                                <p class="n_text">Можете <a href="{% url 'auth:logout' %}">выйти с сайта</a>.</p>
-                                            {% else %}
-                                                <h4 class="margin-bottom-15" style="text-align: center;">Вы не
-                                                    авторизованы,<br>либо аккаунт не активирован</h4>
-                                                <br>
-                                                <p>Если вы хотите посмотреть информацию вашего профиля,<br>
-                                                    необходимо <a href="{% url 'auth:login' %}">авторизоваться на
-                                                        сайте</a>,<br>
-                                                    либо дождаться активации аккаунта нашим менеджером.</p>
-                                            {% endif %}
-                                        {% endblock %}
+                                    <div class="col-md-8">
+                                        <!--div class="col-md-8"-->
+                                        <div class="wprt-spacer" data-desktop="40" data-mobi="20" data-smobi="20"></div>
+                                        {% if user.is_authenticated and user.is_active %}
+                                            <h4 class="margin-bottom-15">Профиль
+                                                пользователя {{ user.username|title }}</h4>
+                                            <br>
+                                            <div class="col-md-6">
+                                                <table>
+                                                    <tr>
+                                                        <td><p class="n_text">Ваше имя:</p></td>
+                                                        <td><p class="n_text"><strong>{{ user.first_name|title }}</strong></p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p class="n_text">Фамилия:</p></td>
+                                                        <td><p class="n_text"><strong>{{ user.last_name|title }}</strong></p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p class="n_text">Отчество:</p></td>
+                                                        <td><p class="n_text"><strong>{% if user.patronymic %}
+                                                            {{ user.patronymic|title }}{% endif %}</strong></p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p class="n_text">Пол:</p></td>
+                                                        <td><p class="n_text"><strong>{{ user.get_gender_display }}</strong></p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p class="n_text">День рождения:</p></td>
+                                                        <td><p class="n_text"><strong>{{ user.birthday|date:"d.m.Y" }}</strong></p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p class="n_text">Телефон:</p></td>
+                                                        <td><p class="n_text"><strong>{{ user.phone }}</strong></p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p class="n_text">Эл. почта:</p></td>
+                                                        <td><p class="n_text"><strong>{{ user.email }}</strong></p></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><p class="n_text">Город:</p></td>
+                                                        <td><p class="n_text"><strong>{{ user.city|title }}</strong></p></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="wprt-spacer" data-desktop="20" data-mobi="20" data-smobi="20"></div>
+                                            <p class="n_text">Можете <a href="{% url 'auth:logout' %}">выйти с сайта</a>.
+                                            </p>
+                                        {% else %}
+                                            <h4 class="margin-bottom-15" style="text-align: center;">Вы не
+                                                авторизованы,<br>либо аккаунт не активирован</h4>
+                                            <br>
+                                            <p>Если вы хотите посмотреть информацию вашего профиля,<br>
+                                                необходимо <a href="{% url 'auth:login' %}">авторизоваться на
+                                                    сайте</a>,<br>
+                                                либо дождаться активации аккаунта нашим менеджером.</p>
+                                        {% endif %}
                                     </div>
                                     <!-- /.col-md-8 -->
                                 </div><!-- /.row -->

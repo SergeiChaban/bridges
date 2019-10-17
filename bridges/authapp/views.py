@@ -1,13 +1,11 @@
+from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic.detail import DetailView
 from .forms import RegisterUserForm, LoginUserForm
-
 from .models import Users
 
-
-# Create your views here.
 
 class RegisterUserView(CreateView):
     model = Users
@@ -29,13 +27,7 @@ class UserLoginView(LoginView):
     template_name = 'authapp/login.html'
 
 
-class UserProfileView(DetailView):
-    model = Users
 
-
-    def get_context_data(self, *args, **kwargs):
-        context = super().get_context_data(*args, **kwargs)
-        return context
 
 
 class UserLogoutView(LogoutView):
