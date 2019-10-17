@@ -603,10 +603,10 @@
 }
 
 .wprt-lines.custom-1 { height: 3px; }
-.wprt-lines.custom-1 .line-1 { height:3px; width: 60px; background-color: #ffbc13; margin-left: -30px; margin-top: -1.5px }
+.wprt-lines.custom-1 .line-1 { height:3px; width: 60px; background-color: #337ab7; margin-left: -30px; margin-top: -1.5px }
 
 .wprt-lines.custom-2 { height: 3px; }
-.wprt-lines.custom-2 .line-1 { height:3px; width: 60px; background-color: #ffbc13; margin-top: -1.5px }
+.wprt-lines.custom-2 .line-1 { height:3px; width: 60px; background-color: #337ab7; margin-top: -1.5px }
 
 .wprt-lines.custom-3 { height: 3px; }
 .wprt-lines.custom-3 .line-1 { height:3px; width: 60px; background-color: #337ab7; margin-left: 0; margin-top: -1.5px }
@@ -2004,7 +2004,7 @@
 #team-wrap .cbp-nav-next:before,
 #team-wrap .cbp-nav-prev:before,
 #images-wrap .cbp-nav-next:before,
-#images-wrap .cbp-nav-prev:before { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 100%; border: 0; background-color: #ffbc13; -webkit-transition: all ease .238s; -moz-transition: all ease .238s; transition: all ease .238s; }
+#images-wrap .cbp-nav-prev:before { content: ""; position: absolute; left: 0; top: 0; width: 100%; height: 100%; border: 0; background-color: #337ab7; -webkit-transition: all ease .238s; -moz-transition: all ease .238s; transition: all ease .238s; }
 
 #service-wrap .cbp-nav-next.cbp-nav-stop:before,
 #service-wrap .cbp-nav-prev.cbp-nav-stop:before,
@@ -2095,7 +2095,7 @@
 .wprt-galleries-grid.arrow-style-2 #images-wrap .cbp-nav-next:before,
 .wprt-galleries-grid.arrow-style-2 #images-wrap .cbp-nav-prev:before {
     background-color: transparent;
-    border: 2px solid #ffbc13;
+    border: 2px solid #337ab7;
 }
 
 .wprt-project.arrow-style-2 #projects .cbp-nav-next:after,
@@ -2108,7 +2108,7 @@
 .wprt-team.arrow-style-2 #team-wrap .cbp-nav-prev:after,
 .wprt-galleries-grid.arrow-style-2 #images-wrap .cbp-nav-next:after,
 .wprt-galleries-grid.arrow-style-2 #images-wrap .cbp-nav-prev:after {
-    color: #ffbc13;
+    color: #337ab7;
 }
 
 .wprt-project.arrow-style-2 #projects .cbp-nav-next.cbp-nav-stop:after,
