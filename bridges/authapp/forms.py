@@ -34,6 +34,12 @@ class LoginUserForm(AuthenticationForm):
         exclude = []
 
 
+class UsersForCompanyUsersForm(forms.ModelForm):
+    class Meta:
+        model = Users
+        fields = []
+
+
 class CompanyUsersForm(forms.ModelForm):
     class Meta:
         model = CompanyUsers

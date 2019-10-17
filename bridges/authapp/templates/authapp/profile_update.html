@@ -16,84 +16,16 @@
                                         <form action="" method="post" enctype="multipart/form-data">
                                             {% csrf_token %}
                                             {{ form.as_p }}
+                                            {{ formset.as_p }}
                                             <button type="submit" value="сохранить" class="btn btn-success">
                                                 сохранить
                                             </button>
                                         </form>
-{#                                        <a href="{{ company.get_absolute_url }}" class="btn btn-info">Вернуться назад</a>#}
-                                        <a href="#" class="btn btn-info">Вернуться назад</a>
+                                        <div class="wprt-spacer" data-desktop="20" data-mobi="20"
+                                                 data-smobi="20"></div>
+                                        <a href="{{user.get_absolute_url}}" class="btn btn-info">Вернуться назад</a>
 
-                                        {#                                        {% if user.is_authenticated and user.is_active %}#}
-                                        {#                                            <h3 class="margin-bottom-15">Профиль#}
-                                        {#                                                пользователя {{ user.username|title }}</h3>#}
-                                        {#                                            <br>#}
-                                        {#                                            <div class="col-md-12">#}
-                                        {#                                                <table class="width_table">#}
-                                        {#                                                    <tr>#}
-                                        {#                                                        <td><p class="n_text margin-bottom-0">Ваше имя:</p></td>#}
-                                        {#                                                        <td><p class="n_text margin-bottom-0">#}
-                                        {#                                                            <strong>{{ user.first_name|title }}</strong></p></td>#}
-                                        {#                                                    </tr>#}
-                                        {#                                                    <tr>#}
-                                        {#                                                        <td><p class="n_text margin-bottom-0">Фамилия:</p></td>#}
-                                        {#                                                        <td><p class="n_text margin-bottom-0">#}
-                                        {#                                                            <strong>{{ user.last_name|title }}</strong></p></td>#}
-                                        {#                                                    </tr>#}
-                                        {#                                                    <tr>#}
-                                        {#                                                        <td><p class="n_text margin-bottom-0">Отчество:</p></td>#}
-                                        {#                                                        <td><p class="n_text margin-bottom-0"><strong>{% if user.patronymic %}#}
-                                        {#                                                            {{ user.patronymic|title }}{% endif %}</strong></p></td>#}
-                                        {#                                                    </tr>#}
-                                        {#                                                    <tr>#}
-                                        {#                                                        <td><p class="n_text margin-bottom-0">Пол:</p></td>#}
-                                        {#                                                        <td><p class="n_text margin-bottom-0">#}
-                                        {#                                                            <strong>{{ user.get_gender_display }}</strong></p></td>#}
-                                        {#                                                    </tr>#}
-                                        {#                                                    <tr>#}
-                                        {#                                                        <td><p class="n_text margin-bottom-0">День рождения:</p></td>#}
-                                        {#                                                        <td><p class="n_text margin-bottom-0">#}
-                                        {#                                                            <strong>{{ user.birthday|date:"d.m.Y" }}</strong></p></td>#}
-                                        {#                                                    </tr>#}
-                                        {#                                                    <tr>#}
-                                        {#                                                        <td><p class="n_text margin-bottom-0">Телефон:</p></td>#}
-                                        {#                                                        <td><p class="n_text margin-bottom-0"><strong>{{ user.phone }}</strong></p></td>#}
-                                        {#                                                    </tr>#}
-                                        {#                                                    <tr>#}
-                                        {#                                                        <td><p class="n_text margin-bottom-0">Эл. почта:</p></td>#}
-                                        {#                                                        <td><p class="n_text margin-bottom-0"><strong>{{ user.email }}</strong></p></td>#}
-                                        {#                                                    </tr>#}
-                                        {#                                                    <tr>#}
-                                        {#                                                        <td><p class="n_text margin-bottom-0">Город:</p></td>#}
-                                        {#                                                        <td><p class="n_text margin-bottom-0"><strong>{{ user.city|title }}</strong></p>#}
-                                        {#                                                        </td>#}
-                                        {#                                                    </tr>#}
-                                        {#                                                </table>#}
-                                        {#                                            <p><a href="#" class="n_text">Перевод в компанию</a></p>#}
-                                        {#                                                <h4 class="margin-bottom-15">Проекты пользователя</h4>#}
-                                        {#                                                {% if user_projects %}#}
-                                        {#                                                    {% for item in user_projects %}#}
-                                        {#                                                        <ul class="wprt-list style-2 accent-color margin-bottom-25">#}
-                                        {#                                                            <li><a href="#" class="n_text"> {{ item.project }}</a></li>#}
-                                        {#                                                        </ul>#}
-                                        {#                                                    {% endfor %}#}
-                                        {#                                                {% else %}#}
-                                        {#                                                    <p class="n_text">Нет ни одного проекта</p>#}
-                                        {#                                                {% endif %}#}
-                                        {#                                                <a href="#" class="n_text">добавить в проект</a>#}
-                                        {#                                            </div>#}
-                                        {#                                            <div class="wprt-spacer" data-desktop="20" data-mobi="20"#}
-                                        {#                                                 data-smobi="20"></div>#}
-                                        {#                                            <p class="n_text">Можете <a href="{% url 'auth:logout' %}">выйти с сайта</a>.#}
-                                        {#                                            </p>#}
-                                        {#                                        {% else %}#}
-                                        {#                                            <h4 class="margin-bottom-15" style="text-align: center;">Вы не#}
-                                        {#                                                авторизованы,<br>либо аккаунт не активирован</h4>#}
-                                        {#                                            <br>#}
-                                        {#                                            <p>Если вы хотите посмотреть информацию вашего профиля,<br>#}
-                                        {#                                                необходимо <a href="{% url 'auth:login' %}">авторизоваться на#}
-                                        {#                                                    сайте</a>,<br>#}
-                                        {#                                                либо дождаться активации аккаунта нашим менеджером.</p>#}
-                                        {#                                        {% endif %}#}
+
 
 
                                     </div>

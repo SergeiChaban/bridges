@@ -1,3 +1,4 @@
+from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from django.urls import reverse_lazy
@@ -5,7 +6,7 @@ from django.views.generic.edit import CreateView
 from django.contrib.auth.views import LoginView, LogoutView
 from django.views.generic.detail import DetailView
 from projectsapp.models import ProjectManagers
-from .forms import RegisterUserForm, LoginUserForm, CompanyUsersForm
+from .forms import *
 from .models import *
 
 
@@ -42,15 +43,23 @@ class UserLogoutView(LogoutView):
 
 
 def company_users_update(request, pk):
-    company_user = CompanyUsers.objects.filter(user_id=pk)
-    company_user_form = CompanyUsersForm(instance=company_user)
+    company_user = get_object_or_404(Users, pk=pk)
+    company_user_form = UsersForCompanyUsersForm(instance=company_user)
+    InlineFormset = inlineformset_factory(Users, CompanyUsers, form=CompanyUsersForm, extra=1)
+    formset = InlineFormset(instance=company_user)
     if request.method == 'POST':
-        company_user_form = CompanyUsersForm(request.POST, instance=company_user)
+        company_user_form = UsersForCompanyUsersForm(request.POST, instance=company_user)
+        formset = InlineFormset(request.POST)
         if company_user_form.is_valid():
-            company_user_form.save()
-            return HttpResponseRedirect(company_user.get_absolute_url())
+            updated_company_user_form = company_user_form.save(commit=False)
+            formset = InlineFormset(request.POST, instance=updated_company_user_form)
+            if formset.is_valid():
+                updated_company_user_form.save()
+                formset.save()
+                return HttpResponseRedirect(updated_company_user_form.get_absolute_url())
     context = {
         'form': company_user_form,
-        'company_user': company_user
+        'formset': formset,
+        'user': company_user
     }
     return render(request, 'authapp/profile_update.html', context)
