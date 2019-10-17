@@ -1,0 +1,29 @@
+{% extends 'productsapp/base.html' %}
+{% block content-container %}
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="page-content">
+                        <section class="wprt-section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <!--div class="col-md-12"-->
+
+                                        <h1>Logged out</h1>
+                                        <p>You have been successfully logged out. You can <a href="{% url "login" %}">log-in again</a>.</p>
+
+
+                                    </div>
+                                    <!-- /.col-md-12 -->
+                                </div><!-- /.row -->
+                            </div><!-- /.container -->
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

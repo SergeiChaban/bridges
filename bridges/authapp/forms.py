@@ -25,14 +25,14 @@ class RegisterUserForm(ModelForm):
         return user
 
 
-class LoginUserForm(AuthenticationForm):
-    username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Введите логин*'}))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'и пароль*'}))
-
-    class Meta:
-        model = Users
-        AuthenticationFormFields = ('username', 'password')
-        exclude = []
+# class LoginUserForm(AuthenticationForm):
+#     username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Введите логин*'}))
+#     password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'и пароль*'}))
+#
+#     class Meta:
+#         model = Users
+#         AuthenticationFormFields = ('username', 'password')
+#         exclude = []
 
 
 class UsersForEditProfileForm(forms.ModelForm):

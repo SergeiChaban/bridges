@@ -1,0 +1,44 @@
+{% extends 'productsapp/base.html' %}
+{% block content-container %}
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="page-content">
+                        <section class="wprt-section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <!--div class="col-md-12"-->
+
+                                        <h1>Log-in</h1>
+                                        {% if form.errors %}
+                                            <p>
+                                                Your username and password didn't match.
+                                                Please try again.
+                                            </p>
+                                        {% else %}
+                                            <p>Please, use the following form to log-in:</p>
+                                        {% endif %}
+                                        <div class="login-form">
+                                            <form action="{% url "login" %}" method="post">
+                                                {{ form.as_p }}
+                                                {% csrf_token %}
+                                                <input type="hidden" name="next" value="{{ next }}"/>
+                                                <p><input type="submit" value="Log-in"></p>
+                                            </form>
+                                        </div>
+
+
+                                    </div>
+                                    <!-- /.col-md-12 -->
+                                </div><!-- /.row -->
+                            </div><!-- /.container -->
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
