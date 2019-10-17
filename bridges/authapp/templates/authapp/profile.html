@@ -12,7 +12,6 @@
                                     <div class="col-md-12">
                                         <!--div class="col-md-8"-->
                                         <div class="wprt-spacer" data-desktop="40" data-mobi="20" data-smobi="20"></div>
-                                        {% if user.is_authenticated and user.is_active %}
                                             <div class="col-md-4">
                                                 <h4 class="margin-bottom-15">Профиль
                                                     пользователя {{ user.username|title }}</h4>
@@ -54,13 +53,13 @@
                                                             <strong>{{ user.email }}</strong></p></td>
                                                     </tr>
                                                     <tr>
-                                                        <td><p class="n_text margin-bottom-0">Город:</p></td>
+                                                        <td><p class="n_text margin-bottom-0">Активный:</p></td>
                                                         <td><p class="n_text margin-bottom-0">
-                                                            <strong>{{ user.city|title }}</strong></p>
-                                                        </td>
+                                                            <strong>{% if user.is_active %} Да {% else %} Забанен {% endif %}</strong></p></td>
                                                     </tr>
                                                 </table>
-                                            <p><a href="#" class="n_text">редактировать профиль</a></p>
+                                                <p><a href="{% url 'auth:profile_user_update' user.pk %}"
+                                                      class="n_text">редактировать профиль</a></p>
                                             </div>
                                             <div class="col-md-4">
                                                 <h4 class="margin-bottom-15">Компании пользователя</h4>
@@ -74,7 +73,7 @@
                                                     <p class="n_text">Нет ни одной компании</p>
                                                 {% endif %}
                                                 <p><a href="{% url 'auth:company_users_update' user.pk %}"
-                                                      class="n_text">перевод в компанию</a></p>
+                                                      class="n_text">добавить компанию</a></p>
                                             </div>
                                             <div class="col-md-4">
                                                 <h4 class="margin-bottom-15">Проекты пользователя</h4>
@@ -92,17 +91,9 @@
                                             </div>
                                             <div class="wprt-spacer" data-desktop="20" data-mobi="20"
                                                  data-smobi="20"></div>
-                                            <p class="n_text">Можете <a href="{% url 'auth:logout' %}">выйти с сайта</a>.
+                                            <p class="n_text"><a href="{% url 'auth:logout' %}">Выйти с сайта</a>
                                             </p>
-                                        {% else %}
-                                            <h4 class="margin-bottom-15" style="text-align: center;">Вы не
-                                                авторизованы,<br>либо аккаунт не активирован</h4>
-                                            <br>
-                                            <p>Если вы хотите посмотреть информацию вашего профиля,<br>
-                                                необходимо <a href="{% url 'auth:login' %}">авторизоваться на
-                                                    сайте</a>,<br>
-                                                либо дождаться активации аккаунта нашим менеджером.</p>
-                                        {% endif %}
+
                                     </div>
                                     <!-- /.col-md-8 -->
                                 </div><!-- /.row -->

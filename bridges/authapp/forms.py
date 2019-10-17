@@ -34,6 +34,22 @@ class LoginUserForm(AuthenticationForm):
         exclude = []
 
 
+class UsersForEditProfileForm(forms.ModelForm):
+    class Meta:
+        model = Users
+        fields = [
+            'first_name',
+            'patronymic',
+            'last_name',
+            'gender',
+            'birthday',
+            'phone',
+            'email',
+            'is_active',
+        ]
+        # exclude = []
+
+
 class UsersForCompanyUsersForm(forms.ModelForm):
     class Meta:
         model = Users
