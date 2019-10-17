@@ -1,8 +1,30 @@
-{% extends 'authapp/base_auth.html' %}
-
-{% block content %}
-    <h4 class="margin-bottom-15" style="text-align: center;">Вы разлогинились</h4>
-    <br>
-    <p>Возвращайтесь скорей.</p>
-    <p>Можете вновь <a href="{% url 'auth:login' %}">авторизоваться на сайте</a>.</p>
+{% extends 'productsapp/base.html' %}
+{% block content-container %}
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="page-content">
+                        <section class="wprt-section">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <!--div class="col-md-8"-->
+                                        <div class="wprt-spacer" data-desktop="40" data-mobi="20" data-smobi="20"></div>
+                                            <h4 class="margin-bottom-15">Вы
+                                                разлогинились</h4>
+                                            <br>
+                                            <p class="n_text"><a href="{% url 'auth:login' %}">Авторизоваться на сайте</a>.
+                                            </p>
+                                    </div>
+                                    <!-- /.col-md-8 -->
+                                </div><!-- /.row -->
+                            </div><!-- /.container -->
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
