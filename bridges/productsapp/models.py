@@ -51,6 +51,9 @@ class TechnicalSolutions(models.Model):
     def get_works(self):
         return self.works.select_related()
 
+    def get_all_docs(self):
+        pass
+
     class Meta:
         verbose_name = 'Техническое решение'
         verbose_name_plural = 'Технические решения'

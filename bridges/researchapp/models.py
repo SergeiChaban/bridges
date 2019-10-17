@@ -62,7 +62,7 @@ class Document(models.Model):
     subject = models.ManyToManyField(SubjectOfStudy, verbose_name='предмет исседования', blank=True)
     company = models.ManyToManyField(Company, verbose_name='компания выпустившая документ', blank=True)
     author = models.ManyToManyField(Users, verbose_name='автор документа', blank=True)
-    techsol = models.ManyToManyField(TechnicalSolutions, verbose_name='техническое решение')
+    techsol = models.ManyToManyField(TechnicalSolutions, related_name='docs', verbose_name='техническое решение')
     file = models.ManyToManyField(FileStorage, blank=True)
     date = models.DateTimeField(auto_now_add=True, auto_now=False)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
