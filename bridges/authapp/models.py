@@ -68,8 +68,8 @@ class Users(AbstractUser):
     Создадим дополнительные поля. """
     GENDER_CHOICES = (
         (None, 'не указан'),
-        ('male', 'мужчина'),
-        ('female', 'женщина'),
+        ('male', 'муж'),
+        ('female', 'жен'),
     )
     username = models.CharField(verbose_name='Логин*', max_length=50, unique=True)  # переопределили из-за verbose_name
     first_name = models.CharField(verbose_name='Имя', max_length=50)
