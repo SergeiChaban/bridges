@@ -71,49 +71,46 @@
                                             senectus et netus et malesuada fames ac turpis egestas. Integer blandit
                                             nulla quis fermentum hendrerit.</p>
                                     </div>
-                                    <div class="col-md-6 row">
-                                        {% for item in mainworks %}
-                                            <div class="wprt-toggle style-2">
-                                                <h3 class="toggle-title">{{ item.name }}</h3>
-                                                <div class="toggle-content" style="color: black;">
-                                                        {{ item.description }}
-                                                        <div class="wprt-spacer" data-desktop="10" data-mobi="10"
-                                                             data-smobi="10"></div>
-                                                {% if item.materials.all %}
-                                                    <p><i><b>Применяемые материалы:</b>
-                                                    {% for i in item.materials.all %}
-                                                        {{ i.name }}{% if not forloop.last %}, {% endif %}
-                                                    {% endfor %}</i>
-                                                </p>
-                                                    {% if item.file %}
-                                                        <a class="wprt-button small rounded-30px"
-                                                           href="#"
-                                                           target="_blank">СКАЧАТЬ PDF</a>
-                                                    {% endif %}
-                                                {% endif %}
-                                                </div>
+                                    <div class="col-md-12">
+                                        <div class="wprt-toggle active style-1">
+                                            <h3 class="toggle-title">Состав работ и материалов</h3>
+                                            <div class="toggle-content" style="font-family: 'Times New Roman'; font-size: larger;
+                                            color: #4d4949;">
+                                                <table>
+                                                    <tr>
+                                                        <td style="text-align: center; font-weight: bold; width: 50%">Наименование работ</td>
+                                                        <td style="text-align: center; font-weight: bold;">Материалы</td>
+                                                        <td style="text-align: center; font-weight: bold; width: 10%">Расход</td>
+                                                        <td style="text-align: center; font-weight: bold; width: 10%">Ед. изм.</td>
+                                                    </tr>
+                                                    {% for item in works %}
+                                                        <tr>
+                                                            <td>{{ item.work.name }}</td>
+                                                            <td style="text-align: right;"><i>
+                                                                {% for i in item.material.all %}
+                                                                    {{ i.name }}
+                                                                    {% if not forloop.last %}, {% endif %}
+                                                                {% endfor %}
+                                                            </i></td>
+                                                            <td style="text-align: center;">{% if item.consumption %}{{ item.consumption }}{% endif %}</td>
+                                                            <td style="text-align: center;">
+                                                                {% if item.material.all %}
+                                                                    {{ item.work.measure.shortcut }}
+                                                                {% endif %}
+                                                            </td>
+                                                        </tr>
+                                                    {% endfor %}
+                                                </table>
+{#                                                <a class="" href="{% url 'projects:product_update' object.pk %}">... изменить</a>#}
                                             </div>
-                                        {% endfor %}
-                                    </div><!-- /.col-md-12 -->
+                                        </div>
 
-                                    <div class="col-md-6 row">
-                                        {% for item in works %}
-                                            <div class="wprt-toggle style-1">
-                                                <h3 class="toggle-title">{{ item.name }}</h3>
-                                                <div class="toggle-content" style="color: black;">
-                                                        {{ item.description }}
-                                                        <div class="wprt-spacer" data-desktop="10" data-mobi="10"
-                                                             data-smobi="10"></div>
-                                                    {% if item.file %}
-                                                        <a class="wprt-button small rounded-30px"
-                                                           href="/media/{{ item.file }}"
-                                                           target="_blank">СКАЧАТЬ PDF</a>
-                                                    {% endif %}
-                                                </div>
-                                            </div>
-                                        {% endfor %}
-                                    </div>
-                                </div><!-- /.col-md-8 -->
+                                        <div class="col-md-12">
+                                            <div class="wprt-spacer" data-desktop="70" data-mobi="60"
+                                                 data-smobi="60"></div>
+                                        </div>
+                                    </div><!-- /.row -->
+                                </div><!-- /.col-md-12 -->
 <!--СТАТЬЯ О ТЕХНИЧЕСКОМ РЕШЕНИИ- /ЖУРНАЛЫ И ТД/ PDF LOADER-->
                                 <div class="col-md-12">
                                     <div class="wprt-spacer" data-desktop="30" data-mobi="60" data-smobi="60"></div>

@@ -45,11 +45,8 @@ class TechnicalSolutions(models.Model):
     def get_projects(self):
         return self.projects.select_related().distinct('project_id')
 
-    def get_materials(self):
-        return self.materials.select_related()
-
     def get_works(self):
-        return self.works.select_related()
+        return self.works.select_related().order_by('pk')
 
     def get_all_docs(self):
         pass
@@ -210,21 +207,13 @@ class WorkImage(models.Model):
 # --------------------------------------------    МОДЕЛИ СВЯЗИ   ------------------------------------------------
 
 
-class ProductMaterial(models.Model):
-    product = models.ForeignKey(TechnicalSolutions, related_name='materials', on_delete=models.CASCADE)
-    material = models.ForeignKey(Material, on_delete=models.CASCADE)
-    consumption = models.DecimalField(verbose_name='расход', max_digits=8, decimal_places=2, default=0)
-
-    class Meta:
-        verbose_name = 'Материал продукта'
-        verbose_name_plural = 'Материалы продукта'
-
-
 class ProductWork(models.Model):
     product = models.ForeignKey(TechnicalSolutions, related_name='works', on_delete=models.CASCADE)
     work = models.ForeignKey(Work, on_delete=models.CASCADE)
+    material = models.ManyToManyField(Material, blank=True, null=True)
+    consumption = models.DecimalField(verbose_name='расход материала', max_digits=8, decimal_places=2, blank=True, null=True)
     value = models.DecimalField(verbose_name='трудозатраты', max_digits=8, decimal_places=2, default=0)
 
     class Meta:
-        verbose_name = 'Вид работы'
-        verbose_name_plural = 'Виды работ'
+        verbose_name = 'Перечень работ продукта'
+        verbose_name_plural = 'Перечень работ продукта'
