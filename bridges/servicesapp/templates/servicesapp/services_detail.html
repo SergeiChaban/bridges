@@ -1,178 +1,149 @@
 {% extends 'productsapp/base.html' %}
 {% load static %}
 {% block content-container %}
+    <!-- Main Content -->
+    <div id="main-content" class="site-main clearfix">
+        <div id="content-wrap" class="container">
+            <div id="site-content" class="site-content clearfix">
+                <div id="inner-content" class="inner-content-wrap">
+                    <div class="container-fluid padding-0">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="wprt-spacer" data-desktop="80" data-mobi="60" data-smobi="60"></div>
 
+                                <h2 class="line-height-normal margin-bottom-10">MANY YEARS OF EXPERIENCE</h2>
+                                <div class="wprt-lines style-1 custom-3">
+                                    <div class="line-1"></div>
+                                    <div class="line-2"></div>
+                                </div>
 
-<link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+                                <div class="wprt-spacer" data-desktop="25" data-mobi="25" data-smobi="25"></div>
 
+                                <p class="margin-bottom-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Quisque nec erat erat. Integer blandit nulla quis fermentum hendrerit.
+                                    Vestibulum eu libero volutpat, portas quam acc, tempus sem. Donec sodales quam
+                                    id lorem lobortis, vitae interdum nisl vehicula. Pellentesque habitant morbi
+                                    tristique senectus et netus et malesuada fames ac turpis egestas. Etiam
+                                    suscipit, elit quis facilisis dictum, diam justo volutpat dui. Cras id justo
+                                    eget sapien scelerisque lacinia non a eros.</p>
+                                <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40"></div>
+                            </div><!-- /.col-md-12 -->
 
-{#<body class="page sidebar-left header-style-1 menu-has-search menu-has-cart">#}
+                            <div class="col-md-6">
+                                <h3 class="line-height-normal margin-bottom-10">GALLERY PROJECT</h3>
+                                <div class="wprt-lines style-1 custom-3">
+                                    <div class="line-1"></div>
+                                    <div class="line-2"></div>
+                                </div>
 
-{#<body class="sidebar-left">#}
+                                <div class="wprt-spacer" data-desktop="25" data-mobi="25" data-smobi="25"></div>
 
+                                <p class=" margin-bottom-25">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit. Quisque nec erat erat. Integer blandit nulla quis fermentum hendrerit.</p>
 
-        <!-- Main Content -->
-        <div id="main-content" class="site-main clearfix">
-            <div id="content-wrap" class="container">
-                <div id="site-content" class="site-content clearfix">
-                    <div id="inner-content" class="inner-content-wrap">
-                        <div class="container-fluid padding-0">
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="wprt-spacer" data-desktop="80" data-mobi="60" data-smobi="60"></div>
+                                <div class="wprt-galleries-grid has-bullets bullet-style-2 bullet30 has-arrows arrow-position-2 arrow-light"
+                                     data-layout="slider" data-column="1" data-column2="1" data-column3="1"
+                                     data-column4="1" data-gaph="30" data-gapv="30">
+                                    <div id="images-wrap" class="cbp">
+                                        <div class="cbp-item">
+                                            <div class="item-wrap">
+                                                <a class="zoom" href="{% static 'assets/img/projects/1-full.jpg' %}"><i
+                                                        class="fa fa-arrows-alt"></i></a>
+                                                <img src="{% static 'assets/img/projects/1.jpg' %}" alt="image"/>
+                                            </div>
+                                        </div><!--/.cbp-item -->
 
-                                    <h2 class="line-height-normal margin-bottom-10">MANY YEARS OF EXPERIENCE</h2>
-                                    <div class="wprt-lines style-1 custom-3">
-                                        <div class="line-1"></div>
-                                        <div class="line-2"></div>
-                                    </div>
+                                        <div class="cbp-item">
+                                            <div class="item-wrap">
+                                                <a class="zoom" href="{% static 'assets/img/projects/2-full.jpg' %}"><i
+                                                        class="fa fa-arrows-alt"></i></a>
+                                                <img src="{% static 'assets/img/projects/2.jpg' %}" alt="image"/>
+                                            </div>
+                                        </div><!--/.cbp-item -->
+                                    </div><!-- /#images-wrap -->
+                                </div>
+                            </div><!-- /.col-md-6 -->
 
-                                    <div class="wprt-spacer" data-desktop="25" data-mobi="25" data-smobi="25"></div>
+                            <div class="col-md-6">
+                                <div class="wprt-spacer" data-desktop="0" data-mobi="40" data-smobi="40"></div>
 
-                                    <p class="margin-bottom-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Quisque nec erat erat. Integer blandit nulla quis fermentum hendrerit.
-                                        Vestibulum eu libero volutpat, portas quam acc, tempus sem. Donec sodales quam
-                                        id lorem lobortis, vitae interdum nisl vehicula. Pellentesque habitant morbi
-                                        tristique senectus et netus et malesuada fames ac turpis egestas. Etiam
-                                        suscipit, elit quis facilisis dictum, diam justo volutpat dui. Cras id justo
-                                        eget sapien scelerisque lacinia non a eros.</p>
-                                    <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40"></div>
-                                </div><!-- /.col-md-12 -->
+                                <h3 class="line-height-normal margin-bottom-10">QUALITY CONSTRUCTION</h3>
+                                <div class="wprt-lines style-1 custom-3">
+                                    <div class="line-1"></div>
+                                    <div class="line-2"></div>
+                                </div>
 
-                                <div class="col-md-6">
-                                    <h3 class="line-height-normal margin-bottom-10">GALLERY PROJECT</h3>
-                                    <div class="wprt-lines style-1 custom-3">
-                                        <div class="line-1"></div>
-                                        <div class="line-2"></div>
-                                    </div>
+                                <div class="wprt-spacer" data-desktop="25" data-mobi="25" data-smobi="25"></div>
 
-                                    <div class="wprt-spacer" data-desktop="25" data-mobi="25" data-smobi="25"></div>
+                                <p class=" margin-bottom-25">Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit. Quisque nec erat erat. Integer blandit nulla quis fermentum hendrerit.
+                                    Vestibulum eu libero volutpat, portas quam acc, tempus sem. Donec sodales quam
+                                    id lorem lobortis, vitae interdum nisl vehicula. Pellentesque habitant morbi
+                                    tristique senectus et netus et malesuada fames ac turpis egestas. Etiam
+                                    suscipit, elit quis facilisis dictum, diam justo volutpat dui. Cras id justo
+                                    eget sapien scelerisque lacinia non a eros. In a volutpat magna. Vivamus pretium
+                                    urna at condimentum porta. Lorem ipsum dolor sit amet, consectetur adipiscing
+                                    elit. Quisque nec erat erat. Vestibulum eu libero volutpat, portas quam acc,
+                                    tempus sem. Cras id justo eget sapien scelerisque lacinia non a eros.</p>
 
-                                    <p class=" margin-bottom-25">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                        elit. Quisque nec erat erat. Integer blandit nulla quis fermentum hendrerit.</p>
-
-                                    <div class="wprt-galleries-grid has-bullets bullet-style-2 bullet30 has-arrows arrow-position-2 arrow-light"
-                                         data-layout="slider" data-column="1" data-column2="1" data-column3="1"
-                                         data-column4="1" data-gaph="30" data-gapv="30">
-                                        <div id="images-wrap" class="cbp">
-                                            <div class="cbp-item">
-                                                <div class="item-wrap">
-                                                    <a class="zoom" href="assets/img/projects/1-full.jpg"><i
-                                                            class="fa fa-arrows-alt"></i></a>
-                                                    <img src="assets/img/projects/1.jpg" alt="image"/>
-                                                </div>
-                                            </div><!--/.cbp-item -->
-
-                                            <div class="cbp-item">
-                                                <div class="item-wrap">
-                                                    <a class="zoom" href="assets/img/projects/2-full.jpg"><i
-                                                            class="fa fa-arrows-alt"></i></a>
-                                                    <img src="assets/img/projects/2.jpg" alt="image"/>
-                                                </div>
-                                            </div><!--/.cbp-item -->
-
-                                            <div class="cbp-item">
-                                                <div class="item-wrap">
-                                                    <a class="zoom" href="assets/img/projects/3-full.jpg"><i
-                                                            class="fa fa-arrows-alt"></i></a>
-                                                    <img src="assets/img/projects/3.jpg" alt="image"/>
-                                                </div>
-                                            </div><!--/.cbp-item -->
-
-                                            <div class="cbp-item">
-                                                <div class="item-wrap">
-                                                    <a class="zoom" href="assets/img/projects/4-full.jpg"><i
-                                                            class="fa fa-arrows-alt"></i></a>
-                                                    <img src="assets/img/projects/4.jpg" alt="image"/>
-                                                </div>
-                                            </div><!--/.cbp-item -->
-
-                                            <div class="cbp-item">
-                                                <div class="item-wrap">
-                                                    <a class="zoom" href="assets/img/projects/5-full.jpg"><i
-                                                            class="fa fa-arrows-alt"></i></a>
-                                                    <img src="assets/img/projects/5.jpg" alt="image"/>
-                                                </div>
-                                            </div><!--/.cbp-item -->
-                                        </div><!-- /#images-wrap -->
-                                    </div>
-                                </div><!-- /.col-md-6 -->
-
-                                <div class="col-md-6">
-                                    <div class="wprt-spacer" data-desktop="0" data-mobi="40" data-smobi="40"></div>
-
-                                    <h3 class="line-height-normal margin-bottom-10">QUALITY CONSTRUCTION</h3>
-                                    <div class="wprt-lines style-1 custom-3">
-                                        <div class="line-1"></div>
-                                        <div class="line-2"></div>
-                                    </div>
-
-                                    <div class="wprt-spacer" data-desktop="25" data-mobi="25" data-smobi="25"></div>
-
-                                    <p class=" margin-bottom-25">Lorem ipsum dolor sit amet, consectetur adipiscing
-                                        elit. Quisque nec erat erat. Integer blandit nulla quis fermentum hendrerit.
-                                        Vestibulum eu libero volutpat, portas quam acc, tempus sem. Donec sodales quam
-                                        id lorem lobortis, vitae interdum nisl vehicula. Pellentesque habitant morbi
-                                        tristique senectus et netus et malesuada fames ac turpis egestas. Etiam
-                                        suscipit, elit quis facilisis dictum, diam justo volutpat dui. Cras id justo
-                                        eget sapien scelerisque lacinia non a eros. In a volutpat magna. Vivamus pretium
-                                        urna at condimentum porta. Lorem ipsum dolor sit amet, consectetur adipiscing
-                                        elit. Quisque nec erat erat. Vestibulum eu libero volutpat, portas quam acc,
-                                        tempus sem. Cras id justo eget sapien scelerisque lacinia non a eros.</p>
-
-                                    <ul class="wprt-list style-1 accent-color">
-                                        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-                                        <li>Vestibulum eu libero volutpat, portas quam acc.</li>
-                                        <li>Donec sodales quam id lorem lobortis nisl vehicula.</li>
-                                        <li>Cras id justo eget sapien scelerisque lacinia non a eros.</li>
-                                    </ul>
-                                </div><!-- /.col-md-6 -->
-
-                                <div class="col-md-12">
-                                    <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40"></div>
-
-                                    <h2 class="line-height-normal margin-bottom-10">DO THE JOB QUICKLY</h2>
-                                    <div class="wprt-lines style-1 custom-3">
-                                        <div class="line-1"></div>
-                                        <div class="line-2"></div>
-                                    </div>
-
-                                    <div class="wprt-spacer" data-desktop="25" data-mobi="25" data-smobi="25"></div>
-
-                                    <p class="margin-bottom-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                                        Quisque nec erat erat. Integer blandit nulla quis fermentum hendrerit.
-                                        Vestibulum eu libero volutpat, portas quam acc, tempus sem. Donec sodales quam
-                                        id lorem lobortis, vitae interdum nisl vehicula. Pellentesque habitant morbi
-                                        tristique senectus et netus et malesuada fames ac turpis egestas. Etiam
-                                        suscipit, elit quis facilisis dictum, diam justo volutpat dui. Cras id justo
-                                        eget sapien scelerisque lacinia non a eros.</p>
-
-                                    <div class="wprt-spacer" data-desktop="80" data-mobi="60" data-smobi="60"></div>
-                                </div><!-- /.col-md-12 -->
-                            </div><!-- /.row -->
-                        </div><!-- /.container-fluid -->
-                    </div><!-- /.inner-content-wrap -->
-                </div><!-- /#site-content -->
-
-                <div id="sidebar">
-                    <div class="wprt-spacer" data-desktop="80" data-mobi="40" data-smobi="40"></div>
-
-                    <div id="inner-sidebar" class="inner-content-wrap">
-                        <div class="widget widget_nav_menu">
-                            <div class="menu-service-menu-container">
-                                <ul id="menu-service-menu" class="menu">
-                                    <li class="menu-item current_page_item"><a href="#">CONSTRUCTION CONSULTANT</a></li>
-                                    <li class="menu-item"><a href="#">ARCHITECTURAL DESIGN</a></li>
-                                    <li class="menu-item"><a href="#">ELECTRICAL SYSTEM</a></li>
-                                    <li class="menu-item"><a href="#">GENERAL CONTRACTING</a></li>
-                                    <li class="menu-item"><a href="#">RESCONSTRUCTION SERVICES</a></li>
-                                    <li class="menu-item"><a href="#">PLUMBILG SERVICES</a></li>
+                                <ul class="wprt-list style-1 accent-color">
+                                    <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+                                    <li>Vestibulum eu libero volutpat, portas quam acc.</li>
+                                    <li>Donec sodales quam id lorem lobortis nisl vehicula.</li>
+                                    <li>Cras id justo eget sapien scelerisque lacinia non a eros.</li>
                                 </ul>
-                            </div>
-                        </div><!-- /.widget_nav_menu -->
-                    </div><!-- /#inner-sidebar -->
-                </div><!-- /#sidebar -->
-            </div><!-- /#content-wrap -->
-        </div><!-- /#main-content -->
+                            </div><!-- /.col-md-6 -->
 
+                            <div class="col-md-12">
+                                <div class="wprt-spacer" data-desktop="40" data-mobi="40" data-smobi="40"></div>
+
+                                <h2 class="line-height-normal margin-bottom-10">DO THE JOB QUICKLY</h2>
+                                <div class="wprt-lines style-1 custom-3">
+                                    <div class="line-1"></div>
+                                    <div class="line-2"></div>
+                                </div>
+
+                                <div class="wprt-spacer" data-desktop="25" data-mobi="25" data-smobi="25"></div>
+
+                                <p class="margin-bottom-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                    Quisque nec erat erat. Integer blandit nulla quis fermentum hendrerit.
+                                    Vestibulum eu libero volutpat, portas quam acc, tempus sem. Donec sodales quam
+                                    id lorem lobortis, vitae interdum nisl vehicula. Pellentesque habitant morbi
+                                    tristique senectus et netus et malesuada fames ac turpis egestas. Etiam
+                                    suscipit, elit quis facilisis dictum, diam justo volutpat dui. Cras id justo
+                                    eget sapien scelerisque lacinia non a eros.</p>
+
+                                <div class="wprt-spacer" data-desktop="80" data-mobi="60" data-smobi="60"></div>
+                            </div><!-- /.col-md-12 -->
+                        </div><!-- /.row -->
+                    </div><!-- /.container-fluid -->
+                </div><!-- /.inner-content-wrap -->
+            </div><!-- /#site-content -->
+
+            <div id="sidebar">
+                <div class="wprt-spacer" data-desktop="80" data-mobi="40" data-smobi="40"></div>
+                <div id="inner-sidebar" class="inner-content-wrap">
+                    <div class="widget widget_nav_menu">
+                        <div class="menu-service-menu-container">
+                            <ul id="menu-service-menu" class="menu">
+
+                                <li class="menu-item {% if request.resolver_match.kwargs.pk == 1 %}current_page_item{% endif %}">
+                                    <a href="/services/single/1">Услуга 1</a></li>
+                                <li class="menu-item {% if request.resolver_match.kwargs.pk == 2 %}current_page_item{% endif %}">
+                                    <a href="/services/single/2">Услуга 2</a></li>
+                                <li class="menu-item {% if request.resolver_match.kwargs.pk == 3 %}current_page_item{% endif %}">
+                                    <a href="/services/single/3">Услуга 3</a></li>
+                                <li class="menu-item {% if request.resolver_match.kwargs.pk == 4 %}current_page_item{% endif %}">
+                                    <a href="/services/single/4">Услуга 4</a></li>
+                                <li class="menu-item {% if request.resolver_match.kwargs.pk == 5 %}current_page_item{% endif %}">
+                                    <a href="/services/single/5">Услуга 5</a></li>
+                                <li class="menu-item {% if request.resolver_match.kwargs.pk == 6 %}current_page_item{% endif %}">
+                                    <a href="/services/single/6">Услуга 6</a></li>
+                            </ul>
+                        </div>
+                    </div><!-- /.widget_nav_menu -->
+                </div><!-- /#inner-sidebar -->
+            </div><!-- /#sidebar -->
+        </div><!-- /#content-wrap -->
+    </div><!-- /#main-content -->
 {% endblock %}
