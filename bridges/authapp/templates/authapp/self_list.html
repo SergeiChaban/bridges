@@ -27,7 +27,7 @@
                                                 {% for item in user_companies_list %}
                                                     <tr>
                                                         <td ><p class="n_text margin-bottom-0"><strong>{{ forloop.counter }}</strong></p></td>
-                                                        <td><p class="n_text margin-bottom-0">{{ item.company }}</p>
+                                                        <td><p class="n_text margin-bottom-0"><a href="{{ item.company.get_absolute_url }}">{{ item.company }}</a></p>
                                                         </td>
                                                         <td><p class="n_text margin-bottom-0">{{ item.position }}</p></td>
                                                         <td><p class="n_text margin-bottom-0">{% if item.works == True %}Да{% else %}Нет{% endif %}</p></td>
