@@ -104,7 +104,7 @@ class CompanyUsers(models.Model):
     user = models.ForeignKey(Users, on_delete=models.PROTECT, verbose_name='Сотрудник', blank=True,
                              related_name='company')
     position = models.CharField(verbose_name='Должность', max_length=50, blank=True)
-    works = models.BooleanField(verbose_name='Работает в компании', default=True)
+    works = models.BooleanField(verbose_name='Работает в компании', default=True, null=True)
 
     class Meta:
         verbose_name = 'Компания - работодатель'
