@@ -59,7 +59,7 @@ input,
 select,
 textarea { font-family: "Open Sans", sans-serif; color: #000; font-size: 12px; line-height: 1.875; background-color: #fff; }
 img { height: auto; max-width: 100%; vertical-align: middle; -ms-interpolation-mode: bicubic }
-p { margin: 0 0 20px; }
+p { margin: 0 0 20px; font-size: 12px;}
 strong,
 b { font-weight: bold; }
 dfn,
