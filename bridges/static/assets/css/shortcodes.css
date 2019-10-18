@@ -311,7 +311,7 @@
 
 /* Accent background Effect 3 */
 .wprt-icon-box.accent-background.icon-effect-3 .dd-icon:after {
-    background-color: #ffbc13;
+    background-color: #337ab7;
     -webkit-transition: -webkit-transform 0.2s, opacity 0.3s;
     -moz-transition: -moz-transform 0.2s, opacity 0.3s;
     transition: transform 0.2s, opacity 0.3s;
