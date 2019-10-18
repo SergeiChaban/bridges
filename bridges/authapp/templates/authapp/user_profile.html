@@ -77,6 +77,8 @@
                                                 <p class="n_text">Нет ни одной компании</p>
                                             {% endif %}
                                             <p><a href="{% url 'company_user_update' user.pk %}">редактировать</a></p>
+                                        <p><a href="{% url 'company_user_list' user.pk %}">все компании</a>
+                                            </p>
                                         </div>
                                         <div class="col-md-4">
                                             <h4 class="margin-bottom-15">Проекты пользователя</h4>

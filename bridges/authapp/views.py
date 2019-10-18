@@ -9,7 +9,7 @@ from .models import *
 @login_required
 def restricted_area(request):
     user = request.user
-    user_companies = CompanyUsers.objects.filter(user_id=user.pk)
+    user_companies = CompanyUsers.objects.filter(user_id=user.pk, works=True)
     user_projects = ProjectManagers.objects.filter(manager_id=user.pk)
     context = {
         'section': 'restricted_area',
@@ -33,6 +33,7 @@ def register(request):
     else:
         user_form = RegisterUserForm()
     return render(request, 'authapp/register.html', {'form': user_form})
+
 
 
 

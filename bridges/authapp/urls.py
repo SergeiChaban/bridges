@@ -20,4 +20,6 @@ urlpatterns = [
     path('user/company/update/<int:pk>', authapp.company_user_update, name='company_user_update'),
     path('user/profile/update/<int:pk>', authapp.profile_user_update, name='profile_user_update'),
     path('user/project/update/<int:pk>', authapp.project_user_update, name='project_user_update'),
+    path('self/user/company/list/<int:pk>', authapp.company_self_user_list, name='company_self_user_list'),
+    path('user/company/list/<int:pk>', authapp.company_user_list, name='company_user_list'),
 ]

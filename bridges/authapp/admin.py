@@ -33,7 +33,7 @@ class UsersAdmin(admin.ModelAdmin):
     readonly_fields = ('password', 'is_superuser', 'last_login', 'date_joined')  #'user_permissions', 'groups')
 
     # какие поля выводить в админке
-    list_display = ('id', 'username', 'first_name', 'last_name', 'is_active', 'is_staff', 'phone', 'email',)
+    list_display = ('username', 'first_name', 'last_name', 'is_active', 'is_staff', 'phone', 'email',)
 
     # по каким полям может осуществляться поиск в админке
     search_fields = ('username',
