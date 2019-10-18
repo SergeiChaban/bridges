@@ -30,7 +30,7 @@
                                                         <td><p class="n_text margin-bottom-0"><a href="{{ item.company.get_absolute_url }}"> {{ item.company }}</a></p>
                                                         </td>
                                                         <td><p class="n_text margin-bottom-0">{{ item.position }}</p></td>
-                                                        <td><p class="n_text margin-bottom-0">{% if item.works == True %}Да{% else %}Нет{% endif %}</p></td>
+                                                        <td><p class="n_text margin-bottom-0">{% if item.works == True %}Да{% elif item.works == False %}Нет{% else %}Не известно{% endif %}</p></td>
                                                     </tr>
                                                 {% endfor %}
                                             </table>
