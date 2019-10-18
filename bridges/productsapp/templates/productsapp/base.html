@@ -9,6 +9,7 @@
     <meta charset="utf-8">
     <!--[if IE]>
     <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
     <title>{{ page_title | capfirst }}</title>
 
     <meta name="description"
@@ -35,7 +36,7 @@
 
 </head>
 
-<body class="front-page no-sidebar site-layout-full-width header-style-5 menu-has-search menu-has-cart">
+<body class="front-page {% if request.resolver_match.url_name == 'services_single' %}sidebar-left{% else %}no-sidebar{% endif %} site-layout-full-width header-style-5 menu-has-search menu-has-cart">
 
 <div id="wrapper" class="animsition">
     <div id="page" class="clearfix">

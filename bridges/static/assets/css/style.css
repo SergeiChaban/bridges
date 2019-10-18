@@ -570,7 +570,7 @@ p.dropcap span.first-letter { font-size: 55px; float: left; color: #337ab7; text
 #main-nav { display: block; }
 #main-nav ul { margin: 0; }
 #main-nav ul li { position: relative; list-style: none; padding-top: 0; padding-bottom: 0; }
-#main-nav > ul > li { float: left; padding: 0 18px; }
+#main-nav > ul > li { float: left; padding: 0 15px; }
 #main-nav > ul > li:first-child { padding-left: 0; }
 #main-nav > ul > li > a { display: block; font-family: "Montserrat", sans-serif; font-size: 12px; font-weight: 700; color: #000; text-transform: uppercase; }
 #main-nav > ul > li > a:hover,
