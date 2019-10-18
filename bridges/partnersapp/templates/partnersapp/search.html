@@ -18,17 +18,31 @@
                     <h3>Компаний не найдено</h3>
                 {% endif %}
                 <div class="wprt-spacer" data-desktop="10" data-mobi="20" data-smobi="20"></div>
+                {% if projects %}
+                    <h3>Проектов найдено: {{ projects|length }}</h3>
+                    {% for item in projects %}
+                        <div class="col-md-3">
+                            <p class="search_link"><a href="{{ item.get_absolute_url }}">
+                                {{ item.name }}</a></p>
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    <h3>Проектов не найдено</h3>
+                {% endif %}
+                <div class="wprt-spacer" data-desktop="10" data-mobi="20" data-smobi="20"></div>
                 {% if users %}
                     <h3>Сотрудников найдено: {{ users|length }}</h3>
                     {% for item in users %}
                         <div class="col-md-3">
                             <p class="search_link"><a href="{{ item.get_absolute_url }}">
-                                {{ item.first_name }} {% if item.patronymic %}{{ item.patronymic }}{% endif %} {{ item.last_name }}</a></p>
+                                {{ item.first_name }}
+                                {% if item.patronymic %}{{ item.patronymic }}{% endif %} {{ item.last_name }}</a></p>
                         </div>
                     {% endfor %}
                 {% else %}
                     <h3>Сотрудников не найдено</h3>
                 {% endif %}
+                <div class="wprt-spacer" data-desktop="10" data-mobi="20" data-smobi="20"></div>
             </div>
         </div>
     </div>

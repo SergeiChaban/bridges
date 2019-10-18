@@ -5,7 +5,7 @@ from django.urls import reverse
 from authapp.models import Company, CompanyUsers, Users
 from partnersapp.forms import CompanyForm, CompanyUsersForm, CompanyUserUpdateForm
 from django.db.models import Q
-from projectsapp.models import ProjectCompany
+from projectsapp.models import ProjectCompany, Project
 from researchapp.models import Document
 
 
@@ -83,7 +83,7 @@ def partner_user_update(request, pk):
                     created_company.save()
                     formset.save()
                     return HttpResponseRedirect(created_company.get_absolute_url())
-    context ={
+    context = {
         'company_form': company_form,
         'formset': formset,
         'page_title': 'Добавление сотрудника',
@@ -102,11 +102,15 @@ def company_search(request):
         companies = Company.objects.filter(
             Q(name__icontains=q) | Q(inn__icontains=q) | Q(phone__icontains=q)
         ).order_by('name')
+        projects = Project.objects.filter(
+            Q(name__icontains=q)
+        ).order_by('name')
         context = {
             'page_title': 'Результаты поиска',
             'bred_title': 'Результаты поиска',
             'companies': companies,
             'users': users,
+            'projects': projects,
             'query': q,
         }
         return render(request, 'partnersapp/search.html', context)
@@ -116,4 +120,3 @@ def company_search(request):
             'bred_title': 'Результаты поиска',
         }
         return render(request, 'partnersapp/search.html', context)
-
