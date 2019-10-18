@@ -572,9 +572,9 @@ p.dropcap span.first-letter { font-size: 55px; float: left; color: #337ab7; text
 #main-nav ul li { position: relative; list-style: none; padding-top: 0; padding-bottom: 0; }
 #main-nav > ul > li { float: left; padding: 0 15px; }
 #main-nav > ul > li:first-child { padding-left: 0; }
-#main-nav > ul > li > a { display: block; font-family: "Montserrat", sans-serif; font-size: 12px; font-weight: 700; color: #000; text-transform: uppercase; }
+#main-nav > ul > li > a { display: block; font-family: "Montserrat", sans-serif; font-size: 12px; font-weight: 700; color: #777; text-transform: uppercase; }
 #main-nav > ul > li > a:hover,
-#main-nav > ul > li.current-menu-item > a { color: #337ab7; }
+#main-nav > ul > li.current-menu-item > a { color: royalblue; }
 #main-nav > ul > li.menu-item-has-children > a { position: relative; padding-right: 15px; }
 #main-nav > ul > li.menu-item-has-children > a:after { content: "\f107"; font-family: "FontAwesome"; position: absolute; right: 0; top: 0; filter: alpha(opacity=75); opacity: 0.75 }
 
