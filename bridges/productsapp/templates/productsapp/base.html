@@ -62,13 +62,25 @@
                         <div id="breadcrumbs">
                             <div class="breadcrumbs-inner">
                                 <div class="breadcrumb-trail">
-                                    {% if not request.resolver_match.url_name == 'logout' %}
-                                        <a href="/">Главная</a>
-
+                                    <a href="/">Главная</a><span class="sep">/</span>
+                                    {% if product %}
+                                        <a href="{% url 'products:products' %}">Технологии</a>
                                         <span class="sep">/</span>
-                                    {% else %}
                                     {% endif %}
-                                    <span class="trail-end">{% block bred_title %}{{ bred_title }}{% endblock %}</span>
+                                    {% if service_detail %}
+                                        <a href="{% url 'services:services_list' %}">Услуги</a>
+                                        <span class="sep">/</span>
+                                    {% endif %}
+                                    {% if object %}
+                                        <a href="{% url 'projects:projects' %}">Проекты</a>
+                                        <span class="sep">/</span>
+                                    {% endif %}
+                                    {% if partner %}
+                                       <a href="{% url 'partners:partners_list' %}">Партнеры</a>
+                                        <span class="sep">/</span>
+                                    {% endif %}
+                                 <span class="trail-end">{% block bred_title %}
+                                            {{ bred_title }}{% endblock %}</span>
                                 </div>
                             </div>
                         </div>

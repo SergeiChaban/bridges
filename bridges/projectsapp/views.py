@@ -28,6 +28,7 @@ class ProjectsList(ListView):
 
 
 
+
 #  ------------------------------------ PROJECT'S MANAGERS CRUD ----------------------------------------------
 
 
