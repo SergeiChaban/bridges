@@ -1,6 +1,5 @@
 
 
-
 class ProjectsList(ListView):
 
     model = Project
@@ -9,11 +8,14 @@ class ProjectsList(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         values = ProjectHasTechnicalSolutions.objects.all()
-        context.update({'values': values,
+
                         'page_title': 'Проекты компании',
                         'bred_title': 'Проекты компании'
                         })
         return context
+
+
+
 
 
 
