@@ -1,9 +1,9 @@
+from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 
-from productsapp.forms import ProductUpdateForm
-from productsapp.models import TechnicalSolutions
 from researchapp.models import Document
+from servicesapp.models import Service
 
 
 class ProductsView(ListView):
@@ -20,21 +20,21 @@ class ProductsView(ListView):
 
 def product(request, slug):
     item = get_object_or_404(TechnicalSolutions, slug=slug)
-    title = item.name
     docs = Document.objects.filter(techsol__pk=item.pk)
     researches = docs.filter(type__in=(2, 3,))
     documents = docs.filter(type__id=1)
     feedback = docs.filter(type__id=4).order_by('-pk')
-
+    product_services = Service.objects.filter(technicalsolutionshasservice__technicalsolutions__slug=slug)
     content = {
         'projects': item.get_projects(),
         'works': item.get_works(),
-        'page_title': title,
-        'bred_title': title,
+        'page_title': item,
+        'bred_title': item,
         'product': item,
         'researches': researches,
         'documents': documents,
-        'feedback': feedback
+        'feedback': feedback,
+        'product_services': product_services,
     }
     return render(request, 'productsapp/product.html', content)
 
@@ -52,5 +52,30 @@ def product_update(request, slug):
         'page_title': 'Обновление технических решений',
         'bred_title': 'Обновление техрешений',
         'product': product
+    }
+    return render(request, 'productsapp/product_update.html', context)
+
+
+def product_service_update(request, slug):
+    product = get_object_or_404(TechnicalSolutions, slug=slug)
+    product_form = ProductForm(instance=product)
+    product_formset = inlineformset_factory(TechnicalSolutions, TechnicalSolutionsHasService, form=TechSolHasServiceForm, extra=1)
+    formset = product_formset(instance=product)
+    if request.method == 'POST':
+        product_form = ProductForm(request.POST, instance=product)
+        formset = product_formset(request.POST)
+        if product_form.is_valid():
+            updated_product = product_form.save(commit=False)
+            formset = product_formset(request.POST, instance=updated_product)
+            if formset.is_valid():
+                updated_product.save()
+                formset.save()
+                return HttpResponseRedirect(updated_product.get_absolute_url())
+    context = {
+        'product_form': product_form,
+        'formset': formset,
+        'product': product,
+        'page_title': 'Обновление технических решений',
+        'bred_title': 'Обновление техрешений',
     }
     return render(request, 'productsapp/product_update.html', context)

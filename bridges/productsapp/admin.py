@@ -129,12 +129,17 @@ class TechnicalSolutionsImageInline(admin.TabularInline):
     extra = 0
 
 
+class ProductServicesInline(admin.TabularInline):
+    model = TechnicalSolutionsHasService
+    extra = 0
+
+
 class TechnicalSolutionsAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',)}
     list_display = ('name', )
     list_display_links = ('name',)
     search_fields = ('name',)
-    inlines = [TechnicalSolutionsImageInline, ProductWorkInline]
+    inlines = [TechnicalSolutionsImageInline, ProductWorkInline, ProductServicesInline]
 
     class Meta:
         model = TechnicalSolutions
@@ -152,3 +157,4 @@ class TechnicalSolutionsImageAdmin(admin.ModelAdmin):
 
 
 admin.site.register(TechnicalSolutionsImage, TechnicalSolutionsImageAdmin)
+

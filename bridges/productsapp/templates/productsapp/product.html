@@ -41,15 +41,16 @@
                                     </div>
 
                                     <div class="wprt-spacer" data-desktop="30" data-mobi="25" data-smobi="25"></div>
-
-                                    <ul class="wprt-list style-2 accent-color margin-bottom-25">
-                                        <li><strong>Заказчик:</strong> ThemeForest Builder</li>
-                                        <li><strong>Проектировщик:</strong> Richardson and Sandra</li>
-                                        <li><strong>подрядчик:</strong> GraphicRiver Builder Corporate</li>
-                                        <li><strong>Бюджет:</strong> $1 250 000,00</li>
+                                    {% for item in product_services %}
+                                    <ul class="wprt-list style-2 accent-color margin-bottom-10">
+                                        <li><a href="{{ item.get_absolute_url }}">{{ item.name }}</a></li>
+{#                                        <li><strong>Проектировщик:</strong> Richardson and Sandra</li>#}
+{#                                        <li><strong>подрядчик:</strong> GraphicRiver Builder Corporate</li>#}
+{#                                        <li><strong>Бюджет:</strong> $1 250 000,00</li>#}
                                     </ul>
-
-                                    <a href="#" class="wprt-button small rounded-3px">LIVE PREVIEW</a>
+                                    {% endfor %}
+                                 <a href="{% url 'products:product_service_update' product.slug %}">редактировать</a>
+{#                                    <a href="#" class="wprt-button small rounded-3px">LIVE PREVIEW</a>#}
                                 </div><!-- /.col-md-4 -->
 <!--СОСТАВ РАБОТ И МАТЕРИАЛОВ-->
                                 <div class="col-md-12">

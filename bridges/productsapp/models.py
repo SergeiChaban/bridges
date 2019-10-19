@@ -1,4 +1,5 @@
 from django.db import models
+from servicesapp.models import Service
 # --------------------------------   МОДЕЛИ ЕДИНИЦ ИЗМЕРЕНИЙ  -------------------------------------
 from django.urls import reverse
 
@@ -221,3 +222,8 @@ class ProductWork(models.Model):
     class Meta:
         verbose_name = 'Перечень работ продукта'
         verbose_name_plural = 'Перечень работ продукта'
+
+
+class TechnicalSolutionsHasService(models.Model):
+    technicalsolutions = models.ForeignKey(TechnicalSolutions, on_delete=models.CASCADE)
+    service = models.ForeignKey(Service, verbose_name='услуга', on_delete=models.CASCADE)
