@@ -1,6 +1,7 @@
 
 
 
+
 class ProjectsList(ListView):
 
     model = Project
@@ -29,7 +30,9 @@ class ProjectsList(ListView):
 
 
 
-#  ------------------------------------ PROJECT'S MANAGERS CRUD ----------------------------------------------
+
+
+
 
 
 

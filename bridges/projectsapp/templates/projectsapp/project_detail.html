@@ -44,7 +44,9 @@
                                                 </ul>
                                             </div>
                                         </div>
+                                    {% if request.user.is_superuser %}
                                         <a href="{% url 'projects:gallery_update' object.pk %}">... изменить фотографии</a>
+                                    {% endif %}
                                     </div><!-- /.col-md-8 -->
                                     <div class="col-md-4">
                                         <div class="wprt-spacer" data-desktop="0" data-mobi="0" data-smobi="0"></div>
@@ -63,8 +65,7 @@
                                         <div>{{ object.city }}. {{ object.description }}</div>
 
 
-                                        {% if request.user.is_authenticated %}
-                                            {#  ПОЛУЧЕНИЕ АДРЕСА И/ИЛИ КООРДИНАТ#}
+
                                             {% if object.address or object.coordinate %}
 {#                                                <div class="wprt-spacer" data-desktop="15" data-mobi="15"#}
 {#                                                     data-smobi="15"></div>#}
@@ -91,8 +92,8 @@
                                             </div>
                                             <div class="wprt-spacer" data-desktop="15" data-mobi="15"
                                                  data-smobi="15"></div>
-                                            <i>Контрагенты проекта:</i>
                                             {% if object.get_companies %}
+                                                <i>Контрагенты проекта:</i>
                                                 {% for item in object.get_companies %}
 
                                                 {% endfor %}
@@ -105,12 +106,12 @@
                                                 {% endfor %}
                                             {% endif %}
 
-                                            </li>
                                             <div class="wprt-spacer" data-desktop="15" data-mobi="15"
                                                  data-smobi="15"></div>
                                             <div class="wprt-lines style-1 custom-4">
                                                 <div class="line-1"></div>
                                             </div>
+                                            {% endif %}
                                             <div class="wprt-spacer" data-desktop="15" data-mobi="15"
                                                  data-smobi="15"></div>
                                         {% endif %}
