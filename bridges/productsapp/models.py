@@ -214,8 +214,8 @@ class WorkImage(models.Model):
 
 class ProductWork(models.Model):
     product = models.ForeignKey(TechnicalSolutions, related_name='works', on_delete=models.CASCADE)
-    work = models.ForeignKey(Work, on_delete=models.CASCADE)
-    material = models.ManyToManyField(Material, blank=True)
+    work = models.ForeignKey(Work, verbose_name='Вид работы', on_delete=models.CASCADE)
+    material = models.ManyToManyField(Material, verbose_name='Применяемые материалы', blank=True)
     consumption = models.DecimalField(verbose_name='расход материала', max_digits=8, decimal_places=2, blank=True, null=True)
     value = models.DecimalField(verbose_name='трудозатраты', max_digits=8, decimal_places=2, default=0)
 

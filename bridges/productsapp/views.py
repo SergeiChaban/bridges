@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import user_passes_test
 from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
@@ -15,7 +16,7 @@ class ProductsView(ListView):
     }
 
     def get_queryset(self):
-        return TechnicalSolutions.objects.all().order_by('pk')
+        return TechnicalSolutions.objects.all().order_by('pk').filter(is_active=True)
 
 
 def product(request, slug):
@@ -23,6 +24,7 @@ def product(request, slug):
     docs = Document.objects.filter(techsol__pk=item.pk)
     researches = docs.filter(type__in=(2, 3,))
     documents = docs.filter(type__id=1)
+
 
     content = {
         'projects': item.get_projects(),
@@ -38,6 +40,7 @@ def product(request, slug):
     return render(request, 'productsapp/product.html', content)
 
 
+@user_passes_test(lambda u: u.is_superuser)
 def product_update(request, slug):
     product = get_object_or_404(TechnicalSolutions, slug=slug)
     product_form = ProductUpdateForm(instance=product)
@@ -55,10 +58,39 @@ def product_update(request, slug):
     return render(request, 'productsapp/product_update.html', context)
 
 
+@user_passes_test(lambda u: u.is_superuser)
 def product_service_update(request, slug):
     product = get_object_or_404(TechnicalSolutions, slug=slug)
     product_form = ProductForm(instance=product)
-    product_formset = inlineformset_factory(TechnicalSolutions, TechnicalSolutionsHasService, form=TechSolHasServiceForm, extra=1)
+    product_formset = inlineformset_factory(TechnicalSolutions, TechnicalSolutionsHasService, form=TechSolHasServiceForm,
+                                            extra=1)
+    formset = product_formset(instance=product)
+    if request.method == 'POST':
+        product_form = ProductForm(request.POST, instance=product)
+        formset = product_formset(request.POST)
+        if product_form.is_valid():
+            updated_product = product_form.save(commit=False)
+            formset = product_formset(request.POST, instance=updated_product)
+            if formset.is_valid():
+                updated_product.save()
+                formset.save()
+                return HttpResponseRedirect(updated_product.get_absolute_url())
+    context = {
+        'product_form': product_form,
+        'formset': formset,
+        'product': product,
+        'page_title': 'Обновление технических решений',
+        'bred_title': 'Обновление техрешений',
+    }
+    return render(request, 'productsapp/product_update.html', context)
+
+
+@user_passes_test(lambda u: u.is_superuser)
+def product_work_update(request, slug):
+    product = get_object_or_404(TechnicalSolutions, slug=slug)
+    product_form = ProductForm(instance=product)
+    product_formset = inlineformset_factory(TechnicalSolutions, ProductWork, form=ProductWorkForm,
+                                            extra=1)
     formset = product_formset(instance=product)
     if request.method == 'POST':
         product_form = ProductForm(request.POST, instance=product)

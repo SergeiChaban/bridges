@@ -18,3 +18,9 @@ class TechSolHasServiceForm(forms.ModelForm):
     class Meta:
         model = TechnicalSolutionsHasService
         exclude = ()
+
+
+class ProductWorkForm(forms.ModelForm):
+    class Meta:
+        model = ProductWork
+        fields = ['work', 'material', 'consumption']

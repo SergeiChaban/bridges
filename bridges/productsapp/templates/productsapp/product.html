@@ -18,7 +18,9 @@
                                 <div class="col-md-8">
                                     <div>
                                         <h3 class="line-height-normal margin-bottom-10">КРАТКОЕ ОПИСАНИЕ</h3>
+                                        {% if request.user.is_superuser %}
                                         <a href="{% url 'products:product_update' product.slug %}">редактировать</a>
+                                        {% endif %}
                                         <div class="wprt-lines style-1 custom-3">
                                             <div class="line-1"></div>
                                             <div class="line-2"></div>
@@ -49,8 +51,9 @@
 {#                                        <li><strong>Бюджет:</strong> $1 250 000,00</li>#}
                                     </ul>
                                     {% endfor %}
-                                 <a href="{% url 'products:product_service_update' product.slug %}">редактировать</a>
-{#                                    <a href="#" class="wprt-button small rounded-3px">LIVE PREVIEW</a>#}
+                                    {% if request.user.is_superuser %}
+                                    <a href="{% url 'products:product_service_update' product.slug %}">редактировать</a>
+                                    {% endif %}
                                 </div><!-- /.col-md-4 -->
 <!--СОСТАВ РАБОТ И МАТЕРИАЛОВ-->
                                 <div class="col-md-12">
@@ -64,10 +67,11 @@
 
                                         <div class="wprt-spacer" data-desktop="30" data-mobi="25" data-smobi="25"></div>
 
-                                        <p>Vestibulum eu libero volutpat, portas quam acc, tempus sem. Donec sodales
-                                            quam id lorem lobortis, vitae. Pellentesque habitant morbi tristique
-                                            senectus et netus et malesuada fames ac turpis egestas. Integer blandit
-                                            nulla quis fermentum hendrerit...</p>
+                                        <p>Ниже представлен типовой перечень работ. Полный комплекс мероприятий,
+                                            а также условия их проведения и методы контроля качества определяется проектной и
+                                            рабочей документацией, а также Технологическим регламентом. Рекомендуемый
+                                            к применению технологический реглмент Вы можете загрузить на этой странице
+                                            ниже в разделе "Исследования и документация".</p>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="wprt-toggle active style-1">
@@ -76,6 +80,7 @@
                                             color: #4d4949;">
                                                 <table>
                                                     <tr>
+                                                        <td style="text-align: center; font-weight: bold; width: 3%">№</td>
                                                         <td style="text-align: center; font-weight: bold; width: 50%">Наименование работ</td>
                                                         <td style="text-align: center; font-weight: bold;">Материалы</td>
                                                         <td style="text-align: center; font-weight: bold; width: 10%">Расход</td>
@@ -83,11 +88,11 @@
                                                     </tr>
                                                     {% for item in works %}
                                                         <tr>
+                                                            <td style="text-align: center;">{{ forloop.counter }}</td>
                                                             <td>{{ item.work.name }}</td>
                                                             <td style="text-align: right;"><i>
                                                                 {% for i in item.material.all %}
-                                                                    {{ i.name }}
-                                                                    {% if not forloop.last %}, {% endif %}
+                                                                    {{ i.name }}{% if not forloop.last %},{% endif %}
                                                                 {% endfor %}
                                                             </i></td>
                                                             <td style="text-align: center;">{% if item.consumption %}{{ item.consumption }}{% endif %}</td>
@@ -99,7 +104,9 @@
                                                         </tr>
                                                     {% endfor %}
                                                 </table>
-{#                                                <a class="" href="{% url 'projects:product_update' object.pk %}">... изменить</a>#}
+                                                {% if request.user.is_superuser %}
+                                                <a href="{% url 'products:product_work_update' product.slug %}">редактировать</a>
+                                                {% endif %}
                                             </div>
                                         </div>
 
