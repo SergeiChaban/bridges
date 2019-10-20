@@ -44,3 +44,8 @@ class ProjectAdmin(admin.ModelAdmin):
     list_display = ('name',)
     list_display_links = ('name',)
 
+
+@admin.register(ProjectManagers)
+class ProjectManagersAdmin(admin.ModelAdmin):
+    list_display = ('manager',)
+    list_display_links = ('manager',)

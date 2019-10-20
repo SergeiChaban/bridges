@@ -33,6 +33,7 @@ class ProjectsList(ListView):
 
 
 
+
     project_form = ProjectForm(instance=project)
     BookInlineFormSet = inlineformset_factory(Project, ProjectImage, form=ProjectImageForm, extra=3)
     formset = BookInlineFormSet(instance=project)

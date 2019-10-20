@@ -23,8 +23,7 @@ def product(request, slug):
     docs = Document.objects.filter(techsol__pk=item.pk)
     researches = docs.filter(type__in=(2, 3,))
     documents = docs.filter(type__id=1)
-    feedback = docs.filter(type__id=4).order_by('-pk')
-    product_services = Service.objects.filter(technicalsolutionshasservice__technicalsolutions__slug=slug)
+
     content = {
         'projects': item.get_projects(),
         'works': item.get_works(),

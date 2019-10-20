@@ -22,7 +22,7 @@ class ProjectUpdateForm(forms.ModelForm):
 class ProjectManagerForm(forms.ModelForm):
     class Meta:
         model = ProjectManagers
-        fields = ['manager', 'role']
+        fields = ['manager', 'role', 'project']
 
 class ProjectSolutionsForm(forms.ModelForm):
     class Meta:

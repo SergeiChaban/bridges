@@ -59,7 +59,8 @@
 {#                                            <div class="line-1"></div>#}
 {#                                        </div>#}
                                         <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
-                                        <i>{{ object.city }}. {{ object.description }}<br></i>
+                                        <div>Статус проекта: {{ object.status }}</div>
+                                        <div>{{ object.city }}. {{ object.description }}</div>
 
 
                                         {% if request.user.is_authenticated %}
