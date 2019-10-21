@@ -181,3 +181,20 @@ class ProjectManagers(models.Model):
     class Meta:
         verbose_name = 'Участник проекта'
         verbose_name_plural = 'Участники проекта'
+
+
+class ProjectDiscussMember(models.Model):
+    project = models.ForeignKey(Project, verbose_name='проект обсуждения', on_delete=models.CASCADE)
+    user = models.ForeignKey(Users, verbose_name='участник обсуждения', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return 'участник дискусии {}'.format(self.project)
+
+
+class ProjectDiscussItem(models.Model):
+    project = models.ForeignKey(Project, verbose_name='проект обсуждения', on_delete=models.CASCADE)
+    user = models.ForeignKey(Users, verbose_name='участник обсуждения', on_delete=models.CASCADE)
+    comment = models.TextField(verbose_name='комментарий', max_length=1500, null=True, blank=True)
+
+    def __str__(self):
+        return 'комментарий к дискусии {}'.format(self.project)
