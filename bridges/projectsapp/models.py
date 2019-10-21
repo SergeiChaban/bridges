@@ -197,7 +197,7 @@ class ProjectDiscussMember(models.Model):
 class ProjectDiscussItem(models.Model):
     project = models.ForeignKey(Project, verbose_name='проект обсуждения', on_delete=models.CASCADE)
     user = models.ForeignKey(Users, verbose_name='участник обсуждения', on_delete=models.CASCADE)
-    comment = models.TextField(verbose_name='комментарий', max_length=1500, null=True, blank=True)
+    comment = models.TextField(verbose_name='добавить сообщение', max_length=1500, null=True, blank=True)
 
     def __str__(self):
         return 'комментарий к дискусии {}'.format(self.project)

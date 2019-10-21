@@ -64,10 +64,21 @@ def project_discuss_items(request, pk):
     discuss_users = ProjectDiscussMember.objects.filter(project_id=pk)
     self_user = request.user
     if discuss_users.filter(user=self_user).exists():
+        if request.method == 'POST':
+            report_form = ProjectDiscussItemForm(data=request.POST)
+            if report_form.is_valid():
+                new_report_form = report_form.save(commit=False)
+                new_report_form.project = project
+                new_report_form.user = request.user
+                new_report_form.save()
+                return redirect(project.get_absolute_discuss_url())
+        else:
+            report_form = ProjectDiscussItemForm()
         context = {
             'object': project,
             'project_discuss_items': project_discuss_items,
             'discuss_users': discuss_users,
+            'form': report_form,
             'page_title': 'Обсуждение проекта',
             'bred_title': 'Обсуждение проекта',
         }

@@ -18,23 +18,36 @@
                                     <div class="col-md-8">
                                         <h3 class="line-height-normal margin-bottom-10">Обсуждение
                                             проекта: {{ object.name }}</h3>
+                                        <p class="n_text">Комментарии пользователей:</p>
+                                        {% for item in project_discuss_items %}
+                                            <p class="n_text margin-bottom-0"><a href="">{{ item.user }}</a></p>
+                                            <p class="form-control">{{ item.comment }}</p>
+                                        {% endfor %}
+
+                                        <form action="" method="post">
+                                            {% csrf_token %}
+                                            {{ form.as_p }}
+                                            <p></p>
+                                            <button type="submit" value="сохранить" class="btn btn-success">
+                                                сохранить
+                                            </button>
+                                        </form>
+                                     <div class="wprt-spacer" data-desktop="60" data-mobi="60" data-smobi="60"></div>
                                     </div><!-- /.col-md-8 -->
                                     <div class="col-md-4">
                                         <div class="wprt-spacer" data-desktop="0" data-mobi="0" data-smobi="0"></div>
-
-
                                         <h3 class="line-height-normal margin-bottom-10">Участники обсуждения</h3>
                                         {% for item in discuss_users %}
                                             <ul class="wprt-list style-2 accent-color margin-bottom-0">
                                                 <li>
-                                                    <p class="n_text margin-bottom-10"><a href="{{ item.user.get_absolute_url }}">{{ item.user }}</a></p>
+                                                    <p class="n_text margin-bottom-10"><a
+                                                            href="{{ item.user.get_absolute_url }}">{{ item.user }}</a>
+                                                    </p>
                                                 </li>
                                             </ul>
                                         {% endfor %}
-                                    <p><a href="{% url 'projects:project_discuss_edit_members' object.pk %}">редактировать</a></p>
-
-
-
+                                        <p><a href="{% url 'projects:project_discuss_edit_members' object.pk %}">редактировать</a>
+                                        </p>
                                     </div>
                                     <div class="col-md-12">
                                         <div class="wprt-spacer" data-desktop="60" data-mobi="60" data-smobi="60"></div>
