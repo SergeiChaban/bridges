@@ -19,10 +19,14 @@
                                         <h3 class="line-height-normal margin-bottom-10">Обсуждение
                                             проекта: {{ object.name }}</h3>
                                         <p class="n_text">Комментарии пользователей:</p>
+                                    {% if project_discuss_items %}
                                         {% for item in project_discuss_items %}
-                                            <p class="n_text margin-bottom-0"><a href="">{{ item.user }}</a></p>
+                                            <p class="n_text margin-bottom-0"><a href="{{ item.user.get_absolute_url }}">{{ item.user }}</a></p>
                                             <p class="form-control">{{ item.comment }}</p>
                                         {% endfor %}
+                                    {% else %}
+                                        <h5>Нет ни одного сообщения</h5>
+                                    {% endif %}
 
                                         <form action="" method="post">
                                             {% csrf_token %}
