@@ -66,6 +66,8 @@ def project_discuss_items(request, pk):
     if discuss_users.filter(user=self_user).exists():
         context = {
             'object': project,
+            'project_discuss_items': project_discuss_items,
+            'discuss_users': discuss_users,
             'page_title': 'Обсуждение проекта',
             'bred_title': 'Обсуждение проекта',
         }
@@ -75,3 +77,28 @@ def project_discuss_items(request, pk):
             'page_title': 'Доступ запрещен',
         }
         return render(request, 'projectsapp/project_access_denied.html', context)
+
+
+def project_discuss_edit_members(request, pk):
+    project = get_object_or_404(Project, pk=pk)
+    project_form = ProjectForm(instance=project)
+    InlineFormset = inlineformset_factory(Project, ProjectDiscussMember, form=ProjectDiscussMemberForm, extra=1)
+    formset = InlineFormset(instance=project)
+    if request.method == 'POST':
+        project_form = ProjectForm(request.POST, instance=project)
+        formset = InlineFormset(request.POST)
+        if project_form.is_valid():
+            updated_project_form = project_form.save(commit=False)
+            formset = InlineFormset(request.POST, instance=updated_project_form)
+            if formset.is_valid():
+                updated_project_form.save()
+                formset.save()
+                return HttpResponseRedirect(project.get_absolute_discuss_url())
+    context = {
+        'project': project,
+        'form': project_form,
+        'formset': formset,
+        'page_title': 'Редактирование участников проекта',
+        'bred_title': 'Редактирование участников проекта',
+    }
+    return render(request, 'projectsapp/discuss_members_update.html', context)

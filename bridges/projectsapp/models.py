@@ -43,6 +43,9 @@ class Project(models.Model):
     def get_absolute_url(self):
         return reverse('projects:project', args=[str(self.id)])
 
+    def get_absolute_discuss_url(self):
+        return reverse('projects:project_discuss_items', args=[str(self.id)])
+
     def __str__(self):
         return f"{self.name} ({self.city})"
 

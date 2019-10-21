@@ -16,98 +16,24 @@
                                     </div><!-- /.col-md-12 -->
 
                                     <div class="col-md-8">
-                                       <h3 class="line-height-normal margin-bottom-10">Обсуждение проекта: {{ object.name }}</h3>
+                                        <h3 class="line-height-normal margin-bottom-10">Обсуждение
+                                            проекта: {{ object.name }}</h3>
                                     </div><!-- /.col-md-8 -->
                                     <div class="col-md-4">
                                         <div class="wprt-spacer" data-desktop="0" data-mobi="0" data-smobi="0"></div>
 
-{#<!- -------------------------------------------- ИНФОРМАЦИЯ О ПРОЕКТЕ ИЗ МОДЕЛИ Project- -------------------------------------------->#}
+
                                         <h3 class="line-height-normal margin-bottom-10">Участники обсуждения</h3>
-                                        {% if request.user.is_superuser %}
-                                            <a href="{% url 'projects:project_update' object.pk %}">редактировать</a>
-                                        {% endif %}
-{#                                        <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>#}
-{#                                        <div class="wprt-lines style-1 custom-4">#}
-{#                                            <div class="line-1"></div>#}
-{#                                        </div>#}
-                                        <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
-                                        <i>{{ object.city }}. {{ object.description }}<br></i>
+                                        {% for item in discuss_users %}
+                                            <ul class="wprt-list style-2 accent-color margin-bottom-0">
+                                                <li>
+                                                    <p class="n_text margin-bottom-10"><a href="{{ item.user.get_absolute_url }}">{{ item.user }}</a></p>
+                                                </li>
+                                            </ul>
+                                        {% endfor %}
+                                    <p><a href="{% url 'projects:project_discuss_edit_members' object.pk %}">редактировать</a></p>
 
 
-                                        {% if request.user.is_authenticated %}
-    {#  ------------------------------------------- ПОЛУЧЕНИЕ АДРЕСА И/ИЛИ КООРДИНАТ -------------------------------------------#}
-                                            {% if object.address or object.coordinate %}
-{#                                                <div class="wprt-spacer" data-desktop="15" data-mobi="15"#}
-{#                                                     data-smobi="15"></div>#}
-{#                                                <div class="wprt-lines style-1 custom-4">#}
-{#                                                    <div class="line-1"></div>#}
-{#                                                </div>#}
-                                                <div class="wprt-spacer" data-desktop="15" data-mobi="15"
-                                                     data-smobi="15"></div>
-                                                {% if object.address %}
-                                                    <i>Адрес объекта: {{ object.address }}</i><br>
-                                                {% endif %}
-                                                {% if object.coordinate %}
-                                                    <i>Координаты объекта: {{ object.coordinate }}</i>
-                                                {% endif %}
-                                            {% else %}
-                                                <p style="color: red"><i>Точное местоположение объекта не указано</i>
-                                                </p>
-                                            {% endif %}
-{#  ------------------------------------- ПОЛУЧЕНИЕ КОНТРАГЕНТОВ ПРОЕКТА -------------------------------------#}
-                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15"
-                                                 data-smobi="15"></div>
-                                            <div class="wprt-lines style-1 custom-4">
-                                                <div class="line-1"></div>
-                                            </div>
-                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15"
-                                                 data-smobi="15"></div>
-                                            <i>Контрагенты проекта:</i>
-                                            {% if object.get_companies %}
-                                                {% for item in object.get_companies %}
-                                                    <li>
-                                                        <i>{{ item.role | capfirst }}: {{ item.company.form }} {{ item.company.name }}</i>
-                                                        <i>
-                                                            {{ item.company.category }}: <a href="{{ item.company.get_absolute_url }}">{{ item.company.form }} {{ item.company.name }}</a>
-                                                        </i>
-
-                                                    </li>
-                                                {% endfor %}
-                                            {% endif %}
-                                            <li><a href="{% url 'projects:company_update' object.pk %}"><i>...
-                                                изменить</i></a>
-                                            </li>
-{# ---------------------------------------------------- ПОЛУЧЕНИЕ УЧАСТНИКОВ ПРОЕКТА----------------------------------------------------#}
-                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15"
-                                                 data-smobi="15"></div>
-                                            <div class="wprt-lines style-1 custom-4">
-                                                <div class="line-1"></div>
-                                            </div>
-                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15"
-                                                 data-smobi="15"></div>
-                                            <i>Участники проекта</i>
-                                            {% if object.get_managers %}
-                                                {% for item in object.get_managers %}
-                                                    <li><i>{{ item.role | capfirst }}:
-                                                        <a href="{{ item.manager.get_absolute_url }}"> {{ item.manager.first_name }} {{ item.manager.last_name }}</a></i>
-                                                        {% if item.manager.get_company %}
-                                                            ({% for i in item.manager.get_company %}
-                                                                <i><a href="{{ i.company.get_absolute_url }}"> {{ i.company.form }} {{ i.company.name }}</a></i>
-                                                            {% endfor %})
-                                                        {% endif %}
-                                                    </li>
-                                                {% endfor %}
-                                            {% endif %}
-                                            <li><a href="{% url 'projects:manager_update' object.pk %}"><i>... изменить</i></a>
-                                            </li>
-                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15"
-                                                 data-smobi="15"></div>
-                                            <div class="wprt-lines style-1 custom-4">
-                                                <div class="line-1"></div>
-                                            </div>
-                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15"
-                                                 data-smobi="15"></div>
-                                        {% endif %}
 
                                     </div>
                                     <div class="col-md-12">
