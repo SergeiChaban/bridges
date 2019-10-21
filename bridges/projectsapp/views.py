@@ -60,9 +60,18 @@ class ProjectsList(ListView):
 
 def project_discuss_items(request, pk):
     project = Project.objects.get(pk=pk)
-    context = {
-        'object': project,
-        'page_title': 'Обсуждение проекта',
-        'bred_title': 'Обсуждение проекта',
-    }
-    return render(request, 'projectsapp/project_discuss_detail.html', context)
+    project_discuss_items = ProjectDiscussItem.objects.filter(project_id=pk)
+    discuss_users = ProjectDiscussMember.objects.filter(project_id=pk)
+    self_user = request.user
+    if discuss_users.filter(user=self_user).exists():
+        context = {
+            'object': project,
+            'page_title': 'Обсуждение проекта',
+            'bred_title': 'Обсуждение проекта',
+        }
+        return render(request, 'projectsapp/project_discuss_detail.html', context)
+    else:
+        context = {
+            'page_title': 'Доступ запрещен',
+        }
+        return render(request, 'projectsapp/project_access_denied.html', context)

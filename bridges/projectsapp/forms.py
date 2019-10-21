@@ -31,5 +31,3 @@ class ProjectImageForm(forms.ModelForm):
         model = ProjectImage
         fields = ['image']
 
-
-
