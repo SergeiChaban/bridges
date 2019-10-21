@@ -49,7 +49,7 @@ class UsersAdmin(admin.ModelAdmin):
     # в админке поля формы можно группировать
     fieldsets = (
         ('Личные данные',
-         {'fields': ('username', 'password', 'first_name', 'last_name', 'patronymic', 'gender', 'birthday')}),
+         {'fields': ('username', 'password', 'is_superuser', 'last_login', 'date_joined', 'first_name', 'last_name', 'patronymic', 'gender', 'birthday')}),
         ('Контактные данные', {'fields': ('phone', 'email')}),
         ('Данные сотрудника',
          {'fields': ('is_staff', 'is_active', 'groups',)}),
