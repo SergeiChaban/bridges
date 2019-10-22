@@ -33,11 +33,12 @@ class ProjectSolutionsForm(forms.ModelForm):
 class ProjectCompanyForm(forms.ModelForm):
     class Meta:
         model = ProjectCompany
-        fields = ['company', 'role']
+        fields = ['company', 'role', 'project']
 
 
 class ProjectImageForm(forms.ModelForm):
     class Meta:
         model = ProjectImage
         fields = ['image']
+
 
