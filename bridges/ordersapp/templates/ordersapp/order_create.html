@@ -6,7 +6,7 @@
 
         <form action="" method="post">
             {% csrf_token %}
-            {{ product_form.as_p }}
+            {{ form.as_p }}
             {{ formset.as_p}}
             <button type="submit" value="сохранить" class="btn btn-success margin-bottom-15">
                 сохранить
