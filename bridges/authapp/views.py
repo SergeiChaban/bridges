@@ -2,6 +2,7 @@ from django.contrib.auth.decorators import login_required, user_passes_test
 from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
+from ordersapp.models import Order
 from .forms import *
 from .models import *
 
@@ -11,12 +12,14 @@ def restricted_area(request):
     user = request.user
     user_companies = CompanyUsers.objects.filter(user_id=user.pk, works=True)
     user_projects = ProjectManagers.objects.filter(manager_id=user.pk)
+    user_orders = Order.objects.filter(user_id=user.pk)
     context = {
         'section': 'restricted_area',
         'page_title': 'Личный кабинет',
         'bred_title': 'Личный кабинет',
         'user_companies': user_companies,
         'user_projects': user_projects,
+        'user_orders': user_orders
     }
     return render(request, 'authapp/restricted_area.html', context)
 
