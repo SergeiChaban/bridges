@@ -24,7 +24,6 @@ class ProjectManagerForm(forms.ModelForm):
         model = ProjectManagers
         fields = ['manager', 'role']
 
-
 class ProjectSolutionsForm(forms.ModelForm):
     class Meta:
         model = ProjectHasTechnicalSolutions
