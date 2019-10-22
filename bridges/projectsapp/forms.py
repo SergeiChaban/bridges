@@ -19,10 +19,6 @@ class ProjectUpdateForm(forms.ModelForm):
         fields = ['name', 'status', 'city', 'address', 'coordinate', 'description', 'is_active']
 
 
-class ProjectManagerForm(forms.ModelForm):
-    class Meta:
-        model = ProjectManagers
-        fields = ['manager', 'role', 'project']
 
 class ProjectSolutionsForm(forms.ModelForm):
     class Meta:
@@ -30,15 +26,10 @@ class ProjectSolutionsForm(forms.ModelForm):
 
 
 
-class ProjectCompanyForm(forms.ModelForm):
-    class Meta:
-        model = ProjectCompany
-        fields = ['company', 'role', 'project']
-
-
 class ProjectImageForm(forms.ModelForm):
     class Meta:
         model = ProjectImage
         fields = ['image']
+
 
 
