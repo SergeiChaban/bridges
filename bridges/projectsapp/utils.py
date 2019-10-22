@@ -1,11 +1,8 @@
-from django.forms import modelformset_factory
 from django.http import HttpResponseRedirect, HttpResponse
-from django.shortcuts import render, redirect
-from django.urls import reverse
+from django.shortcuts import render, redirect, get_object_or_404
 
 from authapp.models import Users
-from projectsapp.forms import ProjectManagerCreateForm
-from projectsapp.models import Project, ProjectManagers
+from projectsapp.models import Project
 
 
 class ObjectCreateMixin:
@@ -22,4 +19,5 @@ class ObjectCreateMixin:
             bound_form.save()
             return redirect('projectsapp:projects')
         return render(request, self.template, context={'form': bound_form})
+
 
