@@ -32,7 +32,7 @@ class TechnicalSolutions(models.Model):
     name = models.CharField(verbose_name='название материала', max_length=128, unique=True)
     slug = models.SlugField(verbose_name='слаг', max_length=128, unique=True)
     measure = models.ForeignKey(MeasureTypes, verbose_name='Единица измерения', on_delete=models.CASCADE, default=1)
-    image = models.ImageField(upload_to='аватарка', blank=True)
+    image = models.ImageField(upload_to='products_images/', blank=True)
     alt_desc = models.CharField(verbose_name='alt фотографии', max_length=500, blank=True)
     short_desc = models.TextField(verbose_name='краткое описание материала', blank=True, null=True)
     description = models.TextField(verbose_name='описание материала', blank=True)
@@ -45,7 +45,7 @@ class TechnicalSolutions(models.Model):
         return reverse('products:product', args=[str(self.slug)])
 
     def __str__(self):
-        return self.name
+        return f"{self.name}"
 
     def get_projects(self):
         return self.projects.select_related().distinct('project_id')

@@ -51,9 +51,7 @@
 {#                                        <li><strong>Бюджет:</strong> $1 250 000,00</li>#}
                                     </ul>
                                     {% endfor %}
-                                    {% if request.user.is_superuser %}
-                                    <a href="{% url 'products:product_service_update' product.slug %}">редактировать</a>
-                                    {% endif %}
+
                                 </div><!-- /.col-md-4 -->
 <!--СОСТАВ РАБОТ И МАТЕРИАЛОВ-->
                                 <div class="col-md-12">
