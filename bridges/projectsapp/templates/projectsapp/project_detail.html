@@ -54,7 +54,9 @@
                                         <!-- ИНФОРМАЦИЯ О ПРОЕКТЕ ИЗ МОДЕЛИ Project-->
                                         <h3 class="line-height-normal margin-bottom-10">{{ object.name }}</h3>
                                         {% if request.user.is_superuser %}
-                                            <a href="{% url 'projects:project_update' object.pk %}">редактировать</a>
+                                            <a href="{% url 'projects:project_update' object.pk %}">
+                                                <i class="fa fa-pencil" aria-hidden="true" style="color: black;" y> редактировать</i>
+                                            </a>
                                         {% endif %}
 {#                                        <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>#}
 {#                                        <div class="wprt-lines style-1 custom-4">#}
@@ -92,16 +94,16 @@
                                             </div>
                                             <div class="wprt-spacer" data-desktop="15" data-mobi="15"
                                                  data-smobi="15"></div>
+                                            <i>Контрагенты:</i>
                                             {% if object.get_companies %}
-                                                <i>Контрагенты проекта:</i>
                                                 {% for item in object.get_companies %}
 
                                                 {% endfor %}
                                             {% endif %}
 
 
+
                                                 {% for item in object.get_managers %}
-                                                    <li><i>{{ item.role | capfirst }}:
 
                                                     </li>
                                                 {% endfor %}
