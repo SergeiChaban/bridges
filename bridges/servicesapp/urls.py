@@ -1,9 +1,10 @@
-from django.contrib import admin
 from django.urls import path
-from servicesapp import views as servicesapp
+from servicesapp.views import ServicesList, ServiceDetail, ServiceCreate
 
 app_name = 'servicesapp'
 
 urlpatterns = [
-    # path('', servicesapp.projects, name='services'),
+    path('', ServicesList.as_view(), name='services_url'),
+    path('create/', ServiceCreate.as_view(), name='service_create_url'),
+    path('<slug:slug>/', ServiceDetail.as_view(), name='service_detail_url')
 ]

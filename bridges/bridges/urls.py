@@ -8,6 +8,7 @@ urlpatterns = [
     path('contact/', include('contactapp.urls', namespace='contact')),
     path('products/', include('productsapp.urls', namespace='products')),
     path('projects/', include('projectsapp.urls', namespace='projects')),
+    path('services/', include('servicesapp.urls', namespace='services')),
     path('map/', include('ymapapp.urls', namespace='ymap')),
     path('admin/', admin.site.urls),
     path('research/', include('researchapp.urls', namespace='research')),
