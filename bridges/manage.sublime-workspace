@@ -1,0 +1,523 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"pro",
+				"products\tmodule"
+			],
+			[
+				"su",
+				"super\tclass"
+			],
+			[
+				"STA",
+				"STATICFILES_DIRS"
+			],
+			[
+				"User",
+				"UserManager\tmodule"
+			],
+			[
+				"imp",
+				"import\tkeyword"
+			],
+			[
+				"re",
+				"return\tkeyword"
+			],
+			[
+				"rel",
+				"related_name"
+			],
+			[
+				"mode",
+				"models\tmodule"
+			],
+			[
+				"nu",
+				"null"
+			],
+			[
+				"BA",
+				"BASE_DIR\tstatement"
+			],
+			[
+				"pa",
+				"path\tmodule"
+			],
+			[
+				"ME",
+				"MEDIA_ROOT"
+			],
+			[
+				"mar",
+				"margin-bottom\tproperty"
+			],
+			[
+				"direc",
+				"flex-direction\tproperty"
+			],
+			[
+				"spa",
+				"space-between\tjustify-content"
+			],
+			[
+				"dir",
+				"flex-direction\tproperty"
+			],
+			[
+				"sp",
+				"space-between\tjustify-content"
+			],
+			[
+				"di",
+				"display\tproperty"
+			],
+			[
+				"MA",
+				"Mask_midd"
+			],
+			[
+				"fle",
+				"flex-direction\tproperty"
+			],
+			[
+				"op",
+				"opacity\tproperty"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"ter",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"i",
+				"Package Control: Install Package"
+			],
+			[
+				"ter ",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"termi",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"te",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"LiveReload: Enable/disable plugins",
+				"LiveReload: Enable/disable plug-ins"
+			],
+			[
+				"termin",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"t",
+				"Terminus: Close"
+			],
+			[
+				"terminus",
+				"Terminus: Close"
+			],
+			[
+				"in",
+				"Package Control: Install Package"
+			],
+			[
+				"ren",
+				"Rename File"
+			],
+			[
+				"termiu",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"terminus:open",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"termius:op",
+				"Terminus: Open Default Shell in Panel"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 0.0
+	},
+	"console":
+	{
+		"height": 176.0,
+		"history":
+		[
+			"import Product.models ",
+			"manage.py shell ",
+			"python3",
+			"ls ",
+			"which flake8"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/C/geekbrains/geek_shop/core/models.py",
+		"/C/geekbrains/geek_shop/templates/snippets/menu.html",
+		"/C/geekbrains/geek_shop/core/admin.py",
+		"/C/geekbrains/geek_shop/geek_shop/settings.py",
+		"/C/geekbrains/geek_shop/templates/snippets/header.html",
+		"/C/geekbrains/geek_shop/products/templates/products/product_list.html",
+		"/C/geekbrains/geek_shop/orders/models.py",
+		"/C/geekbrains/geek_shop/products/views.py",
+		"/C/geekbrains/geek_shop/products/templates/products/snippets/product_block.html",
+		"/C/geekbrains/geek_shop/products/models.py",
+		"/C/geekbrains/geek_shop/requirements.txt",
+		"/C/geekbrains/geek_shop/core/context_processors.py",
+		"/C/geekbrains/geek_shop/.gitignore",
+		"/C/geekbrains/Lib/site-packages/django/db/models/fields/__init__.py",
+		"/C/geekbrains/Lib/site-packages/django/forms/fields.py",
+		"/C/geekbrains/geek_shop/templates/base.html",
+		"/C/geekbrains/geek_shop/templates/snippets/footer.html",
+		"/C/geekbrains/geek_shop/geek_shop/urls.py",
+		"/C/geekbrains/geek_shop/orders/apps.py",
+		"/C/geekbrains/Lib/site-packages/django/contrib/admin/static/admin/css/responsive.css",
+		"/C/geekbrains/Lib/site-packages/debug_toolbar/panels/staticfiles.py",
+		"/C/geekbrains/geek_shop/experts/models.py",
+		"/C/geekbrains/Lib/site-packages/django/contrib/gis/gdal/geomtype.py",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/Anaconda/README.md",
+		"/C/geekbrains/geek_shop/products/urls.py",
+		"/C/geekbrains/geek_shop/products/templates/products/product_detail.html",
+		"/C/geekbrains/geek_shop/products/templates/products/snippets/card_rec.html",
+		"/C/geekbrains/geek_shop/products/templates/products/snippets/card.html",
+		"/C/geekbrains/geek_shop/experts/urls.py",
+		"/C/geekbrains/geek_shop/core/templates/core/index.html",
+		"/C/geekbrains/geek_shop/experts/views.py",
+		"/C/geekbrains/geek_shop/experts/templates/experts/bigexpert_list.html",
+		"/C/geekbrains/geek_shop/core/urls.py",
+		"/C/geekbrains/geek_shop/core/views.py",
+		"/C/geekbrains/geek_shop/templates/snippets/content_top.html",
+		"/C/geekbrains/geek_shop/products/templates/products/books.html",
+		"/C/geekbrains/geek_shop/orders/views.py",
+		"/C/geekbrains/geek_shop/orders/templates/orders/invoice_form_mail.html",
+		"/C/geekbrains/geek_shop/core/apps.py",
+		"/C/geekbrains/geek_shop/tmp/emails",
+		"/C/geekbrains/geek_shop/orders/templates/orders/rl.html",
+		"/C/geekbrains/geek_shop/templates/flatpages/default.html",
+		"/C/geekbrains/geek_shop/products/templatetags/first_tag.py",
+		"/C/geekbrains/Lib/site-packages/django/db/models/query.py",
+		"/C/geekbrains/Lib/site-packages/django/template/defaultfilters.py",
+		"/C/geekbrains/Lib/site-packages/django/db/models/manager.py",
+		"/C/products/templatetags/first_tag.py",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/AdvancedNewFile/README.md",
+		"/C/geekbrains/templatestag",
+		"/C/geekbrains/geek_shop/core/templates/core/picture_form.html",
+		"/C/geekbrains/Lib/site-packages/django/utils/log.py",
+		"/C/geekbrains/geek_shop/core/templates/core/categories.html",
+		"/C/geekbrains/geek_shop/experts/templates/experts/experts.html",
+		"/C/geekbrains/Lib/site-packages/pyparsing.py",
+		"/C/geekbrains/geek_shop/db.sqlite3",
+		"/C/geekbrains/geek_shop/users/models.py",
+		"/C/geekbrains/geek_shop/templates/snippets/wraper.html",
+		"/C/geekbrains/geek_shop/srstart.bat",
+		"/C/geekbrains/geek_shop/srun.bat",
+		"/C/geekbrains/geek_shop/templates/snippets/mid_part_ex_block.html",
+		"/C/geekbrains/geek_shop/users/admin.py",
+		"/C/geekbrains/geek_shop/products/templates/products/products_list.html",
+		"/C/geekbrains/geek_shop/static/css/font-montserrat.css",
+		"/C/geekbrains/geek_shop/templates/css/font-montserrat.css",
+		"/C/geekbrains/font-montserrat.css",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/AdvancedNewFile/AdvancedNewFile.sublime-settings",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/AdvancedNewFile/Default (Windows).sublime-keymap",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/User/AdvancedNewFile.sublime-settings",
+		"/C/geekbrains/Lib/site-packages/django/views/generic/base.py",
+		"/C/geekbrains/geek_shop/products/admin.py",
+		"/C/geekbrains/geek_shop/orders/urls.py",
+		"/C/geekbrains/geek_shop/journaling+todo.todo",
+		"/C/geekbrains/geek_shop/experts/admin.py",
+		"/C/geekbrains/geek_shop/categors/models.py",
+		"/C/geekbrains/Lib/site-packages/django/contrib/admin/options.py",
+		"/C/geekbrains/Lib/site-packages/docutils/parsers/rst/states.py",
+		"/C/geekbrains/geek_shop/users/views.py",
+		"/C/geekbrains/geek_shop/users/urls.py",
+		"/C/geekbrains/Lib/site-packages/django/forms/boundfield.py",
+		"/C/geekbrains/geek_shop/products/templates/products/products_detail.html",
+		"/C/geekbrains/geek_shop/core/templates/core/books.html",
+		"/C/geekbrains/geek_shop/users/templates/users/users.html",
+		"/C/geekbrains/geek_shop/core/templates/core/index_initial_version.html",
+		"/C/geekbrains/Lib/site-packages/django/views/generic/list.py",
+		"/C/geekbrains/Lib/site-packages/django/test/client.py",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/YandexTranslate/README.md",
+		"/C/geekbrains/Lib/site-packages/django/views/generic/detail.py",
+		"/C/geekbrains/Lib/site-packages/django/contrib/auth/models.py",
+		"/C/geekbrains/Lib/site-packages/django/template/context_processors.py",
+		"/C/geekbrains/geek_shop/gettext0.20.1-iconv1.16-static-64/gettext-license.txt",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/Anaconda/Anaconda.sublime-settings",
+		"/C/geekbrains/geek_shop/core/templates/core/index-1.html",
+		"/C/geekbrains/geek_shop/templates/snippets/mid_part_button_cat_block.html",
+		"/C/geekbrains/geek_shop/manage.bat",
+		"/C/geekbrains/geekbrains/geek_shop/core/context_processors.py",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/PlainTasks/messages/Tutorial.todo",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/Python Flake8 Lint/Flake8Lint.sublime-settings",
+		"/C/geekbrains/geek_shop/core/templates/core/img/Pasted Graphic4.png",
+		"/C/geekbrains/geek_shop/core/templates/core/img/Pasted Graphic 2.png",
+		"/C/geekbrains/geek_shop/BD_Scheme.png",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/Terminal/Default (Windows).sublime-keymap",
+		"/C/Users/Admin/AppData/Roaming/Sublime Text 3/Packages/Emmet/Emmet.sublime-settings",
+		"/C/geekbrains/geek_shop/BD_scheme.png",
+		"/C/geekbrains/geek_shop/core/templates/core/img/Pasted Graphic 1.png",
+		"/C/geekbrains/geek_shop/orders/templates/orders",
+		"/C/geekbrains/geek_shop/core/templates/core",
+		"/C/geekbrains/geek_shop/shelf/models.py",
+		"/C/geekbrains/geek_shop/products",
+		"/C/geekbrains/geek_shop/shelf/views.py",
+		"/C/geekbrains/geek_shop/shelf/templates/shelf/index.html",
+		"/C/geekbrains/geek_shop/shelf/templates/shelf/books.html",
+		"/C/geekbrains/geek_shop/shelf/templates/shelf/experts.html",
+		"/C/geekbrains/geek_shop/shelf/templates/shelf/categories.html",
+		"/C/geekbrains/geek_shop/shelf/templates/shelf/rl.html",
+		"/C/geekbrains/geek_shop/shelf/templates/shelf/style.css",
+		"/C/geekbrains/geek_shop/bucket/templates/bucket/products.html",
+		"/C/geekbrains/geek_shop/shelf/urls.py",
+		"/C/geekbrains/shelf/urls.py",
+		"/C/geekbrains/geek_shop/geek_shop/views.py",
+		"/C/geekbrains/geek_shop/shelf/urls",
+		"/C/geekbrains/geek_shop/geek_shop/wsgi.py",
+		"/C/geekbrains/geek_shop/geek_shop/Новый текстовый документ.txt",
+		"/C/geekbrains/geek_shop/bucket/templates/bucket/contact.html",
+		"/C/geekbrains/geek_shop/bucket/templates/bucket/index.html",
+		"/C/geekbrains/geek_shop/bucket/views.py",
+		"/C/geekbrains/geek_shop/manage.py",
+		"/C/geekbrains/geek_shop/GeekShop/settings.py",
+		"/C/geekbrains/geek_shop/GeekShop/urls.py"
+	],
+	"find":
+	{
+		"height": 28.0
+	},
+	"find_in_files":
+	{
+		"height": 98.0,
+		"where_history":
+		[
+			"C:\\geekbrains",
+			"C:\\geekbrains\\Lib\\site-packages\\django\\db"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"requirements ",
+			"requir",
+			"flat",
+			">\n",
+			"div",
+			"frozen importlib._bootstrap",
+			"tamplatestag",
+			"templatestag",
+			"class manager",
+			"class_manager",
+			"class queryset",
+			"def get(",
+			"objects.get ",
+			"model ",
+			"model.objects",
+			"model.objects.get",
+			"}}\"",
+			"TemplateView",
+			"all",
+			"snippets",
+			" expert_list",
+			"menu",
+			"style",
+			"%}\n",
+			"]",
+			"gettext",
+			"auth_user",
+			"wr",
+			"Добавить в корзину",
+			"h2",
+			"h",
+			"catalog_theme",
+			"cat_catalog",
+			"Добавить  ",
+			"Маск",
+			"Добавить в заказ",
+			"Fishnet Chair",
+			"middle_part_books_book",
+			"part_four_items__product"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"Добавить в Reading list",
+			"catalog_item",
+			"catalog",
+			"Добавить в корзину",
+			"Mask",
+			"Добавить ",
+			"Добавить в заказ ",
+			"middle_part_books_books",
+			"middle_part_books_book"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 28.0
+	},
+	"input":
+	{
+		"height": 42.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.SublimeLinter":
+	{
+		"height": 132.0
+	},
+	"output.Terminus":
+	{
+		"height": 325.0
+	},
+	"output.Terminus 2":
+	{
+		"height": 88.0
+	},
+	"output.Terminus 3":
+	{
+		"height": 376.0
+	},
+	"output.Terminus 4":
+	{
+		"height": 213.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "Anaconda Python Builder",
+	"project": "manage.sublime-project",
+	"replace":
+	{
+		"height": 52.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"def get",
+				"geekbrains\\Lib\\site-packages\\django\\template\\defaultfilters.py"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Admin\\Desktop\\проекты Dj\\bridges.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": false,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 290.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}

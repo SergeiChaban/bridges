@@ -1,4 +1,5 @@
 from django.db import models
+# from django.utils import timezone
 
 
 class ContactApplication(models.Model):
@@ -7,7 +8,7 @@ class ContactApplication(models.Model):
     email = models.CharField(verbose_name='email', max_length=24)
     subject = models.CharField(verbose_name='Тема сообщения', max_length=96)
     message = models.CharField(verbose_name='Сообщение', max_length=768)
-    add_datetime = models.DateTimeField(verbose_name='время', auto_now_add=True)
+    add_datetime = models.DateTimeField(verbose_name='время', auto_now_add=True, null=True) #null=True
 
     def __str__(self):
         return "{} ({})".format(self.name, self.subject)

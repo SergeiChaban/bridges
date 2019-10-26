@@ -25,6 +25,12 @@
                     </li>
 {#                    <li class="menu-item"><a href="#">Услуги</a></li>#}
                     <li class="menu-item">
+                        <a href="{% url 'services:services_url' %}" class="active">
+                            <span class="{% if request.resolver_match.url_name == 'services_url' %}active{% endif %}">Услуги</span>
+                        </a>
+                    </li>
+
+                    <li class="menu-item">
                         <a href="{% url 'projects:projects' %}" class="active">
                             <span class="{% if request.resolver_match.url_name == 'projects' %}active{% endif %}">Проекты</span>
                         </a>
