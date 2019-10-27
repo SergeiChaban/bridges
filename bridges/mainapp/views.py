@@ -9,13 +9,3 @@ from projectsapp.models import Project
 def index(request):
 
 
-
-    return render(request, 'mainapp/index.html')
-
-
-class LastProjectList(TechnicalSolutions):
-
-    """docstring for LastProjectList"""
-
-    def get_queryset(self):
-        return super().get_queryset().order_by('-pk')[:3]

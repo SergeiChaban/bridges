@@ -2,6 +2,8 @@ from django.db import models
 
 
 
+
+
 class ServiceCategory(models.Model):
     name = models.CharField(verbose_name='категория услуги', max_length=128, unique=True)
     slug = models.SlugField(verbose_name='слаг', max_length=154, unique=True, blank=True)
@@ -36,11 +38,3 @@ class Service(models.Model):
         verbose_name = 'Услуга'
         verbose_name_plural = 'Услуги'
 
-
-
-def pre_save_services_slug(sender, instance, *args, **kwargs):
-    if not instance.slug:
-        slug = slugify(instance.name)
-        instance.slug = slug
-
-pre_save.connect(pre_save_services_slug, sender=Service)
