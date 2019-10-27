@@ -3,8 +3,6 @@ from django.db import models
 
 
 
-
-
 class ServiceCategory(models.Model):
     name = models.CharField(verbose_name='категория услуги', max_length=128, unique=True)
     slug = models.SlugField(verbose_name='слаг', max_length=154, unique=True, blank=True)
