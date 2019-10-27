@@ -4,7 +4,7 @@ from Service.models import  Service
 
 
 @classmethod
-    def setUpTestData(cls):
+	def setUpTestData(cls):
         #Set up non-modified objects used by all test methods
         Service.objects.create( name='Service')
 

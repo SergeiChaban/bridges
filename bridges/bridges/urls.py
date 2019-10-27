@@ -7,7 +7,6 @@ urlpatterns = [
     path('', include('mainapp.urls', namespace='main')),
     path('contact/', include('contactapp.urls', namespace='contact')),
     path('products/', include('productsapp.urls', namespace='products')),
-    path('services/', include('serviceapp.urls', namespace='services')),
     path('projects/', include('projectsapp.urls', namespace='projects')),
     path('services/', include('servicesapp.urls', namespace='services')),
     path('map/', include('ymapapp.urls', namespace='ymap')),

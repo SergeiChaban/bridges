@@ -8,7 +8,7 @@
         <div class="wprt-spacer" data-desktop="80" data-mobi="60" data-smobi="60"></div>
     </div>
    <div class="wprt-contact-form-1">
-	<form action="#" method="post">  
+	<form action="{% url 'servicesapp:service_create_url' %}" method="post" enctype="multipart/form-data">  
 		{% csrf_token %}
 
 			{% for field in form %}
@@ -33,7 +33,7 @@
 
 		
 		<div class="wrap-submit">
-            <input type="submit" class="submit wpcf7-form-control wpcf7-submit" value="Create Service">
+            <input type="submit" class="submit wpcf7-form-control wpcf7-submit" value="Создать услугу">
         </div>
 		<!-- <button type="submit" class="btn btn-primary">Create Service</button> -->
 
@@ -45,5 +45,4 @@
 </div>
  
 {% endblock %}
-<!-- 
-{% url 'service_create_url' %} -->
+ 

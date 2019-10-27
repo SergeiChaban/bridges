@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-=======
-
 """
 Django settings for bridges project.
 
@@ -13,7 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
->>>>>>> 3644556f2b2bb040537ceb7bad698ab9a812a912
+
 import os
 
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'bridges.settings')
@@ -44,15 +41,10 @@ INSTALLED_APPS = [
     'productsapp',
     'projectsapp',
     'contactapp',
-<<<<<<< HEAD
     'ymapapp',
     'servicesapp',
     'researchapp',
-=======
-    'serviceapp',
->>>>>>> 3644556f2b2bb040537ceb7bad698ab9a812a912
     'authapp',
-    'researchapp',
 
 ]
 

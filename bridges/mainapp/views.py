@@ -7,7 +7,7 @@ from projectsapp.models import Project
 
 
 def index(request):
-<<<<<<< HEAD
+
     latest_projects = Project.objects.all().order_by('pk')[:6]
     products = TechnicalSolutions.objects.all().order_by('pk')
     context = {
@@ -17,7 +17,7 @@ def index(request):
     return render(request, 'mainapp/index.html', context)
 
 
-=======
+
     return render(request, 'mainapp/index.html')
 
 
@@ -27,4 +27,3 @@ class LastProjectList(TechnicalSolutions):
 
     def get_queryset(self):
         return super().get_queryset().order_by('-pk')[:3]
->>>>>>> 3644556f2b2bb040537ceb7bad698ab9a812a912

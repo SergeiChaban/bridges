@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.shortcuts import redirect
 from django.utils.translation import ugettext_lazy as _
 from .models import Service
-from django.views.generic import View
+from django.views.generic import CreateView
 from django.views.generic.detail import DetailView
 from django.views.generic.list import ListView
 from django.shortcuts import get_object_or_404
@@ -40,7 +40,12 @@ class ServicesList(ListView):
         context['page_title'] = 'Услуги'
         return context
 
-class ServiceCreate(View):
+
+class ServiceCreate(CreateView):
+    model = Service
+    # success_message = _(f'Новая уcлуга успешно создана.')
+    # success_url = reverse_lazy('services:services')
+
     def get(self, request):
         form = ServiceForm()
         return render(request,'servicesapp/service_create.html', context={'form':form})
@@ -54,10 +59,10 @@ class ServiceCreate(View):
         return render(request, 'servicesapp/service_create.html', context={'form':bound_form})
 
 
+
 class ServiceDetail(DetailView):
 
     model = Service
-
 
     # def get_queryset(self):
     #     return Service.objects.all()
@@ -72,3 +77,5 @@ class ServiceDetail(DetailView):
                         })
 
         return context
+
+ 
