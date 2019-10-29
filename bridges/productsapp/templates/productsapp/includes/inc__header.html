@@ -40,18 +40,8 @@
                         </a>
                     </li>
                     <li class="menu-item">
-                        <a href="{% url 'partners:partners_list' %}" class="active">
-                            <span class="{% if request.resolver_match.url_name == 'partners_list' %}active{% endif %}">Партнеры</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
                         <a href="{% url 'research:research' %}">
                             <span class="{% if request.resolver_match.url_name == 'research' %}active{% endif %}">Наука</span>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="{% url 'ymapapp:map' %}">
-                            <span class="{% if request.resolver_match.url_name == 'map' %}active{% endif %}">Карта</span>
                         </a>
                     </li>
 

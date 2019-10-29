@@ -8,6 +8,12 @@ class ProjectsList(ListView):
     model = Project
 
 
+    def get_queryset(self):
+        if self.request.user.is_staff:
+            return Project.objects.all()
+        else:
+            return Project.objects.filter(status__exact='завершен')
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         values = ProjectHasTechnicalSolutions.objects.all()
@@ -16,6 +22,7 @@ class ProjectsList(ListView):
                         'bred_title': 'Проекты компании'
                         })
         return context
+
 
 
 

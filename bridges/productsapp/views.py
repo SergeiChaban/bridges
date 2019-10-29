@@ -27,7 +27,7 @@ def product(request, slug):
 
 
     content = {
-        'projects': item.get_projects(),
+        'projects': projects,
         'works': item.get_works(),
         'page_title': item,
         'bred_title': item,

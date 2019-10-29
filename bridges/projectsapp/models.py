@@ -61,6 +61,9 @@ class Project(models.Model):
     def get_managers(self):
         return self.managers.select_related()
 
+    def get_finished_projects(self):
+        pass
+
     class Meta:
         ordering = ('-updated',)
         verbose_name = 'Проект'

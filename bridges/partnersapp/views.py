@@ -10,6 +10,7 @@ from projectsapp.models import ProjectCompany, Project
 from researchapp.models import Document
 
 
+@user_passes_test(lambda u: u.is_staff)
 def partners_list(request):
     partners = Company.objects.all()
     context = {
@@ -20,6 +21,7 @@ def partners_list(request):
     return render(request, 'partnersapp/partners_list.html', context)
 
 
+@user_passes_test(lambda u: u.is_staff)
 def partner_detail(request, pk):
     company = Company.objects.get(pk=pk)
     company_users = CompanyUsers.objects.filter(company_id=pk)
