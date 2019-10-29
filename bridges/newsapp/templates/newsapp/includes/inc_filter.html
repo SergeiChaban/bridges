@@ -1,5 +1,5 @@
 
         {% for item in products %}
-            <a href="{% url 'news_list:news_list' item.pk %}">{{ item.name }}</a>
+            <li class="cat-item cat-item-3"><a href="{% url 'news_list:news_list' item.pk %}">{{ item.name }}</a></li>
         {% endfor %}
 
