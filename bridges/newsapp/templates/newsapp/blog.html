@@ -5,29 +5,14 @@
         <div id="content-wrap" class="container">
             <div id="site-content" class="site-content clearfix">
                 <div id="inner-content" class="inner-content-wrap">
-                    {% for object in object_list %}
-                        <article class="hentry">
-                            <div class="post-media clearfix">
-                                <a href="#"><img src="{{ object.image }}" alt="image"></a>
-                            </div><!-- /.post-media -->
 
-                            <div class="post-content-wrap">
-                                <h2 class="post-title">
-                                    <span class="post-title-inner">
-                                        <a href="#">{{ object.name }}</a>
-                                    </span>
-                                </h2><!-- /.post-title -->
-
-                                <div class="post-meta style-2">
-                                    <div class="post-meta-content">
-                                        <div class="post-meta-content-inner">
-                                            <span class="post-by-author item">
-                                                <span class="inner">By <a href="#" title="" rel="author">Construction</a></span>
                                             </span>
+
 
                                             <span class="post-date item">
                                                 <span class="inner"><span class="entry-date">December 30, 2016</span></span>
                                             </span>
+
 
                                             <span class="post-comment item">
                                                 <span class="inner"><a href="#">3 Comments</a></span>
@@ -86,7 +71,7 @@
                         <ul class="recent-news clearfix">
                             <li class="clearfix">
                                 <div class="thumb">
-                                    <img width="150" height="150" src="assets/img/news/1s.jpg" alt="image">
+                                    <img width="150" height="150" src="{% static 'assets/img/news/1s.jpg' %}" alt="image">
                                 </div><!-- /.thumb -->
 
                                 <div class="texts">
@@ -97,7 +82,7 @@
 
                             <li class="clearfix">
                                 <div class="thumb">
-                                    <img width="150" height="150" src="assets/img/news/2s.jpg" alt="image">
+                                    <img width="150" height="150" src="{% static 'assets/img/news/2s.jpg' %}" alt="image">
                                 </div><!-- /.thumb -->
 
                                 <div class="texts">
@@ -108,7 +93,7 @@
 
                             <li class="clearfix">
                                 <div class="thumb">
-                                    <img width="150" height="150" src="assets/img/news/3s.jpg" alt="image">
+                                    <img width="150" height="150" src="{% static 'assets/img/news/3s.jpg' %}" alt="image">
                                 </div><!-- /.thumb -->
 
                                 <div class="texts">
