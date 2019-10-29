@@ -1,0 +1,7 @@
+<span class="post-meta-categories item">
+    <span class="inner">
+        {% for item in products %}
+            <a href="{% url 'news_list:news_list' item.pk %}">{{ item.name }}</a>
+        {% endfor %}
+    </span>
+</span>

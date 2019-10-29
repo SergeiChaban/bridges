@@ -4,7 +4,7 @@ from django.views.generic import ListView, DetailView, DeleteView, CreateView, U
 
 from django.contrib.auth.mixins import  PermissionRequiredMixin
 
-from .models import News, NewsImage
+from .models import News
 
 # Create your views here.
 class NewsListView(ListView):
@@ -13,6 +13,10 @@ class NewsListView(ListView):
 
     template_name = 'newsapp/blog.html'
     extra_context = {}
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context.update({})
+        return context
 
 # Create your views here.
 class NewsDetailView(DetailView):
