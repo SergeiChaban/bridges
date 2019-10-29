@@ -1,6 +1,8 @@
 
 
 
+
+
 class ProjectsList(ListView):
 
     model = Project
@@ -14,14 +16,6 @@ class ProjectsList(ListView):
                         'bred_title': 'Проекты компании'
                         })
         return context
-
-
-
-
-
-
-
-
 
 
 

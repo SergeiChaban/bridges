@@ -1,6 +1,7 @@
 from django.urls import path
 from django.contrib.auth import views as auth_views
 from authapp import views as authapp
+from authapp.views import ProjectsManagerCreateView
 
 urlpatterns = [
     path('login/', auth_views.LoginView.as_view(), name='login'),
@@ -17,6 +18,7 @@ urlpatterns = [
     path('self/user/company/update/<int:pk>', authapp.company_self_user_update, name='company_self_user_update'),
     path('self/user/profile/update/<int:pk>', authapp.profile_self_user_update, name='profile_self_user_update'),
     path('self/user/project/update/<int:pk>', authapp.project_self_user_update, name='project_self_user_update'),
+    # path('self/user/project/create/<int:users_pk>', ProjectsManagerCreateView.as_view(), name='project_self_user_create'),
     path('user/company/update/<int:pk>', authapp.company_user_update, name='company_user_update'),
     path('user/profile/update/<int:pk>', authapp.profile_user_update, name='profile_user_update'),
     path('user/project/update/<int:pk>', authapp.project_user_update, name='project_user_update'),

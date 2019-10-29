@@ -18,8 +18,6 @@ class RegisterUserForm(forms.ModelForm):
         return cd['password2']
 
 
-
-
 class UsersForEditProfileForm(forms.ModelForm):
     class Meta:
         model = Users

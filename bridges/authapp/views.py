@@ -1,8 +1,9 @@
 from django.contrib.auth.decorators import login_required, user_passes_test
-from django.forms import inlineformset_factory
+from django.forms import inlineformset_factory, modelformset_factory
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
 from ordersapp.models import Order
+from django.views.generic import View, CreateView
 from .forms import *
 from .models import *
 
@@ -36,6 +37,7 @@ def register(request):
     else:
         user_form = RegisterUserForm()
     return render(request, 'authapp/register.html', {'form': user_form})
+
 
 
 
