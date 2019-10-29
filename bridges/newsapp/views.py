@@ -4,7 +4,6 @@ from django.views.generic import ListView, DetailView, DeleteView, CreateView, U
 
 from django.contrib.auth.mixins import  PermissionRequiredMixin
 
-from .models import News
 
 # Create your views here.
 class NewsListView(ListView):
