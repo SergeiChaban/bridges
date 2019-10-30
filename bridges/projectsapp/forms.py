@@ -16,7 +16,7 @@ class ProjectForm(forms.ModelForm):
 class ProjectUpdateForm(forms.ModelForm):
     class Meta:
         model = Project
-        fields = ['name', 'status', 'city', 'address', 'coordinate', 'description', 'is_active']
+        fields = ['name', 'status', 'city', 'image', 'address', 'coordinate', 'description', 'is_active']
 
 
 

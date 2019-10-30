@@ -110,7 +110,7 @@
                                                 <p class="n_text">Нет ни одного проекта</p>
                                             {% endif %}
 {#                                            <p><a href="{% url 'project_self_user_update' user.pk %}">редактировать</a></p>#}
-                                            <p><a href="#">+ новый проект</a></p>
+                                            <p><a href="{% url 'projects:project_create' %}">+ новый проект</a></p>
                                         </div>
                                     </div>
                                     <!-- /.col-md-12 -->

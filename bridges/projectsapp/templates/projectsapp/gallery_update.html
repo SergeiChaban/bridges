@@ -6,6 +6,7 @@
 
         <form action="" method="post" enctype="multipart/form-data">
             {% csrf_token %}
+            {{ form.as_p }}
             {{ project_form.as_p }}
             {{ formset.as_p }}
             <button type="submit" value="сохранить" class="btn btn-success">

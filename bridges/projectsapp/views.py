@@ -2,6 +2,8 @@
 
 
 
+#  ------------------------------------ PROJECT'S CRUD ----------------------------------------------
+
 
 class ProjectsList(ListView):
 
@@ -22,6 +24,10 @@ class ProjectsList(ListView):
                         'bred_title': 'Проекты компании'
                         })
         return context
+
+
+
+
 
 
 
@@ -59,6 +65,9 @@ class ProjectsList(ListView):
         'project': project
     }
     return render(request, "projectsapp/gallery_update.html", context)
+
+
+#  ------------------------------------ PROJECT'S GALLERY crUd----------------------------------------------
 
 
 def project_discuss_items(request, pk):

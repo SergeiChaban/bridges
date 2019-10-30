@@ -29,7 +29,7 @@
                                                                 <div class="grid">
                                                                     <figure class="effect-honey">
                                                                         <a href="{% url 'projects:project' item.pk %}">
-                                                                            <img src="{{ item.image.url }}" alt="{{ item.name }}">
+                                                                            <img src="/media/{{ item.image | default:"projects_images/avatars/no_avatar.jpg" }}" alt="{{ item.name }}">
                                                                         </a>
                                                                         <figcaption>
                                                                             <div>

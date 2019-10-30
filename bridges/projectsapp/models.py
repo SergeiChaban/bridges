@@ -27,9 +27,9 @@ class Project(models.Model):
         (DONE, 'завершен'),
     )
     name = models.CharField(verbose_name='название', max_length=256, unique=True)
-    slug = models.SlugField(verbose_name='слаг', max_length=128, unique=True)
+    slug = models.SlugField(verbose_name='слаг', max_length=128, blank=True)
     description = models.TextField(verbose_name='описание', blank=True)
-    image = models.ImageField(upload_to='аватарка', blank=True)
+    image = models.ImageField(verbose_name='Аватарка размером 1 х 1 !!!', upload_to='projects_images/avatars', blank=True)
     status = models.CharField(verbose_name='статус', max_length=24, choices=STATUS_CHOICES, blank=True)
     creation_date = models.DateTimeField(verbose_name='создан', auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(verbose_name='обновлен', auto_now=True)
@@ -85,7 +85,7 @@ class ProjectImage(models.Model):
     project = models.ForeignKey(Project, blank=True, null=True, default=None, on_delete=models.CASCADE,
                                 related_name="images")
     alt_desc = models.CharField(verbose_name='alt фотографии', max_length=128, blank=True)
-    image = models.ImageField(verbose_name='Фотография', upload_to='products_images', blank=True)
+    image = models.ImageField(verbose_name='Фотография', upload_to='projects_images', blank=True)
     is_active = models.BooleanField(verbose_name='Показывать', default=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
