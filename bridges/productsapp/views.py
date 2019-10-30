@@ -45,7 +45,7 @@ def product_update(request, slug):
     product = get_object_or_404(TechnicalSolutions, slug=slug)
     product_form = ProductUpdateForm(instance=product)
     if request.method == 'POST':
-        product_form = ProductUpdateForm(request.POST, instance=product)
+        product_form = ProductUpdateForm(request.POST, request.FILES, instance=product)
         if product_form.is_valid():
             product_form.save()
             return HttpResponseRedirect(product.get_absolute_url())

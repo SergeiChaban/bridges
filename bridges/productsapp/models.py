@@ -1,4 +1,8 @@
+from imagekit.models.fields import ImageSpecField, ProcessedImageField
+from imagekit.processors import ResizeToFit, Adjust, ResizeToFill
+
 from django.db import models
+
 from servicesapp.models import Service
 # --------------------------------   МОДЕЛИ ЕДИНИЦ ИЗМЕРЕНИЙ  -------------------------------------
 from django.urls import reverse
@@ -21,6 +25,7 @@ class MeasureTypes(models.Model):
         verbose_name = 'Единица измерения'
         verbose_name_plural = 'Единицы измерения'
 
+
 # -----------------------    МОДЕЛИ ПРОДУКТОВ (ТЕХНИЧЕСКИХ РЕШЕНИЙ)   -------------------------------------
 
 
@@ -32,7 +37,9 @@ class TechnicalSolutions(models.Model):
     name = models.CharField(verbose_name='название материала', max_length=128, unique=True)
     slug = models.SlugField(verbose_name='слаг', max_length=128, unique=True)
     measure = models.ForeignKey(MeasureTypes, verbose_name='Единица измерения', on_delete=models.CASCADE, default=1)
-    image = models.ImageField(upload_to='products_images/', blank=True)
+    # image = models.ImageField(upload_to='products_images', blank=True)
+    image = ProcessedImageField(upload_to='products_images', processors=[ResizeToFill(370, 220)], format='JPEG',
+                                       options={'quality': 60})
     alt_desc = models.CharField(verbose_name='alt фотографии', max_length=500, blank=True)
     short_desc = models.TextField(verbose_name='краткое описание материала', blank=True, null=True)
     description = models.TextField(verbose_name='описание материала', blank=True)
@@ -216,7 +223,8 @@ class ProductWork(models.Model):
     product = models.ForeignKey(TechnicalSolutions, related_name='works', on_delete=models.CASCADE)
     work = models.ForeignKey(Work, verbose_name='Вид работы', on_delete=models.CASCADE)
     material = models.ManyToManyField(Material, verbose_name='Применяемые материалы', blank=True)
-    consumption = models.DecimalField(verbose_name='расход материала', max_digits=8, decimal_places=2, blank=True, null=True)
+    consumption = models.DecimalField(verbose_name='расход материала', max_digits=8, decimal_places=2, blank=True,
+                                      null=True)
     value = models.DecimalField(verbose_name='трудозатраты', max_digits=8, decimal_places=2, default=0)
 
     class Meta:

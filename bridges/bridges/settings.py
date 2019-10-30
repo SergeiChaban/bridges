@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'ymapapp',
     'servicesapp',
     'researchapp',
+
 ]
 
 MIDDLEWARE = [

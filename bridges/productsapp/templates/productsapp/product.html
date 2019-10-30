@@ -158,7 +158,7 @@
                                                         <div class="grid">
                                                             <figure class="effect-honey"
                                                                     style="height: 250px;">
-                                                                    <img src="{{ item.project.image.url }}" alt="">
+                                                                    <img src="{{ item.project.image | default:"products_images/default.jpg" }}" alt="">
                                                                 <figcaption>
                                                                     <div>
                                                                         <h2>

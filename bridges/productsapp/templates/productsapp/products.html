@@ -18,7 +18,7 @@
                                             <div class="col-md-4">
                                                 <div class="service-item clearfix">
                                                     <div class="thumb">
-                                                        <a href="{% url 'products:product' item.slug %}"><img src="/media/{{ item.image }}" alt="image" /></a></div>
+                                                        <a href="{% url 'products:product' item.slug %}"><img src='/media/{{ item.image | default:"products_images/default.jpg" }}' alt="image" /></a></div>
                                                     <div class="service-item-wrap">
                                                         <i><h6 class="title font-size-15"><a href="{% url 'products:product' item.slug %}">{{ item.name }}</a>
                                                         </h6></i>
