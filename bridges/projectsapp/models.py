@@ -6,6 +6,9 @@ from transliterate import translit
 from authapp.models import Company, Users
 from productsapp.models import TechnicalSolutions
 
+from imagekit.models.fields import ProcessedImageField
+from imagekit.processors import ResizeToFill
+
 
 class Project(models.Model):
     """ Модель проекта строительства со статусом """
@@ -29,7 +32,8 @@ class Project(models.Model):
     name = models.CharField(verbose_name='название', max_length=256, unique=True)
     slug = models.SlugField(verbose_name='слаг', max_length=128, blank=True)
     description = models.TextField(verbose_name='описание', blank=True)
-    image = models.ImageField(verbose_name='Аватарка размером 1 х 1 !!!', upload_to='projects_images/avatars', blank=True)
+    image = ProcessedImageField(upload_to='projects_images/avatars', processors=[ResizeToFill(530, 530)], format='JPEG',
+                              options={'quality': 90})
     status = models.CharField(verbose_name='статус', max_length=24, choices=STATUS_CHOICES, blank=True)
     creation_date = models.DateTimeField(verbose_name='создан', auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(verbose_name='обновлен', auto_now=True)
@@ -82,10 +86,15 @@ pre_save.connect(pre_save_map_mark, sender=Project)
 # СВЯЗАНО
 class ProjectImage(models.Model):
     """ Галерея фотографий для проекта строительства """
+    def get_file_path(self, pk):
+        directory_name = self.project.pk
+        return directory_name
+
     project = models.ForeignKey(Project, blank=True, null=True, default=None, on_delete=models.CASCADE,
                                 related_name="images")
     alt_desc = models.CharField(verbose_name='alt фотографии', max_length=128, blank=True)
-    image = models.ImageField(verbose_name='Фотография', upload_to='projects_images', blank=True)
+    image = ProcessedImageField(upload_to=get_file_path, processors=[ResizeToFill(530, 530)], format='JPEG',
+                                options={'quality': 90})
     is_active = models.BooleanField(verbose_name='Показывать', default=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)

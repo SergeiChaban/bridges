@@ -37,9 +37,8 @@ class TechnicalSolutions(models.Model):
     name = models.CharField(verbose_name='название материала', max_length=128, unique=True)
     slug = models.SlugField(verbose_name='слаг', max_length=128, unique=True)
     measure = models.ForeignKey(MeasureTypes, verbose_name='Единица измерения', on_delete=models.CASCADE, default=1)
-    # image = models.ImageField(upload_to='products_images', blank=True)
     image = ProcessedImageField(upload_to='products_images', processors=[ResizeToFill(370, 220)], format='JPEG',
-                                       options={'quality': 60})
+                                options={'quality': 60})
     alt_desc = models.CharField(verbose_name='alt фотографии', max_length=500, blank=True)
     short_desc = models.TextField(verbose_name='краткое описание материала', blank=True, null=True)
     description = models.TextField(verbose_name='описание материала', blank=True)
