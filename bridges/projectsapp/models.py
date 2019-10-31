@@ -1,3 +1,5 @@
+import os
+
 from django.db import models
 from django.db.models.signals import pre_save
 from django.urls import reverse
@@ -8,6 +10,10 @@ from productsapp.models import TechnicalSolutions
 
 from imagekit.models.fields import ProcessedImageField
 from imagekit.processors import ResizeToFill
+
+
+def image_upload_to(instance, filename):
+    return 'projects_images/project_{0}/{1}'.format(instance.project.pk, filename)
 
 
 class Project(models.Model):
@@ -83,18 +89,13 @@ def pre_save_map_mark(sender, instance, *args, **kwargs):
 pre_save.connect(pre_save_map_mark, sender=Project)
 
 
-# СВЯЗАНО
 class ProjectImage(models.Model):
     """ Галерея фотографий для проекта строительства """
-    def get_file_path(self, pk):
-        directory_name = self.project.pk
-        return directory_name
-
     project = models.ForeignKey(Project, blank=True, null=True, default=None, on_delete=models.CASCADE,
                                 related_name="images")
     alt_desc = models.CharField(verbose_name='alt фотографии', max_length=128, blank=True)
-    image = ProcessedImageField(upload_to=get_file_path, processors=[ResizeToFill(530, 530)], format='JPEG',
-                                options={'quality': 90})
+    image = ProcessedImageField(upload_to=image_upload_to, processors=[ResizeToFill(770, 513)], format='JPEG',
+                                options={'quality': 60})
     is_active = models.BooleanField(verbose_name='Показывать', default=True)
     created = models.DateTimeField(auto_now_add=True, auto_now=False)
     updated = models.DateTimeField(auto_now_add=False, auto_now=True)
