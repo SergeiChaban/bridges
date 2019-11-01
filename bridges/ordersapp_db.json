@@ -1,1 +1,1 @@
-[{"model": "ordersapp.order", "pk": 1, "fields": {"user": 1, "created": "2019-11-01T07:55:52.645Z", "updated": "2019-11-01T07:55:52.645Z", "status": "PRD", "is_active": true}}, {"model": "ordersapp.order", "pk": 2, "fields": {"user": 2, "created": "2019-11-01T07:58:48.486Z", "updated": "2019-11-01T07:58:48.486Z", "status": "PRD", "is_active": true}}, {"model": "ordersapp.orderitem", "pk": 1, "fields": {"order": 1, "service": 1}}, {"model": "ordersapp.orderitem", "pk": 2, "fields": {"order": 2, "service": 1}}]
+[]
