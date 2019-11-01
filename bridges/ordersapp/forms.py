@@ -1,14 +1,9 @@
 from django import forms
-from ordersapp.models import Order, OrderItem
+from ordersapp.models import Order
 
 
 class OrderForm(forms.ModelForm):
     class Meta:
         model = Order
-        exclude = ('user', 'status', 'is_active')
+        fields = ['service']
 
-
-class OrderItemForm(forms.ModelForm):
-    class Meta:
-        model = OrderItem
-        exclude = ()
