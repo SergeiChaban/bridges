@@ -58,10 +58,7 @@
                                                 <i class="fa fa-pencil" aria-hidden="true" style="color: black;" y> редактировать</i>
                                             </a>
                                         {% endif %}
-{#                                        <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>#}
-{#                                        <div class="wprt-lines style-1 custom-4">#}
-{#                                            <div class="line-1"></div>#}
-{#                                        </div>#}
+
                                         <div class="wprt-spacer" data-desktop="15" data-mobi="15" data-smobi="15"></div>
                                         <div>Статус проекта: {{ object.status }}</div>
                                         <div>{{ object.city }}. {{ object.description }}</div>
@@ -69,11 +66,6 @@
 
 
                                             {% if object.address or object.coordinate %}
-{#                                                <div class="wprt-spacer" data-desktop="15" data-mobi="15"#}
-{#                                                     data-smobi="15"></div>#}
-{#                                                <div class="wprt-lines style-1 custom-4">#}
-{#                                                    <div class="line-1"></div>#}
-{#                                                </div>#}
                                                 <div class="wprt-spacer" data-desktop="15" data-mobi="15"
                                                      data-smobi="15"></div>
                                                 {% if object.address %}
@@ -86,7 +78,7 @@
                                                 <p style="color: red"><i>Точное местоположение объекта не указано</i>
                                                 </p>
                                             {% endif %}
-                                            {#  ПОЛУЧЕНИЕ КОНТРАГЕНТОВ ПРОЕКТА#}
+
                                             <div class="wprt-spacer" data-desktop="15" data-mobi="15"
                                                  data-smobi="15"></div>
                                             <div class="wprt-lines style-1 custom-4">
@@ -103,22 +95,21 @@
 
 
 
+
                                                 {% for item in object.get_managers %}
 
                                                     </li>
                                                 {% endfor %}
                                             {% endif %}
 
-                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15"
-                                                 data-smobi="15"></div>
-                                            <div class="wprt-lines style-1 custom-4">
-                                                <div class="line-1"></div>
-                                            </div>
                                             {% endif %}
                                             <div class="wprt-spacer" data-desktop="15" data-mobi="15"
                                                  data-smobi="15"></div>
-                                        {% endif %}
-                                     <a href="{% url 'projects:project_discuss_items' object.pk %}">Обсуждение проекта</a>
+
+                                        <a href="{% url 'projects:project_discuss_items' object.pk %}">
+                                            Обсуждение проекта
+                                        </a>
+                                    {% endif %}
                                     </div>
                                     <div class="col-md-12">
                                         <div class="wprt-spacer" data-desktop="60" data-mobi="60" data-smobi="60"></div>
@@ -126,6 +117,8 @@
                                 </div>
                             </div>
                         </section>
+
+{# ---------------------------------------------------- РАБОТА НАД ПРОЕКТОМ ----------------------------------------------------#}
 
                         <section class="wprt-section">
                             <div class="container">
@@ -137,28 +130,35 @@
                                         </div>
                                         <div class="wprt-spacer" data-desktop="20" data-mobi="40" data-smobi="40"></div>
                                     </div>
-
-{# ---------------------------------------------------- РАБОТА НАД ПРОЕКТОМ ----------------------------------------------------#}
-
                                     <div class="col-md-12">
                                         <div class="wprt-toggle active style-1">
                                             <h3 class="toggle-title">Технические решения</h3>
-                                            <div class="toggle-content" style="font-family: 'Times New Roman'; font-size: larger;
-                                            color: #4d4949;">
-                                                <table>
+                                            <div class="toggle-content" style="color: #4d4949;">
+                                                <table class="tab-content">
                                                     <tr>
                                                         <td style="text-align: center; font-weight: bold; width: 40%;">
-                                                            Техническое решение
+                                                            Наименование работ и конструкций
                                                         </td>
                                                         <td style="text-align: center; font-weight: bold;">Объем</td>
                                                         <td style="text-align: center; font-weight: bold;">Ед. изм.</td>
                                                         <td style="text-align: center; font-weight: bold; width: 40%">
-                                                            Название
-                                                            конструкции
+                                                            Техническое решение
                                                         </td>
+                                                        <td style="text-align: center; font-weight: bold; width: 5%">-</td>
                                                     </tr>
 
                                                     {% endfor %}
+                                                        <tr>
+                                                            <td>
+                                                                <a href="{% url 'projects:product_create' object.pk %}">
+                                                                    <i>+ добавить</i>
+                                                                </a>
+                                                            </td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                            <td></td>
+                                                        </tr>
                                                 </table>
 
                                             </div>

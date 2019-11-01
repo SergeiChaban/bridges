@@ -573,8 +573,7 @@ p.dropcap span.first-letter { font-size: 55px; float: left; color: #337ab7; text
 #main-nav > ul > li { float: left; padding: 0 15px; }
 #main-nav > ul > li:first-child { padding-left: 0; }
 #main-nav > ul > li > a { display: block; font-family: "Montserrat", sans-serif; font-size: 12px; font-weight: 500; color: #4b4b4b; text-transform: uppercase; }
-#main-nav > ul > li > a:hover,
-#main-nav > ul > li.current-menu-item > a { color: #ffbc13; }
+
 #main-nav > ul > li.menu-item-has-children > a { position: relative; padding-right: 15px; }
 #main-nav > ul > li.menu-item-has-children > a:after { content: "\f107"; font-family: "FontAwesome"; position: absolute; right: 0; top: 0; filter: alpha(opacity=75); opacity: 0.75 }
 
@@ -908,8 +907,8 @@ body.page #main-content { padding-top: 0; padding-bottom: 0; }
 #sidebar .widget.widget_nav_menu ul.sub-menu { display: none; }
 #sidebar .widget.widget_nav_menu .menu > li { border: 0; background-color: #f8f8f8; padding-left: 28px; padding-right: 28px; margin-bottom: 5px; }
 #sidebar .widget.widget_nav_menu .menu > li > a { color: #4b4b4b; position: relative; font-size: 14px; font-family: "Montserrat", sans-serif; font-weight: 500; }
-#sidebar .widget.widget_nav_menu .menu > li > a:hover { color: #337ab7; }
-#sidebar .widget.widget_nav_menu .menu > li.current_page_item { background-color: #337ab7; color: #fff; position: relative; }
+#sidebar .widget.widget_nav_menu .menu > li > a:hover { color: #ffbc13; }
+#sidebar .widget.widget_nav_menu .menu > li.current_page_item { background-color: #ffbc13; color: #fff; position: relative; }
 #sidebar .widget.widget_nav_menu .menu > li.current_page_item a { color: #fff; }
 #sidebar .widget.widget_nav_menu .menu > li.current_page_item:after {
 	content: "";
