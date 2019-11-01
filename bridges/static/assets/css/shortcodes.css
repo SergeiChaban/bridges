@@ -1596,11 +1596,13 @@
 }
 
 .project-item .effect-honey:hover img {
+    z-index: 999;
     opacity: 0.5;
 }
 
 .project-item .effect-honey figcaption::before {
     position: absolute;
+    z-index: 999;
     bottom: 0;
     left: 0;
     width: 100%;
