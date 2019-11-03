@@ -2,7 +2,9 @@ from django.contrib.auth.decorators import user_passes_test
 from django.forms import inlineformset_factory
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, get_object_or_404
-
+from productsapp.forms import ProductUpdateForm, ProductForm, TechSolHasServiceForm, ProductWorkForm
+from django.views.generic import ListView
+from productsapp.models import TechnicalSolutions, TechnicalSolutionsHasService, ProductWork
 from researchapp.models import Document
 from servicesapp.models import Service
 
@@ -22,9 +24,15 @@ class ProductsView(ListView):
 def product(request, slug):
     item = get_object_or_404(TechnicalSolutions, slug=slug)
     docs = Document.objects.filter(techsol__pk=item.pk)
+    publications = docs.filter(type_id=5)
     researches = docs.filter(type__in=(2, 3,))
     documents = docs.filter(type__id=1)
-
+    product_services = Service.objects.filter(technicalsolutionshasservice__technicalsolutions__slug=slug)
+    feedback = docs.filter(type__id=4).order_by('pk')
+    if request.user.is_staff:
+        projects = item.get_projects()
+    else:
+        projects = item.get_projects().filter(project__status='завершен')
 
     content = {
         'projects': projects,
@@ -35,6 +43,7 @@ def product(request, slug):
         'researches': researches,
         'documents': documents,
         'feedback': feedback,
+        'publications': publications,
         'product_services': product_services,
     }
     return render(request, 'productsapp/product.html', content)
@@ -45,7 +54,7 @@ def product_update(request, slug):
     product = get_object_or_404(TechnicalSolutions, slug=slug)
     product_form = ProductUpdateForm(instance=product)
     if request.method == 'POST':
-        product_form = ProductUpdateForm(request.POST, request.FILES, instance=product)
+        product_form = ProductUpdateForm(request.POST, instance=product)
         if product_form.is_valid():
             product_form.save()
             return HttpResponseRedirect(product.get_absolute_url())

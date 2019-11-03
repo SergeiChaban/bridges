@@ -32,6 +32,8 @@ class TestUrls(SimpleTestCase):
     #     url = reverse('news_supdate', kwargs={'pk':1})
     #     self.assertEquals(resolve(url).func.view_class, NewsUpdateView)
 
+    
+
     """Unittest for authapp"""
 
     def test_register_url_is_resolved(self):
