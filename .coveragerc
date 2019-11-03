@@ -1,0 +1,3 @@
+[run] 
+source = ./authapp/,./bridges/, ./contactapp/, ./mainapp/, ./newsapp/, ./ordersapp/, ./partnersapp/, ./productsapp/, ./projectsapp/, ./researchapp/, ./servecesapp/ 
+omit = *migrations*, *tests*
