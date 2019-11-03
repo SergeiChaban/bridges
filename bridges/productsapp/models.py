@@ -220,7 +220,10 @@ class WorkImage(models.Model):
 
 class ProductWork(models.Model):
     product = models.ForeignKey(TechnicalSolutions, related_name='works', on_delete=models.CASCADE)
-
+    work = models.ForeignKey(Work, verbose_name='Вид работы', on_delete=models.CASCADE)
+    material = models.ManyToManyField(Material, verbose_name='Применяемые материалы', blank=True)
+    consumption = models.DecimalField(verbose_name='расход материала', max_digits=8, decimal_places=2, blank=True,
+                                      null=True)
     value = models.DecimalField(verbose_name='трудозатраты', max_digits=8, decimal_places=2, default=0)
 
     class Meta:
@@ -231,3 +234,6 @@ class ProductWork(models.Model):
 class TechnicalSolutionsHasService(models.Model):
     technicalsolutions = models.ForeignKey(TechnicalSolutions, on_delete=models.CASCADE)
     service = models.ForeignKey(Service, verbose_name='услуга', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.service}"

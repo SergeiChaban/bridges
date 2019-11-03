@@ -34,6 +34,10 @@ INSTALLED_APPS = [
     'ymapapp',
     'servicesapp',
     'researchapp',
+    'partnersapp',
+    'ordersapp',
+    'newsapp',
+    'imagekit',
 
 ]
 

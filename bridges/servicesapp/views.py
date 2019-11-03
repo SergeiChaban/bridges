@@ -1,22 +1,24 @@
-# from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
-from django.shortcuts import redirect
-from django.utils.translation import ugettext_lazy as _
-from .models import Service
-from django.views.generic import CreateView
-from django.views.generic.detail import DetailView
-from django.views.generic.list import ListView
-from django.shortcuts import get_object_or_404
-from .forms import ServiceForm
-
-# @login_required
-# def service_list(request):
-#     services = Service.objects.all().exclude(is_active=False)
-#     context ={
-#         'service_list': services,
-#     }
-#     return render(request, 'serviceapp/service_list.html', context)
+from django.contrib.auth.decorators import login_required
+from django.shortcuts import render, get_object_or_404
+from .models import *
 
 
+def services_list(request):
+    # services = Service.objects.all().exclude(is_active=False)
+    context ={
+        # 'service_list': services,
+        'page_title': 'Услуги компании',
+        'bred_title': 'Услуги компании',
+    }
+    return render(request, 'servicesapp/services_list.html', context)
 
 
+def services_single(request, pk):
+    service = get_object_or_404(Service, pk=pk)
+    context = {
+        'service_detail': service,
+        'page_title': service,
+        'bred_title': service,
+    }
+    return render(request, 'servicesapp/services_detail.html', context)
+ 
