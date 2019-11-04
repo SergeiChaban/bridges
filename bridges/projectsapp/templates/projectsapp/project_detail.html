@@ -19,7 +19,7 @@
                                         <div class="wprt-galleries galleries w-770px" data-width="142" data-margin="15">
                                             <div id="wprt-slider" class="flexslider">
                                                 <ul class="slides">
-                                                    <!-- ПОДГРУЗКА КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
+<!----------------------------------------- ПОДГРУЗКА КАРТИНОК ИЗ МОДЕЛИ ProjectImage----------------------------------------->
                                                     {% for item in object.images.select_related %}
                                                         <li class="flex-active-slide">
                                                             <a class="zoom" href="/media/{{ item.image }}"><i
@@ -27,7 +27,7 @@
                                                             <img src="/media/{{ item.image }}" alt="pic"/>
                                                         </li>
                                                     {% endfor %}
-                                                    <!-- / .ПОДГРУЗКА КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
+<!-- ---------------------------------------/ .ПОДГРУЗКА КАРТИНОК ИЗ МОДЕЛИ ProjectImage----------------------------------------->
 
                                                 </ul>
                                             </div>
@@ -35,11 +35,11 @@
                                             <div id="wprt-carousel" class="flexslider">
                                                 <ul class="slides">
 
-                                                    <!-- ПОДГРУЗКА МИНИАТЮРНЫХ КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
+<!-------------------------------------------- ПОДГРУЗКА МИНИАТЮРНЫХ КАРТИНОК ИЗ МОДЕЛИ ProjectImage-------------------------------------------->
                                                     {% for item in object.images.select_related %}
                                                         <li><img src="/media/{{ item.image }}" alt="pic"></li>
                                                     {% endfor %}
-                                                    <!-- ПОДГРУЗКА МИНИАТЮРНЫХ КАРТИНОК ИЗ МОДЕЛИ ProjectImage-->
+<!-------------------------------------------- ПОДГРУЗКА МИНИАТЮРНЫХ КАРТИНОК ИЗ МОДЕЛИ ProjectImage-------------------------------------------->
 
                                                 </ul>
                                             </div>
@@ -51,11 +51,11 @@
                                     <div class="col-md-4">
                                         <div class="wprt-spacer" data-desktop="0" data-mobi="0" data-smobi="0"></div>
 
-                                        <!-- ИНФОРМАЦИЯ О ПРОЕКТЕ ИЗ МОДЕЛИ Project-->
+{#<!- -------------------------------------------- ИНФОРМАЦИЯ О ПРОЕКТЕ ИЗ МОДЕЛИ Project- -------------------------------------------->#}
                                         <h3 class="line-height-normal margin-bottom-10">{{ object.name }}</h3>
                                         {% if request.user.is_superuser %}
                                             <a href="{% url 'projects:project_update' object.pk %}">
-                                                <i class="fa fa-pencil" aria-hidden="true" style="color: black;" y> редактировать</i>
+                                                <i class="fa fa-pencil" aria-hidden="true" style="color: black;"> редактировать</i>
                                             </a>
                                         {% endif %}
 
@@ -64,6 +64,9 @@
                                         <div>{{ object.city }}. {{ object.description }}</div>
 
 
+                                        {% if request.user.is_staff %}
+
+{#  ------------------------------------------- ПОЛУЧЕНИЕ АДРЕСА И/ИЛИ КООРДИНАТ -------------------------------------------#}
 
                                             {% if object.address or object.coordinate %}
                                                 <div class="wprt-spacer" data-desktop="15" data-mobi="15"
@@ -79,6 +82,8 @@
                                                 </p>
                                             {% endif %}
 
+{#  ------------------------------------- ПОЛУЧЕНИЕ КОНТРАГЕНТОВ ПРОЕКТА -------------------------------------#}
+
                                             <div class="wprt-spacer" data-desktop="15" data-mobi="15"
                                                  data-smobi="15"></div>
                                             <div class="wprt-lines style-1 custom-4">
@@ -89,19 +94,67 @@
                                             <i>Контрагенты:</i>
                                             {% if object.get_companies %}
                                                 {% for item in object.get_companies %}
-
-                                                {% endfor %}
-                                            {% endif %}
-
-
-
-
-                                                {% for item in object.get_managers %}
-
+                                                    <li>
+                                                        <i>
+                                                            {{ item.role | capfirst }}: <a href="{{ item.company.get_absolute_url }}">{{ item.company.form }} {{ item.company.name }}</a>
+                                                        </i>
+                                                    <a href="{% url 'projects:company_delete' object.pk item.pk %}">
+                                                        <i class="fa fa-ban" aria-hidden="true" style="color: red"></i>
+                                                    </a>
                                                     </li>
                                                 {% endfor %}
                                             {% endif %}
+                                            {% if request.user.is_superuser %}
+                                                <li>
+                                                    <a href="{% url 'projects:company_create' object.pk %}">
+                                                        <i class="fa fa-plus" aria-hidden="true" style="color: black"></i>
+                                                    </a>
+                                                </li>
+                                                <div class="wprt-spacer" data-desktop="15" data-mobi="15"
+                                                     data-smobi="15"></div>
+                                                <div class="wprt-lines style-1 custom-4">
+                                                    <div class="line-1"></div>
+                                                </div>
+                                            {% endif %}
 
+{# ----------------------------------------- ПОЛУЧЕНИЕ УЧАСТНИКОВ ПРОЕКТА------------------------------------#}
+
+                                            <div class="wprt-spacer" data-desktop="15" data-mobi="15"
+                                                 data-smobi="15"></div>
+                                            <i>Команда:</i>
+                                            {% if object.get_managers %}
+                                                {% for item in object.get_managers %}
+                                                    <li>
+                                                        <i>
+                                                            <a href="{{ item.manager.get_absolute_url }}">
+                                                                {{ item.manager.first_name }} {{ item.manager.last_name }}
+                                                            </a>
+                                                            ({{ item.role | lower }})
+                                                        </i>
+                                                        {% if item.manager.get_company %}
+                                                            {% for i in item.manager.get_company %}
+                                                                <i>,<a href="{{ i.company.get_absolute_url }}"> {{ i.company.form }} {{ i.company.name }}</a></i>
+                                                            {% endfor %}
+                                                        {% endif %}
+                                                        <a href="{% url 'projects:manager_delete' object.pk item.pk %}">
+                                                            <i class="fa fa-ban" aria-hidden="true"
+                                                               style="color: red"></i>
+                                                        </a>
+                                                    </li>
+                                                {% endfor %}
+                                            {% endif %}
+                                            {% if request.user.is_superuser %}
+                                                <li>
+                                                    <a href="{% url 'projects:manager_create' object.pk %}">
+                                                        <i class="fa fa-plus" aria-hidden="true"
+                                                           style="color: black"></i>
+                                                    </a>
+                                                </li>
+                                                <div class="wprt-spacer" data-desktop="15" data-mobi="15"
+                                                     data-smobi="15"></div>
+                                                <div class="wprt-lines style-1 custom-4">
+                                                    <div class="line-1"></div>
+                                                </div>
                                             {% endif %}
                                             <div class="wprt-spacer" data-desktop="15" data-mobi="15"
                                                  data-smobi="15"></div>
@@ -146,7 +199,20 @@
                                                         </td>
                                                         <td style="text-align: center; font-weight: bold; width: 5%">-</td>
                                                     </tr>
-
+                                                    {% for item in object.get_products %}
+                                                        <tr>
+                                                            <td>
+                                                                {{ item.name }}
+                                                            </td>
+                                                            <td style="text-align: right;">{{ item.value }}</td>
+                                                            <td style="text-align: center;">{{ item.techsol.measure }}</td>
+                                                            <td>{{ item.techsol.name }}</td>
+                                                            <td style="text-align: center; font-weight: bold; width: 5%">
+                                                                <a href="{% url 'projects:product_delete' object.pk item.pk %}">
+                                                                    <i class="fa fa-trash" aria-hidden="true" style="color: red;"></i>
+                                                                </a>
+                                                            </td>
+                                                        </tr>
                                                     {% endfor %}
                                                         <tr>
                                                             <td>
@@ -160,7 +226,7 @@
                                                             <td></td>
                                                         </tr>
                                                 </table>
-
+{#                                                <a class="" href="{% url 'projects:product_update' object.pk %}">... изменить</a>#}
                                             </div>
                                         </div>
 
