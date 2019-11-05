@@ -1,0 +1,258 @@
+/	mainapp.views.index	main:index
+/__debug__/render_panel/	debug_toolbar.views.render_panel	djdt:render_panel
+/__debug__/sql_explain/	debug_toolbar.panels.sql.views.sql_explain	djdt:sql_explain
+/__debug__/sql_profile/	debug_toolbar.panels.sql.views.sql_profile	djdt:sql_profile
+/__debug__/sql_select/	debug_toolbar.panels.sql.views.sql_select	djdt:sql_select
+/__debug__/template_source/	debug_toolbar.panels.templates.views.template_source	djdt:template_source
+/admin/	django.contrib.admin.sites.index	admin:index
+/admin/<app_label>/	django.contrib.admin.sites.app_index	admin:app_list
+/admin/auth/group/	django.contrib.admin.options.changelist_view	admin:auth_group_changelist
+/admin/auth/group/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/auth/group/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:auth_group_change
+/admin/auth/group/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:auth_group_delete
+/admin/auth/group/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:auth_group_history
+/admin/auth/group/add/	django.contrib.admin.options.add_view	admin:auth_group_add
+/admin/auth/group/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:auth_group_autocomplete
+/admin/authapp/categorycompany/	django.contrib.admin.options.changelist_view	admin:authapp_categorycompany_changelist
+/admin/authapp/categorycompany/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/authapp/categorycompany/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:authapp_categorycompany_change
+/admin/authapp/categorycompany/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:authapp_categorycompany_delete
+/admin/authapp/categorycompany/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:authapp_categorycompany_history
+/admin/authapp/categorycompany/add/	django.contrib.admin.options.add_view	admin:authapp_categorycompany_add
+/admin/authapp/categorycompany/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:authapp_categorycompany_autocomplete
+/admin/authapp/company/	django.contrib.admin.options.changelist_view	admin:authapp_company_changelist
+/admin/authapp/company/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/authapp/company/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:authapp_company_change
+/admin/authapp/company/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:authapp_company_delete
+/admin/authapp/company/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:authapp_company_history
+/admin/authapp/company/add/	django.contrib.admin.options.add_view	admin:authapp_company_add
+/admin/authapp/company/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:authapp_company_autocomplete
+/admin/authapp/formcompany/	django.contrib.admin.options.changelist_view	admin:authapp_formcompany_changelist
+/admin/authapp/formcompany/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/authapp/formcompany/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:authapp_formcompany_change
+/admin/authapp/formcompany/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:authapp_formcompany_delete
+/admin/authapp/formcompany/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:authapp_formcompany_history
+/admin/authapp/formcompany/add/	django.contrib.admin.options.add_view	admin:authapp_formcompany_add
+/admin/authapp/formcompany/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:authapp_formcompany_autocomplete
+/admin/authapp/users/	django.contrib.admin.options.changelist_view	admin:authapp_users_changelist
+/admin/authapp/users/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/authapp/users/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:authapp_users_change
+/admin/authapp/users/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:authapp_users_delete
+/admin/authapp/users/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:authapp_users_history
+/admin/authapp/users/add/	django.contrib.admin.options.add_view	admin:authapp_users_add
+/admin/authapp/users/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:authapp_users_autocomplete
+/admin/contactapp/contactapplication/	django.contrib.admin.options.changelist_view	admin:contactapp_contactapplication_changelist
+/admin/contactapp/contactapplication/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/contactapp/contactapplication/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:contactapp_contactapplication_change
+/admin/contactapp/contactapplication/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:contactapp_contactapplication_delete
+/admin/contactapp/contactapplication/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:contactapp_contactapplication_history
+/admin/contactapp/contactapplication/add/	django.contrib.admin.options.add_view	admin:contactapp_contactapplication_add
+/admin/contactapp/contactapplication/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:contactapp_contactapplication_autocomplete
+/admin/jsi18n/	django.contrib.admin.sites.i18n_javascript	admin:jsi18n
+/admin/login/	django.contrib.admin.sites.login	admin:login
+/admin/logout/	django.contrib.admin.sites.logout	admin:logout
+/admin/newsapp/news/	django.contrib.admin.options.changelist_view	admin:newsapp_news_changelist
+/admin/newsapp/news/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/newsapp/news/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:newsapp_news_change
+/admin/newsapp/news/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:newsapp_news_delete
+/admin/newsapp/news/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:newsapp_news_history
+/admin/newsapp/news/add/	django.contrib.admin.options.add_view	admin:newsapp_news_add
+/admin/newsapp/news/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:newsapp_news_autocomplete
+/admin/ordersapp/order/	django.contrib.admin.options.changelist_view	admin:ordersapp_order_changelist
+/admin/ordersapp/order/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/ordersapp/order/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:ordersapp_order_change
+/admin/ordersapp/order/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:ordersapp_order_delete
+/admin/ordersapp/order/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:ordersapp_order_history
+/admin/ordersapp/order/add/	django.contrib.admin.options.add_view	admin:ordersapp_order_add
+/admin/ordersapp/order/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:ordersapp_order_autocomplete
+/admin/password_change/	django.contrib.admin.sites.password_change	admin:password_change
+/admin/password_change/done/	django.contrib.admin.sites.password_change_done	admin:password_change_done
+/admin/productsapp/material/	django.contrib.admin.options.changelist_view	admin:productsapp_material_changelist
+/admin/productsapp/material/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/productsapp/material/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:productsapp_material_change
+/admin/productsapp/material/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:productsapp_material_delete
+/admin/productsapp/material/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:productsapp_material_history
+/admin/productsapp/material/add/	django.contrib.admin.options.add_view	admin:productsapp_material_add
+/admin/productsapp/material/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:productsapp_material_autocomplete
+/admin/productsapp/materialcategory/	django.contrib.admin.options.changelist_view	admin:productsapp_materialcategory_changelist
+/admin/productsapp/materialcategory/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/productsapp/materialcategory/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:productsapp_materialcategory_change
+/admin/productsapp/materialcategory/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:productsapp_materialcategory_delete
+/admin/productsapp/materialcategory/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:productsapp_materialcategory_history
+/admin/productsapp/materialcategory/add/	django.contrib.admin.options.add_view	admin:productsapp_materialcategory_add
+/admin/productsapp/materialcategory/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:productsapp_materialcategory_autocomplete
+/admin/productsapp/materialimage/	django.contrib.admin.options.changelist_view	admin:productsapp_materialimage_changelist
+/admin/productsapp/materialimage/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/productsapp/materialimage/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:productsapp_materialimage_change
+/admin/productsapp/materialimage/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:productsapp_materialimage_delete
+/admin/productsapp/materialimage/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:productsapp_materialimage_history
+/admin/productsapp/materialimage/add/	django.contrib.admin.options.add_view	admin:productsapp_materialimage_add
+/admin/productsapp/materialimage/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:productsapp_materialimage_autocomplete
+/admin/productsapp/measuretypes/	django.contrib.admin.options.changelist_view	admin:productsapp_measuretypes_changelist
+/admin/productsapp/measuretypes/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/productsapp/measuretypes/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:productsapp_measuretypes_change
+/admin/productsapp/measuretypes/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:productsapp_measuretypes_delete
+/admin/productsapp/measuretypes/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:productsapp_measuretypes_history
+/admin/productsapp/measuretypes/add/	django.contrib.admin.options.add_view	admin:productsapp_measuretypes_add
+/admin/productsapp/measuretypes/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:productsapp_measuretypes_autocomplete
+/admin/productsapp/productwork/	django.contrib.admin.options.changelist_view	admin:productsapp_productwork_changelist
+/admin/productsapp/productwork/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/productsapp/productwork/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:productsapp_productwork_change
+/admin/productsapp/productwork/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:productsapp_productwork_delete
+/admin/productsapp/productwork/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:productsapp_productwork_history
+/admin/productsapp/productwork/add/	django.contrib.admin.options.add_view	admin:productsapp_productwork_add
+/admin/productsapp/productwork/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:productsapp_productwork_autocomplete
+/admin/productsapp/technicalsolutions/	django.contrib.admin.options.changelist_view	admin:productsapp_technicalsolutions_changelist
+/admin/productsapp/technicalsolutions/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/productsapp/technicalsolutions/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:productsapp_technicalsolutions_change
+/admin/productsapp/technicalsolutions/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:productsapp_technicalsolutions_delete
+/admin/productsapp/technicalsolutions/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:productsapp_technicalsolutions_history
+/admin/productsapp/technicalsolutions/add/	django.contrib.admin.options.add_view	admin:productsapp_technicalsolutions_add
+/admin/productsapp/technicalsolutions/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:productsapp_technicalsolutions_autocomplete
+/admin/productsapp/technicalsolutionsimage/	django.contrib.admin.options.changelist_view	admin:productsapp_technicalsolutionsimage_changelist
+/admin/productsapp/technicalsolutionsimage/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/productsapp/technicalsolutionsimage/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:productsapp_technicalsolutionsimage_change
+/admin/productsapp/technicalsolutionsimage/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:productsapp_technicalsolutionsimage_delete
+/admin/productsapp/technicalsolutionsimage/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:productsapp_technicalsolutionsimage_history
+/admin/productsapp/technicalsolutionsimage/add/	django.contrib.admin.options.add_view	admin:productsapp_technicalsolutionsimage_add
+/admin/productsapp/technicalsolutionsimage/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:productsapp_technicalsolutionsimage_autocomplete
+/admin/productsapp/work/	django.contrib.admin.options.changelist_view	admin:productsapp_work_changelist
+/admin/productsapp/work/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/productsapp/work/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:productsapp_work_change
+/admin/productsapp/work/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:productsapp_work_delete
+/admin/productsapp/work/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:productsapp_work_history
+/admin/productsapp/work/add/	django.contrib.admin.options.add_view	admin:productsapp_work_add
+/admin/productsapp/work/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:productsapp_work_autocomplete
+/admin/productsapp/workcategory/	django.contrib.admin.options.changelist_view	admin:productsapp_workcategory_changelist
+/admin/productsapp/workcategory/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/productsapp/workcategory/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:productsapp_workcategory_change
+/admin/productsapp/workcategory/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:productsapp_workcategory_delete
+/admin/productsapp/workcategory/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:productsapp_workcategory_history
+/admin/productsapp/workcategory/add/	django.contrib.admin.options.add_view	admin:productsapp_workcategory_add
+/admin/productsapp/workcategory/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:productsapp_workcategory_autocomplete
+/admin/productsapp/workimage/	django.contrib.admin.options.changelist_view	admin:productsapp_workimage_changelist
+/admin/productsapp/workimage/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/productsapp/workimage/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:productsapp_workimage_change
+/admin/productsapp/workimage/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:productsapp_workimage_delete
+/admin/productsapp/workimage/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:productsapp_workimage_history
+/admin/productsapp/workimage/add/	django.contrib.admin.options.add_view	admin:productsapp_workimage_add
+/admin/productsapp/workimage/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:productsapp_workimage_autocomplete
+/admin/projectsapp/project/	django.contrib.admin.options.changelist_view	admin:projectsapp_project_changelist
+/admin/projectsapp/project/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/projectsapp/project/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:projectsapp_project_change
+/admin/projectsapp/project/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:projectsapp_project_delete
+/admin/projectsapp/project/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:projectsapp_project_history
+/admin/projectsapp/project/add/	django.contrib.admin.options.add_view	admin:projectsapp_project_add
+/admin/projectsapp/project/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:projectsapp_project_autocomplete
+/admin/projectsapp/projecthastechnicalsolutions/	django.contrib.admin.options.changelist_view	admin:projectsapp_projecthastechnicalsolutions_changelist
+/admin/projectsapp/projecthastechnicalsolutions/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/projectsapp/projecthastechnicalsolutions/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:projectsapp_projecthastechnicalsolutions_change
+/admin/projectsapp/projecthastechnicalsolutions/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:projectsapp_projecthastechnicalsolutions_delete
+/admin/projectsapp/projecthastechnicalsolutions/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:projectsapp_projecthastechnicalsolutions_history
+/admin/projectsapp/projecthastechnicalsolutions/add/	django.contrib.admin.options.add_view	admin:projectsapp_projecthastechnicalsolutions_add
+/admin/projectsapp/projecthastechnicalsolutions/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:projectsapp_projecthastechnicalsolutions_autocomplete
+/admin/projectsapp/projectmanagers/	django.contrib.admin.options.changelist_view	admin:projectsapp_projectmanagers_changelist
+/admin/projectsapp/projectmanagers/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/projectsapp/projectmanagers/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:projectsapp_projectmanagers_change
+/admin/projectsapp/projectmanagers/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:projectsapp_projectmanagers_delete
+/admin/projectsapp/projectmanagers/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:projectsapp_projectmanagers_history
+/admin/projectsapp/projectmanagers/add/	django.contrib.admin.options.add_view	admin:projectsapp_projectmanagers_add
+/admin/projectsapp/projectmanagers/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:projectsapp_projectmanagers_autocomplete
+/admin/r/<int:content_type_id>/<path:object_id>/	django.contrib.contenttypes.views.shortcut	admin:view_on_site
+/admin/researchapp/document/	django.contrib.admin.options.changelist_view	admin:researchapp_document_changelist
+/admin/researchapp/document/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/researchapp/document/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:researchapp_document_change
+/admin/researchapp/document/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:researchapp_document_delete
+/admin/researchapp/document/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:researchapp_document_history
+/admin/researchapp/document/add/	django.contrib.admin.options.add_view	admin:researchapp_document_add
+/admin/researchapp/document/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:researchapp_document_autocomplete
+/admin/researchapp/documentcategory/	django.contrib.admin.options.changelist_view	admin:researchapp_documentcategory_changelist
+/admin/researchapp/documentcategory/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/researchapp/documentcategory/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:researchapp_documentcategory_change
+/admin/researchapp/documentcategory/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:researchapp_documentcategory_delete
+/admin/researchapp/documentcategory/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:researchapp_documentcategory_history
+/admin/researchapp/documentcategory/add/	django.contrib.admin.options.add_view	admin:researchapp_documentcategory_add
+/admin/researchapp/documentcategory/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:researchapp_documentcategory_autocomplete
+/admin/researchapp/filestorage/	django.contrib.admin.options.changelist_view	admin:researchapp_filestorage_changelist
+/admin/researchapp/filestorage/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/researchapp/filestorage/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:researchapp_filestorage_change
+/admin/researchapp/filestorage/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:researchapp_filestorage_delete
+/admin/researchapp/filestorage/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:researchapp_filestorage_history
+/admin/researchapp/filestorage/add/	django.contrib.admin.options.add_view	admin:researchapp_filestorage_add
+/admin/researchapp/filestorage/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:researchapp_filestorage_autocomplete
+/admin/researchapp/subjectofstudy/	django.contrib.admin.options.changelist_view	admin:researchapp_subjectofstudy_changelist
+/admin/researchapp/subjectofstudy/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/researchapp/subjectofstudy/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:researchapp_subjectofstudy_change
+/admin/researchapp/subjectofstudy/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:researchapp_subjectofstudy_delete
+/admin/researchapp/subjectofstudy/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:researchapp_subjectofstudy_history
+/admin/researchapp/subjectofstudy/add/	django.contrib.admin.options.add_view	admin:researchapp_subjectofstudy_add
+/admin/researchapp/subjectofstudy/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:researchapp_subjectofstudy_autocomplete
+/admin/servicesapp/service/	django.contrib.admin.options.changelist_view	admin:servicesapp_service_changelist
+/admin/servicesapp/service/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/servicesapp/service/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:servicesapp_service_change
+/admin/servicesapp/service/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:servicesapp_service_delete
+/admin/servicesapp/service/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:servicesapp_service_history
+/admin/servicesapp/service/add/	django.contrib.admin.options.add_view	admin:servicesapp_service_add
+/admin/servicesapp/service/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:servicesapp_service_autocomplete
+/admin/servicesapp/servicecategory/	django.contrib.admin.options.changelist_view	admin:servicesapp_servicecategory_changelist
+/admin/servicesapp/servicecategory/<path:object_id>/	django.views.generic.base.RedirectView
+/admin/servicesapp/servicecategory/<path:object_id>/change/	django.contrib.admin.options.change_view	admin:servicesapp_servicecategory_change
+/admin/servicesapp/servicecategory/<path:object_id>/delete/	django.contrib.admin.options.delete_view	admin:servicesapp_servicecategory_delete
+/admin/servicesapp/servicecategory/<path:object_id>/history/	django.contrib.admin.options.history_view	admin:servicesapp_servicecategory_history
+/admin/servicesapp/servicecategory/add/	django.contrib.admin.options.add_view	admin:servicesapp_servicecategory_add
+/admin/servicesapp/servicecategory/autocomplete/	django.contrib.admin.options.autocomplete_view	admin:servicesapp_servicecategory_autocomplete
+/auth/	authapp.views.restricted_area	restricted_area
+/auth/login/	django.contrib.auth.views.LoginView	login
+/auth/logout/	django.contrib.auth.views.LogoutView	logout
+/auth/password_change/	django.contrib.auth.views.PasswordChangeView	password_change
+/auth/password_change/done/	django.contrib.auth.views.PasswordChangeDoneView	password_change_done
+/auth/password_reset/	django.contrib.auth.views.PasswordResetView	password_reset
+/auth/password_reset/done/	django.contrib.auth.views.PasswordResetDoneView	password_reset_done
+/auth/profile/<int:pk>/	authapp.views.user_profile	user_profile
+/auth/register/	authapp.views.register	register
+/auth/reset/<uidb64>/<token>/	django.contrib.auth.views.PasswordResetConfirmView	password_reset_confirm
+/auth/reset/done/	django.contrib.auth.views.PasswordResetCompleteView	password_reset_complete
+/auth/self/user/company/list/<int:pk>	authapp.views.company_self_user_list	company_self_user_list
+/auth/self/user/company/update/<int:pk>	authapp.views.company_self_user_update	company_self_user_update
+/auth/self/user/profile/update/<int:pk>	authapp.views.profile_self_user_update	profile_self_user_update
+/auth/self/user/project/update/<int:pk>	authapp.views.project_self_user_update	project_self_user_update
+/auth/user/company/list/<int:pk>	authapp.views.company_user_list	company_user_list
+/auth/user/company/update/<int:pk>	authapp.views.company_user_update	company_user_update
+/auth/user/profile/update/<int:pk>	authapp.views.profile_user_update	profile_user_update
+/auth/user/project/update/<int:pk>	authapp.views.project_user_update	project_user_update
+/contact/	contactapp.views.index	contact:index
+/map/	ymapapp.views.map	ymap:map
+/map/<slug:slug>	ymapapp.views.project	ymap:project
+/news/	newsapp.views.NewsListView	news:news_list
+/news/<int:pk>/	newsapp.views.NewsDetailView	news:news_detail
+/news/create/<int:project_pk>	newsapp.views.NewsCreateView	news:news_create
+/news/delete/<int:pk>	newsapp.views.NewsDeleteView	news:news_delete
+/news/update/<int:pk>	newsapp.views.NewsUpdateView	news:news_supdate
+/orders/order/create/<int:pk>	ordersapp.views.order_create	orders:order_create
+/partners/	partnersapp.views.partners_list	partners:partners_list
+/partners/partner/<int:pk>	partnersapp.views.partner_detail	partners:partner_detail
+/partners/partner/create	partnersapp.views.partner_create	partners:partner_create
+/partners/partner/delete/<int:pk>	partnersapp.views.partner_delete	partners:partner_delete
+/partners/partner/delete/confirm/<int:pk>	partnersapp.views.partner_delete_confirm	partners:partner_delete_confirm
+/partners/search	partnersapp.views.company_search	partners:company_search
+/partners/users/update/<int:pk>	partnersapp.views.partner_user_update	partners:partner_user_update
+/products/	productsapp.views.ProductsView	products:products
+/products/<slug:slug>	productsapp.views.product	products:product
+/products/product/<slug:slug>	productsapp.views.product_update	products:product_update
+/products/product/service/update/<slug:slug>	productsapp.views.product_service_update	products:product_service_update
+/products/product/work/update/<slug:slug>	productsapp.views.product_work_update	products:product_work_update
+/projects/	projectsapp.views.ProjectsList	projects:projects
+/projects/<int:pk>/	projectsapp.views.ProjectRead	projects:project
+/projects/company/create/<int:project_pk>	projectsapp.views.ProjectsCompanyCreateView	projects:company_create
+/projects/company/delete/<int:pk>	projectsapp.views.ProjectsCompanyDeleteView	projects:company_delete
+/projects/discuss/edit/members/<int:pk>	projectsapp.views.project_discuss_edit_members	projects:project_discuss_edit_members
+/projects/discuss/items/<int:pk>	projectsapp.views.project_discuss_items	projects:project_discuss_items
+/projects/gallery/update/<int:pk>	projectsapp.views.gallery_update	projects:gallery_update
+/projects/manager/create/<int:project_pk>	projectsapp.views.ProjectsManagerCreateView	projects:manager_create
+/projects/manager/delete/<int:pk>	projectsapp.views.ProjectsManagerDeleteView	projects:manager_delete
+/projects/product/create/<int:project_pk>	projectsapp.views.ProjectsSolutionsCreateView	projects:product_create
+/projects/product/delete/<int:pk>	projectsapp.views.ProjectsSolutionsDeleteView	projects:product_delete
+/projects/update/<int:pk>	projectsapp.views.project_update	projects:project_update
+/research/	researchapp.views.research	research:research
+/services/all/	servicesapp.views.services_list	services:services_list
+/services/single/<int:pk>	servicesapp.views.services_single	services:services_single
