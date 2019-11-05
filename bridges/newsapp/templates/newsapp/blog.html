@@ -5,14 +5,29 @@
         <div id="content-wrap" class="container">
             <div id="site-content" class="site-content clearfix">
                 <div id="inner-content" class="inner-content-wrap">
+                    {% for object in object_list %}
+                        <article class="hentry">
+                            <div class="post-media clearfix">
+                                <a href="#"><img src="/media/{{ object.image }}" alt="image"></a>
+                            </div><!-- /.post-media -->
 
+                            <div class="post-content-wrap">
+                                <h2 class="post-title">
+                                    <span class="post-title-inner">
+                                        <a href="#">{{ object.name }}</a>
+                                    </span>
+                                </h2><!-- /.post-title -->
+
+                                <div class="post-meta style-2">
+                                    <div class="post-meta-content">
+                                        <div class="post-meta-content-inner">
+                                            <span class="post-by-author item">
+                                                <span class="inner">By <a href="#" title="" rel="author">Construction</a></span>
                                             </span>
-
 
                                             <span class="post-date item">
                                                 <span class="inner"><span class="entry-date">December 30, 2016</span></span>
                                             </span>
-
 
                                             <span class="post-comment item">
                                                 <span class="inner"><a href="#">3 Comments</a></span>

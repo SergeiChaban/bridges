@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'imagekit',
     'debug_toolbar',
     'template_profiler_panel',
+    'django_extensions',
 
 
 ]
